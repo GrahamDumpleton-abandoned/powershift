@@ -25,11 +25,11 @@ Example code which takes a ``DeploymentConfig`` from ``stdin``, updating the rep
 ```
 from openshift3.resources import load, dump
 
-resource = load()
+dc = load()
 
-resource.spec.replicas = 3
+dc.spec.replicas = 3
 
-dump(resource, indent=4, sort_keys=True)
+dump(dc, indent=4, sort_keys=True)
 ```
 
 Example code which takes a ``DeploymentConfig`` from ``stdin``, adding some environment variables and outputting the result to ``stdout`` is:
@@ -37,14 +37,14 @@ Example code which takes a ``DeploymentConfig`` from ``stdin``, adding some envi
 ```
 from openshift3.resources import load, dump, v1_EnvVar
 
-resource = load()
+dc = load()
 
-variables = resource.spec.template.spec.containers[0].env
+env = dc.spec.template.spec.containers[0].env
 
-variables.append(v1_EnvVar(name='VAR1', value='VALUE'))
-variables.append(v1_EnvVar(name='VAR2', value='VALUE'))
+env.append(v1_EnvVar(name='VAR1', value='VALUE'))
+env.append(v1_EnvVar(name='VAR2', value='VALUE'))
 
-dump(resource, indent=4, sort_keys=True)
+dump(dc, indent=4, sort_keys=True)
 ```
 
 Scripts using the library could be used to make multiple changes to resource objects for a deployed application on the fly by using a command of the form:

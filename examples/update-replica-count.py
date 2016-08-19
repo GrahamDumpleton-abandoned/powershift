@@ -1,7 +1,7 @@
 from openshift3.resources import load, dump
 
-resource = load()
+dc = load()
 
-resource.spec.replicas = 3
+dc.spec.replicas = 3
 
-dump(resource, indent=4, sort_keys=True)
+dump(dc, indent=4, sort_keys=True)
