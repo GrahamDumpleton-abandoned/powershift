@@ -49,9 +49,9 @@ class unversioned_APIResource(Resource):
     __kind__ = 'unversioned.APIResource'
 
     __fields__ = {
+        'kind': 'kind',
         'name': 'name',
         'namespaced': 'namespaced',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -63,9 +63,9 @@ class unversioned_APIResource(Resource):
         'namespaced',
     ])
 
+    kind = None # string (required)
     name = None # string (required)
     namespaced = None # boolean (required)
-    kind = None # string (required)
 
     def __init__(self, *, kind, name, namespaced, **_kwargs_):
 
@@ -88,9 +88,9 @@ class unversioned_APIResourceList(Resource):
 
     __fields__ = {
         'api_version': 'apiVersion',
-        'resources': 'resources',
         'group_version': 'groupVersion',
         'kind': 'kind',
+        'resources': 'resources',
     }
 
     __types__ = {
@@ -103,9 +103,9 @@ class unversioned_APIResourceList(Resource):
     ])
 
     api_version = None # string
-    resources = None # array (required)
     group_version = None # string (required)
     kind = None # string
+    resources = None # array (required)
 
     def __init__(self, *, group_version, resources, **_kwargs_):
 
@@ -154,9 +154,9 @@ class unversioned_LabelSelectorRequirement(Resource):
     __kind__ = 'unversioned.LabelSelectorRequirement'
 
     __fields__ = {
+        'key': 'key',
         'operator': 'operator',
         'values': 'values',
-        'key': 'key',
     }
 
     __types__ = {
@@ -167,9 +167,9 @@ class unversioned_LabelSelectorRequirement(Resource):
         'operator',
     ])
 
+    key = None # string (required)
     operator = None # string (required)
     values = None # array
-    key = None # string (required)
 
     def __init__(self, *, key, operator, **_kwargs_):
         self.values = []
@@ -234,14 +234,14 @@ class unversioned_Status(Resource):
     __kind__ = 'unversioned.Status'
 
     __fields__ = {
-        'details': 'details',
         'api_version': 'apiVersion',
-        'reason': 'reason',
-        'metadata': 'metadata',
-        'message': 'message',
-        'status': 'status',
         'code': 'code',
+        'details': 'details',
         'kind': 'kind',
+        'message': 'message',
+        'metadata': 'metadata',
+        'reason': 'reason',
+        'status': 'status',
     }
 
     __types__ = {
@@ -251,14 +251,14 @@ class unversioned_Status(Resource):
 
     __required__ = set()
 
-    details = None # unversioned.StatusDetails
     api_version = None # string
-    reason = None # string
-    metadata = None # unversioned.ListMeta
-    message = None # string
-    status = None # string
     code = None # integer
+    details = None # unversioned.StatusDetails
     kind = None # string
+    message = None # string
+    metadata = None # unversioned.ListMeta
+    reason = None # string
+    status = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -276,8 +276,8 @@ class unversioned_StatusCause(Resource):
 
     __fields__ = {
         'field': 'field',
-        'reason': 'reason',
         'message': 'message',
+        'reason': 'reason',
     }
 
     __types__ = {
@@ -286,8 +286,8 @@ class unversioned_StatusCause(Resource):
     __required__ = set()
 
     field = None # string
-    reason = None # string
     message = None # string
+    reason = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -306,11 +306,11 @@ class unversioned_StatusDetails(Resource):
     __kind__ = 'unversioned.StatusDetails'
 
     __fields__ = {
-        'name': 'name',
-        'retry_after_seconds': 'retryAfterSeconds',
         'causes': 'causes',
         'group': 'group',
         'kind': 'kind',
+        'name': 'name',
+        'retry_after_seconds': 'retryAfterSeconds',
     }
 
     __types__ = {
@@ -319,11 +319,11 @@ class unversioned_StatusDetails(Resource):
 
     __required__ = set()
 
-    name = None # string
-    retry_after_seconds = None # integer
     causes = None # array
     group = None # string
     kind = None # string
+    name = None # string
+    retry_after_seconds = None # integer
 
     def __init__(self, **_kwargs_):
         self.causes = []
@@ -344,10 +344,10 @@ class v1_AWSElasticBlockStoreVolumeSource(Resource):
     __kind__ = 'v1.AWSElasticBlockStoreVolumeSource'
 
     __fields__ = {
+        'fs_type': 'fsType',
+        'partition': 'partition',
         'read_only': 'readOnly',
         'volume_id': 'volumeID',
-        'partition': 'partition',
-        'fs_type': 'fsType',
     }
 
     __types__ = {
@@ -357,10 +357,10 @@ class v1_AWSElasticBlockStoreVolumeSource(Resource):
         'volume_id',
     ])
 
+    fs_type = None # string
+    partition = None # integer
     read_only = None # boolean
     volume_id = None # string (required)
-    partition = None # integer
-    fs_type = None # string
 
     def __init__(self, *, volume_id, **_kwargs_):
 
@@ -376,8 +376,8 @@ class v1_AttachedVolume(Resource):
     __kind__ = 'v1.AttachedVolume'
 
     __fields__ = {
-        'name': 'name',
         'device_path': 'devicePath',
+        'name': 'name',
     }
 
     __types__ = {
@@ -388,8 +388,8 @@ class v1_AttachedVolume(Resource):
         'name',
     ])
 
-    name = None # string (required)
     device_path = None # string (required)
+    name = None # string (required)
 
     def __init__(self, *, device_path, name, **_kwargs_):
 
@@ -407,9 +407,9 @@ class v1_AzureFileVolumeSource(Resource):
     __kind__ = 'v1.AzureFileVolumeSource'
 
     __fields__ = {
-        'share_name': 'shareName',
         'read_only': 'readOnly',
         'secret_name': 'secretName',
+        'share_name': 'shareName',
     }
 
     __types__ = {
@@ -420,9 +420,9 @@ class v1_AzureFileVolumeSource(Resource):
         'share_name',
     ])
 
-    share_name = None # string (required)
     read_only = None # boolean
     secret_name = None # string (required)
+    share_name = None # string (required)
 
     def __init__(self, *, secret_name, share_name, **_kwargs_):
 
@@ -440,29 +440,29 @@ class v1_Binding(Resource):
     __kind__ = 'v1.Binding'
 
     __fields__ = {
-        'target': 'target',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'target': 'target',
     }
 
     __types__ = {
-        'target': 'v1.ObjectReference',
         'metadata': 'v1.ObjectMeta',
+        'target': 'v1.ObjectReference',
     }
 
     __required__ = set([
         'target',
     ])
 
-    target = None # v1.ObjectReference (required)
-    metadata = None # v1.ObjectMeta
     api_version = None # string
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    target = None # v1.ObjectReference (required)
 
     def __init__(self, *, target, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ObjectReference'
 
         self.target = target
 
@@ -476,8 +476,8 @@ class v1_Capabilities(Resource):
     __kind__ = 'v1.Capabilities'
 
     __fields__ = {
-        'drop': 'drop',
         'add': 'add',
+        'drop': 'drop',
     }
 
     __types__ = {
@@ -486,12 +486,12 @@ class v1_Capabilities(Resource):
 
     __required__ = set()
 
-    drop = None # array
     add = None # array
+    drop = None # array
 
     def __init__(self, **_kwargs_):
-        self.drop = []
         self.add = []
+        self.drop = []
 
         super().__init__(**_kwargs_)
 
@@ -524,11 +524,11 @@ class v1_CephFSVolumeSource(Resource):
 
     __fields__ = {
         'monitors': 'monitors',
-        'secret_file': 'secretFile',
-        'read_only': 'readOnly',
-        'user': 'user',
         'path': 'path',
+        'read_only': 'readOnly',
+        'secret_file': 'secretFile',
         'secret_ref': 'secretRef',
+        'user': 'user',
     }
 
     __types__ = {
@@ -540,11 +540,11 @@ class v1_CephFSVolumeSource(Resource):
     ])
 
     monitors = None # array (required)
-    secret_file = None # string
-    read_only = None # boolean
-    user = None # string
     path = None # string
+    read_only = None # boolean
+    secret_file = None # string
     secret_ref = None # v1.LocalObjectReference
+    user = None # string
 
     def __init__(self, *, monitors, **_kwargs_):
 
@@ -563,9 +563,9 @@ class v1_CinderVolumeSource(Resource):
     __kind__ = 'v1.CinderVolumeSource'
 
     __fields__ = {
+        'fs_type': 'fsType',
         'read_only': 'readOnly',
         'volume_id': 'volumeID',
-        'fs_type': 'fsType',
     }
 
     __types__ = {
@@ -575,9 +575,9 @@ class v1_CinderVolumeSource(Resource):
         'volume_id',
     ])
 
+    fs_type = None # string
     read_only = None # boolean
     volume_id = None # string (required)
-    fs_type = None # string
 
     def __init__(self, *, volume_id, **_kwargs_):
 
@@ -593,10 +593,10 @@ class v1_ComponentCondition(Resource):
     __kind__ = 'v1.ComponentCondition'
 
     __fields__ = {
-        'message': 'message',
-        'type': 'type',
         'error': 'error',
+        'message': 'message',
         'status': 'status',
+        'type': 'type',
     }
 
     __types__ = {
@@ -607,10 +607,10 @@ class v1_ComponentCondition(Resource):
         'type',
     ])
 
-    message = None # string
-    type = None # string (required)
     error = None # string
+    message = None # string
     status = None # string (required)
+    type = None # string (required)
 
     def __init__(self, *, status, type, **_kwargs_):
 
@@ -628,10 +628,10 @@ class v1_ComponentStatus(Resource):
     __kind__ = 'v1.ComponentStatus'
 
     __fields__ = {
-        'conditions': 'conditions',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'conditions': 'conditions',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -641,10 +641,10 @@ class v1_ComponentStatus(Resource):
 
     __required__ = set()
 
-    conditions = None # array
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    conditions = None # array
     kind = None # string
+    metadata = None # v1.ObjectMeta
 
     def __init__(self, **_kwargs_):
         self.conditions = []
@@ -662,10 +662,10 @@ class v1_ComponentStatusList(Resource):
     __kind__ = 'v1.ComponentStatusList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -677,10 +677,10 @@ class v1_ComponentStatusList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -698,10 +698,10 @@ class v1_ConfigMap(Resource):
     __kind__ = 'v1.ConfigMap'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
         'data': 'data',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -710,10 +710,10 @@ class v1_ConfigMap(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
     data = None # object
     kind = None # string
+    metadata = None # v1.ObjectMeta
 
     def __init__(self, **_kwargs_):
 
@@ -729,8 +729,8 @@ class v1_ConfigMapKeySelector(Resource):
     __kind__ = 'v1.ConfigMapKeySelector'
 
     __fields__ = {
-        'name': 'name',
         'key': 'key',
+        'name': 'name',
     }
 
     __types__ = {
@@ -740,8 +740,8 @@ class v1_ConfigMapKeySelector(Resource):
         'key',
     ])
 
-    name = None # string
     key = None # string (required)
+    name = None # string
 
     def __init__(self, *, key, **_kwargs_):
 
@@ -757,10 +757,10 @@ class v1_ConfigMapList(Resource):
     __kind__ = 'v1.ConfigMapList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -772,10 +772,10 @@ class v1_ConfigMapList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -798,8 +798,8 @@ class v1_ConfigMapVolumeSource(Resource):
     __kind__ = 'v1.ConfigMapVolumeSource'
 
     __fields__ = {
-        'name': 'name',
         'items': 'items',
+        'name': 'name',
     }
 
     __types__ = {
@@ -808,8 +808,8 @@ class v1_ConfigMapVolumeSource(Resource):
 
     __required__ = set()
 
-    name = None # string
     items = None # array
+    name = None # string
 
     def __init__(self, **_kwargs_):
         self.items = []
@@ -824,65 +824,65 @@ class v1_Container(Resource):
     __kind__ = 'v1.Container'
 
     __fields__ = {
+        'args': 'args',
+        'command': 'command',
+        'env': 'env',
+        'image': 'image',
+        'image_pull_policy': 'imagePullPolicy',
+        'lifecycle': 'lifecycle',
+        'liveness_probe': 'livenessProbe',
         'name': 'name',
         'ports': 'ports',
-        'stdin_once': 'stdinOnce',
-        'command': 'command',
-        'stdin': 'stdin',
-        'liveness_probe': 'livenessProbe',
         'readiness_probe': 'readinessProbe',
-        'args': 'args',
-        'env': 'env',
-        'lifecycle': 'lifecycle',
-        'termination_message_path': 'terminationMessagePath',
-        'image_pull_policy': 'imagePullPolicy',
         'resources': 'resources',
-        'volume_mounts': 'volumeMounts',
         'security_context': 'securityContext',
+        'stdin': 'stdin',
+        'stdin_once': 'stdinOnce',
+        'termination_message_path': 'terminationMessagePath',
         'tty': 'tty',
+        'volume_mounts': 'volumeMounts',
         'working_dir': 'workingDir',
-        'image': 'image',
     }
 
     __types__ = {
-        'readiness_probe': 'v1.Probe',
         'env': 'v1.EnvVar',
         'lifecycle': 'v1.Lifecycle',
-        'security_context': 'v1.SecurityContext',
         'liveness_probe': 'v1.Probe',
-        'volume_mounts': 'v1.VolumeMount',
         'ports': 'v1.ContainerPort',
+        'readiness_probe': 'v1.Probe',
         'resources': 'v1.ResourceRequirements',
+        'security_context': 'v1.SecurityContext',
+        'volume_mounts': 'v1.VolumeMount',
     }
 
     __required__ = set([
         'name',
     ])
 
+    args = None # array
+    command = None # array
+    env = None # array
+    image = None # string
+    image_pull_policy = None # string
+    lifecycle = None # v1.Lifecycle
+    liveness_probe = None # v1.Probe
     name = None # string (required)
     ports = None # array
-    stdin_once = None # boolean
-    command = None # array
-    stdin = None # boolean
-    liveness_probe = None # v1.Probe
     readiness_probe = None # v1.Probe
-    args = None # array
-    env = None # array
-    lifecycle = None # v1.Lifecycle
-    termination_message_path = None # string
-    image_pull_policy = None # string
     resources = None # v1.ResourceRequirements
-    volume_mounts = None # array
     security_context = None # v1.SecurityContext
+    stdin = None # boolean
+    stdin_once = None # boolean
+    termination_message_path = None # string
     tty = None # boolean
+    volume_mounts = None # array
     working_dir = None # string
-    image = None # string
 
     def __init__(self, *, name, **_kwargs_):
-        self.ports = []
-        self.command = []
         self.args = []
+        self.command = []
         self.env = []
+        self.ports = []
         self.volume_mounts = []
 
         self.name = name
@@ -925,11 +925,11 @@ class v1_ContainerPort(Resource):
     __kind__ = 'v1.ContainerPort'
 
     __fields__ = {
-        'name': 'name',
-        'protocol': 'protocol',
-        'host_port': 'hostPort',
         'container_port': 'containerPort',
         'host_ip': 'hostIP',
+        'host_port': 'hostPort',
+        'name': 'name',
+        'protocol': 'protocol',
     }
 
     __types__ = {
@@ -939,11 +939,11 @@ class v1_ContainerPort(Resource):
         'container_port',
     ])
 
-    name = None # string
-    protocol = None # string
-    host_port = None # integer
     container_port = None # integer (required)
     host_ip = None # string
+    host_port = None # integer
+    name = None # string
+    protocol = None # string
 
     def __init__(self, *, container_port, **_kwargs_):
 
@@ -961,22 +961,22 @@ class v1_ContainerState(Resource):
     __kind__ = 'v1.ContainerState'
 
     __fields__ = {
-        'waiting': 'waiting',
-        'terminated': 'terminated',
         'running': 'running',
+        'terminated': 'terminated',
+        'waiting': 'waiting',
     }
 
     __types__ = {
-        'waiting': 'v1.ContainerStateWaiting',
-        'terminated': 'v1.ContainerStateTerminated',
         'running': 'v1.ContainerStateRunning',
+        'terminated': 'v1.ContainerStateTerminated',
+        'waiting': 'v1.ContainerStateWaiting',
     }
 
     __required__ = set()
 
-    waiting = None # v1.ContainerStateWaiting
-    terminated = None # v1.ContainerStateTerminated
     running = None # v1.ContainerStateRunning
+    terminated = None # v1.ContainerStateTerminated
+    waiting = None # v1.ContainerStateWaiting
 
     def __init__(self, **_kwargs_):
 
@@ -1012,13 +1012,13 @@ class v1_ContainerStateTerminated(Resource):
     __kind__ = 'v1.ContainerStateTerminated'
 
     __fields__ = {
-        'reason': 'reason',
-        'finished_at': 'finishedAt',
         'container_id': 'containerID',
         'exit_code': 'exitCode',
+        'finished_at': 'finishedAt',
         'message': 'message',
-        'started_at': 'startedAt',
+        'reason': 'reason',
         'signal': 'signal',
+        'started_at': 'startedAt',
     }
 
     __types__ = {
@@ -1028,13 +1028,13 @@ class v1_ContainerStateTerminated(Resource):
         'exit_code',
     ])
 
-    reason = None # string
-    finished_at = None # string
     container_id = None # string
     exit_code = None # integer (required)
+    finished_at = None # string
     message = None # string
-    started_at = None # string
+    reason = None # string
     signal = None # integer
+    started_at = None # string
 
     def __init__(self, *, exit_code, **_kwargs_):
 
@@ -1050,8 +1050,8 @@ class v1_ContainerStateWaiting(Resource):
     __kind__ = 'v1.ContainerStateWaiting'
 
     __fields__ = {
-        'reason': 'reason',
         'message': 'message',
+        'reason': 'reason',
     }
 
     __types__ = {
@@ -1059,8 +1059,8 @@ class v1_ContainerStateWaiting(Resource):
 
     __required__ = set()
 
-    reason = None # string
     message = None # string
+    reason = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -1075,14 +1075,14 @@ class v1_ContainerStatus(Resource):
     __kind__ = 'v1.ContainerStatus'
 
     __fields__ = {
-        'name': 'name',
-        'ready': 'ready',
-        'image_id': 'imageID',
-        'state': 'state',
         'container_id': 'containerID',
         'image': 'image',
+        'image_id': 'imageID',
         'last_state': 'lastState',
+        'name': 'name',
+        'ready': 'ready',
         'restart_count': 'restartCount',
+        'state': 'state',
     }
 
     __types__ = {
@@ -1098,14 +1098,14 @@ class v1_ContainerStatus(Resource):
         'restart_count',
     ])
 
-    name = None # string (required)
-    ready = None # boolean (required)
-    image_id = None # string (required)
-    state = None # v1.ContainerState
     container_id = None # string
     image = None # string (required)
+    image_id = None # string (required)
     last_state = None # v1.ContainerState
+    name = None # string (required)
+    ready = None # boolean (required)
     restart_count = None # integer (required)
+    state = None # v1.ContainerState
 
     def __init__(self, *, image, image_id, name, ready, restart_count, **_kwargs_):
 
@@ -1151,11 +1151,11 @@ class v1_DeleteOptions(Resource):
     __kind__ = 'v1.DeleteOptions'
 
     __fields__ = {
-        'preconditions': 'preconditions',
         'api_version': 'apiVersion',
         'grace_period_seconds': 'gracePeriodSeconds',
-        'orphan_dependents': 'orphanDependents',
         'kind': 'kind',
+        'orphan_dependents': 'orphanDependents',
+        'preconditions': 'preconditions',
     }
 
     __types__ = {
@@ -1164,11 +1164,11 @@ class v1_DeleteOptions(Resource):
 
     __required__ = set()
 
-    preconditions = None # v1.Preconditions
     api_version = None # string
     grace_period_seconds = None # integer
-    orphan_dependents = None # boolean
     kind = None # string
+    orphan_dependents = None # boolean
+    preconditions = None # v1.Preconditions
 
     def __init__(self, **_kwargs_):
 
@@ -1186,8 +1186,8 @@ class v1_DeprecatedDownwardAPIVolumeFile(Resource):
     __kind__ = 'v1.DeprecatedDownwardAPIVolumeFile'
 
     __fields__ = {
-        'name': 'name',
         'field_ref': 'fieldRef',
+        'name': 'name',
         'resource_field_ref': 'resourceFieldRef',
     }
 
@@ -1200,8 +1200,8 @@ class v1_DeprecatedDownwardAPIVolumeFile(Resource):
         'name',
     ])
 
-    name = None # string (required)
     field_ref = None # v1.ObjectFieldSelector
+    name = None # string (required)
     resource_field_ref = None # v1.ResourceFieldSelector
 
     def __init__(self, *, name, **_kwargs_):
@@ -1245,8 +1245,8 @@ class v1_DownwardAPIVolumeFile(Resource):
     __kind__ = 'v1.DownwardAPIVolumeFile'
 
     __fields__ = {
-        'path': 'path',
         'field_ref': 'fieldRef',
+        'path': 'path',
         'resource_field_ref': 'resourceFieldRef',
     }
 
@@ -1259,8 +1259,8 @@ class v1_DownwardAPIVolumeFile(Resource):
         'path',
     ])
 
-    path = None # string (required)
     field_ref = None # v1.ObjectFieldSelector
+    path = None # string (required)
     resource_field_ref = None # v1.ResourceFieldSelector
 
     def __init__(self, *, path, **_kwargs_):
@@ -1358,8 +1358,8 @@ class v1_EndpointPort(Resource):
 
     __fields__ = {
         'name': 'name',
-        'protocol': 'protocol',
         'port': 'port',
+        'protocol': 'protocol',
     }
 
     __types__ = {
@@ -1370,8 +1370,8 @@ class v1_EndpointPort(Resource):
     ])
 
     name = None # string
-    protocol = None # string
     port = None # integer (required)
+    protocol = None # string
 
     def __init__(self, *, port, **_kwargs_):
 
@@ -1394,8 +1394,8 @@ class v1_EndpointSubset(Resource):
 
     __fields__ = {
         'addresses': 'addresses',
-        'ports': 'ports',
         'not_ready_addresses': 'notReadyAddresses',
+        'ports': 'ports',
     }
 
     __types__ = {
@@ -1407,13 +1407,13 @@ class v1_EndpointSubset(Resource):
     __required__ = set()
 
     addresses = None # array
-    ports = None # array
     not_ready_addresses = None # array
+    ports = None # array
 
     def __init__(self, **_kwargs_):
         self.addresses = []
-        self.ports = []
         self.not_ready_addresses = []
+        self.ports = []
 
         super().__init__(**_kwargs_)
 
@@ -1430,10 +1430,10 @@ class v1_Endpoints(Resource):
     __kind__ = 'v1.Endpoints'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'subsets': 'subsets',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'subsets': 'subsets',
     }
 
     __types__ = {
@@ -1445,10 +1445,10 @@ class v1_Endpoints(Resource):
         'subsets',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    subsets = None # array (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    subsets = None # array (required)
 
     def __init__(self, *, subsets, **_kwargs_):
 
@@ -1466,10 +1466,10 @@ class v1_EndpointsList(Resource):
     __kind__ = 'v1.EndpointsList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -1481,10 +1481,10 @@ class v1_EndpointsList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -1533,25 +1533,25 @@ class v1_EnvVarSource(Resource):
     __kind__ = 'v1.EnvVarSource'
 
     __fields__ = {
-        'secret_key_ref': 'secretKeyRef',
-        'field_ref': 'fieldRef',
         'config_map_key_ref': 'configMapKeyRef',
+        'field_ref': 'fieldRef',
         'resource_field_ref': 'resourceFieldRef',
+        'secret_key_ref': 'secretKeyRef',
     }
 
     __types__ = {
-        'secret_key_ref': 'v1.SecretKeySelector',
+        'config_map_key_ref': 'v1.ConfigMapKeySelector',
         'field_ref': 'v1.ObjectFieldSelector',
         'resource_field_ref': 'v1.ResourceFieldSelector',
-        'config_map_key_ref': 'v1.ConfigMapKeySelector',
+        'secret_key_ref': 'v1.SecretKeySelector',
     }
 
     __required__ = set()
 
-    secret_key_ref = None # v1.SecretKeySelector
-    field_ref = None # v1.ObjectFieldSelector
     config_map_key_ref = None # v1.ConfigMapKeySelector
+    field_ref = None # v1.ObjectFieldSelector
     resource_field_ref = None # v1.ResourceFieldSelector
+    secret_key_ref = None # v1.SecretKeySelector
 
     def __init__(self, **_kwargs_):
 
@@ -1565,23 +1565,23 @@ class v1_Event(Resource):
     __kind__ = 'v1.Event'
 
     __fields__ = {
-        'first_timestamp': 'firstTimestamp',
         'api_version': 'apiVersion',
-        'type': 'type',
-        'reason': 'reason',
         'count': 'count',
-        'last_timestamp': 'lastTimestamp',
-        'metadata': 'metadata',
-        'kind': 'kind',
-        'source': 'source',
-        'message': 'message',
+        'first_timestamp': 'firstTimestamp',
         'involved_object': 'involvedObject',
+        'kind': 'kind',
+        'last_timestamp': 'lastTimestamp',
+        'message': 'message',
+        'metadata': 'metadata',
+        'reason': 'reason',
+        'source': 'source',
+        'type': 'type',
     }
 
     __types__ = {
+        'involved_object': 'v1.ObjectReference',
         'metadata': 'v1.ObjectMeta',
         'source': 'v1.EventSource',
-        'involved_object': 'v1.ObjectReference',
     }
 
     __required__ = set([
@@ -1589,21 +1589,21 @@ class v1_Event(Resource):
         'metadata',
     ])
 
-    first_timestamp = None # string
     api_version = None # string
-    type = None # string
-    reason = None # string
     count = None # integer
-    last_timestamp = None # string
-    metadata = None # v1.ObjectMeta (required)
-    kind = None # string
-    source = None # v1.EventSource
-    message = None # string
+    first_timestamp = None # string
     involved_object = None # v1.ObjectReference (required)
+    kind = None # string
+    last_timestamp = None # string
+    message = None # string
+    metadata = None # v1.ObjectMeta (required)
+    reason = None # string
+    source = None # v1.EventSource
+    type = None # string
 
     def __init__(self, *, involved_object, metadata, **_kwargs_):
 
-        self.kind = 'ObjectReference'
+        self.kind = 'EventSource'
 
         self.involved_object = involved_object
         self.metadata = metadata
@@ -1618,10 +1618,10 @@ class v1_EventList(Resource):
     __kind__ = 'v1.EventList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -1633,10 +1633,10 @@ class v1_EventList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -1703,10 +1703,10 @@ class v1_FCVolumeSource(Resource):
     __kind__ = 'v1.FCVolumeSource'
 
     __fields__ = {
-        'target_ww_ns': 'targetWWNs',
-        'read_only': 'readOnly',
         'fs_type': 'fsType',
         'lun': 'lun',
+        'read_only': 'readOnly',
+        'target_ww_ns': 'targetWWNs',
     }
 
     __types__ = {
@@ -1717,10 +1717,10 @@ class v1_FCVolumeSource(Resource):
         'target_ww_ns',
     ])
 
-    target_ww_ns = None # array (required)
-    read_only = None # boolean
     fs_type = None # string
     lun = None # integer (required)
+    read_only = None # boolean
+    target_ww_ns = None # array (required)
 
     def __init__(self, *, lun, target_ww_ns, **_kwargs_):
 
@@ -1738,8 +1738,8 @@ class v1_FSGroupStrategyOptions(Resource):
     __kind__ = 'v1.FSGroupStrategyOptions'
 
     __fields__ = {
-        'type': 'type',
         'ranges': 'ranges',
+        'type': 'type',
     }
 
     __types__ = {
@@ -1748,8 +1748,8 @@ class v1_FSGroupStrategyOptions(Resource):
 
     __required__ = set()
 
-    type = None # string
     ranges = None # array
+    type = None # string
 
     def __init__(self, **_kwargs_):
         self.ranges = []
@@ -1802,10 +1802,10 @@ class v1_FlexVolumeSource(Resource):
     __kind__ = 'v1.FlexVolumeSource'
 
     __fields__ = {
-        'read_only': 'readOnly',
-        'options': 'options',
         'driver': 'driver',
         'fs_type': 'fsType',
+        'options': 'options',
+        'read_only': 'readOnly',
         'secret_ref': 'secretRef',
     }
 
@@ -1817,10 +1817,10 @@ class v1_FlexVolumeSource(Resource):
         'driver',
     ])
 
-    read_only = None # boolean
-    options = None # object
     driver = None # string (required)
     fs_type = None # string
+    options = None # object
+    read_only = None # boolean
     secret_ref = None # v1.LocalObjectReference
 
     def __init__(self, *, driver, **_kwargs_):
@@ -1868,10 +1868,10 @@ class v1_GCEPersistentDiskVolumeSource(Resource):
     __kind__ = 'v1.GCEPersistentDiskVolumeSource'
 
     __fields__ = {
-        'read_only': 'readOnly',
-        'partition': 'partition',
         'fs_type': 'fsType',
+        'partition': 'partition',
         'pd_name': 'pdName',
+        'read_only': 'readOnly',
     }
 
     __types__ = {
@@ -1881,10 +1881,10 @@ class v1_GCEPersistentDiskVolumeSource(Resource):
         'pd_name',
     ])
 
-    read_only = None # boolean
-    partition = None # integer
     fs_type = None # string
+    partition = None # integer
     pd_name = None # string (required)
+    read_only = None # boolean
 
     def __init__(self, *, pd_name, **_kwargs_):
 
@@ -1902,8 +1902,8 @@ class v1_GitRepoVolumeSource(Resource):
     __kind__ = 'v1.GitRepoVolumeSource'
 
     __fields__ = {
-        'repository': 'repository',
         'directory': 'directory',
+        'repository': 'repository',
         'revision': 'revision',
     }
 
@@ -1914,8 +1914,8 @@ class v1_GitRepoVolumeSource(Resource):
         'repository',
     ])
 
-    repository = None # string (required)
     directory = None # string
+    repository = None # string (required)
     revision = None # string
 
     def __init__(self, *, repository, **_kwargs_):
@@ -1934,8 +1934,8 @@ class v1_GlusterfsVolumeSource(Resource):
     __kind__ = 'v1.GlusterfsVolumeSource'
 
     __fields__ = {
-        'path': 'path',
         'endpoints': 'endpoints',
+        'path': 'path',
         'read_only': 'readOnly',
     }
 
@@ -1947,8 +1947,8 @@ class v1_GlusterfsVolumeSource(Resource):
         'path',
     ])
 
-    path = None # string (required)
     endpoints = None # string (required)
+    path = None # string (required)
     read_only = None # boolean
 
     def __init__(self, *, endpoints, path, **_kwargs_):
@@ -1966,11 +1966,11 @@ class v1_HTTPGetAction(Resource):
     __kind__ = 'v1.HTTPGetAction'
 
     __fields__ = {
-        'path': 'path',
-        'http_headers': 'httpHeaders',
-        'scheme': 'scheme',
-        'port': 'port',
         'host': 'host',
+        'http_headers': 'httpHeaders',
+        'path': 'path',
+        'port': 'port',
+        'scheme': 'scheme',
     }
 
     __types__ = {
@@ -1981,11 +1981,11 @@ class v1_HTTPGetAction(Resource):
         'port',
     ])
 
-    path = None # string
-    http_headers = None # array
-    scheme = None # string
-    port = None # string (required)
     host = None # string
+    http_headers = None # array
+    path = None # string
+    port = None # string (required)
+    scheme = None # string
 
     def __init__(self, *, port, **_kwargs_):
         self.http_headers = []
@@ -2032,22 +2032,22 @@ class v1_Handler(Resource):
     __kind__ = 'v1.Handler'
 
     __fields__ = {
+        'exec': 'exec',
         'http_get': 'httpGet',
         'tcp_socket': 'tcpSocket',
-        'exec': 'exec',
     }
 
     __types__ = {
-        'http_get': 'v1.HTTPGetAction',
         'exec': 'v1.ExecAction',
+        'http_get': 'v1.HTTPGetAction',
         'tcp_socket': 'v1.TCPSocketAction',
     }
 
     __required__ = set()
 
+    exec = None # v1.ExecAction
     http_get = None # v1.HTTPGetAction
     tcp_socket = None # v1.TCPSocketAction
-    exec = None # v1.ExecAction
 
     def __init__(self, **_kwargs_):
 
@@ -2114,12 +2114,12 @@ class v1_ISCSIVolumeSource(Resource):
     __kind__ = 'v1.ISCSIVolumeSource'
 
     __fields__ = {
-        'target_portal': 'targetPortal',
-        'read_only': 'readOnly',
+        'fs_type': 'fsType',
         'iqn': 'iqn',
         'iscsi_interface': 'iscsiInterface',
-        'fs_type': 'fsType',
         'lun': 'lun',
+        'read_only': 'readOnly',
+        'target_portal': 'targetPortal',
     }
 
     __types__ = {
@@ -2131,12 +2131,12 @@ class v1_ISCSIVolumeSource(Resource):
         'target_portal',
     ])
 
-    target_portal = None # string (required)
-    read_only = None # boolean
+    fs_type = None # string
     iqn = None # string (required)
     iscsi_interface = None # string
-    fs_type = None # string
     lun = None # integer (required)
+    read_only = None # boolean
+    target_portal = None # string (required)
 
     def __init__(self, *, iqn, lun, target_portal, **_kwargs_):
 
@@ -2154,8 +2154,8 @@ class v1_KeyToPath(Resource):
     __kind__ = 'v1.KeyToPath'
 
     __fields__ = {
-        'path': 'path',
         'key': 'key',
+        'path': 'path',
     }
 
     __types__ = {
@@ -2166,8 +2166,8 @@ class v1_KeyToPath(Resource):
         'path',
     ])
 
-    path = None # string (required)
     key = None # string (required)
+    path = None # string (required)
 
     def __init__(self, *, key, path, **_kwargs_):
 
@@ -2188,19 +2188,19 @@ class v1_Lifecycle(Resource):
     __kind__ = 'v1.Lifecycle'
 
     __fields__ = {
-        'pre_stop': 'preStop',
         'post_start': 'postStart',
+        'pre_stop': 'preStop',
     }
 
     __types__ = {
-        'pre_stop': 'v1.Handler',
         'post_start': 'v1.Handler',
+        'pre_stop': 'v1.Handler',
     }
 
     __required__ = set()
 
-    pre_stop = None # v1.Handler
     post_start = None # v1.Handler
+    pre_stop = None # v1.Handler
 
     def __init__(self, **_kwargs_):
 
@@ -2215,10 +2215,10 @@ class v1_LimitRange(Resource):
     __kind__ = 'v1.LimitRange'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'spec': 'spec',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'spec': 'spec',
     }
 
     __types__ = {
@@ -2228,10 +2228,10 @@ class v1_LimitRange(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    spec = None # v1.LimitRangeSpec
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    spec = None # v1.LimitRangeSpec
 
     def __init__(self, **_kwargs_):
 
@@ -2248,12 +2248,12 @@ class v1_LimitRangeItem(Resource):
     __kind__ = 'v1.LimitRangeItem'
 
     __fields__ = {
-        'default_request': 'defaultRequest',
-        'max_limit_request_ratio': 'maxLimitRequestRatio',
-        'type': 'type',
-        'min': 'min',
-        'max': 'max',
         'default': 'default',
+        'default_request': 'defaultRequest',
+        'max': 'max',
+        'max_limit_request_ratio': 'maxLimitRequestRatio',
+        'min': 'min',
+        'type': 'type',
     }
 
     __types__ = {
@@ -2261,12 +2261,12 @@ class v1_LimitRangeItem(Resource):
 
     __required__ = set()
 
-    default_request = None # object
-    max_limit_request_ratio = None # object
-    type = None # string
-    min = None # object
-    max = None # object
     default = None # object
+    default_request = None # object
+    max = None # object
+    max_limit_request_ratio = None # object
+    min = None # object
+    type = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -2280,10 +2280,10 @@ class v1_LimitRangeList(Resource):
     __kind__ = 'v1.LimitRangeList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -2295,10 +2295,10 @@ class v1_LimitRangeList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -2451,11 +2451,11 @@ class v1_Namespace(Resource):
     __kind__ = 'v1.Namespace'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -2466,11 +2466,11 @@ class v1_Namespace(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.NamespaceSpec
     status = None # v1.NamespaceStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -2486,10 +2486,10 @@ class v1_NamespaceList(Resource):
     __kind__ = 'v1.NamespaceList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -2501,10 +2501,10 @@ class v1_NamespaceList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -2570,11 +2570,11 @@ class v1_Node(Resource):
     __kind__ = 'v1.Node'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -2585,11 +2585,11 @@ class v1_Node(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.NodeSpec
     status = None # v1.NodeStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -2605,8 +2605,8 @@ class v1_NodeAddress(Resource):
     __kind__ = 'v1.NodeAddress'
 
     __fields__ = {
-        'type': 'type',
         'address': 'address',
+        'type': 'type',
     }
 
     __types__ = {
@@ -2617,8 +2617,8 @@ class v1_NodeAddress(Resource):
         'type',
     ])
 
-    type = None # string (required)
     address = None # string (required)
+    type = None # string (required)
 
     def __init__(self, *, address, type, **_kwargs_):
 
@@ -2635,12 +2635,12 @@ class v1_NodeCondition(Resource):
     __kind__ = 'v1.NodeCondition'
 
     __fields__ = {
-        'last_transition_time': 'lastTransitionTime',
-        'reason': 'reason',
-        'type': 'type',
         'last_heartbeat_time': 'lastHeartbeatTime',
+        'last_transition_time': 'lastTransitionTime',
         'message': 'message',
+        'reason': 'reason',
         'status': 'status',
+        'type': 'type',
     }
 
     __types__ = {
@@ -2651,12 +2651,12 @@ class v1_NodeCondition(Resource):
         'type',
     ])
 
-    last_transition_time = None # string
-    reason = None # string
-    type = None # string (required)
     last_heartbeat_time = None # string
+    last_transition_time = None # string
     message = None # string
+    reason = None # string
     status = None # string (required)
+    type = None # string (required)
 
     def __init__(self, *, status, type, **_kwargs_):
 
@@ -2697,10 +2697,10 @@ class v1_NodeList(Resource):
     __kind__ = 'v1.NodeList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -2712,10 +2712,10 @@ class v1_NodeList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -2734,8 +2734,8 @@ class v1_NodeSpec(Resource):
 
     __fields__ = {
         'external_id': 'externalID',
-        'provider_id': 'providerID',
         'pod_cidr': 'podCIDR',
+        'provider_id': 'providerID',
         'unschedulable': 'unschedulable',
     }
 
@@ -2745,8 +2745,8 @@ class v1_NodeSpec(Resource):
     __required__ = set()
 
     external_id = None # string
-    provider_id = None # string
     pod_cidr = None # string
+    provider_id = None # string
     unschedulable = None # boolean
 
     def __init__(self, **_kwargs_):
@@ -2761,47 +2761,47 @@ class v1_NodeStatus(Resource):
     __kind__ = 'v1.NodeStatus'
 
     __fields__ = {
-        'daemon_endpoints': 'daemonEndpoints',
-        'capacity': 'capacity',
-        'volumes_in_use': 'volumesInUse',
-        'conditions': 'conditions',
         'addresses': 'addresses',
-        'phase': 'phase',
         'allocatable': 'allocatable',
-        'volumes_attached': 'volumesAttached',
+        'capacity': 'capacity',
+        'conditions': 'conditions',
+        'daemon_endpoints': 'daemonEndpoints',
         'images': 'images',
         'node_info': 'nodeInfo',
+        'phase': 'phase',
+        'volumes_attached': 'volumesAttached',
+        'volumes_in_use': 'volumesInUse',
     }
 
     __types__ = {
-        'volumes_in_use': 'v1.UniqueVolumeName',
         'addresses': 'v1.NodeAddress',
+        'conditions': 'v1.NodeCondition',
+        'daemon_endpoints': 'v1.NodeDaemonEndpoints',
+        'images': 'v1.ContainerImage',
         'node_info': 'v1.NodeSystemInfo',
         'volumes_attached': 'v1.AttachedVolume',
-        'daemon_endpoints': 'v1.NodeDaemonEndpoints',
-        'conditions': 'v1.NodeCondition',
-        'images': 'v1.ContainerImage',
+        'volumes_in_use': 'v1.UniqueVolumeName',
     }
 
     __required__ = set()
 
-    daemon_endpoints = None # v1.NodeDaemonEndpoints
-    capacity = None # object
-    volumes_in_use = None # array
-    conditions = None # array
     addresses = None # array
-    phase = None # string
     allocatable = None # object
-    volumes_attached = None # array
+    capacity = None # object
+    conditions = None # array
+    daemon_endpoints = None # v1.NodeDaemonEndpoints
     images = None # array
     node_info = None # v1.NodeSystemInfo
+    phase = None # string
+    volumes_attached = None # array
+    volumes_in_use = None # array
 
     def __init__(self, **_kwargs_):
-        self.volumes_in_use = []
-        self.conditions = []
         self.addresses = []
-        self.volumes_attached = []
+        self.conditions = []
         self.images = []
+        self.volumes_attached = []
+        self.volumes_in_use = []
 
         super().__init__(**_kwargs_)
 
@@ -2813,16 +2813,16 @@ class v1_NodeSystemInfo(Resource):
     __kind__ = 'v1.NodeSystemInfo'
 
     __fields__ = {
-        'boot_id': 'bootID',
-        'os_image': 'osImage',
-        'operating_system': 'operatingSystem',
-        'kernel_version': 'kernelVersion',
         'architecture': 'architecture',
+        'boot_id': 'bootID',
         'container_runtime_version': 'containerRuntimeVersion',
-        'machine_id': 'machineID',
-        'system_uuid': 'systemUUID',
+        'kernel_version': 'kernelVersion',
         'kube_proxy_version': 'kubeProxyVersion',
         'kubelet_version': 'kubeletVersion',
+        'machine_id': 'machineID',
+        'operating_system': 'operatingSystem',
+        'os_image': 'osImage',
+        'system_uuid': 'systemUUID',
     }
 
     __types__ = {
@@ -2841,16 +2841,16 @@ class v1_NodeSystemInfo(Resource):
         'system_uuid',
     ])
 
-    boot_id = None # string (required)
-    os_image = None # string (required)
-    operating_system = None # string (required)
-    kernel_version = None # string (required)
     architecture = None # string (required)
+    boot_id = None # string (required)
     container_runtime_version = None # string (required)
-    machine_id = None # string (required)
-    system_uuid = None # string (required)
+    kernel_version = None # string (required)
     kube_proxy_version = None # string (required)
     kubelet_version = None # string (required)
+    machine_id = None # string (required)
+    operating_system = None # string (required)
+    os_image = None # string (required)
+    system_uuid = None # string (required)
 
     def __init__(self, *, architecture, boot_id, container_runtime_version, kernel_version, kube_proxy_version, kubelet_version, machine_id, operating_system, os_image, system_uuid, **_kwargs_):
 
@@ -2875,8 +2875,8 @@ class v1_ObjectFieldSelector(Resource):
     __kind__ = 'v1.ObjectFieldSelector'
 
     __fields__ = {
-        'field_path': 'fieldPath',
         'api_version': 'apiVersion',
+        'field_path': 'fieldPath',
     }
 
     __types__ = {
@@ -2886,8 +2886,8 @@ class v1_ObjectFieldSelector(Resource):
         'field_path',
     ])
 
-    field_path = None # string (required)
     api_version = None # string
+    field_path = None # string (required)
 
     def __init__(self, *, field_path, **_kwargs_):
 
@@ -2904,20 +2904,20 @@ class v1_ObjectMeta(Resource):
     __kind__ = 'v1.ObjectMeta'
 
     __fields__ = {
-        'name': 'name',
+        'annotations': 'annotations',
+        'creation_timestamp': 'creationTimestamp',
+        'deletion_grace_period_seconds': 'deletionGracePeriodSeconds',
+        'deletion_timestamp': 'deletionTimestamp',
         'finalizers': 'finalizers',
+        'generate_name': 'generateName',
+        'generation': 'generation',
+        'labels': 'labels',
+        'name': 'name',
+        'namespace': 'namespace',
+        'owner_references': 'ownerReferences',
+        'resource_version': 'resourceVersion',
         'self_link': 'selfLink',
         'uid': 'uid',
-        'generate_name': 'generateName',
-        'annotations': 'annotations',
-        'namespace': 'namespace',
-        'generation': 'generation',
-        'deletion_timestamp': 'deletionTimestamp',
-        'creation_timestamp': 'creationTimestamp',
-        'owner_references': 'ownerReferences',
-        'labels': 'labels',
-        'deletion_grace_period_seconds': 'deletionGracePeriodSeconds',
-        'resource_version': 'resourceVersion',
     }
 
     __types__ = {
@@ -2926,20 +2926,20 @@ class v1_ObjectMeta(Resource):
 
     __required__ = set()
 
-    name = None # string
+    annotations = None # object
+    creation_timestamp = None # string
+    deletion_grace_period_seconds = None # integer
+    deletion_timestamp = None # string
     finalizers = None # array
+    generate_name = None # string
+    generation = None # integer
+    labels = None # object
+    name = None # string
+    namespace = None # string
+    owner_references = None # array
+    resource_version = None # string
     self_link = None # string
     uid = None # string
-    generate_name = None # string
-    annotations = None # object
-    namespace = None # string
-    generation = None # integer
-    deletion_timestamp = None # string
-    creation_timestamp = None # string
-    owner_references = None # array
-    labels = None # object
-    deletion_grace_period_seconds = None # integer
-    resource_version = None # string
 
     def __init__(self, **_kwargs_):
         self.finalizers = []
@@ -2956,13 +2956,13 @@ class v1_ObjectReference(Resource):
     __kind__ = 'v1.ObjectReference'
 
     __fields__ = {
-        'name': 'name',
-        'field_path': 'fieldPath',
         'api_version': 'apiVersion',
-        'uid': 'uid',
-        'resource_version': 'resourceVersion',
-        'namespace': 'namespace',
+        'field_path': 'fieldPath',
         'kind': 'kind',
+        'name': 'name',
+        'namespace': 'namespace',
+        'resource_version': 'resourceVersion',
+        'uid': 'uid',
     }
 
     __types__ = {
@@ -2970,13 +2970,13 @@ class v1_ObjectReference(Resource):
 
     __required__ = set()
 
-    name = None # string
-    field_path = None # string
     api_version = None # string
-    uid = None # string
-    resource_version = None # string
-    namespace = None # string
+    field_path = None # string
     kind = None # string
+    name = None # string
+    namespace = None # string
+    resource_version = None # string
+    uid = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -2994,11 +2994,11 @@ class v1_OwnerReference(Resource):
     __kind__ = 'v1.OwnerReference'
 
     __fields__ = {
-        'name': 'name',
         'api_version': 'apiVersion',
-        'uid': 'uid',
         'controller': 'controller',
         'kind': 'kind',
+        'name': 'name',
+        'uid': 'uid',
     }
 
     __types__ = {
@@ -3011,11 +3011,11 @@ class v1_OwnerReference(Resource):
         'uid',
     ])
 
-    name = None # string (required)
     api_version = None # string (required)
-    uid = None # string (required)
     controller = None # boolean
     kind = None # string (required)
+    name = None # string (required)
+    uid = None # string (required)
 
     def __init__(self, *, api_version, kind, name, uid, **_kwargs_):
 
@@ -3039,11 +3039,11 @@ class v1_PersistentVolume(Resource):
     __kind__ = 'v1.PersistentVolume'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -3054,11 +3054,11 @@ class v1_PersistentVolume(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.PersistentVolumeSpec
     status = None # v1.PersistentVolumeStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -3093,11 +3093,11 @@ class v1_PersistentVolumeClaim(Resource):
     __kind__ = 'v1.PersistentVolumeClaim'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -3108,11 +3108,11 @@ class v1_PersistentVolumeClaim(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.PersistentVolumeClaimSpec
     status = None # v1.PersistentVolumeClaimStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -3128,10 +3128,10 @@ class v1_PersistentVolumeClaimList(Resource):
     __kind__ = 'v1.PersistentVolumeClaimList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -3143,10 +3143,10 @@ class v1_PersistentVolumeClaimList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -3166,22 +3166,22 @@ class v1_PersistentVolumeClaimSpec(Resource):
 
     __fields__ = {
         'access_modes': 'accessModes',
-        'volume_name': 'volumeName',
-        'selector': 'selector',
         'resources': 'resources',
+        'selector': 'selector',
+        'volume_name': 'volumeName',
     }
 
     __types__ = {
-        'selector': 'unversioned.LabelSelector',
         'resources': 'v1.ResourceRequirements',
+        'selector': 'unversioned.LabelSelector',
     }
 
     __required__ = set()
 
     access_modes = None # array
-    volume_name = None # string
-    selector = None # unversioned.LabelSelector
     resources = None # v1.ResourceRequirements
+    selector = None # unversioned.LabelSelector
+    volume_name = None # string
 
     def __init__(self, **_kwargs_):
         self.access_modes = []
@@ -3198,8 +3198,8 @@ class v1_PersistentVolumeClaimStatus(Resource):
 
     __fields__ = {
         'access_modes': 'accessModes',
-        'phase': 'phase',
         'capacity': 'capacity',
+        'phase': 'phase',
     }
 
     __types__ = {
@@ -3209,8 +3209,8 @@ class v1_PersistentVolumeClaimStatus(Resource):
     __required__ = set()
 
     access_modes = None # array
-    phase = None # string
     capacity = None # object
+    phase = None # string
 
     def __init__(self, **_kwargs_):
         self.access_modes = []
@@ -3257,10 +3257,10 @@ class v1_PersistentVolumeList(Resource):
     __kind__ = 'v1.PersistentVolumeList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -3272,10 +3272,10 @@ class v1_PersistentVolumeList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -3293,64 +3293,64 @@ class v1_PersistentVolumeSpec(Resource):
     __kind__ = 'v1.PersistentVolumeSpec'
 
     __fields__ = {
-        'flocker': 'flocker',
-        'flex_volume': 'flexVolume',
+        'access_modes': 'accessModes',
         'aws_elastic_block_store': 'awsElasticBlockStore',
+        'azure_file': 'azureFile',
         'capacity': 'capacity',
+        'cephfs': 'cephfs',
+        'cinder': 'cinder',
+        'claim_ref': 'claimRef',
+        'fc': 'fc',
+        'flex_volume': 'flexVolume',
+        'flocker': 'flocker',
+        'gce_persistent_disk': 'gcePersistentDisk',
+        'glusterfs': 'glusterfs',
         'host_path': 'hostPath',
         'iscsi': 'iscsi',
-        'cinder': 'cinder',
         'nfs': 'nfs',
-        'azure_file': 'azureFile',
-        'rbd': 'rbd',
-        'gce_persistent_disk': 'gcePersistentDisk',
-        'fc': 'fc',
         'persistent_volume_reclaim_policy': 'persistentVolumeReclaimPolicy',
-        'cephfs': 'cephfs',
-        'access_modes': 'accessModes',
-        'claim_ref': 'claimRef',
-        'glusterfs': 'glusterfs',
+        'rbd': 'rbd',
         'vsphere_volume': 'vsphereVolume',
     }
 
     __types__ = {
-        'flocker': 'v1.FlockerVolumeSource',
-        'flex_volume': 'v1.FlexVolumeSource',
+        'access_modes': 'v1.PersistentVolumeAccessMode',
         'aws_elastic_block_store': 'v1.AWSElasticBlockStoreVolumeSource',
+        'azure_file': 'v1.AzureFileVolumeSource',
+        'cephfs': 'v1.CephFSVolumeSource',
+        'cinder': 'v1.CinderVolumeSource',
+        'claim_ref': 'v1.ObjectReference',
+        'fc': 'v1.FCVolumeSource',
+        'flex_volume': 'v1.FlexVolumeSource',
+        'flocker': 'v1.FlockerVolumeSource',
+        'gce_persistent_disk': 'v1.GCEPersistentDiskVolumeSource',
+        'glusterfs': 'v1.GlusterfsVolumeSource',
         'host_path': 'v1.HostPathVolumeSource',
         'iscsi': 'v1.ISCSIVolumeSource',
-        'cinder': 'v1.CinderVolumeSource',
         'nfs': 'v1.NFSVolumeSource',
-        'azure_file': 'v1.AzureFileVolumeSource',
         'rbd': 'v1.RBDVolumeSource',
-        'gce_persistent_disk': 'v1.GCEPersistentDiskVolumeSource',
-        'fc': 'v1.FCVolumeSource',
-        'cephfs': 'v1.CephFSVolumeSource',
-        'access_modes': 'v1.PersistentVolumeAccessMode',
-        'claim_ref': 'v1.ObjectReference',
-        'glusterfs': 'v1.GlusterfsVolumeSource',
         'vsphere_volume': 'v1.VsphereVirtualDiskVolumeSource',
     }
 
     __required__ = set()
 
-    flocker = None # v1.FlockerVolumeSource
-    flex_volume = None # v1.FlexVolumeSource
+    access_modes = None # array
     aws_elastic_block_store = None # v1.AWSElasticBlockStoreVolumeSource
+    azure_file = None # v1.AzureFileVolumeSource
     capacity = None # object
+    cephfs = None # v1.CephFSVolumeSource
+    cinder = None # v1.CinderVolumeSource
+    claim_ref = None # v1.ObjectReference
+    fc = None # v1.FCVolumeSource
+    flex_volume = None # v1.FlexVolumeSource
+    flocker = None # v1.FlockerVolumeSource
+    gce_persistent_disk = None # v1.GCEPersistentDiskVolumeSource
+    glusterfs = None # v1.GlusterfsVolumeSource
     host_path = None # v1.HostPathVolumeSource
     iscsi = None # v1.ISCSIVolumeSource
-    cinder = None # v1.CinderVolumeSource
     nfs = None # v1.NFSVolumeSource
-    azure_file = None # v1.AzureFileVolumeSource
-    rbd = None # v1.RBDVolumeSource
-    gce_persistent_disk = None # v1.GCEPersistentDiskVolumeSource
-    fc = None # v1.FCVolumeSource
     persistent_volume_reclaim_policy = None # string
-    cephfs = None # v1.CephFSVolumeSource
-    access_modes = None # array
-    claim_ref = None # v1.ObjectReference
-    glusterfs = None # v1.GlusterfsVolumeSource
+    rbd = None # v1.RBDVolumeSource
     vsphere_volume = None # v1.VsphereVirtualDiskVolumeSource
 
     def __init__(self, **_kwargs_):
@@ -3366,8 +3366,8 @@ class v1_PersistentVolumeStatus(Resource):
     __kind__ = 'v1.PersistentVolumeStatus'
 
     __fields__ = {
-        'phase': 'phase',
         'message': 'message',
+        'phase': 'phase',
         'reason': 'reason',
     }
 
@@ -3376,8 +3376,8 @@ class v1_PersistentVolumeStatus(Resource):
 
     __required__ = set()
 
-    phase = None # string
     message = None # string
+    phase = None # string
     reason = None # string
 
     def __init__(self, **_kwargs_):
@@ -3393,11 +3393,11 @@ class v1_Pod(Resource):
     __kind__ = 'v1.Pod'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -3408,11 +3408,11 @@ class v1_Pod(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.PodSpec
     status = None # v1.PodStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -3428,12 +3428,12 @@ class v1_PodCondition(Resource):
     __kind__ = 'v1.PodCondition'
 
     __fields__ = {
-        'last_transition_time': 'lastTransitionTime',
-        'reason': 'reason',
-        'type': 'type',
         'last_probe_time': 'lastProbeTime',
+        'last_transition_time': 'lastTransitionTime',
         'message': 'message',
+        'reason': 'reason',
         'status': 'status',
+        'type': 'type',
     }
 
     __types__ = {
@@ -3444,12 +3444,12 @@ class v1_PodCondition(Resource):
         'type',
     ])
 
-    last_transition_time = None # string
-    reason = None # string
-    type = None # string (required)
     last_probe_time = None # string
+    last_transition_time = None # string
     message = None # string
+    reason = None # string
     status = None # string (required)
+    type = None # string (required)
 
     def __init__(self, *, status, type, **_kwargs_):
 
@@ -3466,10 +3466,10 @@ class v1_PodList(Resource):
     __kind__ = 'v1.PodList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -3481,10 +3481,10 @@ class v1_PodList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -3506,10 +3506,10 @@ class v1_PodSecurityContext(Resource):
     __kind__ = 'v1.PodSecurityContext'
 
     __fields__ = {
-        'run_as_user': 'runAsUser',
-        'se_linux_options': 'seLinuxOptions',
         'fs_group': 'fsGroup',
         'run_as_non_root': 'runAsNonRoot',
+        'run_as_user': 'runAsUser',
+        'se_linux_options': 'seLinuxOptions',
         'supplemental_groups': 'supplementalGroups',
     }
 
@@ -3519,10 +3519,10 @@ class v1_PodSecurityContext(Resource):
 
     __required__ = set()
 
-    run_as_user = None # integer
-    se_linux_options = None # v1.SELinuxOptions
     fs_group = None # integer
     run_as_non_root = None # boolean
+    run_as_user = None # integer
+    se_linux_options = None # v1.SELinuxOptions
     supplemental_groups = None # array
 
     def __init__(self, **_kwargs_):
@@ -3538,54 +3538,54 @@ class v1_PodSpec(Resource):
     __kind__ = 'v1.PodSpec'
 
     __fields__ = {
-        'service_account': 'serviceAccount',
         'active_deadline_seconds': 'activeDeadlineSeconds',
-        'node_name': 'nodeName',
-        'subdomain': 'subdomain',
-        'host_pid': 'hostPID',
         'containers': 'containers',
-        'image_pull_secrets': 'imagePullSecrets',
-        'node_selector': 'nodeSelector',
         'dns_policy': 'dnsPolicy',
-        'service_account_name': 'serviceAccountName',
-        'security_context': 'securityContext',
-        'host_ipc': 'hostIPC',
         'host': 'host',
+        'host_ipc': 'hostIPC',
         'host_network': 'hostNetwork',
-        'restart_policy': 'restartPolicy',
-        'termination_grace_period_seconds': 'terminationGracePeriodSeconds',
+        'host_pid': 'hostPID',
         'hostname': 'hostname',
+        'image_pull_secrets': 'imagePullSecrets',
+        'node_name': 'nodeName',
+        'node_selector': 'nodeSelector',
+        'restart_policy': 'restartPolicy',
+        'security_context': 'securityContext',
+        'service_account': 'serviceAccount',
+        'service_account_name': 'serviceAccountName',
+        'subdomain': 'subdomain',
+        'termination_grace_period_seconds': 'terminationGracePeriodSeconds',
         'volumes': 'volumes',
     }
 
     __types__ = {
-        'image_pull_secrets': 'v1.LocalObjectReference',
-        'volumes': 'v1.Volume',
-        'security_context': 'v1.PodSecurityContext',
         'containers': 'v1.Container',
+        'image_pull_secrets': 'v1.LocalObjectReference',
+        'security_context': 'v1.PodSecurityContext',
+        'volumes': 'v1.Volume',
     }
 
     __required__ = set([
         'containers',
     ])
 
-    service_account = None # string
     active_deadline_seconds = None # integer
-    node_name = None # string
-    subdomain = None # string
-    host_pid = None # boolean
     containers = None # array (required)
-    image_pull_secrets = None # array
-    node_selector = None # object
     dns_policy = None # string
-    service_account_name = None # string
-    security_context = None # v1.PodSecurityContext
-    host_ipc = None # boolean
     host = None # string
+    host_ipc = None # boolean
     host_network = None # boolean
-    restart_policy = None # string
-    termination_grace_period_seconds = None # integer
+    host_pid = None # boolean
     hostname = None # string
+    image_pull_secrets = None # array
+    node_name = None # string
+    node_selector = None # object
+    restart_policy = None # string
+    security_context = None # v1.PodSecurityContext
+    service_account = None # string
+    service_account_name = None # string
+    subdomain = None # string
+    termination_grace_period_seconds = None # integer
     volumes = None # array
 
     def __init__(self, *, containers, **_kwargs_):
@@ -3605,13 +3605,13 @@ class v1_PodStatus(Resource):
     __kind__ = 'v1.PodStatus'
 
     __fields__ = {
-        'message': 'message',
-        'pod_ip': 'podIP',
-        'reason': 'reason',
         'conditions': 'conditions',
-        'phase': 'phase',
         'container_statuses': 'containerStatuses',
         'host_ip': 'hostIP',
+        'message': 'message',
+        'phase': 'phase',
+        'pod_ip': 'podIP',
+        'reason': 'reason',
         'start_time': 'startTime',
     }
 
@@ -3622,13 +3622,13 @@ class v1_PodStatus(Resource):
 
     __required__ = set()
 
-    message = None # string
-    pod_ip = None # string
-    reason = None # string
     conditions = None # array
-    phase = None # string
     container_statuses = None # array
     host_ip = None # string
+    message = None # string
+    phase = None # string
+    pod_ip = None # string
+    reason = None # string
     start_time = None # string
 
     def __init__(self, **_kwargs_):
@@ -3646,10 +3646,10 @@ class v1_PodTemplate(Resource):
     __kind__ = 'v1.PodTemplate'
 
     __fields__ = {
-        'template': 'template',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'template': 'template',
     }
 
     __types__ = {
@@ -3659,10 +3659,10 @@ class v1_PodTemplate(Resource):
 
     __required__ = set()
 
-    template = None # v1.PodTemplateSpec
-    metadata = None # v1.ObjectMeta
     api_version = None # string
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    template = None # v1.PodTemplateSpec
 
     def __init__(self, **_kwargs_):
 
@@ -3678,10 +3678,10 @@ class v1_PodTemplateList(Resource):
     __kind__ = 'v1.PodTemplateList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -3693,10 +3693,10 @@ class v1_PodTemplateList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -3766,32 +3766,32 @@ class v1_Probe(Resource):
     __kind__ = 'v1.Probe'
 
     __fields__ = {
-        'failure_threshold': 'failureThreshold',
         'exec': 'exec',
+        'failure_threshold': 'failureThreshold',
+        'http_get': 'httpGet',
+        'initial_delay_seconds': 'initialDelaySeconds',
+        'period_seconds': 'periodSeconds',
+        'success_threshold': 'successThreshold',
         'tcp_socket': 'tcpSocket',
         'timeout_seconds': 'timeoutSeconds',
-        'http_get': 'httpGet',
-        'period_seconds': 'periodSeconds',
-        'initial_delay_seconds': 'initialDelaySeconds',
-        'success_threshold': 'successThreshold',
     }
 
     __types__ = {
+        'exec': 'v1.ExecAction',
         'http_get': 'v1.HTTPGetAction',
         'tcp_socket': 'v1.TCPSocketAction',
-        'exec': 'v1.ExecAction',
     }
 
     __required__ = set()
 
-    failure_threshold = None # integer
     exec = None # v1.ExecAction
+    failure_threshold = None # integer
+    http_get = None # v1.HTTPGetAction
+    initial_delay_seconds = None # integer
+    period_seconds = None # integer
+    success_threshold = None # integer
     tcp_socket = None # v1.TCPSocketAction
     timeout_seconds = None # integer
-    http_get = None # v1.HTTPGetAction
-    period_seconds = None # integer
-    initial_delay_seconds = None # integer
-    success_threshold = None # integer
 
     def __init__(self, **_kwargs_):
 
@@ -3807,14 +3807,14 @@ class v1_RBDVolumeSource(Resource):
     __kind__ = 'v1.RBDVolumeSource'
 
     __fields__ = {
-        'monitors': 'monitors',
-        'pool': 'pool',
-        'user': 'user',
-        'keyring': 'keyring',
-        'secret_ref': 'secretRef',
-        'read_only': 'readOnly',
         'fs_type': 'fsType',
         'image': 'image',
+        'keyring': 'keyring',
+        'monitors': 'monitors',
+        'pool': 'pool',
+        'read_only': 'readOnly',
+        'secret_ref': 'secretRef',
+        'user': 'user',
     }
 
     __types__ = {
@@ -3826,14 +3826,14 @@ class v1_RBDVolumeSource(Resource):
         'monitors',
     ])
 
-    monitors = None # array (required)
-    pool = None # string
-    user = None # string
-    keyring = None # string
-    secret_ref = None # v1.LocalObjectReference
-    read_only = None # boolean
     fs_type = None # string
     image = None # string (required)
+    keyring = None # string
+    monitors = None # array (required)
+    pool = None # string
+    read_only = None # boolean
+    secret_ref = None # v1.LocalObjectReference
+    user = None # string
 
     def __init__(self, *, image, monitors, **_kwargs_):
 
@@ -3851,11 +3851,11 @@ class v1_ReplicationController(Resource):
     __kind__ = 'v1.ReplicationController'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -3866,11 +3866,11 @@ class v1_ReplicationController(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.ReplicationControllerSpec
     status = None # v1.ReplicationControllerStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -3886,10 +3886,10 @@ class v1_ReplicationControllerList(Resource):
     __kind__ = 'v1.ReplicationControllerList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -3901,10 +3901,10 @@ class v1_ReplicationControllerList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -3923,9 +3923,9 @@ class v1_ReplicationControllerSpec(Resource):
     __kind__ = 'v1.ReplicationControllerSpec'
 
     __fields__ = {
+        'replicas': 'replicas',
         'selector': 'selector',
         'template': 'template',
-        'replicas': 'replicas',
     }
 
     __types__ = {
@@ -3934,9 +3934,9 @@ class v1_ReplicationControllerSpec(Resource):
 
     __required__ = set()
 
+    replicas = None # integer
     selector = None # object
     template = None # v1.PodTemplateSpec
-    replicas = None # integer
 
     def __init__(self, **_kwargs_):
 
@@ -3951,9 +3951,9 @@ class v1_ReplicationControllerStatus(Resource):
     __kind__ = 'v1.ReplicationControllerStatus'
 
     __fields__ = {
+        'fully_labeled_replicas': 'fullyLabeledReplicas',
         'observed_generation': 'observedGeneration',
         'replicas': 'replicas',
-        'fully_labeled_replicas': 'fullyLabeledReplicas',
     }
 
     __types__ = {
@@ -3963,9 +3963,9 @@ class v1_ReplicationControllerStatus(Resource):
         'replicas',
     ])
 
+    fully_labeled_replicas = None # integer
     observed_generation = None # integer
     replicas = None # integer (required)
-    fully_labeled_replicas = None # integer
 
     def __init__(self, *, replicas, **_kwargs_):
 
@@ -3982,9 +3982,9 @@ class v1_ResourceFieldSelector(Resource):
     __kind__ = 'v1.ResourceFieldSelector'
 
     __fields__ = {
-        'resource': 'resource',
         'container_name': 'containerName',
         'divisor': 'divisor',
+        'resource': 'resource',
     }
 
     __types__ = {
@@ -3994,9 +3994,9 @@ class v1_ResourceFieldSelector(Resource):
         'resource',
     ])
 
-    resource = None # string (required)
     container_name = None # string
     divisor = None # string
+    resource = None # string (required)
 
     def __init__(self, *, resource, **_kwargs_):
 
@@ -4012,11 +4012,11 @@ class v1_ResourceQuota(Resource):
     __kind__ = 'v1.ResourceQuota'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -4027,11 +4027,11 @@ class v1_ResourceQuota(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.ResourceQuotaSpec
     status = None # v1.ResourceQuotaStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -4047,10 +4047,10 @@ class v1_ResourceQuotaList(Resource):
     __kind__ = 'v1.ResourceQuotaList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -4062,10 +4062,10 @@ class v1_ResourceQuotaList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -4177,10 +4177,10 @@ class v1_RunAsUserStrategyOptions(Resource):
     __kind__ = 'v1.RunAsUserStrategyOptions'
 
     __fields__ = {
-        'uid_range_min': 'uidRangeMin',
-        'uid': 'uid',
         'type': 'type',
+        'uid': 'uid',
         'uid_range_max': 'uidRangeMax',
+        'uid_range_min': 'uidRangeMin',
     }
 
     __types__ = {
@@ -4188,10 +4188,10 @@ class v1_RunAsUserStrategyOptions(Resource):
 
     __required__ = set()
 
-    uid_range_min = None # integer
-    uid = None # integer
     type = None # string
+    uid = None # integer
     uid_range_max = None # integer
+    uid_range_min = None # integer
 
     def __init__(self, **_kwargs_):
 
@@ -4232,9 +4232,9 @@ class v1_SELinuxOptions(Resource):
 
     __fields__ = {
         'level': 'level',
-        'user': 'user',
         'role': 'role',
         'type': 'type',
+        'user': 'user',
     }
 
     __types__ = {
@@ -4243,9 +4243,9 @@ class v1_SELinuxOptions(Resource):
     __required__ = set()
 
     level = None # string
-    user = None # string
     role = None # string
     type = None # string
+    user = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -4259,11 +4259,11 @@ class v1_Scale(Resource):
     __kind__ = 'v1.Scale'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -4274,11 +4274,11 @@ class v1_Scale(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.ScaleSpec
     status = None # v1.ScaleStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -4316,8 +4316,8 @@ class v1_ScaleStatus(Resource):
     __kind__ = 'v1.ScaleStatus'
 
     __fields__ = {
-        'selector': 'selector',
         'replicas': 'replicas',
+        'selector': 'selector',
     }
 
     __types__ = {
@@ -4327,8 +4327,8 @@ class v1_ScaleStatus(Resource):
         'replicas',
     ])
 
-    selector = None # string
     replicas = None # integer (required)
+    selector = None # string
 
     def __init__(self, *, replicas, **_kwargs_):
 
@@ -4347,10 +4347,10 @@ class v1_Secret(Resource):
     __fields__ = {
         'api_version': 'apiVersion',
         'data': 'data',
+        'kind': 'kind',
         'metadata': 'metadata',
         'string_data': 'stringData',
         'type': 'type',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -4361,10 +4361,10 @@ class v1_Secret(Resource):
 
     api_version = None # string
     data = None # object
+    kind = None # string
     metadata = None # v1.ObjectMeta
     string_data = None # object
     type = None # string
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -4380,8 +4380,8 @@ class v1_SecretKeySelector(Resource):
     __kind__ = 'v1.SecretKeySelector'
 
     __fields__ = {
-        'name': 'name',
         'key': 'key',
+        'name': 'name',
     }
 
     __types__ = {
@@ -4391,8 +4391,8 @@ class v1_SecretKeySelector(Resource):
         'key',
     ])
 
-    name = None # string
     key = None # string (required)
+    name = None # string
 
     def __init__(self, *, key, **_kwargs_):
 
@@ -4408,10 +4408,10 @@ class v1_SecretList(Resource):
     __kind__ = 'v1.SecretList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -4423,10 +4423,10 @@ class v1_SecretList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -4476,27 +4476,27 @@ class v1_SecurityContext(Resource):
     __kind__ = 'v1.SecurityContext'
 
     __fields__ = {
+        'capabilities': 'capabilities',
+        'privileged': 'privileged',
+        'read_only_root_filesystem': 'readOnlyRootFilesystem',
+        'run_as_non_root': 'runAsNonRoot',
         'run_as_user': 'runAsUser',
         'se_linux_options': 'seLinuxOptions',
-        'privileged': 'privileged',
-        'run_as_non_root': 'runAsNonRoot',
-        'capabilities': 'capabilities',
-        'read_only_root_filesystem': 'readOnlyRootFilesystem',
     }
 
     __types__ = {
-        'se_linux_options': 'v1.SELinuxOptions',
         'capabilities': 'v1.Capabilities',
+        'se_linux_options': 'v1.SELinuxOptions',
     }
 
     __required__ = set()
 
+    capabilities = None # v1.Capabilities
+    privileged = None # boolean
+    read_only_root_filesystem = None # boolean
+    run_as_non_root = None # boolean
     run_as_user = None # integer
     se_linux_options = None # v1.SELinuxOptions
-    privileged = None # boolean
-    run_as_non_root = None # boolean
-    capabilities = None # v1.Capabilities
-    read_only_root_filesystem = None # boolean
 
     def __init__(self, **_kwargs_):
 
@@ -4512,37 +4512,37 @@ class v1_SecurityContextConstraints(Resource):
 
     __fields__ = {
         'allow_host_dir_volume_plugin': 'allowHostDirVolumePlugin',
-        'required_drop_capabilities': 'requiredDropCapabilities',
-        'allow_host_network': 'allowHostNetwork',
-        'allowed_capabilities': 'allowedCapabilities',
         'allow_host_ipc': 'allowHostIPC',
-        'fs_group': 'fsGroup',
-        'default_add_capabilities': 'defaultAddCapabilities',
-        'allow_host_ports': 'allowHostPorts',
+        'allow_host_network': 'allowHostNetwork',
         'allow_host_pid': 'allowHostPID',
-        'kind': 'kind',
-        'se_linux_context': 'seLinuxContext',
-        'metadata': 'metadata',
-        'users': 'users',
+        'allow_host_ports': 'allowHostPorts',
         'allow_privileged_container': 'allowPrivilegedContainer',
-        'volumes': 'volumes',
-        'run_as_user': 'runAsUser',
+        'allowed_capabilities': 'allowedCapabilities',
         'api_version': 'apiVersion',
-        'supplemental_groups': 'supplementalGroups',
-        'read_only_root_filesystem': 'readOnlyRootFilesystem',
+        'default_add_capabilities': 'defaultAddCapabilities',
+        'fs_group': 'fsGroup',
         'groups': 'groups',
-        'seccomp_profiles': 'seccompProfiles',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'priority': 'priority',
+        'read_only_root_filesystem': 'readOnlyRootFilesystem',
+        'required_drop_capabilities': 'requiredDropCapabilities',
+        'run_as_user': 'runAsUser',
+        'se_linux_context': 'seLinuxContext',
+        'seccomp_profiles': 'seccompProfiles',
+        'supplemental_groups': 'supplementalGroups',
+        'users': 'users',
+        'volumes': 'volumes',
     }
 
     __types__ = {
-        'se_linux_context': 'v1.SELinuxContextStrategyOptions',
-        'run_as_user': 'v1.RunAsUserStrategyOptions',
-        'required_drop_capabilities': 'v1.Capability',
-        'fs_group': 'v1.FSGroupStrategyOptions',
-        'default_add_capabilities': 'v1.Capability',
-        'metadata': 'v1.ObjectMeta',
         'allowed_capabilities': 'v1.Capability',
+        'default_add_capabilities': 'v1.Capability',
+        'fs_group': 'v1.FSGroupStrategyOptions',
+        'metadata': 'v1.ObjectMeta',
+        'required_drop_capabilities': 'v1.Capability',
+        'run_as_user': 'v1.RunAsUserStrategyOptions',
+        'se_linux_context': 'v1.SELinuxContextStrategyOptions',
         'supplemental_groups': 'v1.SupplementalGroupsStrategyOptions',
         'volumes': 'v1.FSType',
     }
@@ -4563,32 +4563,32 @@ class v1_SecurityContextConstraints(Resource):
     ])
 
     allow_host_dir_volume_plugin = None # boolean (required)
-    required_drop_capabilities = None # array (required)
-    allow_host_network = None # boolean (required)
-    allowed_capabilities = None # array (required)
     allow_host_ipc = None # boolean (required)
-    fs_group = None # v1.FSGroupStrategyOptions
-    default_add_capabilities = None # array (required)
-    allow_host_ports = None # boolean (required)
+    allow_host_network = None # boolean (required)
     allow_host_pid = None # boolean (required)
-    kind = None # string
-    se_linux_context = None # v1.SELinuxContextStrategyOptions
-    metadata = None # v1.ObjectMeta
-    users = None # array
+    allow_host_ports = None # boolean (required)
     allow_privileged_container = None # boolean (required)
-    volumes = None # array (required)
-    run_as_user = None # v1.RunAsUserStrategyOptions
+    allowed_capabilities = None # array (required)
     api_version = None # string
-    supplemental_groups = None # v1.SupplementalGroupsStrategyOptions
-    read_only_root_filesystem = None # boolean (required)
+    default_add_capabilities = None # array (required)
+    fs_group = None # v1.FSGroupStrategyOptions
     groups = None # array
-    seccomp_profiles = None # array
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     priority = None # integer (required)
+    read_only_root_filesystem = None # boolean (required)
+    required_drop_capabilities = None # array (required)
+    run_as_user = None # v1.RunAsUserStrategyOptions
+    se_linux_context = None # v1.SELinuxContextStrategyOptions
+    seccomp_profiles = None # array
+    supplemental_groups = None # v1.SupplementalGroupsStrategyOptions
+    users = None # array
+    volumes = None # array (required)
 
     def __init__(self, *, allow_host_dir_volume_plugin, allow_host_ipc, allow_host_network, allow_host_pid, allow_host_ports, allow_privileged_container, allowed_capabilities, default_add_capabilities, priority, read_only_root_filesystem, required_drop_capabilities, volumes, **_kwargs_):
-        self.users = []
         self.groups = []
         self.seccomp_profiles = []
+        self.users = []
 
         self.kind = 'FSType'
 
@@ -4616,10 +4616,10 @@ class v1_SecurityContextConstraintsList(Resource):
     __kind__ = 'v1.SecurityContextConstraintsList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -4631,10 +4631,10 @@ class v1_SecurityContextConstraintsList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -4655,11 +4655,11 @@ class v1_Service(Resource):
     __kind__ = 'v1.Service'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -4670,11 +4670,11 @@ class v1_Service(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.ServiceSpec
     status = None # v1.ServiceStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -4692,32 +4692,32 @@ class v1_ServiceAccount(Resource):
     __kind__ = 'v1.ServiceAccount'
 
     __fields__ = {
-        'image_pull_secrets': 'imagePullSecrets',
-        'secrets': 'secrets',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'image_pull_secrets': 'imagePullSecrets',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'secrets': 'secrets',
     }
 
     __types__ = {
         'image_pull_secrets': 'v1.LocalObjectReference',
-        'secrets': 'v1.ObjectReference',
         'metadata': 'v1.ObjectMeta',
+        'secrets': 'v1.ObjectReference',
     }
 
     __required__ = set()
 
-    image_pull_secrets = None # array
-    secrets = None # array
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    image_pull_secrets = None # array
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    secrets = None # array
 
     def __init__(self, **_kwargs_):
         self.image_pull_secrets = []
         self.secrets = []
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ObjectReference'
 
         super().__init__(**_kwargs_)
 
@@ -4729,10 +4729,10 @@ class v1_ServiceAccountList(Resource):
     __kind__ = 'v1.ServiceAccountList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -4744,10 +4744,10 @@ class v1_ServiceAccountList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -4765,10 +4765,10 @@ class v1_ServiceList(Resource):
     __kind__ = 'v1.ServiceList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -4780,10 +4780,10 @@ class v1_ServiceList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -4802,9 +4802,9 @@ class v1_ServicePort(Resource):
 
     __fields__ = {
         'name': 'name',
-        'protocol': 'protocol',
-        'port': 'port',
         'node_port': 'nodePort',
+        'port': 'port',
+        'protocol': 'protocol',
         'target_port': 'targetPort',
     }
 
@@ -4816,9 +4816,9 @@ class v1_ServicePort(Resource):
     ])
 
     name = None # string
-    protocol = None # string
-    port = None # integer (required)
     node_port = None # integer
+    port = None # integer (required)
+    protocol = None # string
     target_port = None # string
 
     def __init__(self, *, port, **_kwargs_):
@@ -4836,15 +4836,15 @@ class v1_ServiceSpec(Resource):
 
     __fields__ = {
         'cluster_ip': 'clusterIP',
-        'session_affinity': 'sessionAffinity',
-        'ports': 'ports',
-        'type': 'type',
-        'external_i_ps': 'externalIPs',
         'deprecated_public_i_ps': 'deprecatedPublicIPs',
-        'selector': 'selector',
-        'portal_ip': 'portalIP',
-        'load_balancer_source_ranges': 'loadBalancerSourceRanges',
+        'external_i_ps': 'externalIPs',
         'load_balancer_ip': 'loadBalancerIP',
+        'load_balancer_source_ranges': 'loadBalancerSourceRanges',
+        'portal_ip': 'portalIP',
+        'ports': 'ports',
+        'selector': 'selector',
+        'session_affinity': 'sessionAffinity',
+        'type': 'type',
     }
 
     __types__ = {
@@ -4856,19 +4856,19 @@ class v1_ServiceSpec(Resource):
     ])
 
     cluster_ip = None # string
-    session_affinity = None # string
-    ports = None # array (required)
-    type = None # string
-    external_i_ps = None # array
     deprecated_public_i_ps = None # array
-    selector = None # object
-    portal_ip = None # string
-    load_balancer_source_ranges = None # array
+    external_i_ps = None # array
     load_balancer_ip = None # string
+    load_balancer_source_ranges = None # array
+    portal_ip = None # string
+    ports = None # array (required)
+    selector = None # object
+    session_affinity = None # string
+    type = None # string
 
     def __init__(self, *, ports, **_kwargs_):
-        self.external_i_ps = []
         self.deprecated_public_i_ps = []
+        self.external_i_ps = []
         self.load_balancer_source_ranges = []
 
         self.ports = ports
@@ -4907,8 +4907,8 @@ class v1_SupplementalGroupsStrategyOptions(Resource):
     __kind__ = 'v1.SupplementalGroupsStrategyOptions'
 
     __fields__ = {
-        'type': 'type',
         'ranges': 'ranges',
+        'type': 'type',
     }
 
     __types__ = {
@@ -4917,8 +4917,8 @@ class v1_SupplementalGroupsStrategyOptions(Resource):
 
     __required__ = set()
 
-    type = None # string
     ranges = None # array
+    type = None # string
 
     def __init__(self, **_kwargs_):
         self.ranges = []
@@ -4978,80 +4978,80 @@ class v1_Volume(Resource):
     __kind__ = 'v1.Volume'
 
     __fields__ = {
+        'aws_elastic_block_store': 'awsElasticBlockStore',
+        'azure_file': 'azureFile',
+        'cephfs': 'cephfs',
+        'cinder': 'cinder',
+        'config_map': 'configMap',
+        'downward_api': 'downwardAPI',
+        'empty_dir': 'emptyDir',
+        'fc': 'fc',
         'flex_volume': 'flexVolume',
         'flocker': 'flocker',
-        'aws_elastic_block_store': 'awsElasticBlockStore',
-        'empty_dir': 'emptyDir',
+        'gce_persistent_disk': 'gcePersistentDisk',
+        'git_repo': 'gitRepo',
+        'glusterfs': 'glusterfs',
         'host_path': 'hostPath',
         'iscsi': 'iscsi',
-        'cinder': 'cinder',
-        'fc': 'fc',
-        'gce_persistent_disk': 'gcePersistentDisk',
-        'name': 'name',
-        'azure_file': 'azureFile',
-        'nfs': 'nfs',
         'metadata': 'metadata',
+        'name': 'name',
+        'nfs': 'nfs',
         'persistent_volume_claim': 'persistentVolumeClaim',
-        'git_repo': 'gitRepo',
         'rbd': 'rbd',
-        'glusterfs': 'glusterfs',
-        'config_map': 'configMap',
-        'cephfs': 'cephfs',
-        'downward_api': 'downwardAPI',
-        'vsphere_volume': 'vsphereVolume',
         'secret': 'secret',
+        'vsphere_volume': 'vsphereVolume',
     }
 
     __types__ = {
+        'aws_elastic_block_store': 'v1.AWSElasticBlockStoreVolumeSource',
+        'azure_file': 'v1.AzureFileVolumeSource',
+        'cephfs': 'v1.CephFSVolumeSource',
+        'cinder': 'v1.CinderVolumeSource',
+        'config_map': 'v1.ConfigMapVolumeSource',
+        'downward_api': 'v1.DownwardAPIVolumeSource',
+        'empty_dir': 'v1.EmptyDirVolumeSource',
+        'fc': 'v1.FCVolumeSource',
         'flex_volume': 'v1.FlexVolumeSource',
         'flocker': 'v1.FlockerVolumeSource',
-        'aws_elastic_block_store': 'v1.AWSElasticBlockStoreVolumeSource',
-        'empty_dir': 'v1.EmptyDirVolumeSource',
-        'host_path': 'v1.HostPathVolumeSource',
-        'iscsi': 'v1.ISCSIVolumeSource',
-        'cinder': 'v1.CinderVolumeSource',
-        'nfs': 'v1.NFSVolumeSource',
-        'metadata': 'v1.DeprecatedDownwardAPIVolumeSource',
-        'azure_file': 'v1.AzureFileVolumeSource',
-        'persistent_volume_claim': 'v1.PersistentVolumeClaimVolumeSource',
-        'rbd': 'v1.RBDVolumeSource',
         'gce_persistent_disk': 'v1.GCEPersistentDiskVolumeSource',
-        'config_map': 'v1.ConfigMapVolumeSource',
-        'fc': 'v1.FCVolumeSource',
-        'cephfs': 'v1.CephFSVolumeSource',
         'git_repo': 'v1.GitRepoVolumeSource',
         'glusterfs': 'v1.GlusterfsVolumeSource',
-        'vsphere_volume': 'v1.VsphereVirtualDiskVolumeSource',
-        'downward_api': 'v1.DownwardAPIVolumeSource',
+        'host_path': 'v1.HostPathVolumeSource',
+        'iscsi': 'v1.ISCSIVolumeSource',
+        'metadata': 'v1.DeprecatedDownwardAPIVolumeSource',
+        'nfs': 'v1.NFSVolumeSource',
+        'persistent_volume_claim': 'v1.PersistentVolumeClaimVolumeSource',
+        'rbd': 'v1.RBDVolumeSource',
         'secret': 'v1.SecretVolumeSource',
+        'vsphere_volume': 'v1.VsphereVirtualDiskVolumeSource',
     }
 
     __required__ = set([
         'name',
     ])
 
+    aws_elastic_block_store = None # v1.AWSElasticBlockStoreVolumeSource
+    azure_file = None # v1.AzureFileVolumeSource
+    cephfs = None # v1.CephFSVolumeSource
+    cinder = None # v1.CinderVolumeSource
+    config_map = None # v1.ConfigMapVolumeSource
+    downward_api = None # v1.DownwardAPIVolumeSource
+    empty_dir = None # v1.EmptyDirVolumeSource
+    fc = None # v1.FCVolumeSource
     flex_volume = None # v1.FlexVolumeSource
     flocker = None # v1.FlockerVolumeSource
-    aws_elastic_block_store = None # v1.AWSElasticBlockStoreVolumeSource
-    empty_dir = None # v1.EmptyDirVolumeSource
+    gce_persistent_disk = None # v1.GCEPersistentDiskVolumeSource
+    git_repo = None # v1.GitRepoVolumeSource
+    glusterfs = None # v1.GlusterfsVolumeSource
     host_path = None # v1.HostPathVolumeSource
     iscsi = None # v1.ISCSIVolumeSource
-    cinder = None # v1.CinderVolumeSource
-    fc = None # v1.FCVolumeSource
-    gce_persistent_disk = None # v1.GCEPersistentDiskVolumeSource
-    name = None # string (required)
-    azure_file = None # v1.AzureFileVolumeSource
-    nfs = None # v1.NFSVolumeSource
     metadata = None # v1.DeprecatedDownwardAPIVolumeSource
+    name = None # string (required)
+    nfs = None # v1.NFSVolumeSource
     persistent_volume_claim = None # v1.PersistentVolumeClaimVolumeSource
-    git_repo = None # v1.GitRepoVolumeSource
     rbd = None # v1.RBDVolumeSource
-    glusterfs = None # v1.GlusterfsVolumeSource
-    config_map = None # v1.ConfigMapVolumeSource
-    cephfs = None # v1.CephFSVolumeSource
-    downward_api = None # v1.DownwardAPIVolumeSource
-    vsphere_volume = None # v1.VsphereVirtualDiskVolumeSource
     secret = None # v1.SecretVolumeSource
+    vsphere_volume = None # v1.VsphereVirtualDiskVolumeSource
 
     def __init__(self, *, name, **_kwargs_):
 
@@ -5067,8 +5067,8 @@ class v1_VolumeMount(Resource):
     __kind__ = 'v1.VolumeMount'
 
     __fields__ = {
-        'name': 'name',
         'mount_path': 'mountPath',
+        'name': 'name',
         'read_only': 'readOnly',
         'sub_path': 'subPath',
     }
@@ -5081,8 +5081,8 @@ class v1_VolumeMount(Resource):
         'name',
     ])
 
-    name = None # string (required)
     mount_path = None # string (required)
+    name = None # string (required)
     read_only = None # boolean
     sub_path = None # string
 
@@ -5101,8 +5101,8 @@ class v1_VsphereVirtualDiskVolumeSource(Resource):
     __kind__ = 'v1.VsphereVirtualDiskVolumeSource'
 
     __fields__ = {
-        'volume_path': 'volumePath',
         'fs_type': 'fsType',
+        'volume_path': 'volumePath',
     }
 
     __types__ = {
@@ -5112,8 +5112,8 @@ class v1_VsphereVirtualDiskVolumeSource(Resource):
         'volume_path',
     ])
 
-    volume_path = None # string (required)
     fs_type = None # string
+    volume_path = None # string (required)
 
     def __init__(self, *, volume_path, **_kwargs_):
 
@@ -5210,9 +5210,9 @@ class unversioned_APIResource(Resource):
     __kind__ = 'unversioned.APIResource'
 
     __fields__ = {
+        'kind': 'kind',
         'name': 'name',
         'namespaced': 'namespaced',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -5224,9 +5224,9 @@ class unversioned_APIResource(Resource):
         'namespaced',
     ])
 
+    kind = None # string (required)
     name = None # string (required)
     namespaced = None # boolean (required)
-    kind = None # string (required)
 
     def __init__(self, *, kind, name, namespaced, **_kwargs_):
 
@@ -5249,9 +5249,9 @@ class unversioned_APIResourceList(Resource):
 
     __fields__ = {
         'api_version': 'apiVersion',
-        'resources': 'resources',
         'group_version': 'groupVersion',
         'kind': 'kind',
+        'resources': 'resources',
     }
 
     __types__ = {
@@ -5264,9 +5264,9 @@ class unversioned_APIResourceList(Resource):
     ])
 
     api_version = None # string
-    resources = None # array (required)
     group_version = None # string (required)
     kind = None # string
+    resources = None # array (required)
 
     def __init__(self, *, group_version, resources, **_kwargs_):
 
@@ -5315,9 +5315,9 @@ class unversioned_LabelSelectorRequirement(Resource):
     __kind__ = 'unversioned.LabelSelectorRequirement'
 
     __fields__ = {
+        'key': 'key',
         'operator': 'operator',
         'values': 'values',
-        'key': 'key',
     }
 
     __types__ = {
@@ -5328,9 +5328,9 @@ class unversioned_LabelSelectorRequirement(Resource):
         'operator',
     ])
 
+    key = None # string (required)
     operator = None # string (required)
     values = None # array
-    key = None # string (required)
 
     def __init__(self, *, key, operator, **_kwargs_):
         self.values = []
@@ -5395,14 +5395,14 @@ class unversioned_Status(Resource):
     __kind__ = 'unversioned.Status'
 
     __fields__ = {
-        'details': 'details',
         'api_version': 'apiVersion',
-        'reason': 'reason',
-        'metadata': 'metadata',
-        'message': 'message',
-        'status': 'status',
         'code': 'code',
+        'details': 'details',
         'kind': 'kind',
+        'message': 'message',
+        'metadata': 'metadata',
+        'reason': 'reason',
+        'status': 'status',
     }
 
     __types__ = {
@@ -5412,14 +5412,14 @@ class unversioned_Status(Resource):
 
     __required__ = set()
 
-    details = None # unversioned.StatusDetails
     api_version = None # string
-    reason = None # string
-    metadata = None # unversioned.ListMeta
-    message = None # string
-    status = None # string
     code = None # integer
+    details = None # unversioned.StatusDetails
     kind = None # string
+    message = None # string
+    metadata = None # unversioned.ListMeta
+    reason = None # string
+    status = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -5437,8 +5437,8 @@ class unversioned_StatusCause(Resource):
 
     __fields__ = {
         'field': 'field',
-        'reason': 'reason',
         'message': 'message',
+        'reason': 'reason',
     }
 
     __types__ = {
@@ -5447,8 +5447,8 @@ class unversioned_StatusCause(Resource):
     __required__ = set()
 
     field = None # string
-    reason = None # string
     message = None # string
+    reason = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -5467,11 +5467,11 @@ class unversioned_StatusDetails(Resource):
     __kind__ = 'unversioned.StatusDetails'
 
     __fields__ = {
-        'name': 'name',
-        'retry_after_seconds': 'retryAfterSeconds',
         'causes': 'causes',
         'group': 'group',
         'kind': 'kind',
+        'name': 'name',
+        'retry_after_seconds': 'retryAfterSeconds',
     }
 
     __types__ = {
@@ -5480,11 +5480,11 @@ class unversioned_StatusDetails(Resource):
 
     __required__ = set()
 
-    name = None # string
-    retry_after_seconds = None # integer
     causes = None # array
     group = None # string
     kind = None # string
+    name = None # string
+    retry_after_seconds = None # integer
 
     def __init__(self, **_kwargs_):
         self.causes = []
@@ -5505,10 +5505,10 @@ class v1_AWSElasticBlockStoreVolumeSource(Resource):
     __kind__ = 'v1.AWSElasticBlockStoreVolumeSource'
 
     __fields__ = {
+        'fs_type': 'fsType',
+        'partition': 'partition',
         'read_only': 'readOnly',
         'volume_id': 'volumeID',
-        'partition': 'partition',
-        'fs_type': 'fsType',
     }
 
     __types__ = {
@@ -5518,10 +5518,10 @@ class v1_AWSElasticBlockStoreVolumeSource(Resource):
         'volume_id',
     ])
 
+    fs_type = None # string
+    partition = None # integer
     read_only = None # boolean
     volume_id = None # string (required)
-    partition = None # integer
-    fs_type = None # string
 
     def __init__(self, *, volume_id, **_kwargs_):
 
@@ -5540,11 +5540,11 @@ class v1_AppliedClusterResourceQuota(Resource):
     __kind__ = 'v1.AppliedClusterResourceQuota'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -5558,11 +5558,11 @@ class v1_AppliedClusterResourceQuota(Resource):
         'spec',
     ])
 
-    metadata = None # v1.ObjectMeta (required)
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta (required)
     spec = None # v1.ClusterResourceQuotaSpec (required)
     status = None # v1.ClusterResourceQuotaStatus
-    kind = None # string
 
     def __init__(self, *, metadata, spec, **_kwargs_):
 
@@ -5582,10 +5582,10 @@ class v1_AppliedClusterResourceQuotaList(Resource):
     __kind__ = 'v1.AppliedClusterResourceQuotaList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -5597,10 +5597,10 @@ class v1_AppliedClusterResourceQuotaList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -5619,9 +5619,9 @@ class v1_AzureFileVolumeSource(Resource):
     __kind__ = 'v1.AzureFileVolumeSource'
 
     __fields__ = {
-        'share_name': 'shareName',
         'read_only': 'readOnly',
         'secret_name': 'secretName',
+        'share_name': 'shareName',
     }
 
     __types__ = {
@@ -5632,9 +5632,9 @@ class v1_AzureFileVolumeSource(Resource):
         'share_name',
     ])
 
-    share_name = None # string (required)
     read_only = None # boolean
     secret_name = None # string (required)
+    share_name = None # string (required)
 
     def __init__(self, *, secret_name, share_name, **_kwargs_):
 
@@ -5677,11 +5677,11 @@ class v1_Build(Resource):
     __kind__ = 'v1.Build'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -5692,11 +5692,11 @@ class v1_Build(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.BuildSpec
     status = None # v1.BuildStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -5712,11 +5712,11 @@ class v1_BuildConfig(Resource):
     __kind__ = 'v1.BuildConfig'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -5730,11 +5730,11 @@ class v1_BuildConfig(Resource):
         'status',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.BuildConfigSpec (required)
     status = None # v1.BuildConfigStatus (required)
-    kind = None # string
 
     def __init__(self, *, spec, status, **_kwargs_):
 
@@ -5753,10 +5753,10 @@ class v1_BuildConfigList(Resource):
     __kind__ = 'v1.BuildConfigList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -5768,10 +5768,10 @@ class v1_BuildConfigList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -5789,26 +5789,26 @@ class v1_BuildConfigSpec(Resource):
     __kind__ = 'v1.BuildConfigSpec'
 
     __fields__ = {
+        'completion_deadline_seconds': 'completionDeadlineSeconds',
         'output': 'output',
-        'run_policy': 'runPolicy',
-        'strategy': 'strategy',
-        'triggers': 'triggers',
-        'service_account': 'serviceAccount',
         'post_commit': 'postCommit',
         'resources': 'resources',
-        'source': 'source',
-        'completion_deadline_seconds': 'completionDeadlineSeconds',
         'revision': 'revision',
+        'run_policy': 'runPolicy',
+        'service_account': 'serviceAccount',
+        'source': 'source',
+        'strategy': 'strategy',
+        'triggers': 'triggers',
     }
 
     __types__ = {
         'output': 'v1.BuildOutput',
-        'strategy': 'v1.BuildStrategy',
-        'triggers': 'v1.BuildTriggerPolicy',
+        'post_commit': 'v1.BuildPostCommitSpec',
         'resources': 'v1.ResourceRequirements',
         'revision': 'v1.SourceRevision',
         'source': 'v1.BuildSource',
-        'post_commit': 'v1.BuildPostCommitSpec',
+        'strategy': 'v1.BuildStrategy',
+        'triggers': 'v1.BuildTriggerPolicy',
     }
 
     __required__ = set([
@@ -5816,16 +5816,16 @@ class v1_BuildConfigSpec(Resource):
         'triggers',
     ])
 
+    completion_deadline_seconds = None # integer
     output = None # v1.BuildOutput
-    run_policy = None # string
-    strategy = None # v1.BuildStrategy (required)
-    triggers = None # array (required)
-    service_account = None # string
     post_commit = None # v1.BuildPostCommitSpec
     resources = None # v1.ResourceRequirements
-    source = None # v1.BuildSource
-    completion_deadline_seconds = None # integer
     revision = None # v1.SourceRevision
+    run_policy = None # string
+    service_account = None # string
+    source = None # v1.BuildSource
+    strategy = None # v1.BuildStrategy (required)
+    triggers = None # array (required)
 
     def __init__(self, *, strategy, triggers, **_kwargs_):
 
@@ -5868,10 +5868,10 @@ class v1_BuildList(Resource):
     __kind__ = 'v1.BuildList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -5883,10 +5883,10 @@ class v1_BuildList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -5932,19 +5932,19 @@ class v1_BuildOutput(Resource):
     __kind__ = 'v1.BuildOutput'
 
     __fields__ = {
-        'to': 'to',
         'push_secret': 'pushSecret',
+        'to': 'to',
     }
 
     __types__ = {
-        'to': 'v1.ObjectReference',
         'push_secret': 'v1.LocalObjectReference',
+        'to': 'v1.ObjectReference',
     }
 
     __required__ = set()
 
-    to = None # v1.ObjectReference
     push_secret = None # v1.LocalObjectReference
+    to = None # v1.ObjectReference
 
     def __init__(self, **_kwargs_):
 
@@ -5991,8 +5991,8 @@ class v1_BuildPostCommitSpec(Resource):
     __kind__ = 'v1.BuildPostCommitSpec'
 
     __fields__ = {
-        'command': 'command',
         'args': 'args',
+        'command': 'command',
         'script': 'script',
     }
 
@@ -6001,13 +6001,13 @@ class v1_BuildPostCommitSpec(Resource):
 
     __required__ = set()
 
-    command = None # array
     args = None # array
+    command = None # array
     script = None # string
 
     def __init__(self, **_kwargs_):
-        self.command = []
         self.args = []
+        self.command = []
 
         super().__init__(**_kwargs_)
 
@@ -6020,47 +6020,47 @@ class v1_BuildRequest(Resource):
     __kind__ = 'v1.BuildRequest'
 
     __fields__ = {
-        'binary': 'binary',
-        'from_': 'from',
         'api_version': 'apiVersion',
+        'binary': 'binary',
+        'env': 'env',
+        'from_': 'from',
+        'kind': 'kind',
+        'last_version': 'lastVersion',
+        'metadata': 'metadata',
+        'revision': 'revision',
         'triggered_by': 'triggeredBy',
         'triggered_by_image': 'triggeredByImage',
-        'env': 'env',
-        'metadata': 'metadata',
-        'last_version': 'lastVersion',
-        'revision': 'revision',
-        'kind': 'kind',
     }
 
     __types__ = {
         'binary': 'v1.BinaryBuildSource',
-        'from_': 'v1.ObjectReference',
         'env': 'v1.EnvVar',
-        'triggered_by': 'v1.BuildTriggerCause',
-        'triggered_by_image': 'v1.ObjectReference',
+        'from_': 'v1.ObjectReference',
         'metadata': 'v1.ObjectMeta',
         'revision': 'v1.SourceRevision',
+        'triggered_by': 'v1.BuildTriggerCause',
+        'triggered_by_image': 'v1.ObjectReference',
     }
 
     __required__ = set([
         'triggered_by',
     ])
 
-    binary = None # v1.BinaryBuildSource
-    from_ = None # v1.ObjectReference
     api_version = None # string
+    binary = None # v1.BinaryBuildSource
+    env = None # array
+    from_ = None # v1.ObjectReference
+    kind = None # string
+    last_version = None # integer
+    metadata = None # v1.ObjectMeta
+    revision = None # v1.SourceRevision
     triggered_by = None # array (required)
     triggered_by_image = None # v1.ObjectReference
-    env = None # array
-    metadata = None # v1.ObjectMeta
-    last_version = None # integer
-    revision = None # v1.SourceRevision
-    kind = None # string
 
     def __init__(self, *, triggered_by, **_kwargs_):
         self.env = []
 
-        self.kind = 'SourceRevision'
+        self.kind = 'ObjectReference'
 
         self.triggered_by = triggered_by
 
@@ -6075,20 +6075,20 @@ class v1_BuildSource(Resource):
 
     __fields__ = {
         'binary': 'binary',
-        'type': 'type',
-        'source_secret': 'sourceSecret',
-        'secrets': 'secrets',
         'context_dir': 'contextDir',
+        'dockerfile': 'dockerfile',
         'git': 'git',
         'images': 'images',
-        'dockerfile': 'dockerfile',
+        'secrets': 'secrets',
+        'source_secret': 'sourceSecret',
+        'type': 'type',
     }
 
     __types__ = {
         'binary': 'v1.BinaryBuildSource',
-        'secrets': 'v1.SecretBuildSource',
         'git': 'v1.GitBuildSource',
         'images': 'v1.ImageSource',
+        'secrets': 'v1.SecretBuildSource',
         'source_secret': 'v1.LocalObjectReference',
     }
 
@@ -6097,17 +6097,17 @@ class v1_BuildSource(Resource):
     ])
 
     binary = None # v1.BinaryBuildSource
-    type = None # string (required)
-    source_secret = None # v1.LocalObjectReference
-    secrets = None # array
     context_dir = None # string
+    dockerfile = None # string
     git = None # v1.GitBuildSource
     images = None # array
-    dockerfile = None # string
+    secrets = None # array
+    source_secret = None # v1.LocalObjectReference
+    type = None # string (required)
 
     def __init__(self, *, type, **_kwargs_):
-        self.secrets = []
         self.images = []
+        self.secrets = []
 
         self.type = type
 
@@ -6122,25 +6122,25 @@ class v1_BuildSpec(Resource):
     __kind__ = 'v1.BuildSpec'
 
     __fields__ = {
-        'output': 'output',
-        'service_account': 'serviceAccount',
-        'revision': 'revision',
-        'triggered_by': 'triggeredBy',
-        'resources': 'resources',
-        'post_commit': 'postCommit',
-        'source': 'source',
         'completion_deadline_seconds': 'completionDeadlineSeconds',
+        'output': 'output',
+        'post_commit': 'postCommit',
+        'resources': 'resources',
+        'revision': 'revision',
+        'service_account': 'serviceAccount',
+        'source': 'source',
         'strategy': 'strategy',
+        'triggered_by': 'triggeredBy',
     }
 
     __types__ = {
         'output': 'v1.BuildOutput',
-        'revision': 'v1.SourceRevision',
-        'triggered_by': 'v1.BuildTriggerCause',
+        'post_commit': 'v1.BuildPostCommitSpec',
         'resources': 'v1.ResourceRequirements',
+        'revision': 'v1.SourceRevision',
         'source': 'v1.BuildSource',
         'strategy': 'v1.BuildStrategy',
-        'post_commit': 'v1.BuildPostCommitSpec',
+        'triggered_by': 'v1.BuildTriggerCause',
     }
 
     __required__ = set([
@@ -6148,15 +6148,15 @@ class v1_BuildSpec(Resource):
         'triggered_by',
     ])
 
-    output = None # v1.BuildOutput
-    service_account = None # string
-    revision = None # v1.SourceRevision
-    triggered_by = None # array (required)
-    resources = None # v1.ResourceRequirements
-    post_commit = None # v1.BuildPostCommitSpec
-    source = None # v1.BuildSource
     completion_deadline_seconds = None # integer
+    output = None # v1.BuildOutput
+    post_commit = None # v1.BuildPostCommitSpec
+    resources = None # v1.ResourceRequirements
+    revision = None # v1.SourceRevision
+    service_account = None # string
+    source = None # v1.BuildSource
     strategy = None # v1.BuildStrategy (required)
+    triggered_by = None # array (required)
 
     def __init__(self, *, strategy, triggered_by, **_kwargs_):
 
@@ -6174,19 +6174,19 @@ class v1_BuildStatus(Resource):
 
     __fields__ = {
         'cancelled': 'cancelled',
-        'output_docker_image_reference': 'outputDockerImageReference',
-        'reason': 'reason',
-        'duration': 'duration',
-        'start_timestamp': 'startTimestamp',
-        'phase': 'phase',
-        'message': 'message',
         'completion_timestamp': 'completionTimestamp',
         'config': 'config',
+        'duration': 'duration',
+        'message': 'message',
+        'output_docker_image_reference': 'outputDockerImageReference',
+        'phase': 'phase',
+        'reason': 'reason',
+        'start_timestamp': 'startTimestamp',
     }
 
     __types__ = {
-        'duration': 'time.Duration',
         'config': 'v1.ObjectReference',
+        'duration': 'time.Duration',
     }
 
     __required__ = set([
@@ -6194,14 +6194,14 @@ class v1_BuildStatus(Resource):
     ])
 
     cancelled = None # boolean
-    output_docker_image_reference = None # string
-    reason = None # string
-    duration = None # time.Duration
-    start_timestamp = None # string
-    phase = None # string (required)
-    message = None # string
     completion_timestamp = None # string
     config = None # v1.ObjectReference
+    duration = None # time.Duration
+    message = None # string
+    output_docker_image_reference = None # string
+    phase = None # string (required)
+    reason = None # string
+    start_timestamp = None # string
 
     def __init__(self, *, phase, **_kwargs_):
 
@@ -6219,16 +6219,16 @@ class v1_BuildStrategy(Resource):
     __fields__ = {
         'custom_strategy': 'customStrategy',
         'docker_strategy': 'dockerStrategy',
-        'type': 'type',
         'jenkins_pipeline_strategy': 'jenkinsPipelineStrategy',
         'source_strategy': 'sourceStrategy',
+        'type': 'type',
     }
 
     __types__ = {
         'custom_strategy': 'v1.CustomBuildStrategy',
-        'source_strategy': 'v1.SourceBuildStrategy',
         'docker_strategy': 'v1.DockerBuildStrategy',
         'jenkins_pipeline_strategy': 'v1.JenkinsPipelineBuildStrategy',
+        'source_strategy': 'v1.SourceBuildStrategy',
     }
 
     __required__ = set([
@@ -6237,9 +6237,9 @@ class v1_BuildStrategy(Resource):
 
     custom_strategy = None # v1.CustomBuildStrategy
     docker_strategy = None # v1.DockerBuildStrategy
-    type = None # string (required)
     jenkins_pipeline_strategy = None # v1.JenkinsPipelineBuildStrategy
     source_strategy = None # v1.SourceBuildStrategy
+    type = None # string (required)
 
     def __init__(self, *, type, **_kwargs_):
 
@@ -6258,24 +6258,24 @@ class v1_BuildTriggerCause(Resource):
     __kind__ = 'v1.BuildTriggerCause'
 
     __fields__ = {
+        'generic_web_hook': 'genericWebHook',
+        'github_web_hook': 'githubWebHook',
         'image_change_build': 'imageChangeBuild',
         'message': 'message',
-        'github_web_hook': 'githubWebHook',
-        'generic_web_hook': 'genericWebHook',
     }
 
     __types__ = {
+        'generic_web_hook': 'v1.GenericWebHookCause',
         'github_web_hook': 'v1.GitHubWebHookCause',
         'image_change_build': 'v1.ImageChangeCause',
-        'generic_web_hook': 'v1.GenericWebHookCause',
     }
 
     __required__ = set()
 
+    generic_web_hook = None # v1.GenericWebHookCause
+    github_web_hook = None # v1.GitHubWebHookCause
     image_change_build = None # v1.ImageChangeCause
     message = None # string
-    github_web_hook = None # v1.GitHubWebHookCause
-    generic_web_hook = None # v1.GenericWebHookCause
 
     def __init__(self, **_kwargs_):
 
@@ -6292,8 +6292,8 @@ class v1_BuildTriggerPolicy(Resource):
     __fields__ = {
         'generic': 'generic',
         'github': 'github',
-        'type': 'type',
         'image_change': 'imageChange',
+        'type': 'type',
     }
 
     __types__ = {
@@ -6308,8 +6308,8 @@ class v1_BuildTriggerPolicy(Resource):
 
     generic = None # v1.WebHookTrigger
     github = None # v1.WebHookTrigger
-    type = None # string (required)
     image_change = None # v1.ImageChangeTrigger
+    type = None # string (required)
 
     def __init__(self, *, type, **_kwargs_):
 
@@ -6325,8 +6325,8 @@ class v1_Capabilities(Resource):
     __kind__ = 'v1.Capabilities'
 
     __fields__ = {
-        'drop': 'drop',
         'add': 'add',
+        'drop': 'drop',
     }
 
     __types__ = {
@@ -6335,12 +6335,12 @@ class v1_Capabilities(Resource):
 
     __required__ = set()
 
-    drop = None # array
     add = None # array
+    drop = None # array
 
     def __init__(self, **_kwargs_):
-        self.drop = []
         self.add = []
+        self.drop = []
 
         super().__init__(**_kwargs_)
 
@@ -6373,11 +6373,11 @@ class v1_CephFSVolumeSource(Resource):
 
     __fields__ = {
         'monitors': 'monitors',
-        'secret_file': 'secretFile',
-        'read_only': 'readOnly',
-        'user': 'user',
         'path': 'path',
+        'read_only': 'readOnly',
+        'secret_file': 'secretFile',
         'secret_ref': 'secretRef',
+        'user': 'user',
     }
 
     __types__ = {
@@ -6389,11 +6389,11 @@ class v1_CephFSVolumeSource(Resource):
     ])
 
     monitors = None # array (required)
-    secret_file = None # string
-    read_only = None # boolean
-    user = None # string
     path = None # string
+    read_only = None # boolean
+    secret_file = None # string
     secret_ref = None # v1.LocalObjectReference
+    user = None # string
 
     def __init__(self, *, monitors, **_kwargs_):
 
@@ -6412,9 +6412,9 @@ class v1_CinderVolumeSource(Resource):
     __kind__ = 'v1.CinderVolumeSource'
 
     __fields__ = {
+        'fs_type': 'fsType',
         'read_only': 'readOnly',
         'volume_id': 'volumeID',
-        'fs_type': 'fsType',
     }
 
     __types__ = {
@@ -6424,9 +6424,9 @@ class v1_CinderVolumeSource(Resource):
         'volume_id',
     ])
 
+    fs_type = None # string
     read_only = None # boolean
     volume_id = None # string (required)
-    fs_type = None # string
 
     def __init__(self, *, volume_id, **_kwargs_):
 
@@ -6442,13 +6442,13 @@ class v1_ClusterNetwork(Resource):
     __kind__ = 'v1.ClusterNetwork'
 
     __fields__ = {
-        'service_network': 'serviceNetwork',
         'api_version': 'apiVersion',
         'hostsubnetlength': 'hostsubnetlength',
-        'plugin_name': 'pluginName',
-        'network': 'network',
-        'metadata': 'metadata',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'network': 'network',
+        'plugin_name': 'pluginName',
+        'service_network': 'serviceNetwork',
     }
 
     __types__ = {
@@ -6461,13 +6461,13 @@ class v1_ClusterNetwork(Resource):
         'service_network',
     ])
 
-    service_network = None # string (required)
     api_version = None # string
     hostsubnetlength = None # integer (required)
-    plugin_name = None # string
-    network = None # string (required)
-    metadata = None # v1.ObjectMeta
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    network = None # string (required)
+    plugin_name = None # string
+    service_network = None # string (required)
 
     def __init__(self, *, hostsubnetlength, network, service_network, **_kwargs_):
 
@@ -6487,10 +6487,10 @@ class v1_ClusterNetworkList(Resource):
     __kind__ = 'v1.ClusterNetworkList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -6502,10 +6502,10 @@ class v1_ClusterNetworkList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -6525,11 +6525,11 @@ class v1_ClusterPolicy(Resource):
     __kind__ = 'v1.ClusterPolicy'
 
     __fields__ = {
-        'roles': 'roles',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'last_modified': 'lastModified',
         'kind': 'kind',
+        'last_modified': 'lastModified',
+        'metadata': 'metadata',
+        'roles': 'roles',
     }
 
     __types__ = {
@@ -6542,11 +6542,11 @@ class v1_ClusterPolicy(Resource):
         'roles',
     ])
 
-    roles = None # array (required)
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    last_modified = None # string (required)
     kind = None # string
+    last_modified = None # string (required)
+    metadata = None # v1.ObjectMeta
+    roles = None # array (required)
 
     def __init__(self, *, last_modified, roles, **_kwargs_):
 
@@ -6569,11 +6569,11 @@ class v1_ClusterPolicyBinding(Resource):
 
     __fields__ = {
         'api_version': 'apiVersion',
+        'kind': 'kind',
         'last_modified': 'lastModified',
         'metadata': 'metadata',
-        'role_bindings': 'roleBindings',
         'policy_ref': 'policyRef',
-        'kind': 'kind',
+        'role_bindings': 'roleBindings',
     }
 
     __types__ = {
@@ -6589,11 +6589,11 @@ class v1_ClusterPolicyBinding(Resource):
     ])
 
     api_version = None # string
+    kind = None # string
     last_modified = None # string (required)
     metadata = None # v1.ObjectMeta
-    role_bindings = None # array (required)
     policy_ref = None # v1.ObjectReference (required)
-    kind = None # string
+    role_bindings = None # array (required)
 
     def __init__(self, *, last_modified, policy_ref, role_bindings, **_kwargs_):
 
@@ -6613,10 +6613,10 @@ class v1_ClusterPolicyBindingList(Resource):
     __kind__ = 'v1.ClusterPolicyBindingList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -6628,10 +6628,10 @@ class v1_ClusterPolicyBindingList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -6649,10 +6649,10 @@ class v1_ClusterPolicyList(Resource):
     __kind__ = 'v1.ClusterPolicyList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -6664,10 +6664,10 @@ class v1_ClusterPolicyList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -6687,11 +6687,11 @@ class v1_ClusterResourceQuota(Resource):
     __kind__ = 'v1.ClusterResourceQuota'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -6705,11 +6705,11 @@ class v1_ClusterResourceQuota(Resource):
         'spec',
     ])
 
-    metadata = None # v1.ObjectMeta (required)
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta (required)
     spec = None # v1.ClusterResourceQuotaSpec (required)
     status = None # v1.ClusterResourceQuotaStatus
-    kind = None # string
 
     def __init__(self, *, metadata, spec, **_kwargs_):
 
@@ -6728,10 +6728,10 @@ class v1_ClusterResourceQuotaList(Resource):
     __kind__ = 'v1.ClusterResourceQuotaList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -6743,10 +6743,10 @@ class v1_ClusterResourceQuotaList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -6767,8 +6767,8 @@ class v1_ClusterResourceQuotaSelector(Resource):
     __kind__ = 'v1.ClusterResourceQuotaSelector'
 
     __fields__ = {
-        'labels': 'labels',
         'annotations': 'annotations',
+        'labels': 'labels',
     }
 
     __types__ = {
@@ -6780,8 +6780,8 @@ class v1_ClusterResourceQuotaSelector(Resource):
         'labels',
     ])
 
-    labels = None # unversioned.LabelSelector (required)
     annotations = None # object (required)
+    labels = None # unversioned.LabelSelector (required)
 
     def __init__(self, *, annotations, labels, **_kwargs_):
 
@@ -6798,13 +6798,13 @@ class v1_ClusterResourceQuotaSpec(Resource):
     __kind__ = 'v1.ClusterResourceQuotaSpec'
 
     __fields__ = {
-        'selector': 'selector',
         'quota': 'quota',
+        'selector': 'selector',
     }
 
     __types__ = {
-        'selector': 'v1.ClusterResourceQuotaSelector',
         'quota': 'v1.ResourceQuotaSpec',
+        'selector': 'v1.ClusterResourceQuotaSelector',
     }
 
     __required__ = set([
@@ -6812,8 +6812,8 @@ class v1_ClusterResourceQuotaSpec(Resource):
         'selector',
     ])
 
-    selector = None # v1.ClusterResourceQuotaSelector (required)
     quota = None # v1.ResourceQuotaSpec (required)
+    selector = None # v1.ClusterResourceQuotaSelector (required)
 
     def __init__(self, *, quota, selector, **_kwargs_):
 
@@ -6831,13 +6831,13 @@ class v1_ClusterResourceQuotaStatus(Resource):
     __kind__ = 'v1.ClusterResourceQuotaStatus'
 
     __fields__ = {
-        'total': 'total',
         'namespaces': 'namespaces',
+        'total': 'total',
     }
 
     __types__ = {
-        'total': 'v1.ResourceQuotaStatus',
         'namespaces': 'v1.ResourceQuotaStatusByNamespace',
+        'total': 'v1.ResourceQuotaStatus',
     }
 
     __required__ = set([
@@ -6845,8 +6845,8 @@ class v1_ClusterResourceQuotaStatus(Resource):
         'total',
     ])
 
-    total = None # v1.ResourceQuotaStatus (required)
     namespaces = None # array (required)
+    total = None # v1.ResourceQuotaStatus (required)
 
     def __init__(self, *, namespaces, total, **_kwargs_):
 
@@ -6864,10 +6864,10 @@ class v1_ClusterRole(Resource):
     __kind__ = 'v1.ClusterRole'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'rules': 'rules',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'rules': 'rules',
     }
 
     __types__ = {
@@ -6879,10 +6879,10 @@ class v1_ClusterRole(Resource):
         'rules',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    rules = None # array (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    rules = None # array (required)
 
     def __init__(self, *, rules, **_kwargs_):
 
@@ -6906,19 +6906,19 @@ class v1_ClusterRoleBinding(Resource):
     __kind__ = 'v1.ClusterRoleBinding'
 
     __fields__ = {
-        'role_ref': 'roleRef',
-        'subjects': 'subjects',
         'api_version': 'apiVersion',
         'group_names': 'groupNames',
-        'metadata': 'metadata',
-        'user_names': 'userNames',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'role_ref': 'roleRef',
+        'subjects': 'subjects',
+        'user_names': 'userNames',
     }
 
     __types__ = {
+        'metadata': 'v1.ObjectMeta',
         'role_ref': 'v1.ObjectReference',
         'subjects': 'v1.ObjectReference',
-        'metadata': 'v1.ObjectMeta',
     }
 
     __required__ = set([
@@ -6928,17 +6928,17 @@ class v1_ClusterRoleBinding(Resource):
         'user_names',
     ])
 
-    role_ref = None # v1.ObjectReference (required)
-    subjects = None # array (required)
     api_version = None # string
     group_names = None # array (required)
-    metadata = None # v1.ObjectMeta
-    user_names = None # array (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    role_ref = None # v1.ObjectReference (required)
+    subjects = None # array (required)
+    user_names = None # array (required)
 
     def __init__(self, *, group_names, role_ref, subjects, user_names, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ObjectReference'
 
         self.group_names = group_names
         self.role_ref = role_ref
@@ -6955,10 +6955,10 @@ class v1_ClusterRoleBindingList(Resource):
     __kind__ = 'v1.ClusterRoleBindingList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -6970,10 +6970,10 @@ class v1_ClusterRoleBindingList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -6991,10 +6991,10 @@ class v1_ClusterRoleList(Resource):
     __kind__ = 'v1.ClusterRoleList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -7006,10 +7006,10 @@ class v1_ClusterRoleList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -7028,9 +7028,9 @@ class v1_ClusterRoleScopeRestriction(Resource):
     __kind__ = 'v1.ClusterRoleScopeRestriction'
 
     __fields__ = {
-        'role_names': 'roleNames',
         'allow_escalation': 'allowEscalation',
         'namespaces': 'namespaces',
+        'role_names': 'roleNames',
     }
 
     __types__ = {
@@ -7042,9 +7042,9 @@ class v1_ClusterRoleScopeRestriction(Resource):
         'role_names',
     ])
 
-    role_names = None # array (required)
     allow_escalation = None # boolean (required)
     namespaces = None # array (required)
+    role_names = None # array (required)
 
     def __init__(self, *, allow_escalation, namespaces, role_names, **_kwargs_):
 
@@ -7062,8 +7062,8 @@ class v1_ConfigMapKeySelector(Resource):
     __kind__ = 'v1.ConfigMapKeySelector'
 
     __fields__ = {
-        'name': 'name',
         'key': 'key',
+        'name': 'name',
     }
 
     __types__ = {
@@ -7073,8 +7073,8 @@ class v1_ConfigMapKeySelector(Resource):
         'key',
     ])
 
-    name = None # string
     key = None # string (required)
+    name = None # string
 
     def __init__(self, *, key, **_kwargs_):
 
@@ -7095,8 +7095,8 @@ class v1_ConfigMapVolumeSource(Resource):
     __kind__ = 'v1.ConfigMapVolumeSource'
 
     __fields__ = {
-        'name': 'name',
         'items': 'items',
+        'name': 'name',
     }
 
     __types__ = {
@@ -7105,8 +7105,8 @@ class v1_ConfigMapVolumeSource(Resource):
 
     __required__ = set()
 
-    name = None # string
     items = None # array
+    name = None # string
 
     def __init__(self, **_kwargs_):
         self.items = []
@@ -7121,65 +7121,65 @@ class v1_Container(Resource):
     __kind__ = 'v1.Container'
 
     __fields__ = {
+        'args': 'args',
+        'command': 'command',
+        'env': 'env',
+        'image': 'image',
+        'image_pull_policy': 'imagePullPolicy',
+        'lifecycle': 'lifecycle',
+        'liveness_probe': 'livenessProbe',
         'name': 'name',
         'ports': 'ports',
-        'stdin_once': 'stdinOnce',
-        'command': 'command',
-        'stdin': 'stdin',
-        'liveness_probe': 'livenessProbe',
         'readiness_probe': 'readinessProbe',
-        'args': 'args',
-        'env': 'env',
-        'lifecycle': 'lifecycle',
-        'termination_message_path': 'terminationMessagePath',
-        'image_pull_policy': 'imagePullPolicy',
         'resources': 'resources',
-        'volume_mounts': 'volumeMounts',
         'security_context': 'securityContext',
+        'stdin': 'stdin',
+        'stdin_once': 'stdinOnce',
+        'termination_message_path': 'terminationMessagePath',
         'tty': 'tty',
+        'volume_mounts': 'volumeMounts',
         'working_dir': 'workingDir',
-        'image': 'image',
     }
 
     __types__ = {
-        'readiness_probe': 'v1.Probe',
         'env': 'v1.EnvVar',
         'lifecycle': 'v1.Lifecycle',
-        'security_context': 'v1.SecurityContext',
         'liveness_probe': 'v1.Probe',
-        'volume_mounts': 'v1.VolumeMount',
         'ports': 'v1.ContainerPort',
+        'readiness_probe': 'v1.Probe',
         'resources': 'v1.ResourceRequirements',
+        'security_context': 'v1.SecurityContext',
+        'volume_mounts': 'v1.VolumeMount',
     }
 
     __required__ = set([
         'name',
     ])
 
+    args = None # array
+    command = None # array
+    env = None # array
+    image = None # string
+    image_pull_policy = None # string
+    lifecycle = None # v1.Lifecycle
+    liveness_probe = None # v1.Probe
     name = None # string (required)
     ports = None # array
-    stdin_once = None # boolean
-    command = None # array
-    stdin = None # boolean
-    liveness_probe = None # v1.Probe
     readiness_probe = None # v1.Probe
-    args = None # array
-    env = None # array
-    lifecycle = None # v1.Lifecycle
-    termination_message_path = None # string
-    image_pull_policy = None # string
     resources = None # v1.ResourceRequirements
-    volume_mounts = None # array
     security_context = None # v1.SecurityContext
+    stdin = None # boolean
+    stdin_once = None # boolean
+    termination_message_path = None # string
     tty = None # boolean
+    volume_mounts = None # array
     working_dir = None # string
-    image = None # string
 
     def __init__(self, *, name, **_kwargs_):
-        self.ports = []
-        self.command = []
         self.args = []
+        self.command = []
         self.env = []
+        self.ports = []
         self.volume_mounts = []
 
         self.name = name
@@ -7194,11 +7194,11 @@ class v1_ContainerPort(Resource):
     __kind__ = 'v1.ContainerPort'
 
     __fields__ = {
-        'name': 'name',
-        'protocol': 'protocol',
-        'host_port': 'hostPort',
         'container_port': 'containerPort',
         'host_ip': 'hostIP',
+        'host_port': 'hostPort',
+        'name': 'name',
+        'protocol': 'protocol',
     }
 
     __types__ = {
@@ -7208,11 +7208,11 @@ class v1_ContainerPort(Resource):
         'container_port',
     ])
 
-    name = None # string
-    protocol = None # string
-    host_port = None # integer
     container_port = None # integer (required)
     host_ip = None # string
+    host_port = None # integer
+    name = None # string
+    protocol = None # string
 
     def __init__(self, *, container_port, **_kwargs_):
 
@@ -7228,19 +7228,19 @@ class v1_CustomBuildStrategy(Resource):
     __kind__ = 'v1.CustomBuildStrategy'
 
     __fields__ = {
+        'build_api_version': 'buildAPIVersion',
+        'env': 'env',
+        'expose_docker_socket': 'exposeDockerSocket',
+        'force_pull': 'forcePull',
         'from_': 'from',
         'pull_secret': 'pullSecret',
-        'env': 'env',
-        'force_pull': 'forcePull',
         'secrets': 'secrets',
-        'expose_docker_socket': 'exposeDockerSocket',
-        'build_api_version': 'buildAPIVersion',
     }
 
     __types__ = {
+        'env': 'v1.EnvVar',
         'from_': 'v1.ObjectReference',
         'pull_secret': 'v1.LocalObjectReference',
-        'env': 'v1.EnvVar',
         'secrets': 'v1.SecretSpec',
     }
 
@@ -7248,13 +7248,13 @@ class v1_CustomBuildStrategy(Resource):
         'from_',
     ])
 
+    build_api_version = None # string
+    env = None # array
+    expose_docker_socket = None # boolean
+    force_pull = None # boolean
     from_ = None # v1.ObjectReference (required)
     pull_secret = None # v1.LocalObjectReference
-    env = None # array
-    force_pull = None # boolean
     secrets = None # array
-    expose_docker_socket = None # boolean
-    build_api_version = None # string
 
     def __init__(self, *, from_, **_kwargs_):
         self.env = []
@@ -7273,8 +7273,8 @@ class v1_CustomDeploymentStrategyParams(Resource):
     __kind__ = 'v1.CustomDeploymentStrategyParams'
 
     __fields__ = {
-        'environment': 'environment',
         'command': 'command',
+        'environment': 'environment',
         'image': 'image',
     }
 
@@ -7284,13 +7284,13 @@ class v1_CustomDeploymentStrategyParams(Resource):
 
     __required__ = set()
 
-    environment = None # array
     command = None # array
+    environment = None # array
     image = None # string
 
     def __init__(self, **_kwargs_):
-        self.environment = []
         self.command = []
+        self.environment = []
 
         super().__init__(**_kwargs_)
 
@@ -7302,11 +7302,11 @@ class v1_DeleteOptions(Resource):
     __kind__ = 'v1.DeleteOptions'
 
     __fields__ = {
-        'preconditions': 'preconditions',
         'api_version': 'apiVersion',
         'grace_period_seconds': 'gracePeriodSeconds',
-        'orphan_dependents': 'orphanDependents',
         'kind': 'kind',
+        'orphan_dependents': 'orphanDependents',
+        'preconditions': 'preconditions',
     }
 
     __types__ = {
@@ -7315,11 +7315,11 @@ class v1_DeleteOptions(Resource):
 
     __required__ = set()
 
-    preconditions = None # v1.Preconditions
     api_version = None # string
     grace_period_seconds = None # integer
-    orphan_dependents = None # boolean
     kind = None # string
+    orphan_dependents = None # boolean
+    preconditions = None # v1.Preconditions
 
     def __init__(self, **_kwargs_):
 
@@ -7398,11 +7398,11 @@ class v1_DeploymentConfig(Resource):
     __kind__ = 'v1.DeploymentConfig'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -7416,11 +7416,11 @@ class v1_DeploymentConfig(Resource):
         'status',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.DeploymentConfigSpec (required)
     status = None # v1.DeploymentConfigStatus (required)
-    kind = None # string
 
     def __init__(self, *, spec, status, **_kwargs_):
 
@@ -7439,10 +7439,10 @@ class v1_DeploymentConfigList(Resource):
     __kind__ = 'v1.DeploymentConfigList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -7454,10 +7454,10 @@ class v1_DeploymentConfigList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -7475,11 +7475,11 @@ class v1_DeploymentConfigRollback(Resource):
     __kind__ = 'v1.DeploymentConfigRollback'
 
     __fields__ = {
-        'name': 'name',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'name': 'name',
         'spec': 'spec',
         'updated_annotations': 'updatedAnnotations',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -7491,11 +7491,11 @@ class v1_DeploymentConfigRollback(Resource):
         'spec',
     ])
 
-    name = None # string (required)
     api_version = None # string
+    kind = None # string
+    name = None # string (required)
     spec = None # v1.DeploymentConfigRollbackSpec (required)
     updated_annotations = None # object
-    kind = None # string
 
     def __init__(self, *, name, spec, **_kwargs_):
 
@@ -7517,9 +7517,9 @@ class v1_DeploymentConfigRollbackSpec(Resource):
     __fields__ = {
         'from_': 'from',
         'include_replication_meta': 'includeReplicationMeta',
+        'include_strategy': 'includeStrategy',
         'include_template': 'includeTemplate',
         'include_triggers': 'includeTriggers',
-        'include_strategy': 'includeStrategy',
         'revision': 'revision',
     }
 
@@ -7537,9 +7537,9 @@ class v1_DeploymentConfigRollbackSpec(Resource):
 
     from_ = None # v1.ObjectReference (required)
     include_replication_meta = None # boolean (required)
+    include_strategy = None # boolean (required)
     include_template = None # boolean (required)
     include_triggers = None # boolean (required)
-    include_strategy = None # boolean (required)
     revision = None # integer
 
     def __init__(self, *, from_, include_replication_meta, include_strategy, include_template, include_triggers, **_kwargs_):
@@ -7560,21 +7560,21 @@ class v1_DeploymentConfigSpec(Resource):
     __kind__ = 'v1.DeploymentConfigSpec'
 
     __fields__ = {
+        'min_ready_seconds': 'minReadySeconds',
         'paused': 'paused',
-        'template': 'template',
-        'strategy': 'strategy',
-        'triggers': 'triggers',
+        'replicas': 'replicas',
         'revision_history_limit': 'revisionHistoryLimit',
         'selector': 'selector',
+        'strategy': 'strategy',
+        'template': 'template',
         'test': 'test',
-        'min_ready_seconds': 'minReadySeconds',
-        'replicas': 'replicas',
+        'triggers': 'triggers',
     }
 
     __types__ = {
+        'strategy': 'v1.DeploymentStrategy',
         'template': 'v1.PodTemplateSpec',
         'triggers': 'v1.DeploymentTriggerPolicy',
-        'strategy': 'v1.DeploymentStrategy',
     }
 
     __required__ = set([
@@ -7584,15 +7584,15 @@ class v1_DeploymentConfigSpec(Resource):
         'triggers',
     ])
 
+    min_ready_seconds = None # integer
     paused = None # boolean
-    template = None # v1.PodTemplateSpec
-    strategy = None # v1.DeploymentStrategy (required)
-    triggers = None # array (required)
+    replicas = None # integer (required)
     revision_history_limit = None # integer
     selector = None # object
+    strategy = None # v1.DeploymentStrategy (required)
+    template = None # v1.PodTemplateSpec
     test = None # boolean (required)
-    min_ready_seconds = None # integer
-    replicas = None # integer (required)
+    triggers = None # array (required)
 
     def __init__(self, *, replicas, strategy, test, triggers, **_kwargs_):
 
@@ -7611,13 +7611,13 @@ class v1_DeploymentConfigStatus(Resource):
     __kind__ = 'v1.DeploymentConfigStatus'
 
     __fields__ = {
+        'available_replicas': 'availableReplicas',
         'details': 'details',
-        'updated_replicas': 'updatedReplicas',
-        'replicas': 'replicas',
-        'unavailable_replicas': 'unavailableReplicas',
         'latest_version': 'latestVersion',
         'observed_generation': 'observedGeneration',
-        'available_replicas': 'availableReplicas',
+        'replicas': 'replicas',
+        'unavailable_replicas': 'unavailableReplicas',
+        'updated_replicas': 'updatedReplicas',
     }
 
     __types__ = {
@@ -7626,13 +7626,13 @@ class v1_DeploymentConfigStatus(Resource):
 
     __required__ = set()
 
+    available_replicas = None # integer
     details = None # v1.DeploymentDetails
-    updated_replicas = None # integer
-    replicas = None # integer
-    unavailable_replicas = None # integer
     latest_version = None # integer
     observed_generation = None # integer
-    available_replicas = None # integer
+    replicas = None # integer
+    unavailable_replicas = None # integer
+    updated_replicas = None # integer
 
     def __init__(self, **_kwargs_):
 
@@ -7647,8 +7647,8 @@ class v1_DeploymentDetails(Resource):
     __kind__ = 'v1.DeploymentDetails'
 
     __fields__ = {
-        'message': 'message',
         'causes': 'causes',
+        'message': 'message',
     }
 
     __types__ = {
@@ -7659,8 +7659,8 @@ class v1_DeploymentDetails(Resource):
         'causes',
     ])
 
-    message = None # string
     causes = None # array (required)
+    message = None # string
 
     def __init__(self, *, causes, **_kwargs_):
 
@@ -7702,31 +7702,31 @@ class v1_DeploymentStrategy(Resource):
     __kind__ = 'v1.DeploymentStrategy'
 
     __fields__ = {
-        'type': 'type',
+        'annotations': 'annotations',
+        'custom_params': 'customParams',
+        'labels': 'labels',
         'recreate_params': 'recreateParams',
         'resources': 'resources',
         'rolling_params': 'rollingParams',
-        'labels': 'labels',
-        'annotations': 'annotations',
-        'custom_params': 'customParams',
+        'type': 'type',
     }
 
     __types__ = {
-        'rolling_params': 'v1.RollingDeploymentStrategyParams',
         'custom_params': 'v1.CustomDeploymentStrategyParams',
         'recreate_params': 'v1.RecreateDeploymentStrategyParams',
         'resources': 'v1.ResourceRequirements',
+        'rolling_params': 'v1.RollingDeploymentStrategyParams',
     }
 
     __required__ = set()
 
-    type = None # string
+    annotations = None # object
+    custom_params = None # v1.CustomDeploymentStrategyParams
+    labels = None # object
     recreate_params = None # v1.RecreateDeploymentStrategyParams
     resources = None # v1.ResourceRequirements
     rolling_params = None # v1.RollingDeploymentStrategyParams
-    labels = None # object
-    annotations = None # object
-    custom_params = None # v1.CustomDeploymentStrategyParams
+    type = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -7741,10 +7741,10 @@ class v1_DeploymentTriggerImageChangeParams(Resource):
     __kind__ = 'v1.DeploymentTriggerImageChangeParams'
 
     __fields__ = {
-        'container_names': 'containerNames',
         'automatic': 'automatic',
-        'last_triggered_image': 'lastTriggeredImage',
+        'container_names': 'containerNames',
         'from_': 'from',
+        'last_triggered_image': 'lastTriggeredImage',
     }
 
     __types__ = {
@@ -7755,10 +7755,10 @@ class v1_DeploymentTriggerImageChangeParams(Resource):
         'from_',
     ])
 
-    container_names = None # array
     automatic = None # boolean
-    last_triggered_image = None # string
+    container_names = None # array
     from_ = None # v1.ObjectReference (required)
+    last_triggered_image = None # string
 
     def __init__(self, *, from_, **_kwargs_):
         self.container_names = []
@@ -7776,8 +7776,8 @@ class v1_DeploymentTriggerPolicy(Resource):
     __kind__ = 'v1.DeploymentTriggerPolicy'
 
     __fields__ = {
-        'type': 'type',
         'image_change_params': 'imageChangeParams',
+        'type': 'type',
     }
 
     __types__ = {
@@ -7786,8 +7786,8 @@ class v1_DeploymentTriggerPolicy(Resource):
 
     __required__ = set()
 
-    type = None # string
     image_change_params = None # v1.DeploymentTriggerImageChangeParams
+    type = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -7803,8 +7803,8 @@ class v1_DeprecatedDownwardAPIVolumeFile(Resource):
     __kind__ = 'v1.DeprecatedDownwardAPIVolumeFile'
 
     __fields__ = {
-        'name': 'name',
         'field_ref': 'fieldRef',
+        'name': 'name',
         'resource_field_ref': 'resourceFieldRef',
     }
 
@@ -7817,8 +7817,8 @@ class v1_DeprecatedDownwardAPIVolumeFile(Resource):
         'name',
     ])
 
-    name = None # string (required)
     field_ref = None # v1.ObjectFieldSelector
+    name = None # string (required)
     resource_field_ref = None # v1.ResourceFieldSelector
 
     def __init__(self, *, name, **_kwargs_):
@@ -7861,28 +7861,28 @@ class v1_DockerBuildStrategy(Resource):
     __kind__ = 'v1.DockerBuildStrategy'
 
     __fields__ = {
-        'from_': 'from',
-        'pull_secret': 'pullSecret',
-        'no_cache': 'noCache',
-        'force_pull': 'forcePull',
-        'env': 'env',
         'dockerfile_path': 'dockerfilePath',
+        'env': 'env',
+        'force_pull': 'forcePull',
+        'from_': 'from',
+        'no_cache': 'noCache',
+        'pull_secret': 'pullSecret',
     }
 
     __types__ = {
+        'env': 'v1.EnvVar',
         'from_': 'v1.ObjectReference',
         'pull_secret': 'v1.LocalObjectReference',
-        'env': 'v1.EnvVar',
     }
 
     __required__ = set()
 
-    from_ = None # v1.ObjectReference
-    pull_secret = None # v1.LocalObjectReference
-    no_cache = None # boolean
-    force_pull = None # boolean
-    env = None # array
     dockerfile_path = None # string
+    env = None # array
+    force_pull = None # boolean
+    from_ = None # v1.ObjectReference
+    no_cache = None # boolean
+    pull_secret = None # v1.LocalObjectReference
 
     def __init__(self, **_kwargs_):
         self.env = []
@@ -7898,8 +7898,8 @@ class v1_DownwardAPIVolumeFile(Resource):
     __kind__ = 'v1.DownwardAPIVolumeFile'
 
     __fields__ = {
-        'path': 'path',
         'field_ref': 'fieldRef',
+        'path': 'path',
         'resource_field_ref': 'resourceFieldRef',
     }
 
@@ -7912,8 +7912,8 @@ class v1_DownwardAPIVolumeFile(Resource):
         'path',
     ])
 
-    path = None # string (required)
     field_ref = None # v1.ObjectFieldSelector
+    path = None # string (required)
     resource_field_ref = None # v1.ResourceFieldSelector
 
     def __init__(self, *, path, **_kwargs_):
@@ -7962,10 +7962,10 @@ class v1_EgressNetworkPolicy(Resource):
     __kind__ = 'v1.EgressNetworkPolicy'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'spec': 'spec',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'spec': 'spec',
     }
 
     __types__ = {
@@ -7977,10 +7977,10 @@ class v1_EgressNetworkPolicy(Resource):
         'spec',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    spec = None # v1.EgressNetworkPolicySpec (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    spec = None # v1.EgressNetworkPolicySpec (required)
 
     def __init__(self, *, spec, **_kwargs_):
 
@@ -7998,10 +7998,10 @@ class v1_EgressNetworkPolicyList(Resource):
     __kind__ = 'v1.EgressNetworkPolicyList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -8013,10 +8013,10 @@ class v1_EgressNetworkPolicyList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -8174,25 +8174,25 @@ class v1_EnvVarSource(Resource):
     __kind__ = 'v1.EnvVarSource'
 
     __fields__ = {
-        'secret_key_ref': 'secretKeyRef',
-        'field_ref': 'fieldRef',
         'config_map_key_ref': 'configMapKeyRef',
+        'field_ref': 'fieldRef',
         'resource_field_ref': 'resourceFieldRef',
+        'secret_key_ref': 'secretKeyRef',
     }
 
     __types__ = {
-        'secret_key_ref': 'v1.SecretKeySelector',
+        'config_map_key_ref': 'v1.ConfigMapKeySelector',
         'field_ref': 'v1.ObjectFieldSelector',
         'resource_field_ref': 'v1.ResourceFieldSelector',
-        'config_map_key_ref': 'v1.ConfigMapKeySelector',
+        'secret_key_ref': 'v1.SecretKeySelector',
     }
 
     __required__ = set()
 
-    secret_key_ref = None # v1.SecretKeySelector
-    field_ref = None # v1.ObjectFieldSelector
     config_map_key_ref = None # v1.ConfigMapKeySelector
+    field_ref = None # v1.ObjectFieldSelector
     resource_field_ref = None # v1.ResourceFieldSelector
+    secret_key_ref = None # v1.SecretKeySelector
 
     def __init__(self, **_kwargs_):
 
@@ -8232,8 +8232,8 @@ class v1_ExecNewPodHook(Resource):
 
     __fields__ = {
         'command': 'command',
-        'env': 'env',
         'container_name': 'containerName',
+        'env': 'env',
         'volumes': 'volumes',
     }
 
@@ -8247,8 +8247,8 @@ class v1_ExecNewPodHook(Resource):
     ])
 
     command = None # array (required)
-    env = None # array
     container_name = None # string (required)
+    env = None # array
     volumes = None # array
 
     def __init__(self, *, command, container_name, **_kwargs_):
@@ -8270,10 +8270,10 @@ class v1_FCVolumeSource(Resource):
     __kind__ = 'v1.FCVolumeSource'
 
     __fields__ = {
-        'target_ww_ns': 'targetWWNs',
-        'read_only': 'readOnly',
         'fs_type': 'fsType',
         'lun': 'lun',
+        'read_only': 'readOnly',
+        'target_ww_ns': 'targetWWNs',
     }
 
     __types__ = {
@@ -8284,10 +8284,10 @@ class v1_FCVolumeSource(Resource):
         'target_ww_ns',
     ])
 
-    target_ww_ns = None # array (required)
-    read_only = None # boolean
     fs_type = None # string
     lun = None # integer (required)
+    read_only = None # boolean
+    target_ww_ns = None # array (required)
 
     def __init__(self, *, lun, target_ww_ns, **_kwargs_):
 
@@ -8324,10 +8324,10 @@ class v1_FlexVolumeSource(Resource):
     __kind__ = 'v1.FlexVolumeSource'
 
     __fields__ = {
-        'read_only': 'readOnly',
-        'options': 'options',
         'driver': 'driver',
         'fs_type': 'fsType',
+        'options': 'options',
+        'read_only': 'readOnly',
         'secret_ref': 'secretRef',
     }
 
@@ -8339,10 +8339,10 @@ class v1_FlexVolumeSource(Resource):
         'driver',
     ])
 
-    read_only = None # boolean
-    options = None # object
     driver = None # string (required)
     fs_type = None # string
+    options = None # object
+    read_only = None # boolean
     secret_ref = None # v1.LocalObjectReference
 
     def __init__(self, *, driver, **_kwargs_):
@@ -8390,10 +8390,10 @@ class v1_GCEPersistentDiskVolumeSource(Resource):
     __kind__ = 'v1.GCEPersistentDiskVolumeSource'
 
     __fields__ = {
-        'read_only': 'readOnly',
-        'partition': 'partition',
         'fs_type': 'fsType',
+        'partition': 'partition',
         'pd_name': 'pdName',
+        'read_only': 'readOnly',
     }
 
     __types__ = {
@@ -8403,10 +8403,10 @@ class v1_GCEPersistentDiskVolumeSource(Resource):
         'pd_name',
     ])
 
-    read_only = None # boolean
-    partition = None # integer
     fs_type = None # string
+    partition = None # integer
     pd_name = None # string (required)
+    read_only = None # boolean
 
     def __init__(self, *, pd_name, **_kwargs_):
 
@@ -8448,10 +8448,10 @@ class v1_GitBuildSource(Resource):
     __kind__ = 'v1.GitBuildSource'
 
     __fields__ = {
-        'uri': 'uri',
-        'https_proxy': 'httpsProxy',
         'http_proxy': 'httpProxy',
+        'https_proxy': 'httpsProxy',
         'ref': 'ref',
+        'uri': 'uri',
     }
 
     __types__ = {
@@ -8461,10 +8461,10 @@ class v1_GitBuildSource(Resource):
         'uri',
     ])
 
-    uri = None # string (required)
-    https_proxy = None # string
     http_proxy = None # string
+    https_proxy = None # string
     ref = None # string
+    uri = None # string (required)
 
     def __init__(self, *, uri, **_kwargs_):
 
@@ -8508,8 +8508,8 @@ class v1_GitRepoVolumeSource(Resource):
     __kind__ = 'v1.GitRepoVolumeSource'
 
     __fields__ = {
-        'repository': 'repository',
         'directory': 'directory',
+        'repository': 'repository',
         'revision': 'revision',
     }
 
@@ -8520,8 +8520,8 @@ class v1_GitRepoVolumeSource(Resource):
         'repository',
     ])
 
-    repository = None # string (required)
     directory = None # string
+    repository = None # string (required)
     revision = None # string
 
     def __init__(self, *, repository, **_kwargs_):
@@ -8539,23 +8539,23 @@ class v1_GitSourceRevision(Resource):
     __kind__ = 'v1.GitSourceRevision'
 
     __fields__ = {
+        'author': 'author',
+        'commit': 'commit',
         'committer': 'committer',
         'message': 'message',
-        'commit': 'commit',
-        'author': 'author',
     }
 
     __types__ = {
-        'committer': 'v1.SourceControlUser',
         'author': 'v1.SourceControlUser',
+        'committer': 'v1.SourceControlUser',
     }
 
     __required__ = set()
 
+    author = None # v1.SourceControlUser
+    commit = None # string
     committer = None # v1.SourceControlUser
     message = None # string
-    commit = None # string
-    author = None # v1.SourceControlUser
 
     def __init__(self, **_kwargs_):
 
@@ -8571,8 +8571,8 @@ class v1_GlusterfsVolumeSource(Resource):
     __kind__ = 'v1.GlusterfsVolumeSource'
 
     __fields__ = {
-        'path': 'path',
         'endpoints': 'endpoints',
+        'path': 'path',
         'read_only': 'readOnly',
     }
 
@@ -8584,8 +8584,8 @@ class v1_GlusterfsVolumeSource(Resource):
         'path',
     ])
 
-    path = None # string (required)
     endpoints = None # string (required)
+    path = None # string (required)
     read_only = None # boolean
 
     def __init__(self, *, endpoints, path, **_kwargs_):
@@ -8603,10 +8603,10 @@ class v1_Group(Resource):
     __kind__ = 'v1.Group'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'users': 'users',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'users': 'users',
     }
 
     __types__ = {
@@ -8617,10 +8617,10 @@ class v1_Group(Resource):
         'users',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    users = None # array (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    users = None # array (required)
 
     def __init__(self, *, users, **_kwargs_):
 
@@ -8638,10 +8638,10 @@ class v1_GroupList(Resource):
     __kind__ = 'v1.GroupList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -8653,10 +8653,10 @@ class v1_GroupList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -8674,11 +8674,11 @@ class v1_HTTPGetAction(Resource):
     __kind__ = 'v1.HTTPGetAction'
 
     __fields__ = {
-        'path': 'path',
-        'http_headers': 'httpHeaders',
-        'scheme': 'scheme',
-        'port': 'port',
         'host': 'host',
+        'http_headers': 'httpHeaders',
+        'path': 'path',
+        'port': 'port',
+        'scheme': 'scheme',
     }
 
     __types__ = {
@@ -8689,11 +8689,11 @@ class v1_HTTPGetAction(Resource):
         'port',
     ])
 
-    path = None # string
-    http_headers = None # array
-    scheme = None # string
-    port = None # string (required)
     host = None # string
+    http_headers = None # array
+    path = None # string
+    port = None # string (required)
+    scheme = None # string
 
     def __init__(self, *, port, **_kwargs_):
         self.http_headers = []
@@ -8740,22 +8740,22 @@ class v1_Handler(Resource):
     __kind__ = 'v1.Handler'
 
     __fields__ = {
+        'exec': 'exec',
         'http_get': 'httpGet',
         'tcp_socket': 'tcpSocket',
-        'exec': 'exec',
     }
 
     __types__ = {
-        'http_get': 'v1.HTTPGetAction',
         'exec': 'v1.ExecAction',
+        'http_get': 'v1.HTTPGetAction',
         'tcp_socket': 'v1.TCPSocketAction',
     }
 
     __required__ = set()
 
+    exec = None # v1.ExecAction
     http_get = None # v1.HTTPGetAction
     tcp_socket = None # v1.TCPSocketAction
-    exec = None # v1.ExecAction
 
     def __init__(self, **_kwargs_):
 
@@ -8797,12 +8797,12 @@ class v1_HostSubnet(Resource):
     __kind__ = 'v1.HostSubnet'
 
     __fields__ = {
-        'subnet': 'subnet',
         'api_version': 'apiVersion',
         'host': 'host',
-        'metadata': 'metadata',
         'host_ip': 'hostIP',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'subnet': 'subnet',
     }
 
     __types__ = {
@@ -8815,12 +8815,12 @@ class v1_HostSubnet(Resource):
         'subnet',
     ])
 
-    subnet = None # string (required)
     api_version = None # string
     host = None # string (required)
-    metadata = None # v1.ObjectMeta
     host_ip = None # string (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    subnet = None # string (required)
 
     def __init__(self, *, host, host_ip, subnet, **_kwargs_):
 
@@ -8840,10 +8840,10 @@ class v1_HostSubnetList(Resource):
     __kind__ = 'v1.HostSubnetList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -8855,10 +8855,10 @@ class v1_HostSubnetList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -8878,12 +8878,12 @@ class v1_ISCSIVolumeSource(Resource):
     __kind__ = 'v1.ISCSIVolumeSource'
 
     __fields__ = {
-        'target_portal': 'targetPortal',
-        'read_only': 'readOnly',
+        'fs_type': 'fsType',
         'iqn': 'iqn',
         'iscsi_interface': 'iscsiInterface',
-        'fs_type': 'fsType',
         'lun': 'lun',
+        'read_only': 'readOnly',
+        'target_portal': 'targetPortal',
     }
 
     __types__ = {
@@ -8895,12 +8895,12 @@ class v1_ISCSIVolumeSource(Resource):
         'target_portal',
     ])
 
-    target_portal = None # string (required)
-    read_only = None # boolean
+    fs_type = None # string
     iqn = None # string (required)
     iscsi_interface = None # string
-    fs_type = None # string
     lun = None # integer (required)
+    read_only = None # boolean
+    target_portal = None # string (required)
 
     def __init__(self, *, iqn, lun, target_portal, **_kwargs_):
 
@@ -8919,13 +8919,13 @@ class v1_Identity(Resource):
     __kind__ = 'v1.Identity'
 
     __fields__ = {
-        'provider_user_name': 'providerUserName',
         'api_version': 'apiVersion',
-        'user': 'user',
-        'provider_name': 'providerName',
-        'metadata': 'metadata',
         'extra': 'extra',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'provider_name': 'providerName',
+        'provider_user_name': 'providerUserName',
+        'user': 'user',
     }
 
     __types__ = {
@@ -8939,13 +8939,13 @@ class v1_Identity(Resource):
         'user',
     ])
 
-    provider_user_name = None # string (required)
     api_version = None # string
-    user = None # v1.ObjectReference (required)
-    provider_name = None # string (required)
-    metadata = None # v1.ObjectMeta
     extra = None # object
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    provider_name = None # string (required)
+    provider_user_name = None # string (required)
+    user = None # v1.ObjectReference (required)
 
     def __init__(self, *, provider_name, provider_user_name, user, **_kwargs_):
 
@@ -8965,10 +8965,10 @@ class v1_IdentityList(Resource):
     __kind__ = 'v1.IdentityList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -8980,10 +8980,10 @@ class v1_IdentityList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -9002,24 +9002,24 @@ class v1_Image(Resource):
     __kind__ = 'v1.Image'
 
     __fields__ = {
-        'docker_image_reference': 'dockerImageReference',
-        'docker_image_config': 'dockerImageConfig',
-        'signatures': 'signatures',
-        'docker_image_manifest_media_type': 'dockerImageManifestMediaType',
-        'metadata': 'metadata',
-        'docker_image_metadata_version': 'dockerImageMetadataVersion',
         'api_version': 'apiVersion',
-        'docker_image_metadata': 'dockerImageMetadata',
-        'docker_image_manifest': 'dockerImageManifest',
+        'docker_image_config': 'dockerImageConfig',
         'docker_image_layers': 'dockerImageLayers',
+        'docker_image_manifest': 'dockerImageManifest',
+        'docker_image_manifest_media_type': 'dockerImageManifestMediaType',
+        'docker_image_metadata': 'dockerImageMetadata',
+        'docker_image_metadata_version': 'dockerImageMetadataVersion',
+        'docker_image_reference': 'dockerImageReference',
         'docker_image_signatures': 'dockerImageSignatures',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'signatures': 'signatures',
     }
 
     __types__ = {
         'docker_image_layers': 'v1.ImageLayer',
-        'metadata': 'v1.ObjectMeta',
         'docker_image_signatures': 'v1.Image.dockerImageSignatures',
+        'metadata': 'v1.ObjectMeta',
         'signatures': 'v1.ImageSignature',
     }
 
@@ -9027,22 +9027,22 @@ class v1_Image(Resource):
         'docker_image_layers',
     ])
 
-    docker_image_reference = None # string
-    docker_image_config = None # string
-    signatures = None # array
-    docker_image_manifest_media_type = None # string
-    metadata = None # v1.ObjectMeta
-    docker_image_metadata_version = None # string
     api_version = None # string
-    docker_image_metadata = None # string
-    docker_image_manifest = None # string
+    docker_image_config = None # string
     docker_image_layers = None # array (required)
+    docker_image_manifest = None # string
+    docker_image_manifest_media_type = None # string
+    docker_image_metadata = None # string
+    docker_image_metadata_version = None # string
+    docker_image_reference = None # string
     docker_image_signatures = None # array
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    signatures = None # array
 
     def __init__(self, *, docker_image_layers, **_kwargs_):
-        self.signatures = []
         self.docker_image_signatures = []
+        self.signatures = []
 
         self.kind = 'ImageSignature'
 
@@ -9103,8 +9103,8 @@ class v1_ImageChangeTrigger(Resource):
     __kind__ = 'v1.ImageChangeTrigger'
 
     __fields__ = {
-        'last_triggered_image_id': 'lastTriggeredImageID',
         'from_': 'from',
+        'last_triggered_image_id': 'lastTriggeredImageID',
     }
 
     __types__ = {
@@ -9113,8 +9113,8 @@ class v1_ImageChangeTrigger(Resource):
 
     __required__ = set()
 
-    last_triggered_image_id = None # string
     from_ = None # v1.ObjectReference
+    last_triggered_image_id = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -9128,26 +9128,26 @@ class v1_ImageImportSpec(Resource):
     __kind__ = 'v1.ImageImportSpec'
 
     __fields__ = {
-        'to': 'to',
         'from_': 'from',
         'import_policy': 'importPolicy',
         'include_manifest': 'includeManifest',
+        'to': 'to',
     }
 
     __types__ = {
-        'to': 'v1.LocalObjectReference',
         'from_': 'v1.ObjectReference',
         'import_policy': 'v1.TagImportPolicy',
+        'to': 'v1.LocalObjectReference',
     }
 
     __required__ = set([
         'from_',
     ])
 
-    to = None # v1.LocalObjectReference
     from_ = None # v1.ObjectReference (required)
     import_policy = None # v1.TagImportPolicy
     include_manifest = None # boolean
+    to = None # v1.LocalObjectReference
 
     def __init__(self, *, from_, **_kwargs_):
 
@@ -9163,23 +9163,23 @@ class v1_ImageImportStatus(Resource):
     __kind__ = 'v1.ImageImportStatus'
 
     __fields__ = {
-        'tag': 'tag',
-        'status': 'status',
         'image': 'image',
+        'status': 'status',
+        'tag': 'tag',
     }
 
     __types__ = {
-        'status': 'unversioned.Status',
         'image': 'v1.Image',
+        'status': 'unversioned.Status',
     }
 
     __required__ = set([
         'status',
     ])
 
-    tag = None # string
-    status = None # unversioned.Status (required)
     image = None # v1.Image
+    status = None # unversioned.Status (required)
+    tag = None # string
 
     def __init__(self, *, status, **_kwargs_):
 
@@ -9196,8 +9196,8 @@ class v1_ImageLayer(Resource):
     __kind__ = 'v1.ImageLayer'
 
     __fields__ = {
-        'name': 'name',
         'media_type': 'mediaType',
+        'name': 'name',
         'size': 'size',
     }
 
@@ -9210,8 +9210,8 @@ class v1_ImageLayer(Resource):
         'size',
     ])
 
-    name = None # string (required)
     media_type = None # string (required)
+    name = None # string (required)
     size = None # integer (required)
 
     def __init__(self, *, media_type, name, size, **_kwargs_):
@@ -9230,10 +9230,10 @@ class v1_ImageList(Resource):
     __kind__ = 'v1.ImageList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -9245,10 +9245,10 @@ class v1_ImageList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -9272,24 +9272,24 @@ class v1_ImageSignature(Resource):
     __kind__ = 'v1.ImageSignature'
 
     __fields__ = {
-        'image_identity': 'imageIdentity',
-        'signed_claims': 'signedClaims',
         'api_version': 'apiVersion',
-        'type': 'type',
         'conditions': 'conditions',
-        'issued_by': 'issuedBy',
         'content': 'content',
-        'metadata': 'metadata',
         'created': 'created',
+        'image_identity': 'imageIdentity',
+        'issued_by': 'issuedBy',
         'issued_to': 'issuedTo',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'signed_claims': 'signedClaims',
+        'type': 'type',
     }
 
     __types__ = {
         'conditions': 'v1.SignatureCondition',
-        'metadata': 'v1.ObjectMeta',
-        'issued_to': 'v1.SignatureSubject',
         'issued_by': 'v1.SignatureIssuer',
+        'issued_to': 'v1.SignatureSubject',
+        'metadata': 'v1.ObjectMeta',
     }
 
     __required__ = set([
@@ -9297,22 +9297,22 @@ class v1_ImageSignature(Resource):
         'type',
     ])
 
-    image_identity = None # string
-    signed_claims = None # object
     api_version = None # string
-    type = None # string (required)
     conditions = None # array
-    issued_by = None # v1.SignatureIssuer
     content = None # array (required)
-    metadata = None # v1.ObjectMeta
     created = None # string
+    image_identity = None # string
+    issued_by = None # v1.SignatureIssuer
     issued_to = None # v1.SignatureSubject
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    signed_claims = None # object
+    type = None # string (required)
 
     def __init__(self, *, content, type, **_kwargs_):
         self.conditions = []
 
-        self.kind = 'SignatureIssuer'
+        self.kind = 'ObjectMeta'
 
         self.content = content
         self.type = type
@@ -9327,14 +9327,14 @@ class v1_ImageSource(Resource):
     __kind__ = 'v1.ImageSource'
 
     __fields__ = {
-        'paths': 'paths',
         'from_': 'from',
+        'paths': 'paths',
         'pull_secret': 'pullSecret',
     }
 
     __types__ = {
-        'paths': 'v1.ImageSourcePath',
         'from_': 'v1.ObjectReference',
+        'paths': 'v1.ImageSourcePath',
         'pull_secret': 'v1.LocalObjectReference',
     }
 
@@ -9343,8 +9343,8 @@ class v1_ImageSource(Resource):
         'paths',
     ])
 
-    paths = None # array (required)
     from_ = None # v1.ObjectReference (required)
+    paths = None # array (required)
     pull_secret = None # v1.LocalObjectReference
 
     def __init__(self, *, from_, paths, **_kwargs_):
@@ -9363,8 +9363,8 @@ class v1_ImageSourcePath(Resource):
     __kind__ = 'v1.ImageSourcePath'
 
     __fields__ = {
-        'source_path': 'sourcePath',
         'destination_dir': 'destinationDir',
+        'source_path': 'sourcePath',
     }
 
     __types__ = {
@@ -9375,8 +9375,8 @@ class v1_ImageSourcePath(Resource):
         'source_path',
     ])
 
-    source_path = None # string (required)
     destination_dir = None # string (required)
+    source_path = None # string (required)
 
     def __init__(self, *, destination_dir, source_path, **_kwargs_):
 
@@ -9395,11 +9395,11 @@ class v1_ImageStream(Resource):
     __kind__ = 'v1.ImageStream'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -9412,11 +9412,11 @@ class v1_ImageStream(Resource):
         'spec',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.ImageStreamSpec (required)
     status = None # v1.ImageStreamStatus
-    kind = None # string
 
     def __init__(self, *, spec, **_kwargs_):
 
@@ -9435,29 +9435,29 @@ class v1_ImageStreamImage(Resource):
     __kind__ = 'v1.ImageStreamImage'
 
     __fields__ = {
-        'image': 'image',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'image': 'image',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
-        'metadata': 'v1.ObjectMeta',
         'image': 'v1.Image',
+        'metadata': 'v1.ObjectMeta',
     }
 
     __required__ = set([
         'image',
     ])
 
-    image = None # v1.Image (required)
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    image = None # v1.Image (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
 
     def __init__(self, *, image, **_kwargs_):
 
-        self.kind = 'Image'
+        self.kind = 'ObjectMeta'
 
         self.image = image
 
@@ -9472,11 +9472,11 @@ class v1_ImageStreamImport(Resource):
     __kind__ = 'v1.ImageStreamImport'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -9490,11 +9490,11 @@ class v1_ImageStreamImport(Resource):
         'status',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.ImageStreamImportSpec (required)
     status = None # v1.ImageStreamImportStatus (required)
-    kind = None # string
 
     def __init__(self, *, spec, status, **_kwargs_):
 
@@ -9513,23 +9513,23 @@ class v1_ImageStreamImportSpec(Resource):
     __kind__ = 'v1.ImageStreamImportSpec'
 
     __fields__ = {
-        'repository': 'repository',
-        'import_': 'import',
         'images': 'images',
+        'import_': 'import',
+        'repository': 'repository',
     }
 
     __types__ = {
-        'repository': 'v1.RepositoryImportSpec',
         'images': 'v1.ImageImportSpec',
+        'repository': 'v1.RepositoryImportSpec',
     }
 
     __required__ = set([
         'import_',
     ])
 
-    repository = None # v1.RepositoryImportSpec
-    import_ = None # boolean (required)
     images = None # array
+    import_ = None # boolean (required)
+    repository = None # v1.RepositoryImportSpec
 
     def __init__(self, *, import_, **_kwargs_):
         self.images = []
@@ -9547,22 +9547,22 @@ class v1_ImageStreamImportStatus(Resource):
     __kind__ = 'v1.ImageStreamImportStatus'
 
     __fields__ = {
-        'repository': 'repository',
-        'import_': 'import',
         'images': 'images',
+        'import_': 'import',
+        'repository': 'repository',
     }
 
     __types__ = {
-        'repository': 'v1.RepositoryImportStatus',
-        'import_': 'v1.ImageStream',
         'images': 'v1.ImageImportStatus',
+        'import_': 'v1.ImageStream',
+        'repository': 'v1.RepositoryImportStatus',
     }
 
     __required__ = set()
 
-    repository = None # v1.RepositoryImportStatus
-    import_ = None # v1.ImageStream
     images = None # array
+    import_ = None # v1.ImageStream
+    repository = None # v1.RepositoryImportStatus
 
     def __init__(self, **_kwargs_):
         self.images = []
@@ -9577,10 +9577,10 @@ class v1_ImageStreamList(Resource):
     __kind__ = 'v1.ImageStreamList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -9592,10 +9592,10 @@ class v1_ImageStreamList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -9615,16 +9615,16 @@ class v1_ImageStreamMapping(Resource):
     __kind__ = 'v1.ImageStreamMapping'
 
     __fields__ = {
-        'image': 'image',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'tag': 'tag',
+        'image': 'image',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'tag': 'tag',
     }
 
     __types__ = {
-        'metadata': 'v1.ObjectMeta',
         'image': 'v1.Image',
+        'metadata': 'v1.ObjectMeta',
     }
 
     __required__ = set([
@@ -9632,15 +9632,15 @@ class v1_ImageStreamMapping(Resource):
         'tag',
     ])
 
-    image = None # v1.Image (required)
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    tag = None # string (required)
+    image = None # v1.Image (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    tag = None # string (required)
 
     def __init__(self, *, image, tag, **_kwargs_):
 
-        self.kind = 'Image'
+        self.kind = 'ObjectMeta'
 
         self.image = image
         self.tag = tag
@@ -9655,8 +9655,8 @@ class v1_ImageStreamSpec(Resource):
     __kind__ = 'v1.ImageStreamSpec'
 
     __fields__ = {
-        'tags': 'tags',
         'docker_image_repository': 'dockerImageRepository',
+        'tags': 'tags',
     }
 
     __types__ = {
@@ -9665,8 +9665,8 @@ class v1_ImageStreamSpec(Resource):
 
     __required__ = set()
 
-    tags = None # array
     docker_image_repository = None # string
+    tags = None # array
 
     def __init__(self, **_kwargs_):
         self.tags = []
@@ -9682,8 +9682,8 @@ class v1_ImageStreamStatus(Resource):
     __kind__ = 'v1.ImageStreamStatus'
 
     __fields__ = {
-        'tags': 'tags',
         'docker_image_repository': 'dockerImageRepository',
+        'tags': 'tags',
     }
 
     __types__ = {
@@ -9694,8 +9694,8 @@ class v1_ImageStreamStatus(Resource):
         'docker_image_repository',
     ])
 
-    tags = None # array
     docker_image_repository = None # string (required)
+    tags = None # array
 
     def __init__(self, *, docker_image_repository, **_kwargs_):
         self.tags = []
@@ -9713,42 +9713,40 @@ class v1_ImageStreamTag(Resource):
     __kind__ = 'v1.ImageStreamTag'
 
     __fields__ = {
-        'generation': 'generation',
-        'tag': 'tag',
         'api_version': 'apiVersion',
         'conditions': 'conditions',
-        'metadata': 'metadata',
+        'generation': 'generation',
         'image': 'image',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'tag': 'tag',
     }
 
     __types__ = {
         'conditions': 'v1.TagEventCondition',
-        'tag': 'v1.TagReference',
-        'metadata': 'v1.ObjectMeta',
         'image': 'v1.Image',
+        'metadata': 'v1.ObjectMeta',
+        'tag': 'v1.TagReference',
     }
 
     __required__ = set([
-        'generation',
         'image',
         'tag',
     ])
 
-    generation = None # integer (required)
-    tag = None # v1.TagReference (required)
     api_version = None # string
     conditions = None # array
-    metadata = None # v1.ObjectMeta
+    generation = None # integer
     image = None # v1.Image (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    tag = None # v1.TagReference (required)
 
-    def __init__(self, *, generation, image, tag, **_kwargs_):
+    def __init__(self, *, image, tag, **_kwargs_):
         self.conditions = []
 
-        self.kind = 'Image'
+        self.kind = 'TagReference'
 
-        self.generation = generation
         self.image = image
         self.tag = tag
 
@@ -9762,10 +9760,10 @@ class v1_ImageStreamTagList(Resource):
     __kind__ = 'v1.ImageStreamTagList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -9777,10 +9775,10 @@ class v1_ImageStreamTagList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -9823,8 +9821,8 @@ class v1_KeyToPath(Resource):
     __kind__ = 'v1.KeyToPath'
 
     __fields__ = {
-        'path': 'path',
         'key': 'key',
+        'path': 'path',
     }
 
     __types__ = {
@@ -9835,8 +9833,8 @@ class v1_KeyToPath(Resource):
         'path',
     ])
 
-    path = None # string (required)
     key = None # string (required)
+    path = None # string (required)
 
     def __init__(self, *, key, path, **_kwargs_):
 
@@ -9857,19 +9855,19 @@ class v1_Lifecycle(Resource):
     __kind__ = 'v1.Lifecycle'
 
     __fields__ = {
-        'pre_stop': 'preStop',
         'post_start': 'postStart',
+        'pre_stop': 'preStop',
     }
 
     __types__ = {
-        'pre_stop': 'v1.Handler',
         'post_start': 'v1.Handler',
+        'pre_stop': 'v1.Handler',
     }
 
     __required__ = set()
 
-    pre_stop = None # v1.Handler
     post_start = None # v1.Handler
+    pre_stop = None # v1.Handler
 
     def __init__(self, **_kwargs_):
 
@@ -9884,23 +9882,23 @@ class v1_LifecycleHook(Resource):
     __kind__ = 'v1.LifecycleHook'
 
     __fields__ = {
-        'tag_images': 'tagImages',
-        'failure_policy': 'failurePolicy',
         'exec_new_pod': 'execNewPod',
+        'failure_policy': 'failurePolicy',
+        'tag_images': 'tagImages',
     }
 
     __types__ = {
-        'tag_images': 'v1.TagImageHook',
         'exec_new_pod': 'v1.ExecNewPodHook',
+        'tag_images': 'v1.TagImageHook',
     }
 
     __required__ = set([
         'failure_policy',
     ])
 
-    tag_images = None # array
-    failure_policy = None # string (required)
     exec_new_pod = None # v1.ExecNewPodHook
+    failure_policy = None # string (required)
+    tag_images = None # array
 
     def __init__(self, *, failure_policy, **_kwargs_):
         self.tag_images = []
@@ -9942,15 +9940,15 @@ class v1_LocalResourceAccessReview(Resource):
     __kind__ = 'v1.LocalResourceAccessReview'
 
     __fields__ = {
-        'resource_name': 'resourceName',
-        'resource': 'resource',
-        'verb': 'verb',
         'api_version': 'apiVersion',
-        'resource_api_version': 'resourceAPIVersion',
         'content': 'content',
-        'resource_api_group': 'resourceAPIGroup',
-        'namespace': 'namespace',
         'kind': 'kind',
+        'namespace': 'namespace',
+        'resource': 'resource',
+        'resource_api_group': 'resourceAPIGroup',
+        'resource_api_version': 'resourceAPIVersion',
+        'resource_name': 'resourceName',
+        'verb': 'verb',
     }
 
     __types__ = {
@@ -9965,15 +9963,15 @@ class v1_LocalResourceAccessReview(Resource):
         'verb',
     ])
 
-    resource_name = None # string (required)
-    resource = None # string (required)
-    verb = None # string (required)
     api_version = None # string
-    resource_api_version = None # string (required)
     content = None # string
-    resource_api_group = None # string (required)
-    namespace = None # string (required)
     kind = None # string
+    namespace = None # string (required)
+    resource = None # string (required)
+    resource_api_group = None # string (required)
+    resource_api_version = None # string (required)
+    resource_name = None # string (required)
+    verb = None # string (required)
 
     def __init__(self, *, namespace, resource, resource_api_group, resource_api_version, resource_name, verb, **_kwargs_):
 
@@ -9998,18 +9996,18 @@ class v1_LocalSubjectAccessReview(Resource):
     __kind__ = 'v1.LocalSubjectAccessReview'
 
     __fields__ = {
-        'resource': 'resource',
-        'resource_api_version': 'resourceAPIVersion',
-        'scopes': 'scopes',
-        'content': 'content',
-        'resource_api_group': 'resourceAPIGroup',
-        'resource_name': 'resourceName',
-        'verb': 'verb',
         'api_version': 'apiVersion',
-        'user': 'user',
+        'content': 'content',
+        'groups': 'groups',
         'kind': 'kind',
         'namespace': 'namespace',
-        'groups': 'groups',
+        'resource': 'resource',
+        'resource_api_group': 'resourceAPIGroup',
+        'resource_api_version': 'resourceAPIVersion',
+        'resource_name': 'resourceName',
+        'scopes': 'scopes',
+        'user': 'user',
+        'verb': 'verb',
     }
 
     __types__ = {
@@ -10027,18 +10025,18 @@ class v1_LocalSubjectAccessReview(Resource):
         'verb',
     ])
 
-    resource = None # string (required)
-    resource_api_version = None # string (required)
-    scopes = None # array (required)
-    content = None # string
-    resource_api_group = None # string (required)
-    resource_name = None # string (required)
-    verb = None # string (required)
     api_version = None # string
-    user = None # string (required)
+    content = None # string
+    groups = None # array (required)
     kind = None # string
     namespace = None # string (required)
-    groups = None # array (required)
+    resource = None # string (required)
+    resource_api_group = None # string (required)
+    resource_api_version = None # string (required)
+    resource_name = None # string (required)
+    scopes = None # array (required)
+    user = None # string (required)
+    verb = None # string (required)
 
     def __init__(self, *, groups, namespace, resource, resource_api_group, resource_api_version, resource_name, scopes, user, verb, **_kwargs_):
 
@@ -10221,14 +10219,14 @@ class v1_NamedTagEventList(Resource):
     __kind__ = 'v1.NamedTagEventList'
 
     __fields__ = {
-        'items': 'items',
         'conditions': 'conditions',
+        'items': 'items',
         'tag': 'tag',
     }
 
     __types__ = {
-        'items': 'v1.TagEvent',
         'conditions': 'v1.TagEventCondition',
+        'items': 'v1.TagEvent',
     }
 
     __required__ = set([
@@ -10236,8 +10234,8 @@ class v1_NamedTagEventList(Resource):
         'tag',
     ])
 
-    items = None # array (required)
     conditions = None # array
+    items = None # array (required)
     tag = None # string (required)
 
     def __init__(self, *, items, tag, **_kwargs_):
@@ -10257,11 +10255,11 @@ class v1_NetNamespace(Resource):
     __kind__ = 'v1.NetNamespace'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'netname': 'netname',
-        'netid': 'netid',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'netid': 'netid',
+        'netname': 'netname',
     }
 
     __types__ = {
@@ -10273,11 +10271,11 @@ class v1_NetNamespace(Resource):
         'netname',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    netname = None # string (required)
-    netid = None # integer (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    netid = None # integer (required)
+    netname = None # string (required)
 
     def __init__(self, *, netid, netname, **_kwargs_):
 
@@ -10296,10 +10294,10 @@ class v1_NetNamespaceList(Resource):
     __kind__ = 'v1.NetNamespaceList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -10311,10 +10309,10 @@ class v1_NetNamespaceList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -10332,17 +10330,17 @@ class v1_OAuthAccessToken(Resource):
     __kind__ = 'v1.OAuthAccessToken'
 
     __fields__ = {
-        'expires_in': 'expiresIn',
         'api_version': 'apiVersion',
-        'scopes': 'scopes',
-        'user_uid': 'userUID',
-        'refresh_token': 'refreshToken',
-        'metadata': 'metadata',
-        'client_name': 'clientName',
-        'redirect_uri': 'redirectURI',
-        'user_name': 'userName',
         'authorize_token': 'authorizeToken',
+        'client_name': 'clientName',
+        'expires_in': 'expiresIn',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'redirect_uri': 'redirectURI',
+        'refresh_token': 'refreshToken',
+        'scopes': 'scopes',
+        'user_name': 'userName',
+        'user_uid': 'userUID',
     }
 
     __types__ = {
@@ -10351,17 +10349,17 @@ class v1_OAuthAccessToken(Resource):
 
     __required__ = set()
 
-    expires_in = None # integer
     api_version = None # string
-    scopes = None # array
-    user_uid = None # string
-    refresh_token = None # string
-    metadata = None # v1.ObjectMeta
-    client_name = None # string
-    redirect_uri = None # string
-    user_name = None # string
     authorize_token = None # string
+    client_name = None # string
+    expires_in = None # integer
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    redirect_uri = None # string
+    refresh_token = None # string
+    scopes = None # array
+    user_name = None # string
+    user_uid = None # string
 
     def __init__(self, **_kwargs_):
         self.scopes = []
@@ -10378,10 +10376,10 @@ class v1_OAuthAccessTokenList(Resource):
     __kind__ = 'v1.OAuthAccessTokenList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -10393,10 +10391,10 @@ class v1_OAuthAccessTokenList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -10414,16 +10412,16 @@ class v1_OAuthAuthorizeToken(Resource):
     __kind__ = 'v1.OAuthAuthorizeToken'
 
     __fields__ = {
-        'state': 'state',
-        'expires_in': 'expiresIn',
         'api_version': 'apiVersion',
-        'scopes': 'scopes',
-        'user_uid': 'userUID',
-        'metadata': 'metadata',
         'client_name': 'clientName',
-        'redirect_uri': 'redirectURI',
-        'user_name': 'userName',
+        'expires_in': 'expiresIn',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'redirect_uri': 'redirectURI',
+        'scopes': 'scopes',
+        'state': 'state',
+        'user_name': 'userName',
+        'user_uid': 'userUID',
     }
 
     __types__ = {
@@ -10432,16 +10430,16 @@ class v1_OAuthAuthorizeToken(Resource):
 
     __required__ = set()
 
-    state = None # string
-    expires_in = None # integer
     api_version = None # string
-    scopes = None # array
-    user_uid = None # string
-    metadata = None # v1.ObjectMeta
     client_name = None # string
-    redirect_uri = None # string
-    user_name = None # string
+    expires_in = None # integer
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    redirect_uri = None # string
+    scopes = None # array
+    state = None # string
+    user_name = None # string
+    user_uid = None # string
 
     def __init__(self, **_kwargs_):
         self.scopes = []
@@ -10458,10 +10456,10 @@ class v1_OAuthAuthorizeTokenList(Resource):
     __kind__ = 'v1.OAuthAuthorizeTokenList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -10473,10 +10471,10 @@ class v1_OAuthAuthorizeTokenList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -10494,14 +10492,14 @@ class v1_OAuthClient(Resource):
     __kind__ = 'v1.OAuthClient'
 
     __fields__ = {
-        'redirect_ur_is': 'redirectURIs',
-        'api_version': 'apiVersion',
-        'scope_restrictions': 'scopeRestrictions',
-        'grant_method': 'grantMethod',
         'additional_secrets': 'additionalSecrets',
+        'api_version': 'apiVersion',
+        'grant_method': 'grantMethod',
         'kind': 'kind',
-        'respond_with_challenges': 'respondWithChallenges',
         'metadata': 'metadata',
+        'redirect_ur_is': 'redirectURIs',
+        'respond_with_challenges': 'respondWithChallenges',
+        'scope_restrictions': 'scopeRestrictions',
         'secret': 'secret',
     }
 
@@ -10512,20 +10510,20 @@ class v1_OAuthClient(Resource):
 
     __required__ = set()
 
-    redirect_ur_is = None # array
-    api_version = None # string
-    scope_restrictions = None # array
-    grant_method = None # string
     additional_secrets = None # array
+    api_version = None # string
+    grant_method = None # string
     kind = None # string
-    respond_with_challenges = None # boolean
     metadata = None # v1.ObjectMeta
+    redirect_ur_is = None # array
+    respond_with_challenges = None # boolean
+    scope_restrictions = None # array
     secret = None # string
 
     def __init__(self, **_kwargs_):
+        self.additional_secrets = []
         self.redirect_ur_is = []
         self.scope_restrictions = []
-        self.additional_secrets = []
 
         self.kind = 'ScopeRestriction'
 
@@ -10541,12 +10539,12 @@ class v1_OAuthClientAuthorization(Resource):
 
     __fields__ = {
         'api_version': 'apiVersion',
-        'scopes': 'scopes',
-        'user_uid': 'userUID',
-        'metadata': 'metadata',
         'client_name': 'clientName',
-        'user_name': 'userName',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'scopes': 'scopes',
+        'user_name': 'userName',
+        'user_uid': 'userUID',
     }
 
     __types__ = {
@@ -10556,12 +10554,12 @@ class v1_OAuthClientAuthorization(Resource):
     __required__ = set()
 
     api_version = None # string
-    scopes = None # array
-    user_uid = None # string
-    metadata = None # v1.ObjectMeta
     client_name = None # string
-    user_name = None # string
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    scopes = None # array
+    user_name = None # string
+    user_uid = None # string
 
     def __init__(self, **_kwargs_):
         self.scopes = []
@@ -10579,10 +10577,10 @@ class v1_OAuthClientAuthorizationList(Resource):
     __kind__ = 'v1.OAuthClientAuthorizationList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -10594,10 +10592,10 @@ class v1_OAuthClientAuthorizationList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -10615,10 +10613,10 @@ class v1_OAuthClientList(Resource):
     __kind__ = 'v1.OAuthClientList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -10630,10 +10628,10 @@ class v1_OAuthClientList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -10651,8 +10649,8 @@ class v1_ObjectFieldSelector(Resource):
     __kind__ = 'v1.ObjectFieldSelector'
 
     __fields__ = {
-        'field_path': 'fieldPath',
         'api_version': 'apiVersion',
+        'field_path': 'fieldPath',
     }
 
     __types__ = {
@@ -10662,8 +10660,8 @@ class v1_ObjectFieldSelector(Resource):
         'field_path',
     ])
 
-    field_path = None # string (required)
     api_version = None # string
+    field_path = None # string (required)
 
     def __init__(self, *, field_path, **_kwargs_):
 
@@ -10680,20 +10678,20 @@ class v1_ObjectMeta(Resource):
     __kind__ = 'v1.ObjectMeta'
 
     __fields__ = {
-        'name': 'name',
+        'annotations': 'annotations',
+        'creation_timestamp': 'creationTimestamp',
+        'deletion_grace_period_seconds': 'deletionGracePeriodSeconds',
+        'deletion_timestamp': 'deletionTimestamp',
         'finalizers': 'finalizers',
+        'generate_name': 'generateName',
+        'generation': 'generation',
+        'labels': 'labels',
+        'name': 'name',
+        'namespace': 'namespace',
+        'owner_references': 'ownerReferences',
+        'resource_version': 'resourceVersion',
         'self_link': 'selfLink',
         'uid': 'uid',
-        'generate_name': 'generateName',
-        'annotations': 'annotations',
-        'namespace': 'namespace',
-        'generation': 'generation',
-        'deletion_timestamp': 'deletionTimestamp',
-        'creation_timestamp': 'creationTimestamp',
-        'owner_references': 'ownerReferences',
-        'labels': 'labels',
-        'deletion_grace_period_seconds': 'deletionGracePeriodSeconds',
-        'resource_version': 'resourceVersion',
     }
 
     __types__ = {
@@ -10702,20 +10700,20 @@ class v1_ObjectMeta(Resource):
 
     __required__ = set()
 
-    name = None # string
+    annotations = None # object
+    creation_timestamp = None # string
+    deletion_grace_period_seconds = None # integer
+    deletion_timestamp = None # string
     finalizers = None # array
+    generate_name = None # string
+    generation = None # integer
+    labels = None # object
+    name = None # string
+    namespace = None # string
+    owner_references = None # array
+    resource_version = None # string
     self_link = None # string
     uid = None # string
-    generate_name = None # string
-    annotations = None # object
-    namespace = None # string
-    generation = None # integer
-    deletion_timestamp = None # string
-    creation_timestamp = None # string
-    owner_references = None # array
-    labels = None # object
-    deletion_grace_period_seconds = None # integer
-    resource_version = None # string
 
     def __init__(self, **_kwargs_):
         self.finalizers = []
@@ -10732,13 +10730,13 @@ class v1_ObjectReference(Resource):
     __kind__ = 'v1.ObjectReference'
 
     __fields__ = {
-        'name': 'name',
-        'field_path': 'fieldPath',
         'api_version': 'apiVersion',
-        'uid': 'uid',
-        'resource_version': 'resourceVersion',
-        'namespace': 'namespace',
+        'field_path': 'fieldPath',
         'kind': 'kind',
+        'name': 'name',
+        'namespace': 'namespace',
+        'resource_version': 'resourceVersion',
+        'uid': 'uid',
     }
 
     __types__ = {
@@ -10746,13 +10744,13 @@ class v1_ObjectReference(Resource):
 
     __required__ = set()
 
-    name = None # string
-    field_path = None # string
     api_version = None # string
-    uid = None # string
-    resource_version = None # string
-    namespace = None # string
+    field_path = None # string
     kind = None # string
+    name = None # string
+    namespace = None # string
+    resource_version = None # string
+    uid = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -10770,11 +10768,11 @@ class v1_OwnerReference(Resource):
     __kind__ = 'v1.OwnerReference'
 
     __fields__ = {
-        'name': 'name',
         'api_version': 'apiVersion',
-        'uid': 'uid',
         'controller': 'controller',
         'kind': 'kind',
+        'name': 'name',
+        'uid': 'uid',
     }
 
     __types__ = {
@@ -10787,11 +10785,11 @@ class v1_OwnerReference(Resource):
         'uid',
     ])
 
-    name = None # string (required)
     api_version = None # string (required)
-    uid = None # string (required)
     controller = None # boolean
     kind = None # string (required)
+    name = None # string (required)
+    uid = None # string (required)
 
     def __init__(self, *, api_version, kind, name, uid, **_kwargs_):
 
@@ -10813,13 +10811,13 @@ class v1_Parameter(Resource):
     __kind__ = 'v1.Parameter'
 
     __fields__ = {
-        'name': 'name',
         'description': 'description',
+        'display_name': 'displayName',
         'from_': 'from',
         'generate': 'generate',
-        'value': 'value',
-        'display_name': 'displayName',
+        'name': 'name',
         'required': 'required',
+        'value': 'value',
     }
 
     __types__ = {
@@ -10829,13 +10827,13 @@ class v1_Parameter(Resource):
         'name',
     ])
 
-    name = None # string (required)
     description = None # string
+    display_name = None # string
     from_ = None # string
     generate = None # string
-    value = None # string
-    display_name = None # string
+    name = None # string (required)
     required = None # boolean
+    value = None # string
 
     def __init__(self, *, name, **_kwargs_):
 
@@ -10887,10 +10885,10 @@ class v1_PodSecurityContext(Resource):
     __kind__ = 'v1.PodSecurityContext'
 
     __fields__ = {
-        'run_as_user': 'runAsUser',
-        'se_linux_options': 'seLinuxOptions',
         'fs_group': 'fsGroup',
         'run_as_non_root': 'runAsNonRoot',
+        'run_as_user': 'runAsUser',
+        'se_linux_options': 'seLinuxOptions',
         'supplemental_groups': 'supplementalGroups',
     }
 
@@ -10900,10 +10898,10 @@ class v1_PodSecurityContext(Resource):
 
     __required__ = set()
 
-    run_as_user = None # integer
-    se_linux_options = None # v1.SELinuxOptions
     fs_group = None # integer
     run_as_non_root = None # boolean
+    run_as_user = None # integer
+    se_linux_options = None # v1.SELinuxOptions
     supplemental_groups = None # array
 
     def __init__(self, **_kwargs_):
@@ -10919,54 +10917,54 @@ class v1_PodSpec(Resource):
     __kind__ = 'v1.PodSpec'
 
     __fields__ = {
-        'service_account': 'serviceAccount',
         'active_deadline_seconds': 'activeDeadlineSeconds',
-        'node_name': 'nodeName',
-        'subdomain': 'subdomain',
-        'host_pid': 'hostPID',
         'containers': 'containers',
-        'image_pull_secrets': 'imagePullSecrets',
-        'node_selector': 'nodeSelector',
         'dns_policy': 'dnsPolicy',
-        'service_account_name': 'serviceAccountName',
-        'security_context': 'securityContext',
-        'host_ipc': 'hostIPC',
         'host': 'host',
+        'host_ipc': 'hostIPC',
         'host_network': 'hostNetwork',
-        'restart_policy': 'restartPolicy',
-        'termination_grace_period_seconds': 'terminationGracePeriodSeconds',
+        'host_pid': 'hostPID',
         'hostname': 'hostname',
+        'image_pull_secrets': 'imagePullSecrets',
+        'node_name': 'nodeName',
+        'node_selector': 'nodeSelector',
+        'restart_policy': 'restartPolicy',
+        'security_context': 'securityContext',
+        'service_account': 'serviceAccount',
+        'service_account_name': 'serviceAccountName',
+        'subdomain': 'subdomain',
+        'termination_grace_period_seconds': 'terminationGracePeriodSeconds',
         'volumes': 'volumes',
     }
 
     __types__ = {
-        'image_pull_secrets': 'v1.LocalObjectReference',
-        'volumes': 'v1.Volume',
-        'security_context': 'v1.PodSecurityContext',
         'containers': 'v1.Container',
+        'image_pull_secrets': 'v1.LocalObjectReference',
+        'security_context': 'v1.PodSecurityContext',
+        'volumes': 'v1.Volume',
     }
 
     __required__ = set([
         'containers',
     ])
 
-    service_account = None # string
     active_deadline_seconds = None # integer
-    node_name = None # string
-    subdomain = None # string
-    host_pid = None # boolean
     containers = None # array (required)
-    image_pull_secrets = None # array
-    node_selector = None # object
     dns_policy = None # string
-    service_account_name = None # string
-    security_context = None # v1.PodSecurityContext
-    host_ipc = None # boolean
     host = None # string
+    host_ipc = None # boolean
     host_network = None # boolean
-    restart_policy = None # string
-    termination_grace_period_seconds = None # integer
+    host_pid = None # boolean
     hostname = None # string
+    image_pull_secrets = None # array
+    node_name = None # string
+    node_selector = None # object
+    restart_policy = None # string
+    security_context = None # v1.PodSecurityContext
+    service_account = None # string
+    service_account_name = None # string
+    subdomain = None # string
+    termination_grace_period_seconds = None # integer
     volumes = None # array
 
     def __init__(self, *, containers, **_kwargs_):
@@ -11013,11 +11011,11 @@ class v1_Policy(Resource):
     __kind__ = 'v1.Policy'
 
     __fields__ = {
-        'roles': 'roles',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'last_modified': 'lastModified',
         'kind': 'kind',
+        'last_modified': 'lastModified',
+        'metadata': 'metadata',
+        'roles': 'roles',
     }
 
     __types__ = {
@@ -11030,11 +11028,11 @@ class v1_Policy(Resource):
         'roles',
     ])
 
-    roles = None # array (required)
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    last_modified = None # string (required)
     kind = None # string
+    last_modified = None # string (required)
+    metadata = None # v1.ObjectMeta
+    roles = None # array (required)
 
     def __init__(self, *, last_modified, roles, **_kwargs_):
 
@@ -11056,11 +11054,11 @@ class v1_PolicyBinding(Resource):
 
     __fields__ = {
         'api_version': 'apiVersion',
+        'kind': 'kind',
         'last_modified': 'lastModified',
         'metadata': 'metadata',
-        'role_bindings': 'roleBindings',
         'policy_ref': 'policyRef',
-        'kind': 'kind',
+        'role_bindings': 'roleBindings',
     }
 
     __types__ = {
@@ -11076,11 +11074,11 @@ class v1_PolicyBinding(Resource):
     ])
 
     api_version = None # string
+    kind = None # string
     last_modified = None # string (required)
     metadata = None # v1.ObjectMeta
-    role_bindings = None # array (required)
     policy_ref = None # v1.ObjectReference (required)
-    kind = None # string
+    role_bindings = None # array (required)
 
     def __init__(self, *, last_modified, policy_ref, role_bindings, **_kwargs_):
 
@@ -11100,10 +11098,10 @@ class v1_PolicyBindingList(Resource):
     __kind__ = 'v1.PolicyBindingList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -11115,10 +11113,10 @@ class v1_PolicyBindingList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -11136,10 +11134,10 @@ class v1_PolicyList(Resource):
     __kind__ = 'v1.PolicyList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -11151,10 +11149,10 @@ class v1_PolicyList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -11174,12 +11172,12 @@ class v1_PolicyRule(Resource):
     __kind__ = 'v1.PolicyRule'
 
     __fields__ = {
-        'resource_names': 'resourceNames',
+        'api_groups': 'apiGroups',
         'attribute_restrictions': 'attributeRestrictions',
+        'non_resource_ur_ls': 'nonResourceURLs',
+        'resource_names': 'resourceNames',
         'resources': 'resources',
         'verbs': 'verbs',
-        'api_groups': 'apiGroups',
-        'non_resource_ur_ls': 'nonResourceURLs',
     }
 
     __types__ = {
@@ -11191,16 +11189,16 @@ class v1_PolicyRule(Resource):
         'verbs',
     ])
 
-    resource_names = None # array
+    api_groups = None # array (required)
     attribute_restrictions = None # string
+    non_resource_ur_ls = None # array
+    resource_names = None # array
     resources = None # array (required)
     verbs = None # array (required)
-    api_groups = None # array (required)
-    non_resource_ur_ls = None # array
 
     def __init__(self, *, api_groups, resources, verbs, **_kwargs_):
-        self.resource_names = []
         self.non_resource_ur_ls = []
+        self.resource_names = []
 
         self.api_groups = api_groups
         self.resources = resources
@@ -11241,32 +11239,32 @@ class v1_Probe(Resource):
     __kind__ = 'v1.Probe'
 
     __fields__ = {
-        'failure_threshold': 'failureThreshold',
         'exec': 'exec',
+        'failure_threshold': 'failureThreshold',
+        'http_get': 'httpGet',
+        'initial_delay_seconds': 'initialDelaySeconds',
+        'period_seconds': 'periodSeconds',
+        'success_threshold': 'successThreshold',
         'tcp_socket': 'tcpSocket',
         'timeout_seconds': 'timeoutSeconds',
-        'http_get': 'httpGet',
-        'period_seconds': 'periodSeconds',
-        'initial_delay_seconds': 'initialDelaySeconds',
-        'success_threshold': 'successThreshold',
     }
 
     __types__ = {
+        'exec': 'v1.ExecAction',
         'http_get': 'v1.HTTPGetAction',
         'tcp_socket': 'v1.TCPSocketAction',
-        'exec': 'v1.ExecAction',
     }
 
     __required__ = set()
 
-    failure_threshold = None # integer
     exec = None # v1.ExecAction
+    failure_threshold = None # integer
+    http_get = None # v1.HTTPGetAction
+    initial_delay_seconds = None # integer
+    period_seconds = None # integer
+    success_threshold = None # integer
     tcp_socket = None # v1.TCPSocketAction
     timeout_seconds = None # integer
-    http_get = None # v1.HTTPGetAction
-    period_seconds = None # integer
-    initial_delay_seconds = None # integer
-    success_threshold = None # integer
 
     def __init__(self, **_kwargs_):
 
@@ -11280,11 +11278,11 @@ class v1_Project(Resource):
     __kind__ = 'v1.Project'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -11295,11 +11293,11 @@ class v1_Project(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.ProjectSpec
     status = None # v1.ProjectStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -11315,10 +11313,10 @@ class v1_ProjectList(Resource):
     __kind__ = 'v1.ProjectList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -11330,10 +11328,10 @@ class v1_ProjectList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -11352,11 +11350,11 @@ class v1_ProjectRequest(Resource):
     __kind__ = 'v1.ProjectRequest'
 
     __fields__ = {
-        'description': 'description',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'description': 'description',
         'display_name': 'displayName',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -11365,11 +11363,11 @@ class v1_ProjectRequest(Resource):
 
     __required__ = set()
 
-    description = None # string
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    description = None # string
     display_name = None # string
     kind = None # string
+    metadata = None # v1.ObjectMeta
 
     def __init__(self, **_kwargs_):
 
@@ -11433,14 +11431,14 @@ class v1_RBDVolumeSource(Resource):
     __kind__ = 'v1.RBDVolumeSource'
 
     __fields__ = {
-        'monitors': 'monitors',
-        'pool': 'pool',
-        'user': 'user',
-        'keyring': 'keyring',
-        'secret_ref': 'secretRef',
-        'read_only': 'readOnly',
         'fs_type': 'fsType',
         'image': 'image',
+        'keyring': 'keyring',
+        'monitors': 'monitors',
+        'pool': 'pool',
+        'read_only': 'readOnly',
+        'secret_ref': 'secretRef',
+        'user': 'user',
     }
 
     __types__ = {
@@ -11452,14 +11450,14 @@ class v1_RBDVolumeSource(Resource):
         'monitors',
     ])
 
-    monitors = None # array (required)
-    pool = None # string
-    user = None # string
-    keyring = None # string
-    secret_ref = None # v1.LocalObjectReference
-    read_only = None # boolean
     fs_type = None # string
     image = None # string (required)
+    keyring = None # string
+    monitors = None # array (required)
+    pool = None # string
+    read_only = None # boolean
+    secret_ref = None # v1.LocalObjectReference
+    user = None # string
 
     def __init__(self, *, image, monitors, **_kwargs_):
 
@@ -11477,22 +11475,22 @@ class v1_RecreateDeploymentStrategyParams(Resource):
     __kind__ = 'v1.RecreateDeploymentStrategyParams'
 
     __fields__ = {
-        'post': 'post',
         'mid': 'mid',
+        'post': 'post',
         'pre': 'pre',
         'timeout_seconds': 'timeoutSeconds',
     }
 
     __types__ = {
         'mid': 'v1.LifecycleHook',
-        'pre': 'v1.LifecycleHook',
         'post': 'v1.LifecycleHook',
+        'pre': 'v1.LifecycleHook',
     }
 
     __required__ = set()
 
-    post = None # v1.LifecycleHook
     mid = None # v1.LifecycleHook
+    post = None # v1.LifecycleHook
     pre = None # v1.LifecycleHook
     timeout_seconds = None # integer
 
@@ -11509,22 +11507,22 @@ class v1_RepositoryImportSpec(Resource):
     __kind__ = 'v1.RepositoryImportSpec'
 
     __fields__ = {
-        'import_policy': 'importPolicy',
         'from_': 'from',
+        'import_policy': 'importPolicy',
         'include_manifest': 'includeManifest',
     }
 
     __types__ = {
-        'import_policy': 'v1.TagImportPolicy',
         'from_': 'v1.ObjectReference',
+        'import_policy': 'v1.TagImportPolicy',
     }
 
     __required__ = set([
         'from_',
     ])
 
-    import_policy = None # v1.TagImportPolicy
     from_ = None # v1.ObjectReference (required)
+    import_policy = None # v1.TagImportPolicy
     include_manifest = None # boolean
 
     def __init__(self, *, from_, **_kwargs_):
@@ -11543,20 +11541,20 @@ class v1_RepositoryImportStatus(Resource):
 
     __fields__ = {
         'additional_tags': 'additionalTags',
-        'status': 'status',
         'images': 'images',
+        'status': 'status',
     }
 
     __types__ = {
-        'status': 'unversioned.Status',
         'images': 'v1.ImageImportStatus',
+        'status': 'unversioned.Status',
     }
 
     __required__ = set()
 
     additional_tags = None # array
-    status = None # unversioned.Status
     images = None # array
+    status = None # unversioned.Status
 
     def __init__(self, **_kwargs_):
         self.additional_tags = []
@@ -11573,15 +11571,15 @@ class v1_ResourceAccessReview(Resource):
     __kind__ = 'v1.ResourceAccessReview'
 
     __fields__ = {
-        'resource_name': 'resourceName',
-        'resource': 'resource',
-        'verb': 'verb',
         'api_version': 'apiVersion',
-        'resource_api_version': 'resourceAPIVersion',
         'content': 'content',
-        'resource_api_group': 'resourceAPIGroup',
-        'namespace': 'namespace',
         'kind': 'kind',
+        'namespace': 'namespace',
+        'resource': 'resource',
+        'resource_api_group': 'resourceAPIGroup',
+        'resource_api_version': 'resourceAPIVersion',
+        'resource_name': 'resourceName',
+        'verb': 'verb',
     }
 
     __types__ = {
@@ -11596,15 +11594,15 @@ class v1_ResourceAccessReview(Resource):
         'verb',
     ])
 
-    resource_name = None # string (required)
-    resource = None # string (required)
-    verb = None # string (required)
     api_version = None # string
-    resource_api_version = None # string (required)
     content = None # string
-    resource_api_group = None # string (required)
-    namespace = None # string (required)
     kind = None # string
+    namespace = None # string (required)
+    resource = None # string (required)
+    resource_api_group = None # string (required)
+    resource_api_version = None # string (required)
+    resource_name = None # string (required)
+    verb = None # string (required)
 
     def __init__(self, *, namespace, resource, resource_api_group, resource_api_version, resource_name, verb, **_kwargs_):
 
@@ -11628,9 +11626,9 @@ class v1_ResourceFieldSelector(Resource):
     __kind__ = 'v1.ResourceFieldSelector'
 
     __fields__ = {
-        'resource': 'resource',
         'container_name': 'containerName',
         'divisor': 'divisor',
+        'resource': 'resource',
     }
 
     __types__ = {
@@ -11640,9 +11638,9 @@ class v1_ResourceFieldSelector(Resource):
         'resource',
     ])
 
-    resource = None # string (required)
     container_name = None # string
     divisor = None # string
+    resource = None # string (required)
 
     def __init__(self, *, resource, **_kwargs_):
 
@@ -11783,10 +11781,10 @@ class v1_Role(Resource):
     __kind__ = 'v1.Role'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'rules': 'rules',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'rules': 'rules',
     }
 
     __types__ = {
@@ -11798,10 +11796,10 @@ class v1_Role(Resource):
         'rules',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    rules = None # array (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    rules = None # array (required)
 
     def __init__(self, *, rules, **_kwargs_):
 
@@ -11824,19 +11822,19 @@ class v1_RoleBinding(Resource):
     __kind__ = 'v1.RoleBinding'
 
     __fields__ = {
-        'role_ref': 'roleRef',
-        'subjects': 'subjects',
         'api_version': 'apiVersion',
         'group_names': 'groupNames',
-        'metadata': 'metadata',
-        'user_names': 'userNames',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'role_ref': 'roleRef',
+        'subjects': 'subjects',
+        'user_names': 'userNames',
     }
 
     __types__ = {
+        'metadata': 'v1.ObjectMeta',
         'role_ref': 'v1.ObjectReference',
         'subjects': 'v1.ObjectReference',
-        'metadata': 'v1.ObjectMeta',
     }
 
     __required__ = set([
@@ -11846,17 +11844,17 @@ class v1_RoleBinding(Resource):
         'user_names',
     ])
 
-    role_ref = None # v1.ObjectReference (required)
-    subjects = None # array (required)
     api_version = None # string
     group_names = None # array (required)
-    metadata = None # v1.ObjectMeta
-    user_names = None # array (required)
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    role_ref = None # v1.ObjectReference (required)
+    subjects = None # array (required)
+    user_names = None # array (required)
 
     def __init__(self, *, group_names, role_ref, subjects, user_names, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ObjectReference'
 
         self.group_names = group_names
         self.role_ref = role_ref
@@ -11873,10 +11871,10 @@ class v1_RoleBindingList(Resource):
     __kind__ = 'v1.RoleBindingList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -11888,10 +11886,10 @@ class v1_RoleBindingList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -11909,10 +11907,10 @@ class v1_RoleList(Resource):
     __kind__ = 'v1.RoleList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -11924,10 +11922,10 @@ class v1_RoleList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -11946,31 +11944,31 @@ class v1_RollingDeploymentStrategyParams(Resource):
     __kind__ = 'v1.RollingDeploymentStrategyParams'
 
     __fields__ = {
-        'timeout_seconds': 'timeoutSeconds',
         'interval_seconds': 'intervalSeconds',
-        'pre': 'pre',
         'max_surge': 'maxSurge',
-        'update_period_seconds': 'updatePeriodSeconds',
         'max_unavailable': 'maxUnavailable',
-        'update_percent': 'updatePercent',
         'post': 'post',
+        'pre': 'pre',
+        'timeout_seconds': 'timeoutSeconds',
+        'update_percent': 'updatePercent',
+        'update_period_seconds': 'updatePeriodSeconds',
     }
 
     __types__ = {
-        'pre': 'v1.LifecycleHook',
         'post': 'v1.LifecycleHook',
+        'pre': 'v1.LifecycleHook',
     }
 
     __required__ = set()
 
-    timeout_seconds = None # integer
     interval_seconds = None # integer
-    pre = None # v1.LifecycleHook
     max_surge = None # string
-    update_period_seconds = None # integer
     max_unavailable = None # string
-    update_percent = None # integer
     post = None # v1.LifecycleHook
+    pre = None # v1.LifecycleHook
+    timeout_seconds = None # integer
+    update_percent = None # integer
+    update_period_seconds = None # integer
 
     def __init__(self, **_kwargs_):
 
@@ -11984,11 +11982,11 @@ class v1_Route(Resource):
     __kind__ = 'v1.Route'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -12002,11 +12000,11 @@ class v1_Route(Resource):
         'status',
     ])
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1.RouteSpec (required)
     status = None # v1.RouteStatus (required)
-    kind = None # string
 
     def __init__(self, *, spec, status, **_kwargs_):
 
@@ -12027,8 +12025,8 @@ class v1_RouteIngress(Resource):
 
     __fields__ = {
         'conditions': 'conditions',
-        'router_name': 'routerName',
         'host': 'host',
+        'router_name': 'routerName',
     }
 
     __types__ = {
@@ -12038,8 +12036,8 @@ class v1_RouteIngress(Resource):
     __required__ = set()
 
     conditions = None # array
-    router_name = None # string
     host = None # string
+    router_name = None # string
 
     def __init__(self, **_kwargs_):
         self.conditions = []
@@ -12056,10 +12054,10 @@ class v1_RouteIngressCondition(Resource):
 
     __fields__ = {
         'last_transition_time': 'lastTransitionTime',
-        'reason': 'reason',
         'message': 'message',
-        'type': 'type',
+        'reason': 'reason',
         'status': 'status',
+        'type': 'type',
     }
 
     __types__ = {
@@ -12071,10 +12069,10 @@ class v1_RouteIngressCondition(Resource):
     ])
 
     last_transition_time = None # string
-    reason = None # string
     message = None # string
-    type = None # string (required)
+    reason = None # string
     status = None # string (required)
+    type = None # string (required)
 
     def __init__(self, *, status, type, **_kwargs_):
 
@@ -12091,10 +12089,10 @@ class v1_RouteList(Resource):
     __kind__ = 'v1.RouteList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -12106,10 +12104,10 @@ class v1_RouteList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -12154,19 +12152,19 @@ class v1_RouteSpec(Resource):
     __kind__ = 'v1.RouteSpec'
 
     __fields__ = {
-        'to': 'to',
+        'alternate_backends': 'alternateBackends',
         'host': 'host',
         'path': 'path',
-        'alternate_backends': 'alternateBackends',
         'port': 'port',
         'tls': 'tls',
+        'to': 'to',
     }
 
     __types__ = {
-        'to': 'v1.RouteTargetReference',
         'alternate_backends': 'v1.RouteTargetReference',
         'port': 'v1.RoutePort',
         'tls': 'v1.TLSConfig',
+        'to': 'v1.RouteTargetReference',
     }
 
     __required__ = set([
@@ -12174,12 +12172,12 @@ class v1_RouteSpec(Resource):
         'to',
     ])
 
-    to = None # v1.RouteTargetReference (required)
+    alternate_backends = None # array
     host = None # string (required)
     path = None # string
-    alternate_backends = None # array
     port = None # v1.RoutePort
     tls = None # v1.TLSConfig
+    to = None # v1.RouteTargetReference (required)
 
     def __init__(self, *, host, to, **_kwargs_):
         self.alternate_backends = []
@@ -12227,9 +12225,9 @@ class v1_RouteTargetReference(Resource):
     __kind__ = 'v1.RouteTargetReference'
 
     __fields__ = {
+        'kind': 'kind',
         'name': 'name',
         'weight': 'weight',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -12240,9 +12238,9 @@ class v1_RouteTargetReference(Resource):
         'name',
     ])
 
+    kind = None # string (required)
     name = None # string (required)
     weight = None # integer
-    kind = None # string (required)
 
     def __init__(self, *, kind, name, **_kwargs_):
 
@@ -12262,9 +12260,9 @@ class v1_SELinuxOptions(Resource):
 
     __fields__ = {
         'level': 'level',
-        'user': 'user',
         'role': 'role',
         'type': 'type',
+        'user': 'user',
     }
 
     __types__ = {
@@ -12273,9 +12271,9 @@ class v1_SELinuxOptions(Resource):
     __required__ = set()
 
     level = None # string
-    user = None # string
     role = None # string
     type = None # string
+    user = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -12319,10 +12317,10 @@ class v1_Secret(Resource):
     __fields__ = {
         'api_version': 'apiVersion',
         'data': 'data',
+        'kind': 'kind',
         'metadata': 'metadata',
         'string_data': 'stringData',
         'type': 'type',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -12333,10 +12331,10 @@ class v1_Secret(Resource):
 
     api_version = None # string
     data = None # object
+    kind = None # string
     metadata = None # v1.ObjectMeta
     string_data = None # object
     type = None # string
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -12384,8 +12382,8 @@ class v1_SecretKeySelector(Resource):
     __kind__ = 'v1.SecretKeySelector'
 
     __fields__ = {
-        'name': 'name',
         'key': 'key',
+        'name': 'name',
     }
 
     __types__ = {
@@ -12395,8 +12393,8 @@ class v1_SecretKeySelector(Resource):
         'key',
     ])
 
-    name = None # string
     key = None # string (required)
+    name = None # string
 
     def __init__(self, *, key, **_kwargs_):
 
@@ -12412,10 +12410,10 @@ class v1_SecretList(Resource):
     __kind__ = 'v1.SecretList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -12427,10 +12425,10 @@ class v1_SecretList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -12512,27 +12510,27 @@ class v1_SecurityContext(Resource):
     __kind__ = 'v1.SecurityContext'
 
     __fields__ = {
+        'capabilities': 'capabilities',
+        'privileged': 'privileged',
+        'read_only_root_filesystem': 'readOnlyRootFilesystem',
+        'run_as_non_root': 'runAsNonRoot',
         'run_as_user': 'runAsUser',
         'se_linux_options': 'seLinuxOptions',
-        'privileged': 'privileged',
-        'run_as_non_root': 'runAsNonRoot',
-        'capabilities': 'capabilities',
-        'read_only_root_filesystem': 'readOnlyRootFilesystem',
     }
 
     __types__ = {
-        'se_linux_options': 'v1.SELinuxOptions',
         'capabilities': 'v1.Capabilities',
+        'se_linux_options': 'v1.SELinuxOptions',
     }
 
     __required__ = set()
 
+    capabilities = None # v1.Capabilities
+    privileged = None # boolean
+    read_only_root_filesystem = None # boolean
+    run_as_non_root = None # boolean
     run_as_user = None # integer
     se_linux_options = None # v1.SELinuxOptions
-    privileged = None # boolean
-    run_as_non_root = None # boolean
-    capabilities = None # v1.Capabilities
-    read_only_root_filesystem = None # boolean
 
     def __init__(self, **_kwargs_):
 
@@ -12548,9 +12546,9 @@ class v1_SelfSubjectRulesReview(Resource):
 
     __fields__ = {
         'api_version': 'apiVersion',
+        'kind': 'kind',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -12563,9 +12561,9 @@ class v1_SelfSubjectRulesReview(Resource):
     ])
 
     api_version = None # string
+    kind = None # string
     spec = None # v1.SelfSubjectRulesReviewSpec (required)
     status = None # v1.SubjectRulesReviewStatus
-    kind = None # string
 
     def __init__(self, *, spec, **_kwargs_):
 
@@ -12611,12 +12609,12 @@ class v1_SignatureCondition(Resource):
     __kind__ = 'v1.SignatureCondition'
 
     __fields__ = {
-        'last_transition_time': 'lastTransitionTime',
-        'reason': 'reason',
-        'type': 'type',
         'last_probe_time': 'lastProbeTime',
+        'last_transition_time': 'lastTransitionTime',
         'message': 'message',
+        'reason': 'reason',
         'status': 'status',
+        'type': 'type',
     }
 
     __types__ = {
@@ -12627,12 +12625,12 @@ class v1_SignatureCondition(Resource):
         'type',
     ])
 
-    last_transition_time = None # string
-    reason = None # string
-    type = None # string (required)
     last_probe_time = None # string
+    last_transition_time = None # string
     message = None # string
+    reason = None # string
     status = None # string (required)
+    type = None # string (required)
 
     def __init__(self, *, status, type, **_kwargs_):
 
@@ -12650,8 +12648,8 @@ class v1_SignatureIssuer(Resource):
     __kind__ = 'v1.SignatureIssuer'
 
     __fields__ = {
-        'organization': 'organization',
         'common_name': 'commonName',
+        'organization': 'organization',
     }
 
     __types__ = {
@@ -12659,8 +12657,8 @@ class v1_SignatureIssuer(Resource):
 
     __required__ = set()
 
-    organization = None # string
     common_name = None # string
+    organization = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -12675,9 +12673,9 @@ class v1_SignatureSubject(Resource):
     __kind__ = 'v1.SignatureSubject'
 
     __fields__ = {
-        'public_key_id': 'publicKeyID',
-        'organization': 'organization',
         'common_name': 'commonName',
+        'organization': 'organization',
+        'public_key_id': 'publicKeyID',
     }
 
     __types__ = {
@@ -12687,9 +12685,9 @@ class v1_SignatureSubject(Resource):
         'public_key_id',
     ])
 
-    public_key_id = None # string (required)
-    organization = None # string
     common_name = None # string
+    organization = None # string
+    public_key_id = None # string (required)
 
     def __init__(self, *, public_key_id, **_kwargs_):
 
@@ -12706,20 +12704,20 @@ class v1_SourceBuildStrategy(Resource):
     __kind__ = 'v1.SourceBuildStrategy'
 
     __fields__ = {
-        'from_': 'from',
-        'pull_secret': 'pullSecret',
         'env': 'env',
-        'incremental': 'incremental',
         'force_pull': 'forcePull',
+        'from_': 'from',
+        'incremental': 'incremental',
+        'pull_secret': 'pullSecret',
         'runtime_artifacts': 'runtimeArtifacts',
-        'scripts': 'scripts',
         'runtime_image': 'runtimeImage',
+        'scripts': 'scripts',
     }
 
     __types__ = {
+        'env': 'v1.EnvVar',
         'from_': 'v1.ObjectReference',
         'pull_secret': 'v1.LocalObjectReference',
-        'env': 'v1.EnvVar',
         'runtime_artifacts': 'v1.ImageSourcePath',
         'runtime_image': 'v1.ObjectReference',
     }
@@ -12728,14 +12726,14 @@ class v1_SourceBuildStrategy(Resource):
         'from_',
     ])
 
-    from_ = None # v1.ObjectReference (required)
-    pull_secret = None # v1.LocalObjectReference
     env = None # array
-    incremental = None # boolean
     force_pull = None # boolean
+    from_ = None # v1.ObjectReference (required)
+    incremental = None # boolean
+    pull_secret = None # v1.LocalObjectReference
     runtime_artifacts = None # array
-    scripts = None # string
     runtime_image = None # v1.ObjectReference
+    scripts = None # string
 
     def __init__(self, *, from_, **_kwargs_):
         self.env = []
@@ -12753,8 +12751,8 @@ class v1_SourceControlUser(Resource):
     __kind__ = 'v1.SourceControlUser'
 
     __fields__ = {
-        'name': 'name',
         'email': 'email',
+        'name': 'name',
     }
 
     __types__ = {
@@ -12762,8 +12760,8 @@ class v1_SourceControlUser(Resource):
 
     __required__ = set()
 
-    name = None # string
     email = None # string
+    name = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -12808,18 +12806,18 @@ class v1_SubjectAccessReview(Resource):
     __kind__ = 'v1.SubjectAccessReview'
 
     __fields__ = {
-        'resource': 'resource',
-        'resource_api_version': 'resourceAPIVersion',
-        'scopes': 'scopes',
-        'content': 'content',
-        'resource_api_group': 'resourceAPIGroup',
-        'resource_name': 'resourceName',
-        'verb': 'verb',
         'api_version': 'apiVersion',
-        'user': 'user',
+        'content': 'content',
+        'groups': 'groups',
         'kind': 'kind',
         'namespace': 'namespace',
-        'groups': 'groups',
+        'resource': 'resource',
+        'resource_api_group': 'resourceAPIGroup',
+        'resource_api_version': 'resourceAPIVersion',
+        'resource_name': 'resourceName',
+        'scopes': 'scopes',
+        'user': 'user',
+        'verb': 'verb',
     }
 
     __types__ = {
@@ -12837,18 +12835,18 @@ class v1_SubjectAccessReview(Resource):
         'verb',
     ])
 
-    resource = None # string (required)
-    resource_api_version = None # string (required)
-    scopes = None # array (required)
-    content = None # string
-    resource_api_group = None # string (required)
-    resource_name = None # string (required)
-    verb = None # string (required)
     api_version = None # string
-    user = None # string (required)
+    content = None # string
+    groups = None # array (required)
     kind = None # string
     namespace = None # string (required)
-    groups = None # array (required)
+    resource = None # string (required)
+    resource_api_group = None # string (required)
+    resource_api_version = None # string (required)
+    resource_name = None # string (required)
+    scopes = None # array (required)
+    user = None # string (required)
+    verb = None # string (required)
 
     def __init__(self, *, groups, namespace, resource, resource_api_group, resource_api_version, resource_name, scopes, user, verb, **_kwargs_):
 
@@ -12930,12 +12928,12 @@ class v1_TLSConfig(Resource):
     __kind__ = 'v1.TLSConfig'
 
     __fields__ = {
-        'destination_ca_certificate': 'destinationCACertificate',
-        'certificate': 'certificate',
-        'termination': 'termination',
         'ca_certificate': 'caCertificate',
+        'certificate': 'certificate',
+        'destination_ca_certificate': 'destinationCACertificate',
         'insecure_edge_termination_policy': 'insecureEdgeTerminationPolicy',
         'key': 'key',
+        'termination': 'termination',
     }
 
     __types__ = {
@@ -12945,12 +12943,12 @@ class v1_TLSConfig(Resource):
         'termination',
     ])
 
-    destination_ca_certificate = None # string
-    certificate = None # string
-    termination = None # string (required)
     ca_certificate = None # string
+    certificate = None # string
+    destination_ca_certificate = None # string
     insecure_edge_termination_policy = None # string
     key = None # string
+    termination = None # string (required)
 
     def __init__(self, *, termination, **_kwargs_):
 
@@ -12967,9 +12965,9 @@ class v1_TagEvent(Resource):
     __kind__ = 'v1.TagEvent'
 
     __fields__ = {
-        'generation': 'generation',
         'created': 'created',
         'docker_image_reference': 'dockerImageReference',
+        'generation': 'generation',
         'image': 'image',
     }
 
@@ -12983,9 +12981,9 @@ class v1_TagEvent(Resource):
         'image',
     ])
 
-    generation = None # integer (required)
     created = None # string (required)
     docker_image_reference = None # string (required)
+    generation = None # integer (required)
     image = None # string (required)
 
     def __init__(self, *, created, docker_image_reference, generation, image, **_kwargs_):
@@ -13005,12 +13003,12 @@ class v1_TagEventCondition(Resource):
     __kind__ = 'v1.TagEventCondition'
 
     __fields__ = {
-        'last_transition_time': 'lastTransitionTime',
-        'reason': 'reason',
-        'type': 'type',
         'generation': 'generation',
+        'last_transition_time': 'lastTransitionTime',
         'message': 'message',
+        'reason': 'reason',
         'status': 'status',
+        'type': 'type',
     }
 
     __types__ = {
@@ -13022,12 +13020,12 @@ class v1_TagEventCondition(Resource):
         'type',
     ])
 
-    last_transition_time = None # string
-    reason = None # string
-    type = None # string (required)
     generation = None # integer (required)
+    last_transition_time = None # string
     message = None # string
+    reason = None # string
     status = None # string (required)
+    type = None # string (required)
 
     def __init__(self, *, generation, status, type, **_kwargs_):
 
@@ -13046,8 +13044,8 @@ class v1_TagImageHook(Resource):
     __kind__ = 'v1.TagImageHook'
 
     __fields__ = {
-        'to': 'to',
         'container_name': 'containerName',
+        'to': 'to',
     }
 
     __types__ = {
@@ -13059,8 +13057,8 @@ class v1_TagImageHook(Resource):
         'to',
     ])
 
-    to = None # v1.ObjectReference (required)
     container_name = None # string (required)
+    to = None # v1.ObjectReference (required)
 
     def __init__(self, *, container_name, to, **_kwargs_):
 
@@ -13077,8 +13075,8 @@ class v1_TagImportPolicy(Resource):
     __kind__ = 'v1.TagImportPolicy'
 
     __fields__ = {
-        'scheduled': 'scheduled',
         'insecure': 'insecure',
+        'scheduled': 'scheduled',
     }
 
     __types__ = {
@@ -13086,8 +13084,8 @@ class v1_TagImportPolicy(Resource):
 
     __required__ = set()
 
-    scheduled = None # boolean
     insecure = None # boolean
+    scheduled = None # boolean
 
     def __init__(self, **_kwargs_):
 
@@ -13103,17 +13101,17 @@ class v1_TagReference(Resource):
     __kind__ = 'v1.TagReference'
 
     __fields__ = {
-        'name': 'name',
+        'annotations': 'annotations',
         'from_': 'from',
         'generation': 'generation',
         'import_policy': 'importPolicy',
+        'name': 'name',
         'reference': 'reference',
-        'annotations': 'annotations',
     }
 
     __types__ = {
-        'import_policy': 'v1.TagImportPolicy',
         'from_': 'v1.ObjectReference',
+        'import_policy': 'v1.TagImportPolicy',
     }
 
     __required__ = set([
@@ -13122,12 +13120,12 @@ class v1_TagReference(Resource):
         'name',
     ])
 
-    name = None # string (required)
+    annotations = None # object (required)
     from_ = None # v1.ObjectReference
     generation = None # integer (required)
     import_policy = None # v1.TagImportPolicy
+    name = None # string (required)
     reference = None # boolean
-    annotations = None # object (required)
 
     def __init__(self, *, annotations, generation, name, **_kwargs_):
 
@@ -13145,37 +13143,37 @@ class v1_Template(Resource):
     __kind__ = 'v1.Template'
 
     __fields__ = {
-        'objects': 'objects',
         'api_version': 'apiVersion',
-        'parameters': 'parameters',
-        'metadata': 'metadata',
-        'message': 'message',
-        'labels': 'labels',
         'kind': 'kind',
+        'labels': 'labels',
+        'message': 'message',
+        'metadata': 'metadata',
+        'objects': 'objects',
+        'parameters': 'parameters',
     }
 
     __types__ = {
+        'metadata': 'v1.ObjectMeta',
         'objects': 'runtime.RawExtension',
         'parameters': 'v1.Parameter',
-        'metadata': 'v1.ObjectMeta',
     }
 
     __required__ = set([
         'objects',
     ])
 
-    objects = None # array (required)
     api_version = None # string
-    parameters = None # array
-    metadata = None # v1.ObjectMeta
-    message = None # string
-    labels = None # object
     kind = None # string
+    labels = None # object
+    message = None # string
+    metadata = None # v1.ObjectMeta
+    objects = None # array (required)
+    parameters = None # array
 
     def __init__(self, *, objects, **_kwargs_):
         self.parameters = []
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'Parameter'
 
         self.objects = objects
 
@@ -13189,10 +13187,10 @@ class v1_TemplateList(Resource):
     __kind__ = 'v1.TemplateList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -13204,10 +13202,10 @@ class v1_TemplateList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -13225,12 +13223,12 @@ class v1_User(Resource):
     __kind__ = 'v1.User'
 
     __fields__ = {
-        'groups': 'groups',
         'api_version': 'apiVersion',
-        'identities': 'identities',
-        'metadata': 'metadata',
-        'kind': 'kind',
         'full_name': 'fullName',
+        'groups': 'groups',
+        'identities': 'identities',
+        'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -13242,12 +13240,12 @@ class v1_User(Resource):
         'identities',
     ])
 
-    groups = None # array (required)
     api_version = None # string
-    identities = None # array (required)
-    metadata = None # v1.ObjectMeta
-    kind = None # string
     full_name = None # string
+    groups = None # array (required)
+    identities = None # array (required)
+    kind = None # string
+    metadata = None # v1.ObjectMeta
 
     def __init__(self, *, groups, identities, **_kwargs_):
 
@@ -13266,26 +13264,26 @@ class v1_UserIdentityMapping(Resource):
     __kind__ = 'v1.UserIdentityMapping'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
-        'user': 'user',
         'identity': 'identity',
         'kind': 'kind',
+        'metadata': 'metadata',
+        'user': 'user',
     }
 
     __types__ = {
+        'identity': 'v1.ObjectReference',
         'metadata': 'v1.ObjectMeta',
         'user': 'v1.ObjectReference',
-        'identity': 'v1.ObjectReference',
     }
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
-    user = None # v1.ObjectReference
     identity = None # v1.ObjectReference
     kind = None # string
+    metadata = None # v1.ObjectMeta
+    user = None # v1.ObjectReference
 
     def __init__(self, **_kwargs_):
 
@@ -13301,10 +13299,10 @@ class v1_UserList(Resource):
     __kind__ = 'v1.UserList'
 
     __fields__ = {
-        'items': 'items',
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'items': 'items',
         'kind': 'kind',
+        'metadata': 'metadata',
     }
 
     __types__ = {
@@ -13316,10 +13314,10 @@ class v1_UserList(Resource):
         'items',
     ])
 
-    items = None # array (required)
-    metadata = None # unversioned.ListMeta
     api_version = None # string
+    items = None # array (required)
     kind = None # string
+    metadata = None # unversioned.ListMeta
 
     def __init__(self, *, items, **_kwargs_):
 
@@ -13338,80 +13336,80 @@ class v1_Volume(Resource):
     __kind__ = 'v1.Volume'
 
     __fields__ = {
+        'aws_elastic_block_store': 'awsElasticBlockStore',
+        'azure_file': 'azureFile',
+        'cephfs': 'cephfs',
+        'cinder': 'cinder',
+        'config_map': 'configMap',
+        'downward_api': 'downwardAPI',
+        'empty_dir': 'emptyDir',
+        'fc': 'fc',
         'flex_volume': 'flexVolume',
         'flocker': 'flocker',
-        'aws_elastic_block_store': 'awsElasticBlockStore',
-        'empty_dir': 'emptyDir',
+        'gce_persistent_disk': 'gcePersistentDisk',
+        'git_repo': 'gitRepo',
+        'glusterfs': 'glusterfs',
         'host_path': 'hostPath',
         'iscsi': 'iscsi',
-        'cinder': 'cinder',
-        'fc': 'fc',
-        'gce_persistent_disk': 'gcePersistentDisk',
-        'name': 'name',
-        'azure_file': 'azureFile',
-        'nfs': 'nfs',
         'metadata': 'metadata',
+        'name': 'name',
+        'nfs': 'nfs',
         'persistent_volume_claim': 'persistentVolumeClaim',
-        'git_repo': 'gitRepo',
         'rbd': 'rbd',
-        'glusterfs': 'glusterfs',
-        'config_map': 'configMap',
-        'cephfs': 'cephfs',
-        'downward_api': 'downwardAPI',
-        'vsphere_volume': 'vsphereVolume',
         'secret': 'secret',
+        'vsphere_volume': 'vsphereVolume',
     }
 
     __types__ = {
+        'aws_elastic_block_store': 'v1.AWSElasticBlockStoreVolumeSource',
+        'azure_file': 'v1.AzureFileVolumeSource',
+        'cephfs': 'v1.CephFSVolumeSource',
+        'cinder': 'v1.CinderVolumeSource',
+        'config_map': 'v1.ConfigMapVolumeSource',
+        'downward_api': 'v1.DownwardAPIVolumeSource',
+        'empty_dir': 'v1.EmptyDirVolumeSource',
+        'fc': 'v1.FCVolumeSource',
         'flex_volume': 'v1.FlexVolumeSource',
         'flocker': 'v1.FlockerVolumeSource',
-        'aws_elastic_block_store': 'v1.AWSElasticBlockStoreVolumeSource',
-        'empty_dir': 'v1.EmptyDirVolumeSource',
-        'host_path': 'v1.HostPathVolumeSource',
-        'iscsi': 'v1.ISCSIVolumeSource',
-        'cinder': 'v1.CinderVolumeSource',
-        'nfs': 'v1.NFSVolumeSource',
-        'metadata': 'v1.DeprecatedDownwardAPIVolumeSource',
-        'azure_file': 'v1.AzureFileVolumeSource',
-        'persistent_volume_claim': 'v1.PersistentVolumeClaimVolumeSource',
-        'rbd': 'v1.RBDVolumeSource',
         'gce_persistent_disk': 'v1.GCEPersistentDiskVolumeSource',
-        'config_map': 'v1.ConfigMapVolumeSource',
-        'fc': 'v1.FCVolumeSource',
-        'cephfs': 'v1.CephFSVolumeSource',
         'git_repo': 'v1.GitRepoVolumeSource',
         'glusterfs': 'v1.GlusterfsVolumeSource',
-        'vsphere_volume': 'v1.VsphereVirtualDiskVolumeSource',
-        'downward_api': 'v1.DownwardAPIVolumeSource',
+        'host_path': 'v1.HostPathVolumeSource',
+        'iscsi': 'v1.ISCSIVolumeSource',
+        'metadata': 'v1.DeprecatedDownwardAPIVolumeSource',
+        'nfs': 'v1.NFSVolumeSource',
+        'persistent_volume_claim': 'v1.PersistentVolumeClaimVolumeSource',
+        'rbd': 'v1.RBDVolumeSource',
         'secret': 'v1.SecretVolumeSource',
+        'vsphere_volume': 'v1.VsphereVirtualDiskVolumeSource',
     }
 
     __required__ = set([
         'name',
     ])
 
+    aws_elastic_block_store = None # v1.AWSElasticBlockStoreVolumeSource
+    azure_file = None # v1.AzureFileVolumeSource
+    cephfs = None # v1.CephFSVolumeSource
+    cinder = None # v1.CinderVolumeSource
+    config_map = None # v1.ConfigMapVolumeSource
+    downward_api = None # v1.DownwardAPIVolumeSource
+    empty_dir = None # v1.EmptyDirVolumeSource
+    fc = None # v1.FCVolumeSource
     flex_volume = None # v1.FlexVolumeSource
     flocker = None # v1.FlockerVolumeSource
-    aws_elastic_block_store = None # v1.AWSElasticBlockStoreVolumeSource
-    empty_dir = None # v1.EmptyDirVolumeSource
+    gce_persistent_disk = None # v1.GCEPersistentDiskVolumeSource
+    git_repo = None # v1.GitRepoVolumeSource
+    glusterfs = None # v1.GlusterfsVolumeSource
     host_path = None # v1.HostPathVolumeSource
     iscsi = None # v1.ISCSIVolumeSource
-    cinder = None # v1.CinderVolumeSource
-    fc = None # v1.FCVolumeSource
-    gce_persistent_disk = None # v1.GCEPersistentDiskVolumeSource
-    name = None # string (required)
-    azure_file = None # v1.AzureFileVolumeSource
-    nfs = None # v1.NFSVolumeSource
     metadata = None # v1.DeprecatedDownwardAPIVolumeSource
+    name = None # string (required)
+    nfs = None # v1.NFSVolumeSource
     persistent_volume_claim = None # v1.PersistentVolumeClaimVolumeSource
-    git_repo = None # v1.GitRepoVolumeSource
     rbd = None # v1.RBDVolumeSource
-    glusterfs = None # v1.GlusterfsVolumeSource
-    config_map = None # v1.ConfigMapVolumeSource
-    cephfs = None # v1.CephFSVolumeSource
-    downward_api = None # v1.DownwardAPIVolumeSource
-    vsphere_volume = None # v1.VsphereVirtualDiskVolumeSource
     secret = None # v1.SecretVolumeSource
+    vsphere_volume = None # v1.VsphereVirtualDiskVolumeSource
 
     def __init__(self, *, name, **_kwargs_):
 
@@ -13427,8 +13425,8 @@ class v1_VolumeMount(Resource):
     __kind__ = 'v1.VolumeMount'
 
     __fields__ = {
-        'name': 'name',
         'mount_path': 'mountPath',
+        'name': 'name',
         'read_only': 'readOnly',
         'sub_path': 'subPath',
     }
@@ -13441,8 +13439,8 @@ class v1_VolumeMount(Resource):
         'name',
     ])
 
-    name = None # string (required)
     mount_path = None # string (required)
+    name = None # string (required)
     read_only = None # boolean
     sub_path = None # string
 
@@ -13461,8 +13459,8 @@ class v1_VsphereVirtualDiskVolumeSource(Resource):
     __kind__ = 'v1.VsphereVirtualDiskVolumeSource'
 
     __fields__ = {
-        'volume_path': 'volumePath',
         'fs_type': 'fsType',
+        'volume_path': 'volumePath',
     }
 
     __types__ = {
@@ -13472,8 +13470,8 @@ class v1_VsphereVirtualDiskVolumeSource(Resource):
         'volume_path',
     ])
 
-    volume_path = None # string (required)
     fs_type = None # string
+    volume_path = None # string (required)
 
     def __init__(self, *, volume_path, **_kwargs_):
 
@@ -13514,11 +13512,11 @@ class v1beta1_Scale(Resource):
     __kind__ = 'v1beta1.Scale'
 
     __fields__ = {
-        'metadata': 'metadata',
         'api_version': 'apiVersion',
+        'kind': 'kind',
+        'metadata': 'metadata',
         'spec': 'spec',
         'status': 'status',
-        'kind': 'kind',
     }
 
     __types__ = {
@@ -13529,11 +13527,11 @@ class v1beta1_Scale(Resource):
 
     __required__ = set()
 
-    metadata = None # v1.ObjectMeta
     api_version = None # string
+    kind = None # string
+    metadata = None # v1.ObjectMeta
     spec = None # v1beta1.ScaleSpec
     status = None # v1beta1.ScaleStatus
-    kind = None # string
 
     def __init__(self, **_kwargs_):
 
@@ -13571,8 +13569,8 @@ class v1beta1_ScaleStatus(Resource):
     __kind__ = 'v1beta1.ScaleStatus'
 
     __fields__ = {
-        'selector': 'selector',
         'replicas': 'replicas',
+        'selector': 'selector',
         'target_selector': 'targetSelector',
     }
 
@@ -13583,8 +13581,8 @@ class v1beta1_ScaleStatus(Resource):
         'replicas',
     ])
 
-    selector = None # object
     replicas = None # integer (required)
+    selector = None # object
     target_selector = None # string
 
     def __init__(self, *, replicas, **_kwargs_):

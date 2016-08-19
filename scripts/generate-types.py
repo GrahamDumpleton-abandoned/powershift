@@ -96,7 +96,7 @@ def generate_resources(models):
 
         print('    __fields__ = {')
 
-        for property_name in definition['properties'].keys():
+        for property_name in sorted(definition['properties'].keys()):
             print('        %r: %r,' % (map_property_name(property_name),
                     property_name))
 
@@ -106,7 +106,7 @@ def generate_resources(models):
 
         refs = {}
 
-        for property_name, details in definition['properties'].items():
+        for property_name, details in sorted(definition['properties'].items()):
             if '$ref' in details:
                 override = _property_type_overrides.get(type_name, {}).get(
                         property_name, None)
@@ -135,7 +135,7 @@ def generate_resources(models):
 
         print('    __types__ = {')
 
-        for property_name, type_name in refs.items():
+        for property_name, type_name in sorted(refs.items()):
             print('        %r: %r,' % (map_property_name(property_name),
                     type_name))
 
@@ -147,7 +147,7 @@ def generate_resources(models):
 
         if required:
             print('    __required__ = set([')
-            for property_name in required:
+            for property_name in sorted(required):
                 print('        %r,' % map_property_name(property_name))
             print('    ])')
             
@@ -156,7 +156,7 @@ def generate_resources(models):
 
         print()
 
-        for property_name, details in definition['properties'].items():
+        for property_name, details in sorted(definition['properties'].items()):
             property_type = details.get('type')
 
             if not property_type:
@@ -177,12 +177,12 @@ def generate_resources(models):
         if required:
             print(', *', end='')
 
-            for required_name in required:
+            for required_name in sorted(required):
                 print(', %s' % map_property_name(required_name), end='')
 
         print(', **_kwargs_):')
 
-        for property_name, details in definition['properties'].items():
+        for property_name, details in sorted(definition['properties'].items()):
             if property_name not in required:
                 if details.get('type') == 'array':
                     print('        self.%s = []' % map_property_name(property_name))
@@ -194,7 +194,7 @@ def generate_resources(models):
         if required:
             print()
 
-            for required_name in required:
+            for required_name in sorted(required):
                 print('        self.%s = %s' % (map_property_name(
                         required_name), map_property_name(required_name)))
 
