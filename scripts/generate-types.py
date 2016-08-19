@@ -72,7 +72,7 @@ _property_type_overrides = {
 def generate_resources(models):
     types = []
 
-    for type_name, definition in models:
+    for type_name, definition in sorted(models):
         print()
 
         class_name = '%s' % type_name.replace('.', '_').replace('*', '')
