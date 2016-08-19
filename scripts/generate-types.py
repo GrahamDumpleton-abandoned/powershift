@@ -3,14 +3,14 @@ import keyword
 import textwrap
 import re
 
-model_template = """
+prologue_template = """
 # XXX This code file has been automatically generated. Do not edit it.
 
 from .base import Resource, register_model
 """
 
 def generate_prologue():
-    print(model_template)
+    print(prologue_template)
 
 first_cap_re = re.compile('(.)([A-Z][a-z]+)')
 all_cap_re = re.compile('([a-z0-9])([A-Z])')
