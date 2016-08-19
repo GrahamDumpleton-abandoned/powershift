@@ -1,0 +1,107 @@
+{
+    "kind": "DeploymentConfig",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "environ",
+        "namespace": "python-demos",
+        "selfLink": "/oapi/v1/namespaces/python-demos/deploymentconfigs/environ",
+        "uid": "1c2ffb9b-6590-11e6-9340-0ebeb1070c7f",
+        "resourceVersion": "114857591",
+        "creationTimestamp": "2016-08-18T22:07:10Z",
+        "labels": {
+            "app": "environ"
+        },
+        "annotations": {
+            "openshift.io/generated-by": "OpenShiftNewApp"
+        }
+    },
+    "spec": {
+        "strategy": {
+            "type": "Rolling",
+            "rollingParams": {
+                "updatePeriodSeconds": 1,
+                "intervalSeconds": 1,
+                "timeoutSeconds": 600,
+                "maxUnavailable": "25%",
+                "maxSurge": "25%"
+            },
+            "resources": {}
+        },
+        "triggers": [
+            {
+                "type": "ConfigChange"
+            },
+            {
+                "type": "ImageChange",
+                "imageChangeParams": {
+                    "automatic": true,
+                    "containerNames": [
+                        "environ"
+                    ],
+                    "from": {
+                        "kind": "ImageStreamTag",
+                        "namespace": "python-demos",
+                        "name": "environ:latest"
+                    },
+                    "lastTriggeredImage": "172.30.47.227:5000/python-demos/environ@sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea"
+                }
+            }
+        ],
+        "replicas": 1,
+        "test": false,
+        "selector": {
+            "app": "environ",
+            "deploymentconfig": "environ"
+        },
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "app": "environ",
+                    "deploymentconfig": "environ"
+                },
+                "annotations": {
+                    "openshift.io/container.environ.image.entrypoint": "[\"container-entrypoint\",\"warpdrive\",\"start\"]",
+                    "openshift.io/generated-by": "OpenShiftNewApp"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "environ",
+                        "image": "172.30.47.227:5000/python-demos/environ@sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea",
+                        "ports": [
+                            {
+                                "containerPort": 8080,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always"
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "securityContext": {}
+            }
+        }
+    },
+    "status": {
+        "latestVersion": 1,
+        "details": {
+            "causes": [
+                {
+                    "type": "ImageChange",
+                    "imageTrigger": {
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "name": "environ:latest"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

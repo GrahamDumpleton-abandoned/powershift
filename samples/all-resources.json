@@ -1,0 +1,1026 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [
+        {
+            "kind": "BuildConfig",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ",
+                "namespace": "python-demos",
+                "selfLink": "/oapi/v1/namespaces/python-demos/buildconfigs/environ",
+                "uid": "1c014592-6590-11e6-9340-0ebeb1070c7f",
+                "resourceVersion": "114850732",
+                "creationTimestamp": "2016-08-18T22:07:10Z",
+                "labels": {
+                    "app": "environ"
+                },
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewApp"
+                }
+            },
+            "spec": {
+                "triggers": [
+                    {
+                        "type": "GitHub",
+                        "github": {
+                            "secret": "9twM826javgAGjXzi7eg"
+                        }
+                    },
+                    {
+                        "type": "Generic",
+                        "generic": {
+                            "secret": "Gjwnot3esHP_spM9kOl6"
+                        }
+                    },
+                    {
+                        "type": "ConfigChange"
+                    }
+                ],
+                "runPolicy": "Serial",
+                "source": {
+                    "type": "Git",
+                    "git": {
+                        "uri": "https://github.com/GrahamDumpleton/warpdrive-environ-modwsgi.git"
+                    }
+                },
+                "strategy": {
+                    "type": "Source",
+                    "sourceStrategy": {
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "docker.io/grahamdumpleton/warp0-centos7-python27:latest"
+                        }
+                    }
+                },
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "environ:latest"
+                    }
+                },
+                "resources": {},
+                "postCommit": {}
+            },
+            "status": {
+                "lastVersion": 2
+            }
+        },
+        {
+            "kind": "Build",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ-1",
+                "namespace": "python-demos",
+                "selfLink": "/oapi/v1/namespaces/python-demos/builds/environ-1",
+                "uid": "244cb35c-6590-11e6-9340-0ebeb1070c7f",
+                "resourceVersion": "114848739",
+                "creationTimestamp": "2016-08-18T22:07:24Z",
+                "labels": {
+                    "app": "environ",
+                    "buildconfig": "environ",
+                    "openshift.io/build-config.name": "environ"
+                },
+                "annotations": {
+                    "openshift.io/build-config.name": "environ",
+                    "openshift.io/build.number": "1",
+                    "openshift.io/build.pod-name": "environ-1-build"
+                }
+            },
+            "spec": {
+                "serviceAccount": "builder",
+                "source": {
+                    "type": "Git",
+                    "git": {
+                        "uri": "https://github.com/GrahamDumpleton/warpdrive-environ-modwsgi.git"
+                    }
+                },
+                "strategy": {
+                    "type": "Source",
+                    "sourceStrategy": {
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "grahamdumpleton/warp0-centos7-python27@sha256:c1db3c3600c1e396d84c585d852a907b98042d60c41f24491fa7a4be2337bcb9"
+                        }
+                    }
+                },
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "environ:latest"
+                    },
+                    "pushSecret": {
+                        "name": "builder-dockercfg-hwdx9"
+                    }
+                },
+                "resources": {},
+                "postCommit": {},
+                "triggeredBy": null
+            },
+            "status": {
+                "phase": "Failed",
+                "startTimestamp": "2016-08-18T22:07:57Z",
+                "completionTimestamp": "2016-08-18T22:07:59Z",
+                "duration": 2000000000,
+                "outputDockerImageReference": "172.30.47.227:5000/python-demos/environ:latest",
+                "config": {
+                    "kind": "BuildConfig",
+                    "namespace": "python-demos",
+                    "name": "environ"
+                }
+            }
+        },
+        {
+            "kind": "Build",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ-2",
+                "namespace": "python-demos",
+                "selfLink": "/oapi/v1/namespaces/python-demos/builds/environ-2",
+                "uid": "6c13f7e5-6590-11e6-aa43-0e3d364e19a5",
+                "resourceVersion": "114857629",
+                "creationTimestamp": "2016-08-18T22:09:24Z",
+                "labels": {
+                    "app": "environ",
+                    "buildconfig": "environ",
+                    "openshift.io/build-config.name": "environ"
+                },
+                "annotations": {
+                    "openshift.io/build-config.name": "environ",
+                    "openshift.io/build.number": "2",
+                    "openshift.io/build.pod-name": "environ-2-build"
+                }
+            },
+            "spec": {
+                "serviceAccount": "builder",
+                "source": {
+                    "type": "Git",
+                    "git": {
+                        "uri": "https://github.com/GrahamDumpleton/warpdrive-environ-modwsgi.git"
+                    }
+                },
+                "strategy": {
+                    "type": "Source",
+                    "sourceStrategy": {
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "docker.io/grahamdumpleton/warp0-centos7-python27:latest"
+                        }
+                    }
+                },
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "environ:latest"
+                    },
+                    "pushSecret": {
+                        "name": "builder-dockercfg-hwdx9"
+                    }
+                },
+                "resources": {},
+                "postCommit": {},
+                "triggeredBy": null
+            },
+            "status": {
+                "phase": "Complete",
+                "startTimestamp": "2016-08-18T22:09:49Z",
+                "completionTimestamp": "2016-08-18T22:14:19Z",
+                "duration": 270000000000,
+                "outputDockerImageReference": "172.30.47.227:5000/python-demos/environ:latest",
+                "config": {
+                    "kind": "BuildConfig",
+                    "namespace": "python-demos",
+                    "name": "environ"
+                }
+            }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ",
+                "namespace": "python-demos",
+                "selfLink": "/oapi/v1/namespaces/python-demos/imagestreams/environ",
+                "uid": "1bcd1036-6590-11e6-9340-0ebeb1070c7f",
+                "resourceVersion": "114857590",
+                "generation": 1,
+                "creationTimestamp": "2016-08-18T22:07:09Z",
+                "labels": {
+                    "app": "environ"
+                },
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewApp"
+                }
+            },
+            "spec": {},
+            "status": {
+                "dockerImageRepository": "172.30.47.227:5000/python-demos/environ",
+                "tags": [
+                    {
+                        "tag": "latest",
+                        "items": [
+                            {
+                                "created": "2016-08-18T22:14:18Z",
+                                "dockerImageReference": "172.30.47.227:5000/python-demos/environ@sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea",
+                                "image": "sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea",
+                                "generation": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "warp0-centos7-python27",
+                "namespace": "python-demos",
+                "selfLink": "/oapi/v1/namespaces/python-demos/imagestreams/warp0-centos7-python27",
+                "uid": "1ba3d936-6590-11e6-9340-0ebeb1070c7f",
+                "resourceVersion": "114847550",
+                "generation": 2,
+                "creationTimestamp": "2016-08-18T22:07:09Z",
+                "labels": {
+                    "app": "environ"
+                },
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewApp",
+                    "openshift.io/image.dockerRepositoryCheck": "2016-08-18T22:07:09Z"
+                }
+            },
+            "spec": {
+                "tags": [
+                    {
+                        "name": "latest",
+                        "annotations": {
+                            "openshift.io/imported-from": "grahamdumpleton/warp0-centos7-python27"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "grahamdumpleton/warp0-centos7-python27"
+                        },
+                        "generation": 2,
+                        "importPolicy": {}
+                    }
+                ]
+            },
+            "status": {
+                "dockerImageRepository": "172.30.47.227:5000/python-demos/warp0-centos7-python27",
+                "tags": [
+                    {
+                        "tag": "latest",
+                        "items": [
+                            {
+                                "created": "2016-08-18T22:07:09Z",
+                                "dockerImageReference": "grahamdumpleton/warp0-centos7-python27@sha256:c1db3c3600c1e396d84c585d852a907b98042d60c41f24491fa7a4be2337bcb9",
+                                "image": "sha256:c1db3c3600c1e396d84c585d852a907b98042d60c41f24491fa7a4be2337bcb9",
+                                "generation": 2
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "DeploymentConfig",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ",
+                "namespace": "python-demos",
+                "selfLink": "/oapi/v1/namespaces/python-demos/deploymentconfigs/environ",
+                "uid": "1c2ffb9b-6590-11e6-9340-0ebeb1070c7f",
+                "resourceVersion": "114857591",
+                "creationTimestamp": "2016-08-18T22:07:10Z",
+                "labels": {
+                    "app": "environ"
+                },
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewApp"
+                }
+            },
+            "spec": {
+                "strategy": {
+                    "type": "Rolling",
+                    "rollingParams": {
+                        "updatePeriodSeconds": 1,
+                        "intervalSeconds": 1,
+                        "timeoutSeconds": 600,
+                        "maxUnavailable": "25%",
+                        "maxSurge": "25%"
+                    },
+                    "resources": {}
+                },
+                "triggers": [
+                    {
+                        "type": "ConfigChange"
+                    },
+                    {
+                        "type": "ImageChange",
+                        "imageChangeParams": {
+                            "automatic": true,
+                            "containerNames": [
+                                "environ"
+                            ],
+                            "from": {
+                                "kind": "ImageStreamTag",
+                                "namespace": "python-demos",
+                                "name": "environ:latest"
+                            },
+                            "lastTriggeredImage": "172.30.47.227:5000/python-demos/environ@sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea"
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "test": false,
+                "selector": {
+                    "app": "environ",
+                    "deploymentconfig": "environ"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "environ",
+                            "deploymentconfig": "environ"
+                        },
+                        "annotations": {
+                            "openshift.io/container.environ.image.entrypoint": "[\"container-entrypoint\",\"warpdrive\",\"start\"]",
+                            "openshift.io/generated-by": "OpenShiftNewApp"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "name": "environ",
+                                "image": "172.30.47.227:5000/python-demos/environ@sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "imagePullPolicy": "Always"
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 30,
+                        "dnsPolicy": "ClusterFirst",
+                        "securityContext": {}
+                    }
+                }
+            },
+            "status": {
+                "latestVersion": 1,
+                "details": {
+                    "causes": [
+                        {
+                            "type": "ImageChange",
+                            "imageTrigger": {
+                                "from": {
+                                    "kind": "ImageStreamTag",
+                                    "name": "environ:latest"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "kind": "ReplicationController",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ-1",
+                "namespace": "python-demos",
+                "selfLink": "/api/v1/namespaces/python-demos/replicationcontrollers/environ-1",
+                "uid": "1b3fae20-6591-11e6-aa43-0e3d364e19a5",
+                "resourceVersion": "114859781",
+                "generation": 2,
+                "creationTimestamp": "2016-08-18T22:14:18Z",
+                "labels": {
+                    "app": "environ",
+                    "openshift.io/deployment-config.name": "environ"
+                },
+                "annotations": {
+                    "openshift.io/deployer-pod.name": "environ-1-deploy",
+                    "openshift.io/deployment-config.latest-version": "1",
+                    "openshift.io/deployment-config.name": "environ",
+                    "openshift.io/deployment.phase": "Complete",
+                    "openshift.io/deployment.replicas": "1",
+                    "openshift.io/encoded-deployment-config": "{\"kind\":\"DeploymentConfig\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"environ\",\"namespace\":\"python-demos\",\"selfLink\":\"/oapi/v1/namespaces/python-demos/deploymentconfigs/environ\",\"uid\":\"1c2ffb9b-6590-11e6-9340-0ebeb1070c7f\",\"resourceVersion\":\"114857591\",\"creationTimestamp\":\"2016-08-18T22:07:10Z\",\"labels\":{\"app\":\"environ\"},\"annotations\":{\"openshift.io/generated-by\":\"OpenShiftNewApp\"}},\"spec\":{\"strategy\":{\"type\":\"Rolling\",\"rollingParams\":{\"updatePeriodSeconds\":1,\"intervalSeconds\":1,\"timeoutSeconds\":600,\"maxUnavailable\":\"25%\",\"maxSurge\":\"25%\"},\"resources\":{}},\"triggers\":[{\"type\":\"ConfigChange\"},{\"type\":\"ImageChange\",\"imageChangeParams\":{\"automatic\":true,\"containerNames\":[\"environ\"],\"from\":{\"kind\":\"ImageStreamTag\",\"name\":\"environ:latest\"},\"lastTriggeredImage\":\"172.30.47.227:5000/python-demos/environ@sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea\"}}],\"replicas\":1,\"test\":false,\"selector\":{\"app\":\"environ\",\"deploymentconfig\":\"environ\"},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"app\":\"environ\",\"deploymentconfig\":\"environ\"},\"annotations\":{\"openshift.io/container.environ.image.entrypoint\":\"[\\\"container-entrypoint\\\",\\\"warpdrive\\\",\\\"start\\\"]\",\"openshift.io/generated-by\":\"OpenShiftNewApp\"}},\"spec\":{\"containers\":[{\"name\":\"environ\",\"image\":\"172.30.47.227:5000/python-demos/environ@sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea\",\"ports\":[{\"containerPort\":8080,\"protocol\":\"TCP\"}],\"resources\":{},\"terminationMessagePath\":\"/dev/termination-log\",\"imagePullPolicy\":\"Always\"}],\"restartPolicy\":\"Always\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"securityContext\":{}}}},\"status\":{\"latestVersion\":1,\"details\":{\"causes\":[{\"type\":\"ImageChange\",\"imageTrigger\":{\"from\":{\"kind\":\"ImageStreamTag\",\"name\":\"environ:latest\"}}}]}}}\n"
+                }
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "app": "environ",
+                    "deployment": "environ-1",
+                    "deploymentconfig": "environ"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "environ",
+                            "deployment": "environ-1",
+                            "deploymentconfig": "environ"
+                        },
+                        "annotations": {
+                            "openshift.io/container.environ.image.entrypoint": "[\"container-entrypoint\",\"warpdrive\",\"start\"]",
+                            "openshift.io/deployment-config.latest-version": "1",
+                            "openshift.io/deployment-config.name": "environ",
+                            "openshift.io/deployment.name": "environ-1",
+                            "openshift.io/generated-by": "OpenShiftNewApp"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "name": "environ",
+                                "image": "172.30.47.227:5000/python-demos/environ@sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "imagePullPolicy": "Always"
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 30,
+                        "dnsPolicy": "ClusterFirst",
+                        "securityContext": {}
+                    }
+                }
+            },
+            "status": {
+                "replicas": 1,
+                "fullyLabeledReplicas": 1,
+                "observedGeneration": 2
+            }
+        },
+        {
+            "kind": "Route",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ",
+                "namespace": "python-demos",
+                "selfLink": "/oapi/v1/namespaces/python-demos/routes/environ",
+                "uid": "661b93a7-6591-11e6-9340-0ebeb1070c7f",
+                "resourceVersion": "114860829",
+                "creationTimestamp": "2016-08-18T22:16:23Z",
+                "labels": {
+                    "app": "environ"
+                },
+                "annotations": {
+                    "openshift.io/host.generated": "true"
+                }
+            },
+            "spec": {
+                "host": "environ-python-demos.44fs.preview.openshiftapps.com",
+                "to": {
+                    "kind": "Service",
+                    "name": "environ",
+                    "weight": 100
+                },
+                "port": {
+                    "targetPort": "8080-tcp"
+                }
+            },
+            "status": {
+                "ingress": [
+                    {
+                        "host": "environ-python-demos.44fs.preview.openshiftapps.com",
+                        "routerName": "router",
+                        "conditions": [
+                            {
+                                "type": "Admitted",
+                                "status": "True",
+                                "lastTransitionTime": "2016-08-18T22:16:23Z"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Service",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ",
+                "namespace": "python-demos",
+                "selfLink": "/api/v1/namespaces/python-demos/services/environ",
+                "uid": "1c61bc4b-6590-11e6-9340-0ebeb1070c7f",
+                "resourceVersion": "114847577",
+                "creationTimestamp": "2016-08-18T22:07:10Z",
+                "labels": {
+                    "app": "environ"
+                },
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewApp"
+                }
+            },
+            "spec": {
+                "ports": [
+                    {
+                        "name": "8080-tcp",
+                        "protocol": "TCP",
+                        "port": 8080,
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "environ",
+                    "deploymentconfig": "environ"
+                },
+                "portalIP": "172.30.117.243",
+                "clusterIP": "172.30.117.243",
+                "type": "ClusterIP",
+                "sessionAffinity": "None"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "kind": "Pod",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ-1-6lbv2",
+                "generateName": "environ-1-",
+                "namespace": "python-demos",
+                "selfLink": "/api/v1/namespaces/python-demos/pods/environ-1-6lbv2",
+                "uid": "311a1620-6591-11e6-aa43-0e3d364e19a5",
+                "resourceVersion": "114859741",
+                "creationTimestamp": "2016-08-18T22:14:54Z",
+                "labels": {
+                    "app": "environ",
+                    "deployment": "environ-1",
+                    "deploymentconfig": "environ"
+                },
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"python-demos\",\"name\":\"environ-1\",\"uid\":\"1b3fae20-6591-11e6-aa43-0e3d364e19a5\",\"apiVersion\":\"v1\",\"resourceVersion\":\"114858483\"}}\n",
+                    "kubernetes.io/limit-ranger": "LimitRanger plugin set: cpu, memory request for container environ; cpu, memory limit for container environ",
+                    "openshift.io/container.environ.image.entrypoint": "[\"container-entrypoint\",\"warpdrive\",\"start\"]",
+                    "openshift.io/deployment-config.latest-version": "1",
+                    "openshift.io/deployment-config.name": "environ",
+                    "openshift.io/deployment.name": "environ-1",
+                    "openshift.io/generated-by": "OpenShiftNewApp",
+                    "openshift.io/scc": "restricted"
+                }
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "default-token-bba3d",
+                        "secret": {
+                            "secretName": "default-token-bba3d"
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "environ",
+                        "image": "172.30.47.227:5000/python-demos/environ@sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea",
+                        "ports": [
+                            {
+                                "containerPort": 8080,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "1",
+                                "memory": "512Mi"
+                            },
+                            "requests": {
+                                "cpu": "60m",
+                                "memory": "307Mi"
+                            }
+                        },
+                        "volumeMounts": [
+                            {
+                                "name": "default-token-bba3d",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                            }
+                        ],
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always",
+                        "securityContext": {
+                            "capabilities": {
+                                "drop": [
+                                    "KILL",
+                                    "MKNOD",
+                                    "SETGID",
+                                    "SETUID",
+                                    "SYS_CHROOT"
+                                ]
+                            },
+                            "privileged": false,
+                            "seLinuxOptions": {
+                                "level": "s0:c328,c227"
+                            },
+                            "runAsUser": 1107710000
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "nodeSelector": {
+                    "type": "compute"
+                },
+                "host": "ip-172-31-8-212.ec2.internal",
+                "serviceAccountName": "default",
+                "serviceAccount": "default",
+                "nodeName": "ip-172-31-8-212.ec2.internal",
+                "securityContext": {
+                    "seLinuxOptions": {
+                        "level": "s0:c328,c227"
+                    },
+                    "fsGroup": 1107710000
+                },
+                "imagePullSecrets": [
+                    {
+                        "name": "default-dockercfg-x7ceb"
+                    }
+                ]
+            },
+            "status": {
+                "phase": "Running",
+                "conditions": [
+                    {
+                        "type": "Ready",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-08-18T22:15:45Z"
+                    }
+                ],
+                "hostIP": "172.31.8.212",
+                "podIP": "10.1.74.13",
+                "startTime": "2016-08-18T22:14:55Z",
+                "containerStatuses": [
+                    {
+                        "name": "environ",
+                        "state": {
+                            "running": {
+                                "startedAt": "2016-08-18T22:15:45Z"
+                            }
+                        },
+                        "lastState": {},
+                        "ready": true,
+                        "restartCount": 0,
+                        "image": "172.30.47.227:5000/python-demos/environ@sha256:1118579ee829d9cb645096b12d83f6549e11f2b7cb08a15e8bef687e706d77ea",
+                        "imageID": "docker://1d4d6d1bd737005f80388b47085a460a6d964ed571748f3d30e5eba1ec06e6da",
+                        "containerID": "docker://3dd133ea2f24ce307eea1e02b1783f048b4d0eefe5bba9355c385575429e391e"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Pod",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ-1-build",
+                "namespace": "python-demos",
+                "selfLink": "/api/v1/namespaces/python-demos/pods/environ-1-build",
+                "uid": "24502671-6590-11e6-9340-0ebeb1070c7f",
+                "resourceVersion": "114848738",
+                "creationTimestamp": "2016-08-18T22:07:24Z",
+                "labels": {
+                    "openshift.io/build.name": "environ-1"
+                },
+                "annotations": {
+                    "kubernetes.io/limit-ranger": "LimitRanger plugin set: cpu, memory request for container sti-build; cpu, memory limit for container sti-build",
+                    "openshift.io/build.name": "environ-1",
+                    "openshift.io/scc": "privileged"
+                }
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "docker-socket",
+                        "hostPath": {
+                            "path": "/var/run/docker.sock"
+                        }
+                    },
+                    {
+                        "name": "builder-dockercfg-hwdx9-push",
+                        "secret": {
+                            "secretName": "builder-dockercfg-hwdx9"
+                        }
+                    },
+                    {
+                        "name": "builder-token-b062j",
+                        "secret": {
+                            "secretName": "builder-token-b062j"
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "sti-build",
+                        "image": "registry.qe.openshift.com/openshift3/ose-sti-builder:v3.2.1.13",
+                        "args": [
+                            "--loglevel=2"
+                        ],
+                        "env": [
+                            {
+                                "name": "BUILD",
+                                "value": "{\"kind\":\"Build\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"environ-1\",\"namespace\":\"python-demos\",\"selfLink\":\"/oapi/v1/namespaces/python-demos/builds/environ-1\",\"uid\":\"244cb35c-6590-11e6-9340-0ebeb1070c7f\",\"resourceVersion\":\"114847870\",\"creationTimestamp\":\"2016-08-18T22:07:24Z\",\"labels\":{\"app\":\"environ\",\"buildconfig\":\"environ\",\"openshift.io/build-config.name\":\"environ\"},\"annotations\":{\"openshift.io/build-config.name\":\"environ\",\"openshift.io/build.number\":\"1\"}},\"spec\":{\"serviceAccount\":\"builder\",\"source\":{\"type\":\"Git\",\"git\":{\"uri\":\"https://github.com/GrahamDumpleton/warpdrive-environ-modwsgi.git\"},\"secrets\":null},\"strategy\":{\"type\":\"Source\",\"sourceStrategy\":{\"from\":{\"kind\":\"DockerImage\",\"name\":\"grahamdumpleton/warp0-centos7-python27@sha256:c1db3c3600c1e396d84c585d852a907b98042d60c41f24491fa7a4be2337bcb9\"}}},\"output\":{\"to\":{\"kind\":\"DockerImage\",\"name\":\"172.30.47.227:5000/python-demos/environ:latest\"},\"pushSecret\":{\"name\":\"builder-dockercfg-hwdx9\"}},\"resources\":{},\"postCommit\":{}},\"status\":{\"phase\":\"New\",\"outputDockerImageReference\":\"172.30.47.227:5000/python-demos/environ:latest\",\"config\":{\"kind\":\"BuildConfig\",\"namespace\":\"python-demos\",\"name\":\"environ\"}}}\n"
+                            },
+                            {
+                                "name": "BUILD_LOGLEVEL",
+                                "value": "2"
+                            },
+                            {
+                                "name": "SOURCE_REPOSITORY",
+                                "value": "https://github.com/GrahamDumpleton/warpdrive-environ-modwsgi.git"
+                            },
+                            {
+                                "name": "SOURCE_URI",
+                                "value": "https://github.com/GrahamDumpleton/warpdrive-environ-modwsgi.git"
+                            },
+                            {
+                                "name": "ORIGIN_VERSION",
+                                "value": "v3.2.1.13-5-gddf7d17"
+                            },
+                            {
+                                "name": "ALLOWED_UIDS",
+                                "value": "1-"
+                            },
+                            {
+                                "name": "DROP_CAPS",
+                                "value": "KILL,MKNOD,SETGID,SETUID,SYS_CHROOT"
+                            },
+                            {
+                                "name": "PUSH_DOCKERCFG_PATH",
+                                "value": "/var/run/secrets/openshift.io/push"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "1",
+                                "memory": "512Mi"
+                            },
+                            "requests": {
+                                "cpu": "60m",
+                                "memory": "307Mi"
+                            }
+                        },
+                        "volumeMounts": [
+                            {
+                                "name": "docker-socket",
+                                "mountPath": "/var/run/docker.sock"
+                            },
+                            {
+                                "name": "builder-dockercfg-hwdx9-push",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/openshift.io/push"
+                            },
+                            {
+                                "name": "builder-token-b062j",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                            }
+                        ],
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always",
+                        "securityContext": {
+                            "privileged": true
+                        }
+                    }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "activeDeadlineSeconds": 3600,
+                "dnsPolicy": "ClusterFirst",
+                "nodeSelector": {
+                    "type": "compute"
+                },
+                "host": "ip-172-31-10-177.ec2.internal",
+                "serviceAccountName": "builder",
+                "serviceAccount": "builder",
+                "nodeName": "ip-172-31-10-177.ec2.internal",
+                "securityContext": {},
+                "imagePullSecrets": [
+                    {
+                        "name": "builder-dockercfg-hwdx9"
+                    }
+                ]
+            },
+            "status": {
+                "phase": "Failed",
+                "conditions": [
+                    {
+                        "type": "Ready",
+                        "status": "False",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-08-18T22:07:59Z",
+                        "reason": "ContainersNotReady",
+                        "message": "containers with unready status: [sti-build]"
+                    }
+                ],
+                "hostIP": "172.31.10.177",
+                "podIP": "10.1.18.6",
+                "startTime": "2016-08-18T22:07:24Z",
+                "containerStatuses": [
+                    {
+                        "name": "sti-build",
+                        "state": {
+                            "terminated": {
+                                "exitCode": 255,
+                                "reason": "Error",
+                                "startedAt": "2016-08-18T22:07:56Z",
+                                "finishedAt": "2016-08-18T22:07:58Z",
+                                "containerID": "docker://cc23a12fe235ae2893881052e9b5423e673004aed334d528a6992071c2c71f64"
+                            }
+                        },
+                        "lastState": {},
+                        "ready": false,
+                        "restartCount": 0,
+                        "image": "registry.qe.openshift.com/openshift3/ose-sti-builder:v3.2.1.13",
+                        "imageID": "docker://bd3e92d5dabe2225c338a708db493ea38c655a13cd59598ac87f3b3a195cc8e4",
+                        "containerID": "docker://cc23a12fe235ae2893881052e9b5423e673004aed334d528a6992071c2c71f64"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Pod",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "environ-2-build",
+                "namespace": "python-demos",
+                "selfLink": "/api/v1/namespaces/python-demos/pods/environ-2-build",
+                "uid": "6c1841a9-6590-11e6-9340-0ebeb1070c7f",
+                "resourceVersion": "114857626",
+                "creationTimestamp": "2016-08-18T22:09:24Z",
+                "labels": {
+                    "openshift.io/build.name": "environ-2"
+                },
+                "annotations": {
+                    "kubernetes.io/limit-ranger": "LimitRanger plugin set: cpu, memory request for container sti-build; cpu, memory limit for container sti-build",
+                    "openshift.io/build.name": "environ-2",
+                    "openshift.io/scc": "privileged"
+                }
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "docker-socket",
+                        "hostPath": {
+                            "path": "/var/run/docker.sock"
+                        }
+                    },
+                    {
+                        "name": "builder-dockercfg-hwdx9-push",
+                        "secret": {
+                            "secretName": "builder-dockercfg-hwdx9"
+                        }
+                    },
+                    {
+                        "name": "builder-token-b062j",
+                        "secret": {
+                            "secretName": "builder-token-b062j"
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "sti-build",
+                        "image": "registry.qe.openshift.com/openshift3/ose-sti-builder:v3.2.1.13",
+                        "args": [
+                            "--loglevel=2"
+                        ],
+                        "env": [
+                            {
+                                "name": "BUILD",
+                                "value": "{\"kind\":\"Build\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"environ-2\",\"namespace\":\"python-demos\",\"selfLink\":\"/oapi/v1/namespaces/python-demos/builds/environ-2\",\"uid\":\"6c13f7e5-6590-11e6-aa43-0e3d364e19a5\",\"resourceVersion\":\"114850733\",\"creationTimestamp\":\"2016-08-18T22:09:24Z\",\"labels\":{\"app\":\"environ\",\"buildconfig\":\"environ\",\"openshift.io/build-config.name\":\"environ\"},\"annotations\":{\"openshift.io/build-config.name\":\"environ\",\"openshift.io/build.number\":\"2\"}},\"spec\":{\"serviceAccount\":\"builder\",\"source\":{\"type\":\"Git\",\"git\":{\"uri\":\"https://github.com/GrahamDumpleton/warpdrive-environ-modwsgi.git\"},\"secrets\":null},\"strategy\":{\"type\":\"Source\",\"sourceStrategy\":{\"from\":{\"kind\":\"DockerImage\",\"name\":\"docker.io/grahamdumpleton/warp0-centos7-python27:latest\"}}},\"output\":{\"to\":{\"kind\":\"DockerImage\",\"name\":\"172.30.47.227:5000/python-demos/environ:latest\"},\"pushSecret\":{\"name\":\"builder-dockercfg-hwdx9\"}},\"resources\":{},\"postCommit\":{}},\"status\":{\"phase\":\"New\",\"outputDockerImageReference\":\"172.30.47.227:5000/python-demos/environ:latest\",\"config\":{\"kind\":\"BuildConfig\",\"namespace\":\"python-demos\",\"name\":\"environ\"}}}\n"
+                            },
+                            {
+                                "name": "BUILD_LOGLEVEL",
+                                "value": "2"
+                            },
+                            {
+                                "name": "SOURCE_REPOSITORY",
+                                "value": "https://github.com/GrahamDumpleton/warpdrive-environ-modwsgi.git"
+                            },
+                            {
+                                "name": "SOURCE_URI",
+                                "value": "https://github.com/GrahamDumpleton/warpdrive-environ-modwsgi.git"
+                            },
+                            {
+                                "name": "ORIGIN_VERSION",
+                                "value": "v3.2.1.13-5-gddf7d17"
+                            },
+                            {
+                                "name": "ALLOWED_UIDS",
+                                "value": "1-"
+                            },
+                            {
+                                "name": "DROP_CAPS",
+                                "value": "KILL,MKNOD,SETGID,SETUID,SYS_CHROOT"
+                            },
+                            {
+                                "name": "PUSH_DOCKERCFG_PATH",
+                                "value": "/var/run/secrets/openshift.io/push"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "1",
+                                "memory": "512Mi"
+                            },
+                            "requests": {
+                                "cpu": "60m",
+                                "memory": "307Mi"
+                            }
+                        },
+                        "volumeMounts": [
+                            {
+                                "name": "docker-socket",
+                                "mountPath": "/var/run/docker.sock"
+                            },
+                            {
+                                "name": "builder-dockercfg-hwdx9-push",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/openshift.io/push"
+                            },
+                            {
+                                "name": "builder-token-b062j",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                            }
+                        ],
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always",
+                        "securityContext": {
+                            "privileged": true
+                        }
+                    }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "activeDeadlineSeconds": 3600,
+                "dnsPolicy": "ClusterFirst",
+                "nodeSelector": {
+                    "type": "compute"
+                },
+                "host": "ip-172-31-2-73.ec2.internal",
+                "serviceAccountName": "builder",
+                "serviceAccount": "builder",
+                "nodeName": "ip-172-31-2-73.ec2.internal",
+                "securityContext": {},
+                "imagePullSecrets": [
+                    {
+                        "name": "builder-dockercfg-hwdx9"
+                    }
+                ]
+            },
+            "status": {
+                "phase": "Succeeded",
+                "conditions": [
+                    {
+                        "type": "Ready",
+                        "status": "False",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-08-18T22:14:19Z",
+                        "reason": "PodCompleted"
+                    }
+                ],
+                "hostIP": "172.31.2.73",
+                "podIP": "10.1.82.3",
+                "startTime": "2016-08-18T22:09:24Z",
+                "containerStatuses": [
+                    {
+                        "name": "sti-build",
+                        "state": {
+                            "terminated": {
+                                "exitCode": 0,
+                                "reason": "Completed",
+                                "startedAt": "2016-08-18T22:09:49Z",
+                                "finishedAt": "2016-08-18T22:14:18Z",
+                                "containerID": "docker://6338f2a28211292fb5a897065601633d68ea436b02a33205562a90f8dbe25a57"
+                            }
+                        },
+                        "lastState": {},
+                        "ready": false,
+                        "restartCount": 0,
+                        "image": "registry.qe.openshift.com/openshift3/ose-sti-builder:v3.2.1.13",
+                        "imageID": "docker://bd3e92d5dabe2225c338a708db493ea38c655a13cd59598ac87f3b3a195cc8e4",
+                        "containerID": "docker://6338f2a28211292fb5a897065601633d68ea436b02a33205562a90f8dbe25a57"
+                    }
+                ]
+            }
+        }
+    ]
+}
