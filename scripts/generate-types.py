@@ -6,7 +6,7 @@ import re
 prologue_template = """
 # XXX This code file has been automatically generated. Do not edit it.
 
-from .base import Resource, register_model
+from .base import Resource, register_resource
 """
 
 def generate_prologue():
@@ -79,7 +79,7 @@ def generate_resources(models):
 
         types.append(class_name)
 
-        print('@register_model')
+        print('@register_resource')
         print('class %s(Resource):' % class_name)
 
         print()

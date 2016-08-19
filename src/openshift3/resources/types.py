@@ -1,10 +1,10 @@
 
 # XXX This code file has been automatically generated. Do not edit it.
 
-from .base import Resource, register_model
+from .base import Resource, register_resource
 
 
-@register_model
+@register_resource
 class versioned_Event(Resource):
 
     __kind__ = '*versioned.Event'
@@ -22,7 +22,7 @@ class versioned_Event(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class types_UID(Resource):
 
     __kind__ = 'types.UID'
@@ -40,7 +40,7 @@ class types_UID(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_APIResource(Resource):
 
     """APIResource specifies the name of a resource and whether it is
@@ -77,7 +77,7 @@ class unversioned_APIResource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_APIResourceList(Resource):
 
     """APIResourceList is a list of APIResource, it is used to expose the
@@ -116,7 +116,7 @@ class unversioned_APIResourceList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_LabelSelector(Resource):
 
     """A label selector is a label query over a set of resources. The result
@@ -145,7 +145,7 @@ class unversioned_LabelSelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_LabelSelectorRequirement(Resource):
 
     """A label selector requirement is a selector that contains values, a
@@ -179,7 +179,7 @@ class unversioned_LabelSelectorRequirement(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_ListMeta(Resource):
 
     """ListMeta describes metadata that synthetic resources must have,
@@ -205,7 +205,7 @@ class unversioned_ListMeta(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_Patch(Resource):
 
     """Patch is provided to give a concrete name and type to the Kubernetes
@@ -226,7 +226,7 @@ class unversioned_Patch(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_Status(Resource):
 
     """Status is a return value for calls that don't return other objects."""
@@ -266,7 +266,7 @@ class unversioned_Status(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_StatusCause(Resource):
 
     """StatusCause provides more information about an api.Status failure,
@@ -293,7 +293,7 @@ class unversioned_StatusCause(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_StatusDetails(Resource):
 
     """StatusDetails is a set of additional properties that MAY be set by the
@@ -332,7 +332,7 @@ class unversioned_StatusDetails(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_AWSElasticBlockStoreVolumeSource(Resource):
 
     """Represents a Persistent Disk resource in AWS.  An AWS EBS disk must
@@ -368,7 +368,7 @@ class v1_AWSElasticBlockStoreVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_AttachedVolume(Resource):
 
     """AttachedVolume describes a volume attached to a node"""
@@ -398,7 +398,7 @@ class v1_AttachedVolume(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_AzureFileVolumeSource(Resource):
 
     """AzureFile represents an Azure File Service mount on the host and bind
@@ -431,7 +431,7 @@ class v1_AzureFileVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Binding(Resource):
 
     """Binding ties one object to another. For example, a pod is bound to a
@@ -468,7 +468,7 @@ class v1_Binding(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Capabilities(Resource):
 
     """Adds and removes POSIX capabilities from running containers."""
@@ -495,7 +495,7 @@ class v1_Capabilities(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Capability(Resource):
 
     __kind__ = 'v1.Capability'
@@ -513,7 +513,7 @@ class v1_Capability(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_CephFSVolumeSource(Resource):
 
     """Represents a Ceph Filesystem mount that lasts the lifetime of a pod
@@ -552,7 +552,7 @@ class v1_CephFSVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_CinderVolumeSource(Resource):
 
     """Represents a cinder volume resource in Openstack. A Cinder volume must
@@ -585,7 +585,7 @@ class v1_CinderVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ComponentCondition(Resource):
 
     """Information about the condition of a component."""
@@ -619,7 +619,7 @@ class v1_ComponentCondition(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ComponentStatus(Resource):
 
     """ComponentStatus (and ComponentStatusList) holds the cluster validation
@@ -653,7 +653,7 @@ class v1_ComponentStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ComponentStatusList(Resource):
 
     """Status of all the conditions for the component as a list of
@@ -690,7 +690,7 @@ class v1_ComponentStatusList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ConfigMap(Resource):
 
     """ConfigMap holds configuration data for pods to consume."""
@@ -721,7 +721,7 @@ class v1_ConfigMap(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ConfigMapKeySelector(Resource):
 
     """Selects a key from a ConfigMap."""
@@ -749,7 +749,7 @@ class v1_ConfigMapKeySelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ConfigMapList(Resource):
 
     """ConfigMapList is a resource containing a list of ConfigMap objects."""
@@ -785,7 +785,7 @@ class v1_ConfigMapList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ConfigMapVolumeSource(Resource):
 
     """Adapts a ConfigMap into a volume.  The contents of the target
@@ -816,7 +816,7 @@ class v1_ConfigMapVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Container(Resource):
 
     """A single application container that you want to run within a pod."""
@@ -889,7 +889,7 @@ class v1_Container(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ContainerImage(Resource):
 
     """Describe a container image"""
@@ -917,7 +917,7 @@ class v1_ContainerImage(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ContainerPort(Resource):
 
     """ContainerPort represents a network port in a single container."""
@@ -951,7 +951,7 @@ class v1_ContainerPort(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ContainerState(Resource):
 
     """ContainerState holds a possible state of container. Only one of its
@@ -982,7 +982,7 @@ class v1_ContainerState(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ContainerStateRunning(Resource):
 
     """ContainerStateRunning is a running state of a container."""
@@ -1004,7 +1004,7 @@ class v1_ContainerStateRunning(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ContainerStateTerminated(Resource):
 
     """ContainerStateTerminated is a terminated state of a container."""
@@ -1042,7 +1042,7 @@ class v1_ContainerStateTerminated(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ContainerStateWaiting(Resource):
 
     """ContainerStateWaiting is a waiting state of a container."""
@@ -1066,7 +1066,7 @@ class v1_ContainerStateWaiting(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ContainerStatus(Resource):
 
     """ContainerStatus contains details for the current status of this
@@ -1117,7 +1117,7 @@ class v1_ContainerStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DaemonEndpoint(Resource):
 
     """DaemonEndpoint contains information about a single Daemon endpoint."""
@@ -1143,7 +1143,7 @@ class v1_DaemonEndpoint(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeleteOptions(Resource):
 
     """DeleteOptions may be provided when deleting an API object"""
@@ -1176,7 +1176,7 @@ class v1_DeleteOptions(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeprecatedDownwardAPIVolumeFile(Resource):
 
     """DeprecatedDownwardAPIVolumeFile represents information to create the
@@ -1210,7 +1210,7 @@ class v1_DeprecatedDownwardAPIVolumeFile(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeprecatedDownwardAPIVolumeSource(Resource):
 
     """DeprecatedDownwardAPIVolumeSource represents a volume containing
@@ -1236,7 +1236,7 @@ class v1_DeprecatedDownwardAPIVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DownwardAPIVolumeFile(Resource):
 
     """DownwardAPIVolumeFile represents information to create the file
@@ -1269,7 +1269,7 @@ class v1_DownwardAPIVolumeFile(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DownwardAPIVolumeSource(Resource):
 
     """DownwardAPIVolumeSource represents a volume containing downward API
@@ -1295,7 +1295,7 @@ class v1_DownwardAPIVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EmptyDirVolumeSource(Resource):
 
     """Represents an empty directory for a pod. Empty directory volumes
@@ -1318,7 +1318,7 @@ class v1_EmptyDirVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EndpointAddress(Resource):
 
     """EndpointAddress is a tuple that describes single IP address."""
@@ -1349,7 +1349,7 @@ class v1_EndpointAddress(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EndpointPort(Resource):
 
     """EndpointPort is a tuple that describes a single port."""
@@ -1379,7 +1379,7 @@ class v1_EndpointPort(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EndpointSubset(Resource):
 
     """EndpointSubset is a group of addresses with a common set of ports. The
@@ -1417,7 +1417,7 @@ class v1_EndpointSubset(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Endpoints(Resource):
 
     """Endpoints is a collection of endpoints that implement the actual
@@ -1458,7 +1458,7 @@ class v1_Endpoints(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EndpointsList(Resource):
 
     """EndpointsList is a list of endpoints."""
@@ -1494,7 +1494,7 @@ class v1_EndpointsList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EnvVar(Resource):
 
     """EnvVar represents an environment variable present in a Container."""
@@ -1525,7 +1525,7 @@ class v1_EnvVar(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EnvVarSource(Resource):
 
     """EnvVarSource represents a source for the value of an EnvVar."""
@@ -1557,7 +1557,7 @@ class v1_EnvVarSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Event(Resource):
 
     """Event is a report of an event somewhere in the cluster."""
@@ -1610,7 +1610,7 @@ class v1_Event(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EventList(Resource):
 
     """EventList is a list of events."""
@@ -1646,7 +1646,7 @@ class v1_EventList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EventSource(Resource):
 
     """EventSource contains information for an event."""
@@ -1670,7 +1670,7 @@ class v1_EventSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ExecAction(Resource):
 
     """ExecAction describes a "run in container" action."""
@@ -1693,7 +1693,7 @@ class v1_ExecAction(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_FCVolumeSource(Resource):
 
     """Represents a Fibre Channel volume. Fibre Channel volumes can only be
@@ -1729,7 +1729,7 @@ class v1_FCVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_FSGroupStrategyOptions(Resource):
 
     """FSGroupStrategyOptions defines the strategy type and options used to
@@ -1756,7 +1756,7 @@ class v1_FSGroupStrategyOptions(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_FSType(Resource):
 
     __kind__ = 'v1.FSType'
@@ -1774,7 +1774,7 @@ class v1_FSType(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_FinalizerName(Resource):
 
     __kind__ = 'v1.FinalizerName'
@@ -1792,7 +1792,7 @@ class v1_FinalizerName(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_FlexVolumeSource(Resource):
 
     """FlexVolume represents a generic volume resource that is
@@ -1829,7 +1829,7 @@ class v1_FlexVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_FlockerVolumeSource(Resource):
 
     """Represents a Flocker volume mounted by the Flocker agent. Flocker
@@ -1856,7 +1856,7 @@ class v1_FlockerVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GCEPersistentDiskVolumeSource(Resource):
 
     """Represents a Persistent Disk resource in Google Compute Engine.  A GCE
@@ -1892,7 +1892,7 @@ class v1_GCEPersistentDiskVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GitRepoVolumeSource(Resource):
 
     """Represents a volume that is populated with the contents of a git
@@ -1924,7 +1924,7 @@ class v1_GitRepoVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GlusterfsVolumeSource(Resource):
 
     """Represents a Glusterfs mount that lasts the lifetime of a pod.
@@ -1958,7 +1958,7 @@ class v1_GlusterfsVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_HTTPGetAction(Resource):
 
     """HTTPGetAction describes an action based on HTTP Get requests."""
@@ -1994,7 +1994,7 @@ class v1_HTTPGetAction(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_HTTPHeader(Resource):
 
     """HTTPHeader describes a custom header to be used in HTTP probes"""
@@ -2024,7 +2024,7 @@ class v1_HTTPHeader(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Handler(Resource):
 
     """Handler defines a specific action that should be taken"""
@@ -2053,7 +2053,7 @@ class v1_Handler(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_HostPathVolumeSource(Resource):
 
     """Represents a host path mapped into a pod. Host path volumes do not
@@ -2080,7 +2080,7 @@ class v1_HostPathVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_IDRange(Resource):
 
     """IDRange provides a min/max of an allowed range of IDs."""
@@ -2104,7 +2104,7 @@ class v1_IDRange(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ISCSIVolumeSource(Resource):
 
     """Represents an ISCSI disk. ISCSI volumes can only be mounted as
@@ -2146,7 +2146,7 @@ class v1_ISCSIVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_KeyToPath(Resource):
 
     """Maps a string key to a path within a volume."""
@@ -2176,7 +2176,7 @@ class v1_KeyToPath(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Lifecycle(Resource):
 
     """Lifecycle describes actions that the management system should take in
@@ -2206,7 +2206,7 @@ class v1_Lifecycle(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LimitRange(Resource):
 
     """LimitRange sets resource usage limits for each kind of resource in a
@@ -2239,7 +2239,7 @@ class v1_LimitRange(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LimitRangeItem(Resource):
 
     """LimitRangeItem defines a min/max usage limit for any resource that
@@ -2272,7 +2272,7 @@ class v1_LimitRangeItem(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LimitRangeList(Resource):
 
     """LimitRangeList is a list of LimitRange items."""
@@ -2308,7 +2308,7 @@ class v1_LimitRangeList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LimitRangeSpec(Resource):
 
     """LimitRangeSpec defines a min/max usage limit for resources that match
@@ -2336,7 +2336,7 @@ class v1_LimitRangeSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LoadBalancerIngress(Resource):
 
     """LoadBalancerIngress represents the status of a load-balancer ingress
@@ -2362,7 +2362,7 @@ class v1_LoadBalancerIngress(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LoadBalancerStatus(Resource):
 
     """LoadBalancerStatus represents the status of a load-balancer."""
@@ -2386,7 +2386,7 @@ class v1_LoadBalancerStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LocalObjectReference(Resource):
 
     """LocalObjectReference contains enough information to let you locate the
@@ -2409,7 +2409,7 @@ class v1_LocalObjectReference(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NFSVolumeSource(Resource):
 
     """Represents an NFS mount that lasts the lifetime of a pod. NFS volumes
@@ -2442,7 +2442,7 @@ class v1_NFSVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Namespace(Resource):
 
     """Namespace provides a scope for Names. Use of multiple namespaces is
@@ -2478,7 +2478,7 @@ class v1_Namespace(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NamespaceList(Resource):
 
     """NamespaceList is a list of Namespaces."""
@@ -2514,7 +2514,7 @@ class v1_NamespaceList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NamespaceSpec(Resource):
 
     """NamespaceSpec describes the attributes on a Namespace."""
@@ -2538,7 +2538,7 @@ class v1_NamespaceSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NamespaceStatus(Resource):
 
     """NamespaceStatus is information about the current status of a
@@ -2561,7 +2561,7 @@ class v1_NamespaceStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Node(Resource):
 
     """Node is a worker node in Kubernetes, formerly known as minion. Each
@@ -2597,7 +2597,7 @@ class v1_Node(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NodeAddress(Resource):
 
     """NodeAddress contains information for the node's address."""
@@ -2627,7 +2627,7 @@ class v1_NodeAddress(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NodeCondition(Resource):
 
     """NodeCondition contains condition infromation for a node."""
@@ -2665,7 +2665,7 @@ class v1_NodeCondition(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NodeDaemonEndpoints(Resource):
 
     """NodeDaemonEndpoints lists ports opened by daemons running on the Node."""
@@ -2688,7 +2688,7 @@ class v1_NodeDaemonEndpoints(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NodeList(Resource):
 
     """NodeList is the whole list of all Nodes which have been registered
@@ -2725,7 +2725,7 @@ class v1_NodeList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NodeSpec(Resource):
 
     """NodeSpec describes the attributes that a node is created with."""
@@ -2753,7 +2753,7 @@ class v1_NodeSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NodeStatus(Resource):
 
     """NodeStatus is information about the current status of a node."""
@@ -2805,7 +2805,7 @@ class v1_NodeStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NodeSystemInfo(Resource):
 
     """NodeSystemInfo is a set of ids/uuids to uniquely identify the node."""
@@ -2867,7 +2867,7 @@ class v1_NodeSystemInfo(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ObjectFieldSelector(Resource):
 
     """ObjectFieldSelector selects an APIVersioned field of an object."""
@@ -2895,7 +2895,7 @@ class v1_ObjectFieldSelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ObjectMeta(Resource):
 
     """ObjectMeta is metadata that all persisted resources must have, which
@@ -2947,7 +2947,7 @@ class v1_ObjectMeta(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ObjectReference(Resource):
 
     """ObjectReference contains enough information to let you inspect or
@@ -2984,7 +2984,7 @@ class v1_ObjectReference(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_OwnerReference(Resource):
 
     """OwnerReference contains enough information to let you identify an
@@ -3028,7 +3028,7 @@ class v1_OwnerReference(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolume(Resource):
 
     """PersistentVolume (PV) is a storage resource provisioned by an
@@ -3066,7 +3066,7 @@ class v1_PersistentVolume(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolumeAccessMode(Resource):
 
     __kind__ = 'v1.PersistentVolumeAccessMode'
@@ -3084,7 +3084,7 @@ class v1_PersistentVolumeAccessMode(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolumeClaim(Resource):
 
     """PersistentVolumeClaim is a user's request for and claim to a
@@ -3120,7 +3120,7 @@ class v1_PersistentVolumeClaim(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolumeClaimList(Resource):
 
     """PersistentVolumeClaimList is a list of PersistentVolumeClaim items."""
@@ -3156,7 +3156,7 @@ class v1_PersistentVolumeClaimList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolumeClaimSpec(Resource):
 
     """PersistentVolumeClaimSpec describes the common attributes of storage
@@ -3188,7 +3188,7 @@ class v1_PersistentVolumeClaimSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolumeClaimStatus(Resource):
 
     """PersistentVolumeClaimStatus is the current status of a persistent
@@ -3217,7 +3217,7 @@ class v1_PersistentVolumeClaimStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolumeClaimVolumeSource(Resource):
 
     """PersistentVolumeClaimVolumeSource references the user's PVC in the
@@ -3249,7 +3249,7 @@ class v1_PersistentVolumeClaimVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolumeList(Resource):
 
     """PersistentVolumeList is a list of PersistentVolume items."""
@@ -3285,7 +3285,7 @@ class v1_PersistentVolumeList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolumeSpec(Resource):
 
     """PersistentVolumeSpec is the specification of a persistent volume."""
@@ -3358,7 +3358,7 @@ class v1_PersistentVolumeSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolumeStatus(Resource):
 
     """PersistentVolumeStatus is the current status of a persistent volume."""
@@ -3384,7 +3384,7 @@ class v1_PersistentVolumeStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Pod(Resource):
 
     """Pod is a collection of containers that can run on a host. This
@@ -3420,7 +3420,7 @@ class v1_Pod(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodCondition(Resource):
 
     """PodCondition contains details for the current condition of this pod."""
@@ -3458,7 +3458,7 @@ class v1_PodCondition(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodList(Resource):
 
     """PodList is a list of Pods."""
@@ -3494,7 +3494,7 @@ class v1_PodList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodSecurityContext(Resource):
 
     """PodSecurityContext holds pod-level security attributes and common
@@ -3530,7 +3530,7 @@ class v1_PodSecurityContext(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodSpec(Resource):
 
     """PodSpec is a description of a pod."""
@@ -3596,7 +3596,7 @@ class v1_PodSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodStatus(Resource):
 
     """PodStatus represents information about the status of a pod. Status may
@@ -3637,7 +3637,7 @@ class v1_PodStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodTemplate(Resource):
 
     """PodTemplate describes a template for creating copies of a predefined
@@ -3670,7 +3670,7 @@ class v1_PodTemplate(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodTemplateList(Resource):
 
     """PodTemplateList is a list of PodTemplates."""
@@ -3706,7 +3706,7 @@ class v1_PodTemplateList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodTemplateSpec(Resource):
 
     """PodTemplateSpec describes the data a pod should have when created from
@@ -3733,7 +3733,7 @@ class v1_PodTemplateSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Preconditions(Resource):
 
     """Preconditions must be fulfilled before an operation (update, delete,
@@ -3757,7 +3757,7 @@ class v1_Preconditions(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Probe(Resource):
 
     """Probe describes a health check to be performed against a container to
@@ -3797,7 +3797,7 @@ class v1_Probe(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RBDVolumeSource(Resource):
 
     """Represents a Rados Block Device mount that lasts the lifetime of a
@@ -3842,7 +3842,7 @@ class v1_RBDVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ReplicationController(Resource):
 
     """ReplicationController represents the configuration of a replication
@@ -3878,7 +3878,7 @@ class v1_ReplicationController(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ReplicationControllerList(Resource):
 
     """ReplicationControllerList is a collection of replication controllers."""
@@ -3914,7 +3914,7 @@ class v1_ReplicationControllerList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ReplicationControllerSpec(Resource):
 
     """ReplicationControllerSpec is the specification of a replication
@@ -3942,7 +3942,7 @@ class v1_ReplicationControllerSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ReplicationControllerStatus(Resource):
 
     """ReplicationControllerStatus represents the current status of a
@@ -3973,7 +3973,7 @@ class v1_ReplicationControllerStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceFieldSelector(Resource):
 
     """ResourceFieldSelector represents container resources (cpu, memory) and
@@ -4004,7 +4004,7 @@ class v1_ResourceFieldSelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceQuota(Resource):
 
     """ResourceQuota sets aggregate quota restrictions enforced per namespace"""
@@ -4039,7 +4039,7 @@ class v1_ResourceQuota(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceQuotaList(Resource):
 
     """ResourceQuotaList is a list of ResourceQuota items."""
@@ -4075,7 +4075,7 @@ class v1_ResourceQuotaList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceQuotaScope(Resource):
 
     __kind__ = 'v1.ResourceQuotaScope'
@@ -4093,7 +4093,7 @@ class v1_ResourceQuotaScope(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceQuotaSpec(Resource):
 
     """ResourceQuotaSpec defines the desired hard limits to enforce for
@@ -4120,7 +4120,7 @@ class v1_ResourceQuotaSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceQuotaStatus(Resource):
 
     """ResourceQuotaStatus defines the enforced hard limits and observed use."""
@@ -4144,7 +4144,7 @@ class v1_ResourceQuotaStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceRequirements(Resource):
 
     """ResourceRequirements describes the compute resource requirements."""
@@ -4168,7 +4168,7 @@ class v1_ResourceRequirements(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RunAsUserStrategyOptions(Resource):
 
     """RunAsUserStrategyOptions defines the strategy type and any options
@@ -4197,7 +4197,7 @@ class v1_RunAsUserStrategyOptions(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SELinuxContextStrategyOptions(Resource):
 
     """SELinuxContextStrategyOptions defines the strategy type and any
@@ -4223,7 +4223,7 @@ class v1_SELinuxContextStrategyOptions(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SELinuxOptions(Resource):
 
     """SELinuxOptions are the labels to be applied to the container"""
@@ -4251,7 +4251,7 @@ class v1_SELinuxOptions(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Scale(Resource):
 
     """Scale represents a scaling request for a resource."""
@@ -4286,7 +4286,7 @@ class v1_Scale(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ScaleSpec(Resource):
 
     """ScaleSpec describes the attributes of a scale subresource."""
@@ -4308,7 +4308,7 @@ class v1_ScaleSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ScaleStatus(Resource):
 
     """ScaleStatus represents the current status of a scale subresource."""
@@ -4336,7 +4336,7 @@ class v1_ScaleStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Secret(Resource):
 
     """Secret holds secret data of a certain type. The total bytes of the
@@ -4372,7 +4372,7 @@ class v1_Secret(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecretKeySelector(Resource):
 
     """SecretKeySelector selects a key of a Secret."""
@@ -4400,7 +4400,7 @@ class v1_SecretKeySelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecretList(Resource):
 
     """SecretList is a list of Secret."""
@@ -4436,7 +4436,7 @@ class v1_SecretList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecretVolumeSource(Resource):
 
     """Adapts a Secret into a volume.  The contents of the target Secret's
@@ -4465,7 +4465,7 @@ class v1_SecretVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecurityContext(Resource):
 
     """SecurityContext holds security configuration that will be applied to a
@@ -4502,7 +4502,7 @@ class v1_SecurityContext(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecurityContextConstraints(Resource):
 
     """SecurityContextConstraints governs the ability to make requests that
@@ -4607,7 +4607,7 @@ class v1_SecurityContextConstraints(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecurityContextConstraintsList(Resource):
 
     """SecurityContextConstraintsList is a list of SecurityContextConstraints
@@ -4644,7 +4644,7 @@ class v1_SecurityContextConstraintsList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Service(Resource):
 
     """Service is a named abstraction of software service (for example,
@@ -4682,7 +4682,7 @@ class v1_Service(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ServiceAccount(Resource):
 
     """ServiceAccount binds together: * a name, understood by users, and
@@ -4721,7 +4721,7 @@ class v1_ServiceAccount(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ServiceAccountList(Resource):
 
     """ServiceAccountList is a list of ServiceAccount objects"""
@@ -4757,7 +4757,7 @@ class v1_ServiceAccountList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ServiceList(Resource):
 
     """ServiceList holds a list of services."""
@@ -4793,7 +4793,7 @@ class v1_ServiceList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ServicePort(Resource):
 
     """ServicePort contains information on service's port."""
@@ -4827,7 +4827,7 @@ class v1_ServicePort(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ServiceSpec(Resource):
 
     """ServiceSpec describes the attributes that a user creates on a service."""
@@ -4875,7 +4875,7 @@ class v1_ServiceSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ServiceStatus(Resource):
 
     """ServiceStatus represents the current status of a service."""
@@ -4898,7 +4898,7 @@ class v1_ServiceStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SupplementalGroupsStrategyOptions(Resource):
 
     """SupplementalGroupsStrategyOptions defines the strategy type and
@@ -4925,7 +4925,7 @@ class v1_SupplementalGroupsStrategyOptions(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_TCPSocketAction(Resource):
 
     """TCPSocketAction describes an action based on opening a socket"""
@@ -4951,7 +4951,7 @@ class v1_TCPSocketAction(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_UniqueVolumeName(Resource):
 
     __kind__ = 'v1.UniqueVolumeName'
@@ -4969,7 +4969,7 @@ class v1_UniqueVolumeName(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Volume(Resource):
 
     """Volume represents a named volume in a pod that may be accessed by any
@@ -5059,7 +5059,7 @@ class v1_Volume(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_VolumeMount(Resource):
 
     """VolumeMount describes a mounting of a Volume within a container."""
@@ -5093,7 +5093,7 @@ class v1_VolumeMount(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_VsphereVirtualDiskVolumeSource(Resource):
 
     """Represents a vSphere volume resource."""
@@ -5122,7 +5122,7 @@ class v1_VsphereVirtualDiskVolumeSource(Resource):
         super().__init__(**_kwargs_)
 __all__ = ['versioned_Event', 'types_UID', 'unversioned_APIResource', 'unversioned_APIResourceList', 'unversioned_LabelSelector', 'unversioned_LabelSelectorRequirement', 'unversioned_ListMeta', 'unversioned_Patch', 'unversioned_Status', 'unversioned_StatusCause', 'unversioned_StatusDetails', 'v1_AWSElasticBlockStoreVolumeSource', 'v1_AttachedVolume', 'v1_AzureFileVolumeSource', 'v1_Binding', 'v1_Capabilities', 'v1_Capability', 'v1_CephFSVolumeSource', 'v1_CinderVolumeSource', 'v1_ComponentCondition', 'v1_ComponentStatus', 'v1_ComponentStatusList', 'v1_ConfigMap', 'v1_ConfigMapKeySelector', 'v1_ConfigMapList', 'v1_ConfigMapVolumeSource', 'v1_Container', 'v1_ContainerImage', 'v1_ContainerPort', 'v1_ContainerState', 'v1_ContainerStateRunning', 'v1_ContainerStateTerminated', 'v1_ContainerStateWaiting', 'v1_ContainerStatus', 'v1_DaemonEndpoint', 'v1_DeleteOptions', 'v1_DeprecatedDownwardAPIVolumeFile', 'v1_DeprecatedDownwardAPIVolumeSource', 'v1_DownwardAPIVolumeFile', 'v1_DownwardAPIVolumeSource', 'v1_EmptyDirVolumeSource', 'v1_EndpointAddress', 'v1_EndpointPort', 'v1_EndpointSubset', 'v1_Endpoints', 'v1_EndpointsList', 'v1_EnvVar', 'v1_EnvVarSource', 'v1_Event', 'v1_EventList', 'v1_EventSource', 'v1_ExecAction', 'v1_FCVolumeSource', 'v1_FSGroupStrategyOptions', 'v1_FSType', 'v1_FinalizerName', 'v1_FlexVolumeSource', 'v1_FlockerVolumeSource', 'v1_GCEPersistentDiskVolumeSource', 'v1_GitRepoVolumeSource', 'v1_GlusterfsVolumeSource', 'v1_HTTPGetAction', 'v1_HTTPHeader', 'v1_Handler', 'v1_HostPathVolumeSource', 'v1_IDRange', 'v1_ISCSIVolumeSource', 'v1_KeyToPath', 'v1_Lifecycle', 'v1_LimitRange', 'v1_LimitRangeItem', 'v1_LimitRangeList', 'v1_LimitRangeSpec', 'v1_LoadBalancerIngress', 'v1_LoadBalancerStatus', 'v1_LocalObjectReference', 'v1_NFSVolumeSource', 'v1_Namespace', 'v1_NamespaceList', 'v1_NamespaceSpec', 'v1_NamespaceStatus', 'v1_Node', 'v1_NodeAddress', 'v1_NodeCondition', 'v1_NodeDaemonEndpoints', 'v1_NodeList', 'v1_NodeSpec', 'v1_NodeStatus', 'v1_NodeSystemInfo', 'v1_ObjectFieldSelector', 'v1_ObjectMeta', 'v1_ObjectReference', 'v1_OwnerReference', 'v1_PersistentVolume', 'v1_PersistentVolumeAccessMode', 'v1_PersistentVolumeClaim', 'v1_PersistentVolumeClaimList', 'v1_PersistentVolumeClaimSpec', 'v1_PersistentVolumeClaimStatus', 'v1_PersistentVolumeClaimVolumeSource', 'v1_PersistentVolumeList', 'v1_PersistentVolumeSpec', 'v1_PersistentVolumeStatus', 'v1_Pod', 'v1_PodCondition', 'v1_PodList', 'v1_PodSecurityContext', 'v1_PodSpec', 'v1_PodStatus', 'v1_PodTemplate', 'v1_PodTemplateList', 'v1_PodTemplateSpec', 'v1_Preconditions', 'v1_Probe', 'v1_RBDVolumeSource', 'v1_ReplicationController', 'v1_ReplicationControllerList', 'v1_ReplicationControllerSpec', 'v1_ReplicationControllerStatus', 'v1_ResourceFieldSelector', 'v1_ResourceQuota', 'v1_ResourceQuotaList', 'v1_ResourceQuotaScope', 'v1_ResourceQuotaSpec', 'v1_ResourceQuotaStatus', 'v1_ResourceRequirements', 'v1_RunAsUserStrategyOptions', 'v1_SELinuxContextStrategyOptions', 'v1_SELinuxOptions', 'v1_Scale', 'v1_ScaleSpec', 'v1_ScaleStatus', 'v1_Secret', 'v1_SecretKeySelector', 'v1_SecretList', 'v1_SecretVolumeSource', 'v1_SecurityContext', 'v1_SecurityContextConstraints', 'v1_SecurityContextConstraintsList', 'v1_Service', 'v1_ServiceAccount', 'v1_ServiceAccountList', 'v1_ServiceList', 'v1_ServicePort', 'v1_ServiceSpec', 'v1_ServiceStatus', 'v1_SupplementalGroupsStrategyOptions', 'v1_TCPSocketAction', 'v1_UniqueVolumeName', 'v1_Volume', 'v1_VolumeMount', 'v1_VsphereVirtualDiskVolumeSource']
 
-@register_model
+@register_resource
 class versioned_Event(Resource):
 
     __kind__ = '*versioned.Event'
@@ -5140,7 +5140,7 @@ class versioned_Event(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class patch_Object(Resource):
 
     """represents an object patch, which may be any of: JSON patch (RFC
@@ -5162,7 +5162,7 @@ class patch_Object(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class runtime_RawExtension(Resource):
 
     """this may be any JSON object with a 'kind' and 'apiVersion' field; and
@@ -5183,7 +5183,7 @@ class runtime_RawExtension(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class types_UID(Resource):
 
     __kind__ = 'types.UID'
@@ -5201,7 +5201,7 @@ class types_UID(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_APIResource(Resource):
 
     """APIResource specifies the name of a resource and whether it is
@@ -5238,7 +5238,7 @@ class unversioned_APIResource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_APIResourceList(Resource):
 
     """APIResourceList is a list of APIResource, it is used to expose the
@@ -5277,7 +5277,7 @@ class unversioned_APIResourceList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_LabelSelector(Resource):
 
     """A label selector is a label query over a set of resources. The result
@@ -5306,7 +5306,7 @@ class unversioned_LabelSelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_LabelSelectorRequirement(Resource):
 
     """A label selector requirement is a selector that contains values, a
@@ -5340,7 +5340,7 @@ class unversioned_LabelSelectorRequirement(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_ListMeta(Resource):
 
     """ListMeta describes metadata that synthetic resources must have,
@@ -5366,7 +5366,7 @@ class unversioned_ListMeta(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_Patch(Resource):
 
     """Patch is provided to give a concrete name and type to the Kubernetes
@@ -5387,7 +5387,7 @@ class unversioned_Patch(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_Status(Resource):
 
     """Status is a return value for calls that don't return other objects."""
@@ -5427,7 +5427,7 @@ class unversioned_Status(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_StatusCause(Resource):
 
     """StatusCause provides more information about an api.Status failure,
@@ -5454,7 +5454,7 @@ class unversioned_StatusCause(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class unversioned_StatusDetails(Resource):
 
     """StatusDetails is a set of additional properties that MAY be set by the
@@ -5493,7 +5493,7 @@ class unversioned_StatusDetails(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_AWSElasticBlockStoreVolumeSource(Resource):
 
     """Represents a Persistent Disk resource in AWS.  An AWS EBS disk must
@@ -5529,7 +5529,7 @@ class v1_AWSElasticBlockStoreVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_AppliedClusterResourceQuota(Resource):
 
     """AppliedClusterResourceQuota mirrors ClusterResourceQuota at a project
@@ -5573,7 +5573,7 @@ class v1_AppliedClusterResourceQuota(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_AppliedClusterResourceQuotaList(Resource):
 
     """AppliedClusterResourceQuotaList is a collection of
@@ -5610,7 +5610,7 @@ class v1_AppliedClusterResourceQuotaList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_AzureFileVolumeSource(Resource):
 
     """AzureFile represents an Azure File Service mount on the host and bind
@@ -5643,7 +5643,7 @@ class v1_AzureFileVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BinaryBuildSource(Resource):
 
     """BinaryBuildSource describes a binary file to be used for the Docker
@@ -5667,7 +5667,7 @@ class v1_BinaryBuildSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Build(Resource):
 
     """Build encapsulates the inputs needed to produce a new deployable
@@ -5704,7 +5704,7 @@ class v1_Build(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildConfig(Resource):
 
     """BuildConfig is a template which can be used to create new builds."""
@@ -5745,7 +5745,7 @@ class v1_BuildConfig(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildConfigList(Resource):
 
     """BuildConfigList is a collection of BuildConfigs."""
@@ -5781,7 +5781,7 @@ class v1_BuildConfigList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildConfigSpec(Resource):
 
     """BuildConfigSpec describes when and how builds are created"""
@@ -5834,7 +5834,7 @@ class v1_BuildConfigSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildConfigStatus(Resource):
 
     """BuildConfigStatus contains current state of the build config object."""
@@ -5860,7 +5860,7 @@ class v1_BuildConfigStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildList(Resource):
 
     """BuildList is a collection of Builds."""
@@ -5896,7 +5896,7 @@ class v1_BuildList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildLog(Resource):
 
     """BuildLog is the (unused) resource associated with the build log
@@ -5923,7 +5923,7 @@ class v1_BuildLog(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildOutput(Resource):
 
     """BuildOutput is input to a build strategy and describes the Docker
@@ -5950,7 +5950,7 @@ class v1_BuildOutput(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildPostCommitSpec(Resource):
 
     """A BuildPostCommitSpec holds a build post commit hook specification.
@@ -6011,7 +6011,7 @@ class v1_BuildPostCommitSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildRequest(Resource):
 
     """BuildRequest is the resource used to pass parameters to build
@@ -6066,7 +6066,7 @@ class v1_BuildRequest(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildSource(Resource):
 
     """BuildSource is the SCM used for the build."""
@@ -6113,7 +6113,7 @@ class v1_BuildSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildSpec(Resource):
 
     """BuildSpec has the information to represent a build and also additional
@@ -6165,7 +6165,7 @@ class v1_BuildSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildStatus(Resource):
 
     """BuildStatus contains the status of a build"""
@@ -6209,7 +6209,7 @@ class v1_BuildStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildStrategy(Resource):
 
     """BuildStrategy contains the details of how to perform a build."""
@@ -6247,7 +6247,7 @@ class v1_BuildStrategy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildTriggerCause(Resource):
 
     """BuildTriggerCause holds information about a triggered build. It is
@@ -6281,7 +6281,7 @@ class v1_BuildTriggerCause(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_BuildTriggerPolicy(Resource):
 
     """BuildTriggerPolicy describes a policy for a single trigger that
@@ -6317,7 +6317,7 @@ class v1_BuildTriggerPolicy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Capabilities(Resource):
 
     """Adds and removes POSIX capabilities from running containers."""
@@ -6344,7 +6344,7 @@ class v1_Capabilities(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Capability(Resource):
 
     __kind__ = 'v1.Capability'
@@ -6362,7 +6362,7 @@ class v1_Capability(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_CephFSVolumeSource(Resource):
 
     """Represents a Ceph Filesystem mount that lasts the lifetime of a pod
@@ -6401,7 +6401,7 @@ class v1_CephFSVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_CinderVolumeSource(Resource):
 
     """Represents a cinder volume resource in Openstack. A Cinder volume must
@@ -6434,7 +6434,7 @@ class v1_CinderVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterNetwork(Resource):
 
     """ClusterNetwork describes a cluster network"""
@@ -6479,7 +6479,7 @@ class v1_ClusterNetwork(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterNetworkList(Resource):
 
     """ClusterNetworkList is a collection of ClusterNetworks"""
@@ -6515,7 +6515,7 @@ class v1_ClusterNetworkList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterPolicy(Resource):
 
     """ClusterPolicy is a object that holds all the ClusterRoles for a
@@ -6557,7 +6557,7 @@ class v1_ClusterPolicy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterPolicyBinding(Resource):
 
     """ClusterPolicyBinding is a object that holds all the
@@ -6605,7 +6605,7 @@ class v1_ClusterPolicyBinding(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterPolicyBindingList(Resource):
 
     """ClusterPolicyBindingList is a collection of ClusterPolicyBindings"""
@@ -6641,7 +6641,7 @@ class v1_ClusterPolicyBindingList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterPolicyList(Resource):
 
     """ClusterPolicyList is a collection of ClusterPolicies"""
@@ -6677,7 +6677,7 @@ class v1_ClusterPolicyList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterResourceQuota(Resource):
 
     """ClusterResourceQuota mirrors ResourceQuota at a cluster scope.  This
@@ -6720,7 +6720,7 @@ class v1_ClusterResourceQuota(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterResourceQuotaList(Resource):
 
     """ClusterResourceQuotaList is a collection of ClusterResourceQuotas"""
@@ -6756,7 +6756,7 @@ class v1_ClusterResourceQuotaList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterResourceQuotaSelector(Resource):
 
     """ClusterResourceQuotaSelector is used to select projects.  At least one
@@ -6790,7 +6790,7 @@ class v1_ClusterResourceQuotaSelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterResourceQuotaSpec(Resource):
 
     """ClusterResourceQuotaSpec defines the desired quota restrictions"""
@@ -6822,7 +6822,7 @@ class v1_ClusterResourceQuotaSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterResourceQuotaStatus(Resource):
 
     """ClusterResourceQuotaStatus defines the actual enforced quota and its
@@ -6855,7 +6855,7 @@ class v1_ClusterResourceQuotaStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterRole(Resource):
 
     """ClusterRole is a logical grouping of PolicyRules that can be
@@ -6892,7 +6892,7 @@ class v1_ClusterRole(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterRoleBinding(Resource):
 
     """ClusterRoleBinding references a ClusterRole, but not contain it.  It
@@ -6947,7 +6947,7 @@ class v1_ClusterRoleBinding(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterRoleBindingList(Resource):
 
     """ClusterRoleBindingList is a collection of ClusterRoleBindings"""
@@ -6983,7 +6983,7 @@ class v1_ClusterRoleBindingList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterRoleList(Resource):
 
     """ClusterRoleList is a collection of ClusterRoles"""
@@ -7019,7 +7019,7 @@ class v1_ClusterRoleList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ClusterRoleScopeRestriction(Resource):
 
     """ClusterRoleScopeRestriction describes restrictions on cluster role
@@ -7054,7 +7054,7 @@ class v1_ClusterRoleScopeRestriction(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ConfigMapKeySelector(Resource):
 
     """Selects a key from a ConfigMap."""
@@ -7082,7 +7082,7 @@ class v1_ConfigMapKeySelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ConfigMapVolumeSource(Resource):
 
     """Adapts a ConfigMap into a volume.  The contents of the target
@@ -7113,7 +7113,7 @@ class v1_ConfigMapVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Container(Resource):
 
     """A single application container that you want to run within a pod."""
@@ -7186,7 +7186,7 @@ class v1_Container(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ContainerPort(Resource):
 
     """ContainerPort represents a network port in a single container."""
@@ -7220,7 +7220,7 @@ class v1_ContainerPort(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_CustomBuildStrategy(Resource):
 
     """CustomBuildStrategy defines input parameters specific to Custom build."""
@@ -7264,7 +7264,7 @@ class v1_CustomBuildStrategy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_CustomDeploymentStrategyParams(Resource):
 
     """CustomDeploymentStrategyParams are the input to the Custom deployment
@@ -7294,7 +7294,7 @@ class v1_CustomDeploymentStrategyParams(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeleteOptions(Resource):
 
     """DeleteOptions may be provided when deleting an API object"""
@@ -7327,7 +7327,7 @@ class v1_DeleteOptions(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentCause(Resource):
 
     """DeploymentCause captures information about a particular cause of a
@@ -7357,7 +7357,7 @@ class v1_DeploymentCause(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentCauseImageTrigger(Resource):
 
     """DeploymentCauseImageTrigger represents details about the cause of a
@@ -7385,7 +7385,7 @@ class v1_DeploymentCauseImageTrigger(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentConfig(Resource):
 
     """DeploymentConfig represents a configuration for a single deployment
@@ -7431,7 +7431,7 @@ class v1_DeploymentConfig(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentConfigList(Resource):
 
     """DeploymentConfigList is a collection of deployment configs."""
@@ -7467,7 +7467,7 @@ class v1_DeploymentConfigList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentConfigRollback(Resource):
 
     """DeploymentConfigRollback provides the input to rollback generation."""
@@ -7506,7 +7506,7 @@ class v1_DeploymentConfigRollback(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentConfigRollbackSpec(Resource):
 
     """DeploymentConfigRollbackSpec represents the options for rollback
@@ -7552,7 +7552,7 @@ class v1_DeploymentConfigRollbackSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentConfigSpec(Resource):
 
     """DeploymentConfigSpec represents the desired state of the deployment."""
@@ -7603,7 +7603,7 @@ class v1_DeploymentConfigSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentConfigStatus(Resource):
 
     """DeploymentConfigStatus represents the current deployment state."""
@@ -7638,7 +7638,7 @@ class v1_DeploymentConfigStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentDetails(Resource):
 
     """DeploymentDetails captures information about the causes of a
@@ -7668,7 +7668,7 @@ class v1_DeploymentDetails(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentLog(Resource):
 
     """DeploymentLog represents the logs for a deployment"""
@@ -7694,7 +7694,7 @@ class v1_DeploymentLog(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentStrategy(Resource):
 
     """DeploymentStrategy describes how to perform a deployment."""
@@ -7732,7 +7732,7 @@ class v1_DeploymentStrategy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentTriggerImageChangeParams(Resource):
 
     """DeploymentTriggerImageChangeParams represents the parameters to the
@@ -7767,7 +7767,7 @@ class v1_DeploymentTriggerImageChangeParams(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeploymentTriggerPolicy(Resource):
 
     """DeploymentTriggerPolicy describes a policy for a single trigger that
@@ -7793,7 +7793,7 @@ class v1_DeploymentTriggerPolicy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeprecatedDownwardAPIVolumeFile(Resource):
 
     """DeprecatedDownwardAPIVolumeFile represents information to create the
@@ -7827,7 +7827,7 @@ class v1_DeprecatedDownwardAPIVolumeFile(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DeprecatedDownwardAPIVolumeSource(Resource):
 
     """DeprecatedDownwardAPIVolumeSource represents a volume containing
@@ -7853,7 +7853,7 @@ class v1_DeprecatedDownwardAPIVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DockerBuildStrategy(Resource):
 
     """DockerBuildStrategy defines input parameters specific to Docker build."""
@@ -7889,7 +7889,7 @@ class v1_DockerBuildStrategy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DownwardAPIVolumeFile(Resource):
 
     """DownwardAPIVolumeFile represents information to create the file
@@ -7922,7 +7922,7 @@ class v1_DownwardAPIVolumeFile(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_DownwardAPIVolumeSource(Resource):
 
     """DownwardAPIVolumeSource represents a volume containing downward API
@@ -7948,7 +7948,7 @@ class v1_DownwardAPIVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EgressNetworkPolicy(Resource):
 
     """EgressNetworkPolicy describes the current egress network policy for a
@@ -7990,7 +7990,7 @@ class v1_EgressNetworkPolicy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EgressNetworkPolicyList(Resource):
 
     """EgressNetworkPolicyList is a collection of EgressNetworkPolicy"""
@@ -8026,7 +8026,7 @@ class v1_EgressNetworkPolicyList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EgressNetworkPolicyPeer(Resource):
 
     """EgressNetworkPolicyPeer specifies a target to apply egress network
@@ -8053,7 +8053,7 @@ class v1_EgressNetworkPolicyPeer(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EgressNetworkPolicyRule(Resource):
 
     """EgressNetworkPolicyRule contains a single egress network policy rule"""
@@ -8084,7 +8084,7 @@ class v1_EgressNetworkPolicyRule(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EgressNetworkPolicySpec(Resource):
 
     """EgressNetworkPolicySpec provides a list of policies on outgoing
@@ -8112,7 +8112,7 @@ class v1_EgressNetworkPolicySpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EmptyDirVolumeSource(Resource):
 
     """Represents an empty directory for a pod. Empty directory volumes
@@ -8135,7 +8135,7 @@ class v1_EmptyDirVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EnvVar(Resource):
 
     """EnvVar represents an environment variable present in a Container."""
@@ -8166,7 +8166,7 @@ class v1_EnvVar(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_EnvVarSource(Resource):
 
     """EnvVarSource represents a source for the value of an EnvVar."""
@@ -8198,7 +8198,7 @@ class v1_EnvVarSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ExecAction(Resource):
 
     """ExecAction describes a "run in container" action."""
@@ -8221,7 +8221,7 @@ class v1_ExecAction(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ExecNewPodHook(Resource):
 
     """ExecNewPodHook is a hook implementation which runs a command in a new
@@ -8260,7 +8260,7 @@ class v1_ExecNewPodHook(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_FCVolumeSource(Resource):
 
     """Represents a Fibre Channel volume. Fibre Channel volumes can only be
@@ -8296,7 +8296,7 @@ class v1_FCVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_FinalizerName(Resource):
 
     __kind__ = 'v1.FinalizerName'
@@ -8314,7 +8314,7 @@ class v1_FinalizerName(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_FlexVolumeSource(Resource):
 
     """FlexVolume represents a generic volume resource that is
@@ -8351,7 +8351,7 @@ class v1_FlexVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_FlockerVolumeSource(Resource):
 
     """Represents a Flocker volume mounted by the Flocker agent. Flocker
@@ -8378,7 +8378,7 @@ class v1_FlockerVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GCEPersistentDiskVolumeSource(Resource):
 
     """Represents a Persistent Disk resource in Google Compute Engine.  A GCE
@@ -8414,7 +8414,7 @@ class v1_GCEPersistentDiskVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GenericWebHookCause(Resource):
 
     """GenericWebHookCause holds information about a generic WebHook that
@@ -8440,7 +8440,7 @@ class v1_GenericWebHookCause(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GitBuildSource(Resource):
 
     """GitBuildSource defines the parameters of a Git SCM"""
@@ -8472,7 +8472,7 @@ class v1_GitBuildSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GitHubWebHookCause(Resource):
 
     """GitHubWebHookCause has information about a GitHub webhook that
@@ -8498,7 +8498,7 @@ class v1_GitHubWebHookCause(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GitRepoVolumeSource(Resource):
 
     """Represents a volume that is populated with the contents of a git
@@ -8530,7 +8530,7 @@ class v1_GitRepoVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GitSourceRevision(Resource):
 
     """GitSourceRevision is the commit information from a git source for a
@@ -8561,7 +8561,7 @@ class v1_GitSourceRevision(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GlusterfsVolumeSource(Resource):
 
     """Represents a Glusterfs mount that lasts the lifetime of a pod.
@@ -8595,7 +8595,7 @@ class v1_GlusterfsVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Group(Resource):
 
     """Group represents a referenceable set of Users"""
@@ -8630,7 +8630,7 @@ class v1_Group(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_GroupList(Resource):
 
     """GroupList is a collection of Groups"""
@@ -8666,7 +8666,7 @@ class v1_GroupList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_HTTPGetAction(Resource):
 
     """HTTPGetAction describes an action based on HTTP Get requests."""
@@ -8702,7 +8702,7 @@ class v1_HTTPGetAction(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_HTTPHeader(Resource):
 
     """HTTPHeader describes a custom header to be used in HTTP probes"""
@@ -8732,7 +8732,7 @@ class v1_HTTPHeader(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Handler(Resource):
 
     """Handler defines a specific action that should be taken"""
@@ -8761,7 +8761,7 @@ class v1_Handler(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_HostPathVolumeSource(Resource):
 
     """Represents a host path mapped into a pod. Host path volumes do not
@@ -8788,7 +8788,7 @@ class v1_HostPathVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_HostSubnet(Resource):
 
     """HostSubnet encapsulates the inputs needed to define the container
@@ -8832,7 +8832,7 @@ class v1_HostSubnet(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_HostSubnetList(Resource):
 
     """HostSubnetList is a collection of HostSubnets"""
@@ -8868,7 +8868,7 @@ class v1_HostSubnetList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ISCSIVolumeSource(Resource):
 
     """Represents an ISCSI disk. ISCSI volumes can only be mounted as
@@ -8910,7 +8910,7 @@ class v1_ISCSIVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Identity(Resource):
 
     """Identity records a successful authentication of a user with an
@@ -8957,7 +8957,7 @@ class v1_Identity(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_IdentityList(Resource):
 
     """IdentityList is a collection of Identities"""
@@ -8993,7 +8993,7 @@ class v1_IdentityList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Image(Resource):
 
     """Image is an immutable representation of a Docker image and metadata at
@@ -9050,7 +9050,7 @@ class v1_Image(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Image_dockerImageSignatures(Resource):
 
     __kind__ = 'v1.Image.dockerImageSignatures'
@@ -9068,7 +9068,7 @@ class v1_Image_dockerImageSignatures(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageChangeCause(Resource):
 
     """ImageChangeCause contains information about the image that triggered a
@@ -9094,7 +9094,7 @@ class v1_ImageChangeCause(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageChangeTrigger(Resource):
 
     """ImageChangeTrigger allows builds to be triggered when an ImageStream
@@ -9120,7 +9120,7 @@ class v1_ImageChangeTrigger(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageImportSpec(Resource):
 
     """ImageImportSpec describes a request to import a specific image."""
@@ -9155,7 +9155,7 @@ class v1_ImageImportSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageImportStatus(Resource):
 
     """ImageImportStatus describes the result of an image import."""
@@ -9187,7 +9187,7 @@ class v1_ImageImportStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageLayer(Resource):
 
     """ImageLayer represents a single layer of the image. Some images may
@@ -9222,7 +9222,7 @@ class v1_ImageLayer(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageList(Resource):
 
     """ImageList is a list of Image objects."""
@@ -9258,7 +9258,7 @@ class v1_ImageList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageSignature(Resource):
 
     """ImageSignature holds a signature of an image. It allows to verify
@@ -9319,7 +9319,7 @@ class v1_ImageSignature(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageSource(Resource):
 
     """ImageSource describes an image that is used as source for the build"""
@@ -9354,7 +9354,7 @@ class v1_ImageSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageSourcePath(Resource):
 
     """ImageSourcePath describes a path to be copied from a source image and
@@ -9385,7 +9385,7 @@ class v1_ImageSourcePath(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStream(Resource):
 
     """ImageStream stores a mapping of tags to images, metadata overrides
@@ -9426,7 +9426,7 @@ class v1_ImageStream(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStreamImage(Resource):
 
     """ImageStreamImage represents an Image that is retrieved by image name
@@ -9463,7 +9463,7 @@ class v1_ImageStreamImage(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStreamImport(Resource):
 
     """ImageStreamImport imports an image from remote repositories into
@@ -9505,7 +9505,7 @@ class v1_ImageStreamImport(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStreamImportSpec(Resource):
 
     """ImageStreamImportSpec defines what images should be imported."""
@@ -9538,7 +9538,7 @@ class v1_ImageStreamImportSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStreamImportStatus(Resource):
 
     """ImageStreamImportStatus contains information about the status of an
@@ -9569,7 +9569,7 @@ class v1_ImageStreamImportStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStreamList(Resource):
 
     """ImageStreamList is a list of ImageStream objects."""
@@ -9605,7 +9605,7 @@ class v1_ImageStreamList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStreamMapping(Resource):
 
     """ImageStreamMapping represents a mapping from a single tag to a Docker
@@ -9647,7 +9647,7 @@ class v1_ImageStreamMapping(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStreamSpec(Resource):
 
     """ImageStreamSpec represents options for ImageStreams."""
@@ -9673,7 +9673,7 @@ class v1_ImageStreamSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStreamStatus(Resource):
 
     """ImageStreamStatus contains information about the state of this image
@@ -9704,7 +9704,7 @@ class v1_ImageStreamStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStreamTag(Resource):
 
     """ImageStreamTag represents an Image that is retrieved by tag name from
@@ -9752,7 +9752,7 @@ class v1_ImageStreamTag(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ImageStreamTagList(Resource):
 
     """ImageStreamTagList is a list of ImageStreamTag objects."""
@@ -9788,7 +9788,7 @@ class v1_ImageStreamTagList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_JenkinsPipelineBuildStrategy(Resource):
 
     """JenkinsPipelineBuildStrategy holds parameters specific to a Jenkins
@@ -9813,7 +9813,7 @@ class v1_JenkinsPipelineBuildStrategy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_KeyToPath(Resource):
 
     """Maps a string key to a path within a volume."""
@@ -9843,7 +9843,7 @@ class v1_KeyToPath(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Lifecycle(Resource):
 
     """Lifecycle describes actions that the management system should take in
@@ -9873,7 +9873,7 @@ class v1_Lifecycle(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LifecycleHook(Resource):
 
     """LifecycleHook defines a specific deployment lifecycle action. Only one
@@ -9907,7 +9907,7 @@ class v1_LifecycleHook(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LocalObjectReference(Resource):
 
     """LocalObjectReference contains enough information to let you locate the
@@ -9930,7 +9930,7 @@ class v1_LocalObjectReference(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LocalResourceAccessReview(Resource):
 
     """LocalResourceAccessReview is a means to request a list of which users
@@ -9986,7 +9986,7 @@ class v1_LocalResourceAccessReview(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_LocalSubjectAccessReview(Resource):
 
     """LocalSubjectAccessReview is an object for requesting information about
@@ -10054,7 +10054,7 @@ class v1_LocalSubjectAccessReview(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NFSVolumeSource(Resource):
 
     """Represents an NFS mount that lasts the lifetime of a pod. NFS volumes
@@ -10087,7 +10087,7 @@ class v1_NFSVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NamedClusterRole(Resource):
 
     """NamedClusterRole relates a name with a cluster role"""
@@ -10118,7 +10118,7 @@ class v1_NamedClusterRole(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NamedClusterRoleBinding(Resource):
 
     """NamedClusterRoleBinding relates a name with a cluster role binding"""
@@ -10149,7 +10149,7 @@ class v1_NamedClusterRoleBinding(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NamedRole(Resource):
 
     """NamedRole relates a Role with a name"""
@@ -10180,7 +10180,7 @@ class v1_NamedRole(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NamedRoleBinding(Resource):
 
     """NamedRoleBinding relates a role binding with a name"""
@@ -10211,7 +10211,7 @@ class v1_NamedRoleBinding(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NamedTagEventList(Resource):
 
     """NamedTagEventList relates a tag to its image history."""
@@ -10246,7 +10246,7 @@ class v1_NamedTagEventList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NetNamespace(Resource):
 
     """NetNamespace encapsulates the inputs needed to define a unique network
@@ -10286,7 +10286,7 @@ class v1_NetNamespace(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_NetNamespaceList(Resource):
 
     """NetNamespaceList is a collection of NetNamespaces"""
@@ -10322,7 +10322,7 @@ class v1_NetNamespaceList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_OAuthAccessToken(Resource):
 
     """OAuthAccessToken describes an OAuth access token"""
@@ -10368,7 +10368,7 @@ class v1_OAuthAccessToken(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_OAuthAccessTokenList(Resource):
 
     """OAuthAccessTokenList is a collection of OAuth access tokens"""
@@ -10404,7 +10404,7 @@ class v1_OAuthAccessTokenList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_OAuthAuthorizeToken(Resource):
 
     """OAuthAuthorizeToken describes an OAuth authorization token"""
@@ -10448,7 +10448,7 @@ class v1_OAuthAuthorizeToken(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_OAuthAuthorizeTokenList(Resource):
 
     """OAuthAuthorizeTokenList is a collection of OAuth authorization tokens"""
@@ -10484,7 +10484,7 @@ class v1_OAuthAuthorizeTokenList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_OAuthClient(Resource):
 
     """OAuthClient describes an OAuth client"""
@@ -10529,7 +10529,7 @@ class v1_OAuthClient(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_OAuthClientAuthorization(Resource):
 
     """OAuthClientAuthorization describes an authorization created by an
@@ -10568,7 +10568,7 @@ class v1_OAuthClientAuthorization(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_OAuthClientAuthorizationList(Resource):
 
     """OAuthClientAuthorizationList is a collection of OAuth client
@@ -10605,7 +10605,7 @@ class v1_OAuthClientAuthorizationList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_OAuthClientList(Resource):
 
     """OAuthClientList is a collection of OAuth clients"""
@@ -10641,7 +10641,7 @@ class v1_OAuthClientList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ObjectFieldSelector(Resource):
 
     """ObjectFieldSelector selects an APIVersioned field of an object."""
@@ -10669,7 +10669,7 @@ class v1_ObjectFieldSelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ObjectMeta(Resource):
 
     """ObjectMeta is metadata that all persisted resources must have, which
@@ -10721,7 +10721,7 @@ class v1_ObjectMeta(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ObjectReference(Resource):
 
     """ObjectReference contains enough information to let you inspect or
@@ -10758,7 +10758,7 @@ class v1_ObjectReference(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_OwnerReference(Resource):
 
     """OwnerReference contains enough information to let you identify an
@@ -10802,7 +10802,7 @@ class v1_OwnerReference(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Parameter(Resource):
 
     """Parameter defines a name/value variable that is to be processed during
@@ -10841,7 +10841,7 @@ class v1_Parameter(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PersistentVolumeClaimVolumeSource(Resource):
 
     """PersistentVolumeClaimVolumeSource references the user's PVC in the
@@ -10873,7 +10873,7 @@ class v1_PersistentVolumeClaimVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodSecurityContext(Resource):
 
     """PodSecurityContext holds pod-level security attributes and common
@@ -10909,7 +10909,7 @@ class v1_PodSecurityContext(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodSpec(Resource):
 
     """PodSpec is a description of a pod."""
@@ -10975,7 +10975,7 @@ class v1_PodSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PodTemplateSpec(Resource):
 
     """PodTemplateSpec describes the data a pod should have when created from
@@ -11002,7 +11002,7 @@ class v1_PodTemplateSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Policy(Resource):
 
     """Policy is a object that holds all the Roles for a particular
@@ -11043,7 +11043,7 @@ class v1_Policy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PolicyBinding(Resource):
 
     """PolicyBinding is a object that holds all the RoleBindings for a
@@ -11090,7 +11090,7 @@ class v1_PolicyBinding(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PolicyBindingList(Resource):
 
     """PolicyBindingList is a collection of PolicyBindings"""
@@ -11126,7 +11126,7 @@ class v1_PolicyBindingList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PolicyList(Resource):
 
     """PolicyList is a collection of Policies"""
@@ -11162,7 +11162,7 @@ class v1_PolicyList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_PolicyRule(Resource):
 
     """PolicyRule holds information that describes a policy rule, but does
@@ -11206,7 +11206,7 @@ class v1_PolicyRule(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Preconditions(Resource):
 
     """Preconditions must be fulfilled before an operation (update, delete,
@@ -11230,7 +11230,7 @@ class v1_Preconditions(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Probe(Resource):
 
     """Probe describes a health check to be performed against a container to
@@ -11270,7 +11270,7 @@ class v1_Probe(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Project(Resource):
 
     """Project is a logical top-level container for a set of origin resources"""
@@ -11305,7 +11305,7 @@ class v1_Project(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ProjectList(Resource):
 
     """ProjectList is a list of Project objects."""
@@ -11341,7 +11341,7 @@ class v1_ProjectList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ProjectRequest(Resource):
 
     """ProjecRequest is the set of options necessary to fully qualify a
@@ -11375,7 +11375,7 @@ class v1_ProjectRequest(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ProjectSpec(Resource):
 
     """ProjectSpec describes the attributes on a Project"""
@@ -11399,7 +11399,7 @@ class v1_ProjectSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ProjectStatus(Resource):
 
     """ProjectStatus is information about the current status of a Project"""
@@ -11421,7 +11421,7 @@ class v1_ProjectStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RBDVolumeSource(Resource):
 
     """Represents a Rados Block Device mount that lasts the lifetime of a
@@ -11466,7 +11466,7 @@ class v1_RBDVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RecreateDeploymentStrategyParams(Resource):
 
     """RecreateDeploymentStrategyParams are the input to the Recreate
@@ -11498,7 +11498,7 @@ class v1_RecreateDeploymentStrategyParams(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RepositoryImportSpec(Resource):
 
     """RepositoryImportSpec describes a request to import images from a
@@ -11531,7 +11531,7 @@ class v1_RepositoryImportSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RepositoryImportStatus(Resource):
 
     """RepositoryImportStatus describes the result of an image repository
@@ -11562,7 +11562,7 @@ class v1_RepositoryImportStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceAccessReview(Resource):
 
     """ResourceAccessReview is a means to request a list of which users and
@@ -11617,7 +11617,7 @@ class v1_ResourceAccessReview(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceFieldSelector(Resource):
 
     """ResourceFieldSelector represents container resources (cpu, memory) and
@@ -11648,7 +11648,7 @@ class v1_ResourceFieldSelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceQuotaScope(Resource):
 
     __kind__ = 'v1.ResourceQuotaScope'
@@ -11666,7 +11666,7 @@ class v1_ResourceQuotaScope(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceQuotaSpec(Resource):
 
     """ResourceQuotaSpec defines the desired hard limits to enforce for
@@ -11693,7 +11693,7 @@ class v1_ResourceQuotaSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceQuotaStatus(Resource):
 
     """ResourceQuotaStatus defines the enforced hard limits and observed use."""
@@ -11717,7 +11717,7 @@ class v1_ResourceQuotaStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceQuotaStatusByNamespace(Resource):
 
     """ResourceQuotaStatusByNamespace gives status for a particular project"""
@@ -11748,7 +11748,7 @@ class v1_ResourceQuotaStatusByNamespace(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ResourceRequirements(Resource):
 
     """ResourceRequirements describes the compute resource requirements."""
@@ -11772,7 +11772,7 @@ class v1_ResourceRequirements(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Role(Resource):
 
     """Role is a logical grouping of PolicyRules that can be referenced as a
@@ -11809,7 +11809,7 @@ class v1_Role(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RoleBinding(Resource):
 
     """RoleBinding references a Role, but not contain it.  It can reference
@@ -11863,7 +11863,7 @@ class v1_RoleBinding(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RoleBindingList(Resource):
 
     """RoleBindingList is a collection of RoleBindings"""
@@ -11899,7 +11899,7 @@ class v1_RoleBindingList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RoleList(Resource):
 
     """RoleList is a collection of Roles"""
@@ -11935,7 +11935,7 @@ class v1_RoleList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RollingDeploymentStrategyParams(Resource):
 
     """RollingDeploymentStrategyParams are the input to the Rolling
@@ -11974,7 +11974,7 @@ class v1_RollingDeploymentStrategyParams(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Route(Resource):
 
     """Route encapsulates the inputs needed to connect an alias to endpoints."""
@@ -12015,7 +12015,7 @@ class v1_Route(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RouteIngress(Resource):
 
     """RouteIngress holds information about the places where a route is
@@ -12044,7 +12044,7 @@ class v1_RouteIngress(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RouteIngressCondition(Resource):
 
     """RouteIngressCondition contains details for the current condition of
@@ -12081,7 +12081,7 @@ class v1_RouteIngressCondition(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RouteList(Resource):
 
     """RouteList is a collection of Routes."""
@@ -12117,7 +12117,7 @@ class v1_RouteList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RoutePort(Resource):
 
     """RoutePort defines a port mapping from a router to an endpoint in the
@@ -12144,7 +12144,7 @@ class v1_RoutePort(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RouteSpec(Resource):
 
     """RouteSpec describes the route the user wishes to exist."""
@@ -12187,7 +12187,7 @@ class v1_RouteSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RouteStatus(Resource):
 
     """RouteStatus provides relevant info about the status of a route,
@@ -12215,7 +12215,7 @@ class v1_RouteStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_RouteTargetReference(Resource):
 
     """RouteTargetReference specifies the target that resolve into endpoints.
@@ -12251,7 +12251,7 @@ class v1_RouteTargetReference(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SELinuxOptions(Resource):
 
     """SELinuxOptions are the labels to be applied to the container"""
@@ -12279,7 +12279,7 @@ class v1_SELinuxOptions(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_ScopeRestriction(Resource):
 
     """ScopeRestriction describe one restriction on scopes.  Exactly one
@@ -12306,7 +12306,7 @@ class v1_ScopeRestriction(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Secret(Resource):
 
     """Secret holds secret data of a certain type. The total bytes of the
@@ -12342,7 +12342,7 @@ class v1_Secret(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecretBuildSource(Resource):
 
     """SecretBuildSource describes a secret and its destination directory
@@ -12374,7 +12374,7 @@ class v1_SecretBuildSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecretKeySelector(Resource):
 
     """SecretKeySelector selects a key of a Secret."""
@@ -12402,7 +12402,7 @@ class v1_SecretKeySelector(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecretList(Resource):
 
     """SecretList is a list of Secret."""
@@ -12438,7 +12438,7 @@ class v1_SecretList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecretSpec(Resource):
 
     """SecretSpec specifies a secret to be included in a build pod and its
@@ -12470,7 +12470,7 @@ class v1_SecretSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecretVolumeSource(Resource):
 
     """Adapts a Secret into a volume.  The contents of the target Secret's
@@ -12499,7 +12499,7 @@ class v1_SecretVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SecurityContext(Resource):
 
     """SecurityContext holds security configuration that will be applied to a
@@ -12536,7 +12536,7 @@ class v1_SecurityContext(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SelfSubjectRulesReview(Resource):
 
     """SelfSubjectRulesReview is a resource you can create to determine which
@@ -12573,7 +12573,7 @@ class v1_SelfSubjectRulesReview(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SelfSubjectRulesReviewSpec(Resource):
 
     """SelfSubjectRulesReviewSpec adds information about how to conduct the
@@ -12600,7 +12600,7 @@ class v1_SelfSubjectRulesReviewSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SignatureCondition(Resource):
 
     """SignatureCondition describes an image signature condition of
@@ -12639,7 +12639,7 @@ class v1_SignatureCondition(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SignatureIssuer(Resource):
 
     """SignatureIssuer holds information about an issuer of signing
@@ -12664,7 +12664,7 @@ class v1_SignatureIssuer(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SignatureSubject(Resource):
 
     """SignatureSubject holds information about a person or entity who
@@ -12695,7 +12695,7 @@ class v1_SignatureSubject(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SourceBuildStrategy(Resource):
 
     """SourceBuildStrategy defines input parameters specific to an Source
@@ -12743,7 +12743,7 @@ class v1_SourceBuildStrategy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SourceControlUser(Resource):
 
     """SourceControlUser defines the identity of a user of source control"""
@@ -12767,7 +12767,7 @@ class v1_SourceControlUser(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SourceRevision(Resource):
 
     """SourceRevision is the revision or commit information from the source
@@ -12797,7 +12797,7 @@ class v1_SourceRevision(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SubjectAccessReview(Resource):
 
     """SubjectAccessReview is an object for requesting information about
@@ -12864,7 +12864,7 @@ class v1_SubjectAccessReview(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_SubjectRulesReviewStatus(Resource):
 
     """SubjectRulesReviewStatus is contains the result of a rules check"""
@@ -12893,7 +12893,7 @@ class v1_SubjectRulesReviewStatus(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_TCPSocketAction(Resource):
 
     """TCPSocketAction describes an action based on opening a socket"""
@@ -12919,7 +12919,7 @@ class v1_TCPSocketAction(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_TLSConfig(Resource):
 
     """TLSConfig defines config used to secure a route and provide
@@ -12956,7 +12956,7 @@ class v1_TLSConfig(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_TagEvent(Resource):
 
     """TagEvent is used by ImageStreamStatus to keep a historical record of
@@ -12995,7 +12995,7 @@ class v1_TagEvent(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_TagEventCondition(Resource):
 
     """TagEventCondition contains condition information for a tag event."""
@@ -13035,7 +13035,7 @@ class v1_TagEventCondition(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_TagImageHook(Resource):
 
     """TagImageHook is a request to tag the image in a particular container
@@ -13067,7 +13067,7 @@ class v1_TagImageHook(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_TagImportPolicy(Resource):
 
     """TagImportPolicy describes the tag import policy"""
@@ -13091,7 +13091,7 @@ class v1_TagImportPolicy(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_TagReference(Resource):
 
     """TagReference specifies optional annotations for images using this tag
@@ -13135,7 +13135,7 @@ class v1_TagReference(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Template(Resource):
 
     """Template contains the inputs needed to produce a Config."""
@@ -13179,7 +13179,7 @@ class v1_Template(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_TemplateList(Resource):
 
     """TemplateList is a list of Template objects."""
@@ -13215,7 +13215,7 @@ class v1_TemplateList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_User(Resource):
 
     """User describes someone that makes requests to the API"""
@@ -13256,7 +13256,7 @@ class v1_User(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_UserIdentityMapping(Resource):
 
     """UserIdentityMapping maps a user to an identity"""
@@ -13291,7 +13291,7 @@ class v1_UserIdentityMapping(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_UserList(Resource):
 
     """UserList is a collection of Users"""
@@ -13327,7 +13327,7 @@ class v1_UserList(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_Volume(Resource):
 
     """Volume represents a named volume in a pod that may be accessed by any
@@ -13417,7 +13417,7 @@ class v1_Volume(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_VolumeMount(Resource):
 
     """VolumeMount describes a mounting of a Volume within a container."""
@@ -13451,7 +13451,7 @@ class v1_VolumeMount(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_VsphereVirtualDiskVolumeSource(Resource):
 
     """Represents a vSphere volume resource."""
@@ -13479,7 +13479,7 @@ class v1_VsphereVirtualDiskVolumeSource(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1_WebHookTrigger(Resource):
 
     """WebHookTrigger is a trigger that gets invoked using a webhook type of
@@ -13504,7 +13504,7 @@ class v1_WebHookTrigger(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1beta1_Scale(Resource):
 
     """represents a scaling request for a resource."""
@@ -13539,7 +13539,7 @@ class v1beta1_Scale(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1beta1_ScaleSpec(Resource):
 
     """describes the attributes of a scale subresource"""
@@ -13561,7 +13561,7 @@ class v1beta1_ScaleSpec(Resource):
 
         super().__init__(**_kwargs_)
 
-@register_model
+@register_resource
 class v1beta1_ScaleStatus(Resource):
 
     """represents the current status of a scale subresource."""

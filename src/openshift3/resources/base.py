@@ -19,13 +19,13 @@ def map_properties(properties):
     return {map_property_name(name): value
             for (name, value) in properties.items()}
 
-_model_object_types = {}
+_resource_object_types = {}
 
-def registered_model_types():
-    return _model_object_types
+def registered_resource_types():
+    return _resource_object_types
 
-def register_model(cls):
-    _model_object_types[cls.__kind__] = cls
+def register_resource(cls):
+    _resource_object_types[cls.__kind__] = cls
     return cls
 
 class Resource(object):
@@ -62,7 +62,7 @@ class Resource(object):
             data[name] = value
         return data
 
-@register_model
+@register_resource
 class List(Resource):
 
     __kind__ = 'v1.List'
@@ -101,7 +101,7 @@ def _translate_properties(obj):
 
                 new_items = []
 
-                cls = _model_object_types[obj.__types__[name]]
+                cls = _resource_object_types[obj.__types__[name]]
 
                 for item in value:
                     new_items.append(cls(**map_properties(vars(item))))
@@ -112,7 +112,7 @@ def _translate_properties(obj):
                 undef = object()
                 value = getattr(obj, name, undef)
 
-                cls = _model_object_types[obj.__types__[name]]
+                cls = _resource_object_types[obj.__types__[name]]
 
                 setattr(obj, name, cls(**map_properties(vars(value))))
 
@@ -152,8 +152,8 @@ def _object_decoder(items):
     if 'kind' in items and 'apiVersion' in items:
         type_name = '%s.%s' % (items['apiVersion'], items['kind'])
 
-        if type_name in _model_object_types:
-            return _model_object_types[type_name](**map_properties(items))
+        if type_name in _resource_object_types:
+            return _resource_object_types[type_name](**map_properties(items))
 
     # Where no defined type, we use the original property names.
 
