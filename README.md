@@ -23,28 +23,28 @@ The functions for dumping JSON definitions from the in memory representations of
 Example code which takes a ``DeploymentConfig`` from ``stdin``, updating the replica count and outputting the result to ``stdout`` is:
 
 ```
-from openshift3.resources import load, dump
+import openshift3.resources as resources
 
-dc = load()
+dc = resources.load()
 
 dc.spec.replicas = 3
 
-dump(dc, indent=4, sort_keys=True)
+resources.dump(dc, indent=4, sort_keys=True)
 ```
 
 Example code which takes a ``DeploymentConfig`` from ``stdin``, adding some environment variables and outputting the result to ``stdout`` is:
 
 ```
-from openshift3.resources import load, dump, v1_EnvVar
+import openshift3.resources as resources
 
-dc = load()
+dc = resources.load()
 
 env = dc.spec.template.spec.containers[0].env
 
-env.append(v1_EnvVar(name='VAR1', value='VALUE'))
-env.append(v1_EnvVar(name='VAR2', value='VALUE'))
+env.append(resources.v1_EnvVar(name='VAR1', value='VALUE'))
+env.append(resources.v1_EnvVar(name='VAR2', value='VALUE'))
 
-dump(dc, indent=4, sort_keys=True)
+resources.dump(dc, indent=4, sort_keys=True)
 ```
 
 Scripts using the library could be used to make multiple changes to resource objects for a deployed application on the fly by using a command of the form:
