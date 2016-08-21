@@ -57,9 +57,20 @@ class Resource(object):
 
     def __json__(self):
         data = {}
+
         for name, value in self.__dict__.items():
+            # If property is a list but is not a required
+            # then do not output it in the JSON.
+
+            if name not in self.__required__:
+                if isinstance(value, list) and not value:
+                    continue
+
+            # Map back to the original property name.
+
             name = self.__fields__.get(name, name)
             data[name] = value
+
         return data
 
 @register_resource
