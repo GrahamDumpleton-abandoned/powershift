@@ -48,7 +48,7 @@ def required_properties(type_name, definition):
     overrides = _required_property_overrides.get(type_name, {})
 
     for name, flag in overrides.items():
-        if flag == True:
+        if flag:
             new_required.append(name)
 
     for name in required:
@@ -135,9 +135,9 @@ def generate_resources(models):
 
         print('    __types__ = {')
 
-        for property_name, type_name in sorted(refs.items()):
+        for property_name, property_type_name in sorted(refs.items()):
             print('        %r: %r,' % (map_property_name(property_name),
-                    type_name))
+                    property_type_name))
 
         print('    }')
 
