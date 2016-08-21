@@ -109,7 +109,7 @@ class unversioned_APIResourceList(Resource):
 
     def __init__(self, *, group_version, resources, **_kwargs_):
 
-        self.kind = 'APIResource'
+        self.kind = 'APIResourceList'
 
         self.group_version = group_version
         self.resources = resources
@@ -262,7 +262,7 @@ class unversioned_Status(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'Status'
 
         super().__init__(**_kwargs_)
 
@@ -328,7 +328,7 @@ class unversioned_StatusDetails(Resource):
     def __init__(self, **_kwargs_):
         self.causes = []
 
-        self.kind = 'StatusCause'
+        self.kind = 'StatusDetails'
 
         super().__init__(**_kwargs_)
 
@@ -462,7 +462,7 @@ class v1_Binding(Resource):
 
     def __init__(self, *, target, **_kwargs_):
 
-        self.kind = 'ObjectReference'
+        self.kind = 'Binding'
 
         self.target = target
 
@@ -649,7 +649,7 @@ class v1_ComponentStatus(Resource):
     def __init__(self, **_kwargs_):
         self.conditions = []
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ComponentStatus'
 
         super().__init__(**_kwargs_)
 
@@ -684,7 +684,7 @@ class v1_ComponentStatusList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ComponentStatusList'
 
         self.items = items
 
@@ -717,7 +717,7 @@ class v1_ConfigMap(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ConfigMap'
 
         super().__init__(**_kwargs_)
 
@@ -779,7 +779,7 @@ class v1_ConfigMapList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ConfigMapList'
 
         self.items = items
 
@@ -1172,7 +1172,7 @@ class v1_DeleteOptions(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'Preconditions'
+        self.kind = 'DeleteOptions'
 
         super().__init__(**_kwargs_)
 
@@ -1452,7 +1452,7 @@ class v1_Endpoints(Resource):
 
     def __init__(self, *, subsets, **_kwargs_):
 
-        self.kind = 'EndpointSubset'
+        self.kind = 'Endpoints'
 
         self.subsets = subsets
 
@@ -1488,7 +1488,7 @@ class v1_EndpointsList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'EndpointsList'
 
         self.items = items
 
@@ -1603,7 +1603,7 @@ class v1_Event(Resource):
 
     def __init__(self, *, involved_object, metadata, **_kwargs_):
 
-        self.kind = 'EventSource'
+        self.kind = 'Event'
 
         self.involved_object = involved_object
         self.metadata = metadata
@@ -1640,7 +1640,7 @@ class v1_EventList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'EventList'
 
         self.items = items
 
@@ -2235,7 +2235,7 @@ class v1_LimitRange(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'LimitRangeSpec'
+        self.kind = 'LimitRange'
 
         super().__init__(**_kwargs_)
 
@@ -2302,7 +2302,7 @@ class v1_LimitRangeList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'LimitRangeList'
 
         self.items = items
 
@@ -2474,7 +2474,7 @@ class v1_Namespace(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'NamespaceStatus'
+        self.kind = 'Namespace'
 
         super().__init__(**_kwargs_)
 
@@ -2508,7 +2508,7 @@ class v1_NamespaceList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'NamespaceList'
 
         self.items = items
 
@@ -2593,7 +2593,7 @@ class v1_Node(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'NodeStatus'
+        self.kind = 'Node'
 
         super().__init__(**_kwargs_)
 
@@ -2719,7 +2719,7 @@ class v1_NodeList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'NodeList'
 
         self.items = items
 
@@ -3062,7 +3062,7 @@ class v1_PersistentVolume(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'PersistentVolumeStatus'
+        self.kind = 'PersistentVolume'
 
         super().__init__(**_kwargs_)
 
@@ -3116,7 +3116,7 @@ class v1_PersistentVolumeClaim(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'PersistentVolumeClaimStatus'
+        self.kind = 'PersistentVolumeClaim'
 
         super().__init__(**_kwargs_)
 
@@ -3150,7 +3150,7 @@ class v1_PersistentVolumeClaimList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'PersistentVolumeClaimList'
 
         self.items = items
 
@@ -3279,7 +3279,7 @@ class v1_PersistentVolumeList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'PersistentVolumeList'
 
         self.items = items
 
@@ -3416,7 +3416,7 @@ class v1_Pod(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'PodStatus'
+        self.kind = 'Pod'
 
         super().__init__(**_kwargs_)
 
@@ -3488,7 +3488,7 @@ class v1_PodList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'PodList'
 
         self.items = items
 
@@ -3666,7 +3666,7 @@ class v1_PodTemplate(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'PodTemplateSpec'
+        self.kind = 'PodTemplate'
 
         super().__init__(**_kwargs_)
 
@@ -3700,7 +3700,7 @@ class v1_PodTemplateList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'PodTemplateList'
 
         self.items = items
 
@@ -3874,7 +3874,7 @@ class v1_ReplicationController(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ReplicationControllerStatus'
+        self.kind = 'ReplicationController'
 
         super().__init__(**_kwargs_)
 
@@ -3908,7 +3908,7 @@ class v1_ReplicationControllerList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ReplicationControllerList'
 
         self.items = items
 
@@ -4035,7 +4035,7 @@ class v1_ResourceQuota(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ResourceQuotaStatus'
+        self.kind = 'ResourceQuota'
 
         super().__init__(**_kwargs_)
 
@@ -4069,7 +4069,7 @@ class v1_ResourceQuotaList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ResourceQuotaList'
 
         self.items = items
 
@@ -4282,7 +4282,7 @@ class v1_Scale(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ScaleStatus'
+        self.kind = 'Scale'
 
         super().__init__(**_kwargs_)
 
@@ -4368,7 +4368,7 @@ class v1_Secret(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'Secret'
 
         super().__init__(**_kwargs_)
 
@@ -4430,7 +4430,7 @@ class v1_SecretList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'SecretList'
 
         self.items = items
 
@@ -4590,7 +4590,7 @@ class v1_SecurityContextConstraints(Resource):
         self.seccomp_profiles = []
         self.users = []
 
-        self.kind = 'FSType'
+        self.kind = 'SecurityContextConstraints'
 
         self.allow_host_dir_volume_plugin = allow_host_dir_volume_plugin
         self.allow_host_ipc = allow_host_ipc
@@ -4638,7 +4638,7 @@ class v1_SecurityContextConstraintsList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'SecurityContextConstraintsList'
 
         self.items = items
 
@@ -4678,7 +4678,7 @@ class v1_Service(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ServiceStatus'
+        self.kind = 'Service'
 
         super().__init__(**_kwargs_)
 
@@ -4717,7 +4717,7 @@ class v1_ServiceAccount(Resource):
         self.image_pull_secrets = []
         self.secrets = []
 
-        self.kind = 'ObjectReference'
+        self.kind = 'ServiceAccount'
 
         super().__init__(**_kwargs_)
 
@@ -4751,7 +4751,7 @@ class v1_ServiceAccountList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ServiceAccountList'
 
         self.items = items
 
@@ -4787,7 +4787,7 @@ class v1_ServiceList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ServiceList'
 
         self.items = items
 
@@ -5270,7 +5270,7 @@ class unversioned_APIResourceList(Resource):
 
     def __init__(self, *, group_version, resources, **_kwargs_):
 
-        self.kind = 'APIResource'
+        self.kind = 'APIResourceList'
 
         self.group_version = group_version
         self.resources = resources
@@ -5423,7 +5423,7 @@ class unversioned_Status(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'Status'
 
         super().__init__(**_kwargs_)
 
@@ -5489,7 +5489,7 @@ class unversioned_StatusDetails(Resource):
     def __init__(self, **_kwargs_):
         self.causes = []
 
-        self.kind = 'StatusCause'
+        self.kind = 'StatusDetails'
 
         super().__init__(**_kwargs_)
 
@@ -5566,7 +5566,7 @@ class v1_AppliedClusterResourceQuota(Resource):
 
     def __init__(self, *, metadata, spec, **_kwargs_):
 
-        self.kind = 'ClusterResourceQuotaStatus'
+        self.kind = 'AppliedClusterResourceQuota'
 
         self.metadata = metadata
         self.spec = spec
@@ -5604,7 +5604,7 @@ class v1_AppliedClusterResourceQuotaList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'AppliedClusterResourceQuotaList'
 
         self.items = items
 
@@ -5700,7 +5700,7 @@ class v1_Build(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'BuildStatus'
+        self.kind = 'Build'
 
         super().__init__(**_kwargs_)
 
@@ -5727,21 +5727,19 @@ class v1_BuildConfig(Resource):
 
     __required__ = set([
         'spec',
-        'status',
     ])
 
     api_version = None # string
     kind = None # string
     metadata = None # v1.ObjectMeta
     spec = None # v1.BuildConfigSpec (required)
-    status = None # v1.BuildConfigStatus (required)
+    status = None # v1.BuildConfigStatus
 
-    def __init__(self, *, spec, status, **_kwargs_):
+    def __init__(self, *, spec, **_kwargs_):
 
-        self.kind = 'BuildConfigStatus'
+        self.kind = 'BuildConfig'
 
         self.spec = spec
-        self.status = status
 
         super().__init__(**_kwargs_)
 
@@ -5775,7 +5773,7 @@ class v1_BuildConfigList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'BuildConfigList'
 
         self.items = items
 
@@ -5890,7 +5888,7 @@ class v1_BuildList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'BuildList'
 
         self.items = items
 
@@ -6060,7 +6058,7 @@ class v1_BuildRequest(Resource):
     def __init__(self, *, triggered_by, **_kwargs_):
         self.env = []
 
-        self.kind = 'ObjectReference'
+        self.kind = 'BuildRequest'
 
         self.triggered_by = triggered_by
 
@@ -6471,7 +6469,7 @@ class v1_ClusterNetwork(Resource):
 
     def __init__(self, *, hostsubnetlength, network, service_network, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ClusterNetwork'
 
         self.hostsubnetlength = hostsubnetlength
         self.network = network
@@ -6509,7 +6507,7 @@ class v1_ClusterNetworkList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ClusterNetworkList'
 
         self.items = items
 
@@ -6550,7 +6548,7 @@ class v1_ClusterPolicy(Resource):
 
     def __init__(self, *, last_modified, roles, **_kwargs_):
 
-        self.kind = 'NamedClusterRole'
+        self.kind = 'ClusterPolicy'
 
         self.last_modified = last_modified
         self.roles = roles
@@ -6597,7 +6595,7 @@ class v1_ClusterPolicyBinding(Resource):
 
     def __init__(self, *, last_modified, policy_ref, role_bindings, **_kwargs_):
 
-        self.kind = 'NamedClusterRoleBinding'
+        self.kind = 'ClusterPolicyBinding'
 
         self.last_modified = last_modified
         self.policy_ref = policy_ref
@@ -6635,7 +6633,7 @@ class v1_ClusterPolicyBindingList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ClusterPolicyBindingList'
 
         self.items = items
 
@@ -6671,7 +6669,7 @@ class v1_ClusterPolicyList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ClusterPolicyList'
 
         self.items = items
 
@@ -6713,7 +6711,7 @@ class v1_ClusterResourceQuota(Resource):
 
     def __init__(self, *, metadata, spec, **_kwargs_):
 
-        self.kind = 'ClusterResourceQuotaStatus'
+        self.kind = 'ClusterResourceQuota'
 
         self.metadata = metadata
         self.spec = spec
@@ -6750,7 +6748,7 @@ class v1_ClusterResourceQuotaList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ClusterResourceQuotaList'
 
         self.items = items
 
@@ -6886,7 +6884,7 @@ class v1_ClusterRole(Resource):
 
     def __init__(self, *, rules, **_kwargs_):
 
-        self.kind = 'PolicyRule'
+        self.kind = 'ClusterRole'
 
         self.rules = rules
 
@@ -6938,7 +6936,7 @@ class v1_ClusterRoleBinding(Resource):
 
     def __init__(self, *, group_names, role_ref, subjects, user_names, **_kwargs_):
 
-        self.kind = 'ObjectReference'
+        self.kind = 'ClusterRoleBinding'
 
         self.group_names = group_names
         self.role_ref = role_ref
@@ -6977,7 +6975,7 @@ class v1_ClusterRoleBindingList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ClusterRoleBindingList'
 
         self.items = items
 
@@ -7013,7 +7011,7 @@ class v1_ClusterRoleList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ClusterRoleList'
 
         self.items = items
 
@@ -7323,7 +7321,7 @@ class v1_DeleteOptions(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'Preconditions'
+        self.kind = 'DeleteOptions'
 
         super().__init__(**_kwargs_)
 
@@ -7413,21 +7411,19 @@ class v1_DeploymentConfig(Resource):
 
     __required__ = set([
         'spec',
-        'status',
     ])
 
     api_version = None # string
     kind = None # string
     metadata = None # v1.ObjectMeta
     spec = None # v1.DeploymentConfigSpec (required)
-    status = None # v1.DeploymentConfigStatus (required)
+    status = None # v1.DeploymentConfigStatus
 
-    def __init__(self, *, spec, status, **_kwargs_):
+    def __init__(self, *, spec, **_kwargs_):
 
-        self.kind = 'DeploymentConfigStatus'
+        self.kind = 'DeploymentConfig'
 
         self.spec = spec
-        self.status = status
 
         super().__init__(**_kwargs_)
 
@@ -7461,7 +7457,7 @@ class v1_DeploymentConfigList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'DeploymentConfigList'
 
         self.items = items
 
@@ -7499,7 +7495,7 @@ class v1_DeploymentConfigRollback(Resource):
 
     def __init__(self, *, name, spec, **_kwargs_):
 
-        self.kind = 'DeploymentConfigRollbackSpec'
+        self.kind = 'DeploymentConfigRollback'
 
         self.name = name
         self.spec = spec
@@ -7579,8 +7575,6 @@ class v1_DeploymentConfigSpec(Resource):
 
     __required__ = set([
         'replicas',
-        'strategy',
-        'test',
         'triggers',
     ])
 
@@ -7589,16 +7583,14 @@ class v1_DeploymentConfigSpec(Resource):
     replicas = None # integer (required)
     revision_history_limit = None # integer
     selector = None # object
-    strategy = None # v1.DeploymentStrategy (required)
+    strategy = None # v1.DeploymentStrategy
     template = None # v1.PodTemplateSpec
-    test = None # boolean (required)
+    test = None # boolean
     triggers = None # array (required)
 
-    def __init__(self, *, replicas, strategy, test, triggers, **_kwargs_):
+    def __init__(self, *, replicas, triggers, **_kwargs_):
 
         self.replicas = replicas
-        self.strategy = strategy
-        self.test = test
         self.triggers = triggers
 
         super().__init__(**_kwargs_)
@@ -7984,7 +7976,7 @@ class v1_EgressNetworkPolicy(Resource):
 
     def __init__(self, *, spec, **_kwargs_):
 
-        self.kind = 'EgressNetworkPolicySpec'
+        self.kind = 'EgressNetworkPolicy'
 
         self.spec = spec
 
@@ -8020,7 +8012,7 @@ class v1_EgressNetworkPolicyList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'EgressNetworkPolicyList'
 
         self.items = items
 
@@ -8624,7 +8616,7 @@ class v1_Group(Resource):
 
     def __init__(self, *, users, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'Group'
 
         self.users = users
 
@@ -8660,7 +8652,7 @@ class v1_GroupList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'GroupList'
 
         self.items = items
 
@@ -8824,7 +8816,7 @@ class v1_HostSubnet(Resource):
 
     def __init__(self, *, host, host_ip, subnet, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'HostSubnet'
 
         self.host = host
         self.host_ip = host_ip
@@ -8862,7 +8854,7 @@ class v1_HostSubnetList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'HostSubnetList'
 
         self.items = items
 
@@ -8949,7 +8941,7 @@ class v1_Identity(Resource):
 
     def __init__(self, *, provider_name, provider_user_name, user, **_kwargs_):
 
-        self.kind = 'ObjectReference'
+        self.kind = 'Identity'
 
         self.provider_name = provider_name
         self.provider_user_name = provider_user_name
@@ -8987,7 +8979,7 @@ class v1_IdentityList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'IdentityList'
 
         self.items = items
 
@@ -9044,7 +9036,7 @@ class v1_Image(Resource):
         self.docker_image_signatures = []
         self.signatures = []
 
-        self.kind = 'ImageSignature'
+        self.kind = 'Image'
 
         self.docker_image_layers = docker_image_layers
 
@@ -9252,7 +9244,7 @@ class v1_ImageList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ImageList'
 
         self.items = items
 
@@ -9312,7 +9304,7 @@ class v1_ImageSignature(Resource):
     def __init__(self, *, content, type, **_kwargs_):
         self.conditions = []
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ImageSignature'
 
         self.content = content
         self.type = type
@@ -9408,21 +9400,17 @@ class v1_ImageStream(Resource):
         'status': 'v1.ImageStreamStatus',
     }
 
-    __required__ = set([
-        'spec',
-    ])
+    __required__ = set()
 
     api_version = None # string
     kind = None # string
     metadata = None # v1.ObjectMeta
-    spec = None # v1.ImageStreamSpec (required)
+    spec = None # v1.ImageStreamSpec
     status = None # v1.ImageStreamStatus
 
-    def __init__(self, *, spec, **_kwargs_):
+    def __init__(self, **_kwargs_):
 
-        self.kind = 'ImageStreamStatus'
-
-        self.spec = spec
+        self.kind = 'ImageStream'
 
         super().__init__(**_kwargs_)
 
@@ -9457,7 +9445,7 @@ class v1_ImageStreamImage(Resource):
 
     def __init__(self, *, image, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ImageStreamImage'
 
         self.image = image
 
@@ -9498,7 +9486,7 @@ class v1_ImageStreamImport(Resource):
 
     def __init__(self, *, spec, status, **_kwargs_):
 
-        self.kind = 'ImageStreamImportStatus'
+        self.kind = 'ImageStreamImport'
 
         self.spec = spec
         self.status = status
@@ -9599,7 +9587,7 @@ class v1_ImageStreamList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ImageStreamList'
 
         self.items = items
 
@@ -9640,7 +9628,7 @@ class v1_ImageStreamMapping(Resource):
 
     def __init__(self, *, image, tag, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ImageStreamMapping'
 
         self.image = image
         self.tag = tag
@@ -9730,23 +9718,25 @@ class v1_ImageStreamTag(Resource):
     }
 
     __required__ = set([
+        'generation',
         'image',
         'tag',
     ])
 
     api_version = None # string
     conditions = None # array
-    generation = None # integer
+    generation = None # integer (required)
     image = None # v1.Image (required)
     kind = None # string
     metadata = None # v1.ObjectMeta
     tag = None # v1.TagReference (required)
 
-    def __init__(self, *, image, tag, **_kwargs_):
+    def __init__(self, *, generation, image, tag, **_kwargs_):
         self.conditions = []
 
-        self.kind = 'TagReference'
+        self.kind = 'ImageStreamTag'
 
+        self.generation = generation
         self.image = image
         self.tag = tag
 
@@ -9782,7 +9772,7 @@ class v1_ImageStreamTagList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ImageStreamTagList'
 
         self.items = items
 
@@ -10279,7 +10269,7 @@ class v1_NetNamespace(Resource):
 
     def __init__(self, *, netid, netname, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'NetNamespace'
 
         self.netid = netid
         self.netname = netname
@@ -10316,7 +10306,7 @@ class v1_NetNamespaceList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'NetNamespaceList'
 
         self.items = items
 
@@ -10364,7 +10354,7 @@ class v1_OAuthAccessToken(Resource):
     def __init__(self, **_kwargs_):
         self.scopes = []
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'OAuthAccessToken'
 
         super().__init__(**_kwargs_)
 
@@ -10398,7 +10388,7 @@ class v1_OAuthAccessTokenList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'OAuthAccessTokenList'
 
         self.items = items
 
@@ -10444,7 +10434,7 @@ class v1_OAuthAuthorizeToken(Resource):
     def __init__(self, **_kwargs_):
         self.scopes = []
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'OAuthAuthorizeToken'
 
         super().__init__(**_kwargs_)
 
@@ -10478,7 +10468,7 @@ class v1_OAuthAuthorizeTokenList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'OAuthAuthorizeTokenList'
 
         self.items = items
 
@@ -10525,7 +10515,7 @@ class v1_OAuthClient(Resource):
         self.redirect_ur_is = []
         self.scope_restrictions = []
 
-        self.kind = 'ScopeRestriction'
+        self.kind = 'OAuthClient'
 
         super().__init__(**_kwargs_)
 
@@ -10564,7 +10554,7 @@ class v1_OAuthClientAuthorization(Resource):
     def __init__(self, **_kwargs_):
         self.scopes = []
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'OAuthClientAuthorization'
 
         super().__init__(**_kwargs_)
 
@@ -10599,7 +10589,7 @@ class v1_OAuthClientAuthorizationList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'OAuthClientAuthorizationList'
 
         self.items = items
 
@@ -10635,7 +10625,7 @@ class v1_OAuthClientList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'OAuthClientList'
 
         self.items = items
 
@@ -11036,7 +11026,7 @@ class v1_Policy(Resource):
 
     def __init__(self, *, last_modified, roles, **_kwargs_):
 
-        self.kind = 'NamedRole'
+        self.kind = 'Policy'
 
         self.last_modified = last_modified
         self.roles = roles
@@ -11082,7 +11072,7 @@ class v1_PolicyBinding(Resource):
 
     def __init__(self, *, last_modified, policy_ref, role_bindings, **_kwargs_):
 
-        self.kind = 'NamedRoleBinding'
+        self.kind = 'PolicyBinding'
 
         self.last_modified = last_modified
         self.policy_ref = policy_ref
@@ -11120,7 +11110,7 @@ class v1_PolicyBindingList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'PolicyBindingList'
 
         self.items = items
 
@@ -11156,7 +11146,7 @@ class v1_PolicyList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'PolicyList'
 
         self.items = items
 
@@ -11301,7 +11291,7 @@ class v1_Project(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ProjectStatus'
+        self.kind = 'Project'
 
         super().__init__(**_kwargs_)
 
@@ -11335,7 +11325,7 @@ class v1_ProjectList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'ProjectList'
 
         self.items = items
 
@@ -11371,7 +11361,7 @@ class v1_ProjectRequest(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'ProjectRequest'
 
         super().__init__(**_kwargs_)
 
@@ -11803,7 +11793,7 @@ class v1_Role(Resource):
 
     def __init__(self, *, rules, **_kwargs_):
 
-        self.kind = 'PolicyRule'
+        self.kind = 'Role'
 
         self.rules = rules
 
@@ -11854,7 +11844,7 @@ class v1_RoleBinding(Resource):
 
     def __init__(self, *, group_names, role_ref, subjects, user_names, **_kwargs_):
 
-        self.kind = 'ObjectReference'
+        self.kind = 'RoleBinding'
 
         self.group_names = group_names
         self.role_ref = role_ref
@@ -11893,7 +11883,7 @@ class v1_RoleBindingList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'RoleBindingList'
 
         self.items = items
 
@@ -11929,7 +11919,7 @@ class v1_RoleList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'RoleList'
 
         self.items = items
 
@@ -11997,21 +11987,19 @@ class v1_Route(Resource):
 
     __required__ = set([
         'spec',
-        'status',
     ])
 
     api_version = None # string
     kind = None # string
     metadata = None # v1.ObjectMeta
     spec = None # v1.RouteSpec (required)
-    status = None # v1.RouteStatus (required)
+    status = None # v1.RouteStatus
 
-    def __init__(self, *, spec, status, **_kwargs_):
+    def __init__(self, *, spec, **_kwargs_):
 
-        self.kind = 'RouteStatus'
+        self.kind = 'Route'
 
         self.spec = spec
-        self.status = status
 
         super().__init__(**_kwargs_)
 
@@ -12111,7 +12099,7 @@ class v1_RouteList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'RouteList'
 
         self.items = items
 
@@ -12168,21 +12156,19 @@ class v1_RouteSpec(Resource):
     }
 
     __required__ = set([
-        'host',
         'to',
     ])
 
     alternate_backends = None # array
-    host = None # string (required)
+    host = None # string
     path = None # string
     port = None # v1.RoutePort
     tls = None # v1.TLSConfig
     to = None # v1.RouteTargetReference (required)
 
-    def __init__(self, *, host, to, **_kwargs_):
+    def __init__(self, *, to, **_kwargs_):
         self.alternate_backends = []
 
-        self.host = host
         self.to = to
 
         super().__init__(**_kwargs_)
@@ -12338,7 +12324,7 @@ class v1_Secret(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'Secret'
 
         super().__init__(**_kwargs_)
 
@@ -12432,7 +12418,7 @@ class v1_SecretList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'SecretList'
 
         self.items = items
 
@@ -12567,7 +12553,7 @@ class v1_SelfSubjectRulesReview(Resource):
 
     def __init__(self, *, spec, **_kwargs_):
 
-        self.kind = 'SubjectRulesReviewStatus'
+        self.kind = 'SelfSubjectRulesReview'
 
         self.spec = spec
 
@@ -13115,22 +13101,18 @@ class v1_TagReference(Resource):
     }
 
     __required__ = set([
-        'annotations',
-        'generation',
         'name',
     ])
 
-    annotations = None # object (required)
+    annotations = None # object
     from_ = None # v1.ObjectReference
-    generation = None # integer (required)
+    generation = None # integer
     import_policy = None # v1.TagImportPolicy
     name = None # string (required)
     reference = None # boolean
 
-    def __init__(self, *, annotations, generation, name, **_kwargs_):
+    def __init__(self, *, name, **_kwargs_):
 
-        self.annotations = annotations
-        self.generation = generation
         self.name = name
 
         super().__init__(**_kwargs_)
@@ -13173,7 +13155,7 @@ class v1_Template(Resource):
     def __init__(self, *, objects, **_kwargs_):
         self.parameters = []
 
-        self.kind = 'Parameter'
+        self.kind = 'Template'
 
         self.objects = objects
 
@@ -13209,7 +13191,7 @@ class v1_TemplateList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'TemplateList'
 
         self.items = items
 
@@ -13249,7 +13231,7 @@ class v1_User(Resource):
 
     def __init__(self, *, groups, identities, **_kwargs_):
 
-        self.kind = 'ObjectMeta'
+        self.kind = 'User'
 
         self.groups = groups
         self.identities = identities
@@ -13287,7 +13269,7 @@ class v1_UserIdentityMapping(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ObjectReference'
+        self.kind = 'UserIdentityMapping'
 
         super().__init__(**_kwargs_)
 
@@ -13321,7 +13303,7 @@ class v1_UserList(Resource):
 
     def __init__(self, *, items, **_kwargs_):
 
-        self.kind = 'ListMeta'
+        self.kind = 'UserList'
 
         self.items = items
 
@@ -13535,7 +13517,7 @@ class v1beta1_Scale(Resource):
 
     def __init__(self, **_kwargs_):
 
-        self.kind = 'ScaleStatus'
+        self.kind = 'Scale'
 
         super().__init__(**_kwargs_)
 
