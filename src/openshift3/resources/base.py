@@ -115,7 +115,10 @@ def _translate_properties(obj):
                 cls = _resource_object_types[obj.__types__[name]]
 
                 for item in value:
-                    new_items.append(cls(**map_properties(vars(item))))
+                    if isinstance(value, Resource):
+                        new_items.append(cls(**map_properties(vars(item))))
+                    else:
+                        new_items.append(item)
 
                 setattr(obj, name, new_items)
 
