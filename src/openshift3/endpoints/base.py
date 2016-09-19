@@ -26,7 +26,7 @@ class Client(object):
             self.token = os.environ.get('OPENSHIFT_API_TOKEN', 'unset')
 
         if self.verify is None:
-            self.verify = (os.environ.get('OPENSHIFT_API_VERIFY', '').lower()
+            self.verify = (os.environ.get('OPENSHIFT_API_VERIFY', 'true').lower()
                     in _bool_tokens)
 
     @property
