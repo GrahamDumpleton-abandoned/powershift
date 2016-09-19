@@ -2,6 +2,7 @@ import json
 import keyword
 import sys
 import re
+import os
 
 first_cap_re = re.compile('(.)([A-Z][a-z]+)')
 all_cap_re = re.compile('([a-z0-9])([A-Z])')
@@ -142,6 +143,8 @@ _ignore_properties = {
     'v1.Route': set(['id']), # Error in openshift default templates.
 }
 
+_bool_tokens = ('1', 'true', 'enabled', 'on')
+
 def _validate_properties(obj, kwargs):
     # Validate that not being supplied optional properties we do not
     # know anything about. Certain types can contain variable opaque
@@ -150,6 +153,9 @@ def _validate_properties(obj, kwargs):
     # incorrect information about them. For now this generates an
     # assertion failure.
 
+    validate = (os.environ.get('OPENSHIFT_API_VALIDATE', 'false').lower()
+            in _bool_tokens)
+
     if '*' in _ignore_properties.get(obj.__kind__, set()):
         return
 
@@ -157,7 +163,8 @@ def _validate_properties(obj, kwargs):
         if name in _ignore_properties.get(obj.__kind__, set()):
             continue
 
-        assert name in obj.__fields__, '%s %s' % (obj.__kind__, name)
+        if validate:
+            assert name in obj.__fields__, '%s %s' % (obj.__kind__, name)
 
 def _default_encoder(obj):
     if isinstance(obj, Resource):

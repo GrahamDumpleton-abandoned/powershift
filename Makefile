@@ -21,5 +21,9 @@ install : all
 validate :
 	python3 scripts/validate-resources.py samples/all-resources.json
 
+validate-strict :
+	OPENSHIFT_API_VALIDATE=true \
+	  python3 scripts/validate-resources.py samples/all-resources.json
+
 clean :
 	rm -f build dist
