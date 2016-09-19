@@ -1,0 +1,52 @@
+{
+    "kind": "BuildConfig",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "{{ buildconfig.name }}",
+        "labels": {
+            "app": "{{ buildconfig.name }}"
+        }
+    },
+    "spec": {
+        "triggers": [
+            {
+                "type": "ImageChange",
+                "imageChange": {}
+            },
+            {
+                "type": "ConfigChange"
+            }
+        ],
+        "source": {
+            "type": "Git",
+            "git": {
+                "uri": "{{ buildconfig.git_repository_url }}",
+                "ref": "{{ buildconfig.git_repository_branch|default('master') }}"
+            }
+        },
+        "strategy": {
+            "type": "Source",
+            "sourceStrategy": {
+                "from": {
+                    "kind": "ImageStreamTag",
+{% if buildconfig.s2i_builder_image.split('/')[0] != 'openshift' %}
+{% if buildconfig.s2i_builder_image.split(':')[1:] %}
+                    "name": "{{ buildconfig.name }}-s2i:{{ buildconfig.s2i_builder_image.split(':')[1:][0] }}"
+{% else %}
+                    "name": "{{ buildconfig.name }}-s2i:latest"
+{% endif %}
+{% else %}
+                    "namespace": "{{ buildconfig.s2i_builder_image.split('/')[0] }}",
+                    "name": "{{ buildconfig.s2i_builder_image.split('/')[1] }}"
+{% endif %}
+                }
+            }
+        },
+        "output": {
+            "to": {
+                "kind": "ImageStreamTag",
+                "name": "{{ buildconfig.name }}:latest"
+            }
+        }
+    }
+}

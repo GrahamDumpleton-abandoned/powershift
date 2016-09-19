@@ -7,6 +7,8 @@ prologue_template = """
 # XXX This code file has been automatically generated. Do not edit it.
 
 from .base import Resource, register_resource
+
+__all__ = []
 """
 
 def generate_prologue():
@@ -202,7 +204,9 @@ def generate_resources(models):
 
         print('        super().__init__(**_kwargs_)')
 
-    print('__all__ = %r' % types)
+    print()
+
+    print('__all__.extend(%r)' % types)
 
 generate_prologue()
 

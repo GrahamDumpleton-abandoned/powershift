@@ -1,0 +1,28 @@
+{
+    "kind": "ImageStream",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "{{ imagestream.name }}",
+        "labels": {
+            "app": "{{ imagestream.name }}"
+        }
+    }
+{%- if imagestream.image -%}
+    ,
+    "spec": {
+        "tags": [
+            {
+{% if imagestream.image.split(':')[1:] %}
+                "name": "{{ imagestream.image.split(':')[1:][0] }}",
+{% else %}
+                "name": "latest",
+{% endif %}
+                "from": {
+                    "kind": "DockerImage",
+                    "name": "{{ imagestream.image.split(':')[:1][0] }}"
+                }
+            }
+        ]
+    }
+{% endif %}
+}

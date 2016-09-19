@@ -4,8 +4,6 @@ This package provides a Python library for working with OpenShift 3.
 
 The library will provide the capability to work with OpenShift/Kubernetes resource objects, as well as endpoints for communicating with the OpenShift REST API.
 
-At this time only support for manipulating resource objects is implemented.
-
 The package requires Python 3 and will not work with Python 2.
 
 ## Manipulating resource objects
@@ -52,3 +50,52 @@ Scripts using the library could be used to make multiple changes to resource obj
 ```
 oc get dc myapp -o json | python script.py | oc replace -f -
 ```
+
+Note that all attribute and parameter names used snake case and not camel case.
+
+## Calling the OpenShift REST API
+
+Requests can be made against the OpenShift REST API by first creating a client object:
+
+* ``openshift3.endpoints.Client(host=None, token=None, verify=None)`` - Create a client object for ``host`` by passing ``'hostname'``, optionally including a port by specifying ``'hostname:port'``. The API access ``token`` can be supplied, as can a flag indicating whether certificate verification should be performed for the secure connection. Certificate verification is performed by default.
+
+If the parameters are not being supplied explicitly, they can instead ben supplied using environment variables.
+
+* ``OPENSHIFT_API_HOST`` - The ``hostname`` or ``hostname:port``.
+* ``OPENSHIFT_API_TOKEN`` - The API access token.
+* ``OPENSHIFT_API_VERIFY`` - Flag indicating whether certificate verification should be performed. Set to ``false`` to disable.
+
+If neither the parameters or environment variables are supplied, it will be assumed it is being run from inside of a container running under OpenShift. The ``host`` will default to ``openshift.default.svc.cluster.local`` and the ``token`` will be read from the file ``/var/run/secrets/kubernetes.io/serviceaccount/token`` if it exists. Certificate verification will be turned off by default in this case.
+
+An example script which prints out the list of pods running in each project is:
+
+```
+import openshift3.endpoints as endpoints
+
+client = endpoints.Client()
+
+projects = client.oapi.v1.projects.get()
+
+for project in projects.items:
+    namespace = project.metadata.name
+
+    print('namespace=%r' % namespace)
+
+    pods = client.api.v1.namespaces(namespace=namespace).pods.get()
+
+    for pod in pods.items:
+        print('pod=%r' % pod.metadata.name)
+```
+
+The calling conventions can be derived from the REST API documentation available at:
+
+* [Kubernetes v1 REST API](https://docs.openshift.com/enterprise/latest/rest_api/kubernetes_v1.html).
+* [OpenShift Enterprise v1 REST API](https://docs.openshift.com/enterprise/latest/rest_api/openshift_v1.html).
+
+Specifically, by matching to the URL path for an endpoint.
+
+Note that all attribute and parameter names used snake case and not camel case.
+
+The object returned is the in memory representation of resources. These are created automatically from the JSON definitions of the OpenShift/Kubernetes resource objects.
+
+Do note though that the Kubernetes/OpenShift API definitions are inconsistent at some points and have errors. The client library overrides certain aspects of the API definition to fix up problems in the published API. For example, when referring to a namespace, you must always use ``namespace``. The published API mixes ``name`` and ``namespace`` which can cause problems for an automatically generated API such that the package implements.

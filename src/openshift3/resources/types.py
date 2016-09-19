@@ -3,24 +3,8 @@
 
 from .base import Resource, register_resource
 
+__all__ = []
 
-@register_resource
-class versioned_Event(Resource):
-
-    __kind__ = '*versioned.Event'
-
-    __fields__ = {
-    }
-
-    __types__ = {
-    }
-
-    __required__ = set()
-
-
-    def __init__(self, **_kwargs_):
-
-        super().__init__(**_kwargs_)
 
 @register_resource
 class types_UID(Resource):
@@ -395,6 +379,62 @@ class v1_AttachedVolume(Resource):
 
         self.device_path = device_path
         self.name = name
+
+        super().__init__(**_kwargs_)
+
+@register_resource
+class v1_AzureDataDiskCachingMode(Resource):
+
+    __kind__ = 'v1.AzureDataDiskCachingMode'
+
+    __fields__ = {
+    }
+
+    __types__ = {
+    }
+
+    __required__ = set()
+
+
+    def __init__(self, **_kwargs_):
+
+        super().__init__(**_kwargs_)
+
+@register_resource
+class v1_AzureDiskVolumeSource(Resource):
+
+    """AzureDisk represents an Azure Data Disk mount on the host and bind
+    mount to the pod."""
+
+    __kind__ = 'v1.AzureDiskVolumeSource'
+
+    __fields__ = {
+        'caching_mode': 'cachingMode',
+        'disk_name': 'diskName',
+        'disk_uri': 'diskURI',
+        'fs_type': 'fsType',
+        'read_only': 'readOnly',
+    }
+
+    __types__ = {
+        'caching_mode': 'v1.AzureDataDiskCachingMode',
+    }
+
+    __required__ = set([
+        'disk_name',
+        'disk_uri',
+    ])
+
+    caching_mode = None # v1.AzureDataDiskCachingMode
+    disk_name = None # string (required)
+    disk_uri = None # string (required)
+    fs_type = None # string
+    read_only = None # boolean
+
+    def __init__(self, *, disk_name, disk_uri, **_kwargs_):
+
+        self.disk_name = disk_name
+        self.disk_uri = disk_uri
 
         super().__init__(**_kwargs_)
 
@@ -798,6 +838,7 @@ class v1_ConfigMapVolumeSource(Resource):
     __kind__ = 'v1.ConfigMapVolumeSource'
 
     __fields__ = {
+        'default_mode': 'defaultMode',
         'items': 'items',
         'name': 'name',
     }
@@ -808,6 +849,7 @@ class v1_ConfigMapVolumeSource(Resource):
 
     __required__ = set()
 
+    default_mode = None # integer
     items = None # array
     name = None # string
 
@@ -1187,6 +1229,7 @@ class v1_DeprecatedDownwardAPIVolumeFile(Resource):
 
     __fields__ = {
         'field_ref': 'fieldRef',
+        'mode': 'mode',
         'name': 'name',
         'resource_field_ref': 'resourceFieldRef',
     }
@@ -1201,6 +1244,7 @@ class v1_DeprecatedDownwardAPIVolumeFile(Resource):
     ])
 
     field_ref = None # v1.ObjectFieldSelector
+    mode = None # integer
     name = None # string (required)
     resource_field_ref = None # v1.ResourceFieldSelector
 
@@ -1220,6 +1264,7 @@ class v1_DeprecatedDownwardAPIVolumeSource(Resource):
     __kind__ = 'v1.DeprecatedDownwardAPIVolumeSource'
 
     __fields__ = {
+        'default_mode': 'defaultMode',
         'items': 'items',
     }
 
@@ -1229,6 +1274,7 @@ class v1_DeprecatedDownwardAPIVolumeSource(Resource):
 
     __required__ = set()
 
+    default_mode = None # integer
     items = None # array
 
     def __init__(self, **_kwargs_):
@@ -1246,6 +1292,7 @@ class v1_DownwardAPIVolumeFile(Resource):
 
     __fields__ = {
         'field_ref': 'fieldRef',
+        'mode': 'mode',
         'path': 'path',
         'resource_field_ref': 'resourceFieldRef',
     }
@@ -1260,6 +1307,7 @@ class v1_DownwardAPIVolumeFile(Resource):
     ])
 
     field_ref = None # v1.ObjectFieldSelector
+    mode = None # integer
     path = None # string (required)
     resource_field_ref = None # v1.ResourceFieldSelector
 
@@ -1279,6 +1327,7 @@ class v1_DownwardAPIVolumeSource(Resource):
     __kind__ = 'v1.DownwardAPIVolumeSource'
 
     __fields__ = {
+        'default_mode': 'defaultMode',
         'items': 'items',
     }
 
@@ -1288,6 +1337,7 @@ class v1_DownwardAPIVolumeSource(Resource):
 
     __required__ = set()
 
+    default_mode = None # integer
     items = None # array
 
     def __init__(self, **_kwargs_):
@@ -1328,6 +1378,7 @@ class v1_EndpointAddress(Resource):
     __fields__ = {
         'hostname': 'hostname',
         'ip': 'ip',
+        'node_name': 'nodeName',
         'target_ref': 'targetRef',
     }
 
@@ -1341,6 +1392,7 @@ class v1_EndpointAddress(Resource):
 
     hostname = None # string
     ip = None # string (required)
+    node_name = None # string
     target_ref = None # v1.ObjectReference
 
     def __init__(self, *, ip, **_kwargs_):
@@ -1796,7 +1848,7 @@ class v1_FinalizerName(Resource):
 class v1_FlexVolumeSource(Resource):
 
     """FlexVolume represents a generic volume resource that is
-    provisioned/attached using a exec based plugin. This is an alpha
+    provisioned/attached using an exec based plugin. This is an alpha
     feature and may change in future."""
 
     __kind__ = 'v1.FlexVolumeSource'
@@ -2155,6 +2207,7 @@ class v1_KeyToPath(Resource):
 
     __fields__ = {
         'key': 'key',
+        'mode': 'mode',
         'path': 'path',
     }
 
@@ -2167,6 +2220,7 @@ class v1_KeyToPath(Resource):
     ])
 
     key = None # string (required)
+    mode = None # integer
     path = None # string (required)
 
     def __init__(self, *, key, path, **_kwargs_):
@@ -2630,7 +2684,7 @@ class v1_NodeAddress(Resource):
 @register_resource
 class v1_NodeCondition(Resource):
 
-    """NodeCondition contains condition infromation for a node."""
+    """NodeCondition contains condition information for a node."""
 
     __kind__ = 'v1.NodeCondition'
 
@@ -2905,6 +2959,7 @@ class v1_ObjectMeta(Resource):
 
     __fields__ = {
         'annotations': 'annotations',
+        'cluster_name': 'clusterName',
         'creation_timestamp': 'creationTimestamp',
         'deletion_grace_period_seconds': 'deletionGracePeriodSeconds',
         'deletion_timestamp': 'deletionTimestamp',
@@ -2927,6 +2982,7 @@ class v1_ObjectMeta(Resource):
     __required__ = set()
 
     annotations = None # object
+    cluster_name = None # string
     creation_timestamp = None # string
     deletion_grace_period_seconds = None # integer
     deletion_timestamp = None # string
@@ -3033,7 +3089,7 @@ class v1_PersistentVolume(Resource):
 
     """PersistentVolume (PV) is a storage resource provisioned by an
     administrator. It is analogous to a node. More info:
-    http://releases.k8s.io/release-1.3/docs/user-guide/persistent-
+    http://releases.k8s.io/release-1.4/docs/user-guide/persistent-
     volumes.md"""
 
     __kind__ = 'v1.PersistentVolume'
@@ -3295,6 +3351,7 @@ class v1_PersistentVolumeSpec(Resource):
     __fields__ = {
         'access_modes': 'accessModes',
         'aws_elastic_block_store': 'awsElasticBlockStore',
+        'azure_disk': 'azureDisk',
         'azure_file': 'azureFile',
         'capacity': 'capacity',
         'cephfs': 'cephfs',
@@ -3309,6 +3366,7 @@ class v1_PersistentVolumeSpec(Resource):
         'iscsi': 'iscsi',
         'nfs': 'nfs',
         'persistent_volume_reclaim_policy': 'persistentVolumeReclaimPolicy',
+        'quobyte': 'quobyte',
         'rbd': 'rbd',
         'vsphere_volume': 'vsphereVolume',
     }
@@ -3316,6 +3374,7 @@ class v1_PersistentVolumeSpec(Resource):
     __types__ = {
         'access_modes': 'v1.PersistentVolumeAccessMode',
         'aws_elastic_block_store': 'v1.AWSElasticBlockStoreVolumeSource',
+        'azure_disk': 'v1.AzureDiskVolumeSource',
         'azure_file': 'v1.AzureFileVolumeSource',
         'cephfs': 'v1.CephFSVolumeSource',
         'cinder': 'v1.CinderVolumeSource',
@@ -3328,6 +3387,7 @@ class v1_PersistentVolumeSpec(Resource):
         'host_path': 'v1.HostPathVolumeSource',
         'iscsi': 'v1.ISCSIVolumeSource',
         'nfs': 'v1.NFSVolumeSource',
+        'quobyte': 'v1.QuobyteVolumeSource',
         'rbd': 'v1.RBDVolumeSource',
         'vsphere_volume': 'v1.VsphereVirtualDiskVolumeSource',
     }
@@ -3336,6 +3396,7 @@ class v1_PersistentVolumeSpec(Resource):
 
     access_modes = None # array
     aws_elastic_block_store = None # v1.AWSElasticBlockStoreVolumeSource
+    azure_disk = None # v1.AzureDiskVolumeSource
     azure_file = None # v1.AzureFileVolumeSource
     capacity = None # object
     cephfs = None # v1.CephFSVolumeSource
@@ -3350,6 +3411,7 @@ class v1_PersistentVolumeSpec(Resource):
     iscsi = None # v1.ISCSIVolumeSource
     nfs = None # v1.NFSVolumeSource
     persistent_volume_reclaim_policy = None # string
+    quobyte = None # v1.QuobyteVolumeSource
     rbd = None # v1.RBDVolumeSource
     vsphere_volume = None # v1.VsphereVirtualDiskVolumeSource
 
@@ -3541,7 +3603,6 @@ class v1_PodSpec(Resource):
         'active_deadline_seconds': 'activeDeadlineSeconds',
         'containers': 'containers',
         'dns_policy': 'dnsPolicy',
-        'host': 'host',
         'host_ipc': 'hostIPC',
         'host_network': 'hostNetwork',
         'host_pid': 'hostPID',
@@ -3572,7 +3633,6 @@ class v1_PodSpec(Resource):
     active_deadline_seconds = None # integer
     containers = None # array (required)
     dns_policy = None # string
-    host = None # string
     host_ipc = None # boolean
     host_network = None # boolean
     host_pid = None # boolean
@@ -3798,6 +3858,43 @@ class v1_Probe(Resource):
         super().__init__(**_kwargs_)
 
 @register_resource
+class v1_QuobyteVolumeSource(Resource):
+
+    """Represents a Quobyte mount that lasts the lifetime of a pod. Quobyte
+    volumes do not support ownership management or SELinux relabeling."""
+
+    __kind__ = 'v1.QuobyteVolumeSource'
+
+    __fields__ = {
+        'group': 'group',
+        'read_only': 'readOnly',
+        'registry': 'registry',
+        'user': 'user',
+        'volume': 'volume',
+    }
+
+    __types__ = {
+    }
+
+    __required__ = set([
+        'registry',
+        'volume',
+    ])
+
+    group = None # string
+    read_only = None # boolean
+    registry = None # string (required)
+    user = None # string
+    volume = None # string (required)
+
+    def __init__(self, *, registry, volume, **_kwargs_):
+
+        self.registry = registry
+        self.volume = volume
+
+        super().__init__(**_kwargs_)
+
+@register_resource
 class v1_RBDVolumeSource(Resource):
 
     """Represents a Rados Block Device mount that lasts the lifetime of a
@@ -3953,6 +4050,7 @@ class v1_ReplicationControllerStatus(Resource):
     __fields__ = {
         'fully_labeled_replicas': 'fullyLabeledReplicas',
         'observed_generation': 'observedGeneration',
+        'ready_replicas': 'readyReplicas',
         'replicas': 'replicas',
     }
 
@@ -3965,6 +4063,7 @@ class v1_ReplicationControllerStatus(Resource):
 
     fully_labeled_replicas = None # integer
     observed_generation = None # integer
+    ready_replicas = None # integer
     replicas = None # integer (required)
 
     def __init__(self, *, replicas, **_kwargs_):
@@ -4447,6 +4546,7 @@ class v1_SecretVolumeSource(Resource):
     __kind__ = 'v1.SecretVolumeSource'
 
     __fields__ = {
+        'default_mode': 'defaultMode',
         'items': 'items',
         'secret_name': 'secretName',
     }
@@ -4457,6 +4557,7 @@ class v1_SecretVolumeSource(Resource):
 
     __required__ = set()
 
+    default_mode = None # integer
     items = None # array
     secret_name = None # string
 
@@ -4838,9 +4939,9 @@ class v1_ServiceSpec(Resource):
         'cluster_ip': 'clusterIP',
         'deprecated_public_i_ps': 'deprecatedPublicIPs',
         'external_i_ps': 'externalIPs',
+        'external_name': 'externalName',
         'load_balancer_ip': 'loadBalancerIP',
         'load_balancer_source_ranges': 'loadBalancerSourceRanges',
-        'portal_ip': 'portalIP',
         'ports': 'ports',
         'selector': 'selector',
         'session_affinity': 'sessionAffinity',
@@ -4858,9 +4959,9 @@ class v1_ServiceSpec(Resource):
     cluster_ip = None # string
     deprecated_public_i_ps = None # array
     external_i_ps = None # array
+    external_name = None # string
     load_balancer_ip = None # string
     load_balancer_source_ranges = None # array
-    portal_ip = None # string
     ports = None # array (required)
     selector = None # object
     session_affinity = None # string
@@ -4979,6 +5080,7 @@ class v1_Volume(Resource):
 
     __fields__ = {
         'aws_elastic_block_store': 'awsElasticBlockStore',
+        'azure_disk': 'azureDisk',
         'azure_file': 'azureFile',
         'cephfs': 'cephfs',
         'cinder': 'cinder',
@@ -4997,6 +5099,7 @@ class v1_Volume(Resource):
         'name': 'name',
         'nfs': 'nfs',
         'persistent_volume_claim': 'persistentVolumeClaim',
+        'quobyte': 'quobyte',
         'rbd': 'rbd',
         'secret': 'secret',
         'vsphere_volume': 'vsphereVolume',
@@ -5004,6 +5107,7 @@ class v1_Volume(Resource):
 
     __types__ = {
         'aws_elastic_block_store': 'v1.AWSElasticBlockStoreVolumeSource',
+        'azure_disk': 'v1.AzureDiskVolumeSource',
         'azure_file': 'v1.AzureFileVolumeSource',
         'cephfs': 'v1.CephFSVolumeSource',
         'cinder': 'v1.CinderVolumeSource',
@@ -5021,6 +5125,7 @@ class v1_Volume(Resource):
         'metadata': 'v1.DeprecatedDownwardAPIVolumeSource',
         'nfs': 'v1.NFSVolumeSource',
         'persistent_volume_claim': 'v1.PersistentVolumeClaimVolumeSource',
+        'quobyte': 'v1.QuobyteVolumeSource',
         'rbd': 'v1.RBDVolumeSource',
         'secret': 'v1.SecretVolumeSource',
         'vsphere_volume': 'v1.VsphereVirtualDiskVolumeSource',
@@ -5031,6 +5136,7 @@ class v1_Volume(Resource):
     ])
 
     aws_elastic_block_store = None # v1.AWSElasticBlockStoreVolumeSource
+    azure_disk = None # v1.AzureDiskVolumeSource
     azure_file = None # v1.AzureFileVolumeSource
     cephfs = None # v1.CephFSVolumeSource
     cinder = None # v1.CinderVolumeSource
@@ -5049,6 +5155,7 @@ class v1_Volume(Resource):
     name = None # string (required)
     nfs = None # v1.NFSVolumeSource
     persistent_volume_claim = None # v1.PersistentVolumeClaimVolumeSource
+    quobyte = None # v1.QuobyteVolumeSource
     rbd = None # v1.RBDVolumeSource
     secret = None # v1.SecretVolumeSource
     vsphere_volume = None # v1.VsphereVirtualDiskVolumeSource
@@ -5120,25 +5227,71 @@ class v1_VsphereVirtualDiskVolumeSource(Resource):
         self.volume_path = volume_path
 
         super().__init__(**_kwargs_)
-__all__ = ['versioned_Event', 'types_UID', 'unversioned_APIResource', 'unversioned_APIResourceList', 'unversioned_LabelSelector', 'unversioned_LabelSelectorRequirement', 'unversioned_ListMeta', 'unversioned_Patch', 'unversioned_Status', 'unversioned_StatusCause', 'unversioned_StatusDetails', 'v1_AWSElasticBlockStoreVolumeSource', 'v1_AttachedVolume', 'v1_AzureFileVolumeSource', 'v1_Binding', 'v1_Capabilities', 'v1_Capability', 'v1_CephFSVolumeSource', 'v1_CinderVolumeSource', 'v1_ComponentCondition', 'v1_ComponentStatus', 'v1_ComponentStatusList', 'v1_ConfigMap', 'v1_ConfigMapKeySelector', 'v1_ConfigMapList', 'v1_ConfigMapVolumeSource', 'v1_Container', 'v1_ContainerImage', 'v1_ContainerPort', 'v1_ContainerState', 'v1_ContainerStateRunning', 'v1_ContainerStateTerminated', 'v1_ContainerStateWaiting', 'v1_ContainerStatus', 'v1_DaemonEndpoint', 'v1_DeleteOptions', 'v1_DeprecatedDownwardAPIVolumeFile', 'v1_DeprecatedDownwardAPIVolumeSource', 'v1_DownwardAPIVolumeFile', 'v1_DownwardAPIVolumeSource', 'v1_EmptyDirVolumeSource', 'v1_EndpointAddress', 'v1_EndpointPort', 'v1_EndpointSubset', 'v1_Endpoints', 'v1_EndpointsList', 'v1_EnvVar', 'v1_EnvVarSource', 'v1_Event', 'v1_EventList', 'v1_EventSource', 'v1_ExecAction', 'v1_FCVolumeSource', 'v1_FSGroupStrategyOptions', 'v1_FSType', 'v1_FinalizerName', 'v1_FlexVolumeSource', 'v1_FlockerVolumeSource', 'v1_GCEPersistentDiskVolumeSource', 'v1_GitRepoVolumeSource', 'v1_GlusterfsVolumeSource', 'v1_HTTPGetAction', 'v1_HTTPHeader', 'v1_Handler', 'v1_HostPathVolumeSource', 'v1_IDRange', 'v1_ISCSIVolumeSource', 'v1_KeyToPath', 'v1_Lifecycle', 'v1_LimitRange', 'v1_LimitRangeItem', 'v1_LimitRangeList', 'v1_LimitRangeSpec', 'v1_LoadBalancerIngress', 'v1_LoadBalancerStatus', 'v1_LocalObjectReference', 'v1_NFSVolumeSource', 'v1_Namespace', 'v1_NamespaceList', 'v1_NamespaceSpec', 'v1_NamespaceStatus', 'v1_Node', 'v1_NodeAddress', 'v1_NodeCondition', 'v1_NodeDaemonEndpoints', 'v1_NodeList', 'v1_NodeSpec', 'v1_NodeStatus', 'v1_NodeSystemInfo', 'v1_ObjectFieldSelector', 'v1_ObjectMeta', 'v1_ObjectReference', 'v1_OwnerReference', 'v1_PersistentVolume', 'v1_PersistentVolumeAccessMode', 'v1_PersistentVolumeClaim', 'v1_PersistentVolumeClaimList', 'v1_PersistentVolumeClaimSpec', 'v1_PersistentVolumeClaimStatus', 'v1_PersistentVolumeClaimVolumeSource', 'v1_PersistentVolumeList', 'v1_PersistentVolumeSpec', 'v1_PersistentVolumeStatus', 'v1_Pod', 'v1_PodCondition', 'v1_PodList', 'v1_PodSecurityContext', 'v1_PodSpec', 'v1_PodStatus', 'v1_PodTemplate', 'v1_PodTemplateList', 'v1_PodTemplateSpec', 'v1_Preconditions', 'v1_Probe', 'v1_RBDVolumeSource', 'v1_ReplicationController', 'v1_ReplicationControllerList', 'v1_ReplicationControllerSpec', 'v1_ReplicationControllerStatus', 'v1_ResourceFieldSelector', 'v1_ResourceQuota', 'v1_ResourceQuotaList', 'v1_ResourceQuotaScope', 'v1_ResourceQuotaSpec', 'v1_ResourceQuotaStatus', 'v1_ResourceRequirements', 'v1_RunAsUserStrategyOptions', 'v1_SELinuxContextStrategyOptions', 'v1_SELinuxOptions', 'v1_Scale', 'v1_ScaleSpec', 'v1_ScaleStatus', 'v1_Secret', 'v1_SecretKeySelector', 'v1_SecretList', 'v1_SecretVolumeSource', 'v1_SecurityContext', 'v1_SecurityContextConstraints', 'v1_SecurityContextConstraintsList', 'v1_Service', 'v1_ServiceAccount', 'v1_ServiceAccountList', 'v1_ServiceList', 'v1_ServicePort', 'v1_ServiceSpec', 'v1_ServiceStatus', 'v1_SupplementalGroupsStrategyOptions', 'v1_TCPSocketAction', 'v1_UniqueVolumeName', 'v1_Volume', 'v1_VolumeMount', 'v1_VsphereVirtualDiskVolumeSource']
+
+@register_resource
+class v1alpha1_Eviction(Resource):
+
+    """Eviction evicts a pod from its node subject to certain policies and
+    safety constraints. This is a subresource of Pod.  A request to
+    cause such an eviction is created by POSTing to .../pods/<pod
+    name>/evictions."""
+
+    __kind__ = 'v1alpha1.Eviction'
+
+    __fields__ = {
+        'api_version': 'apiVersion',
+        'delete_options': 'deleteOptions',
+        'kind': 'kind',
+        'metadata': 'metadata',
+    }
+
+    __types__ = {
+        'delete_options': 'v1.DeleteOptions',
+        'metadata': 'v1.ObjectMeta',
+    }
+
+    __required__ = set()
+
+    api_version = None # string
+    delete_options = None # v1.DeleteOptions
+    kind = None # string
+    metadata = None # v1.ObjectMeta
+
+    def __init__(self, **_kwargs_):
+
+        self.kind = 'Eviction'
+
+        super().__init__(**_kwargs_)
 
 @register_resource
 class versioned_Event(Resource):
 
-    __kind__ = '*versioned.Event'
+    __kind__ = 'versioned.Event'
 
     __fields__ = {
+        'object': 'object',
+        'type': 'type',
     }
 
     __types__ = {
     }
 
-    __required__ = set()
+    __required__ = set([
+        'object',
+        'type',
+    ])
 
+    object = None # string (required)
+    type = None # string (required)
 
-    def __init__(self, **_kwargs_):
+    def __init__(self, *, object, type, **_kwargs_):
+
+        self.object = object
+        self.type = type
 
         super().__init__(**_kwargs_)
+
+__all__.extend(['types_UID', 'unversioned_APIResource', 'unversioned_APIResourceList', 'unversioned_LabelSelector', 'unversioned_LabelSelectorRequirement', 'unversioned_ListMeta', 'unversioned_Patch', 'unversioned_Status', 'unversioned_StatusCause', 'unversioned_StatusDetails', 'v1_AWSElasticBlockStoreVolumeSource', 'v1_AttachedVolume', 'v1_AzureDataDiskCachingMode', 'v1_AzureDiskVolumeSource', 'v1_AzureFileVolumeSource', 'v1_Binding', 'v1_Capabilities', 'v1_Capability', 'v1_CephFSVolumeSource', 'v1_CinderVolumeSource', 'v1_ComponentCondition', 'v1_ComponentStatus', 'v1_ComponentStatusList', 'v1_ConfigMap', 'v1_ConfigMapKeySelector', 'v1_ConfigMapList', 'v1_ConfigMapVolumeSource', 'v1_Container', 'v1_ContainerImage', 'v1_ContainerPort', 'v1_ContainerState', 'v1_ContainerStateRunning', 'v1_ContainerStateTerminated', 'v1_ContainerStateWaiting', 'v1_ContainerStatus', 'v1_DaemonEndpoint', 'v1_DeleteOptions', 'v1_DeprecatedDownwardAPIVolumeFile', 'v1_DeprecatedDownwardAPIVolumeSource', 'v1_DownwardAPIVolumeFile', 'v1_DownwardAPIVolumeSource', 'v1_EmptyDirVolumeSource', 'v1_EndpointAddress', 'v1_EndpointPort', 'v1_EndpointSubset', 'v1_Endpoints', 'v1_EndpointsList', 'v1_EnvVar', 'v1_EnvVarSource', 'v1_Event', 'v1_EventList', 'v1_EventSource', 'v1_ExecAction', 'v1_FCVolumeSource', 'v1_FSGroupStrategyOptions', 'v1_FSType', 'v1_FinalizerName', 'v1_FlexVolumeSource', 'v1_FlockerVolumeSource', 'v1_GCEPersistentDiskVolumeSource', 'v1_GitRepoVolumeSource', 'v1_GlusterfsVolumeSource', 'v1_HTTPGetAction', 'v1_HTTPHeader', 'v1_Handler', 'v1_HostPathVolumeSource', 'v1_IDRange', 'v1_ISCSIVolumeSource', 'v1_KeyToPath', 'v1_Lifecycle', 'v1_LimitRange', 'v1_LimitRangeItem', 'v1_LimitRangeList', 'v1_LimitRangeSpec', 'v1_LoadBalancerIngress', 'v1_LoadBalancerStatus', 'v1_LocalObjectReference', 'v1_NFSVolumeSource', 'v1_Namespace', 'v1_NamespaceList', 'v1_NamespaceSpec', 'v1_NamespaceStatus', 'v1_Node', 'v1_NodeAddress', 'v1_NodeCondition', 'v1_NodeDaemonEndpoints', 'v1_NodeList', 'v1_NodeSpec', 'v1_NodeStatus', 'v1_NodeSystemInfo', 'v1_ObjectFieldSelector', 'v1_ObjectMeta', 'v1_ObjectReference', 'v1_OwnerReference', 'v1_PersistentVolume', 'v1_PersistentVolumeAccessMode', 'v1_PersistentVolumeClaim', 'v1_PersistentVolumeClaimList', 'v1_PersistentVolumeClaimSpec', 'v1_PersistentVolumeClaimStatus', 'v1_PersistentVolumeClaimVolumeSource', 'v1_PersistentVolumeList', 'v1_PersistentVolumeSpec', 'v1_PersistentVolumeStatus', 'v1_Pod', 'v1_PodCondition', 'v1_PodList', 'v1_PodSecurityContext', 'v1_PodSpec', 'v1_PodStatus', 'v1_PodTemplate', 'v1_PodTemplateList', 'v1_PodTemplateSpec', 'v1_Preconditions', 'v1_Probe', 'v1_QuobyteVolumeSource', 'v1_RBDVolumeSource', 'v1_ReplicationController', 'v1_ReplicationControllerList', 'v1_ReplicationControllerSpec', 'v1_ReplicationControllerStatus', 'v1_ResourceFieldSelector', 'v1_ResourceQuota', 'v1_ResourceQuotaList', 'v1_ResourceQuotaScope', 'v1_ResourceQuotaSpec', 'v1_ResourceQuotaStatus', 'v1_ResourceRequirements', 'v1_RunAsUserStrategyOptions', 'v1_SELinuxContextStrategyOptions', 'v1_SELinuxOptions', 'v1_Scale', 'v1_ScaleSpec', 'v1_ScaleStatus', 'v1_Secret', 'v1_SecretKeySelector', 'v1_SecretList', 'v1_SecretVolumeSource', 'v1_SecurityContext', 'v1_SecurityContextConstraints', 'v1_SecurityContextConstraintsList', 'v1_Service', 'v1_ServiceAccount', 'v1_ServiceAccountList', 'v1_ServiceList', 'v1_ServicePort', 'v1_ServiceSpec', 'v1_ServiceStatus', 'v1_SupplementalGroupsStrategyOptions', 'v1_TCPSocketAction', 'v1_UniqueVolumeName', 'v1_Volume', 'v1_VolumeMount', 'v1_VsphereVirtualDiskVolumeSource', 'v1alpha1_Eviction', 'versioned_Event'])
 
 @register_resource
 class patch_Object(Resource):
@@ -5611,6 +5764,62 @@ class v1_AppliedClusterResourceQuotaList(Resource):
         super().__init__(**_kwargs_)
 
 @register_resource
+class v1_AzureDataDiskCachingMode(Resource):
+
+    __kind__ = 'v1.AzureDataDiskCachingMode'
+
+    __fields__ = {
+    }
+
+    __types__ = {
+    }
+
+    __required__ = set()
+
+
+    def __init__(self, **_kwargs_):
+
+        super().__init__(**_kwargs_)
+
+@register_resource
+class v1_AzureDiskVolumeSource(Resource):
+
+    """AzureDisk represents an Azure Data Disk mount on the host and bind
+    mount to the pod."""
+
+    __kind__ = 'v1.AzureDiskVolumeSource'
+
+    __fields__ = {
+        'caching_mode': 'cachingMode',
+        'disk_name': 'diskName',
+        'disk_uri': 'diskURI',
+        'fs_type': 'fsType',
+        'read_only': 'readOnly',
+    }
+
+    __types__ = {
+        'caching_mode': 'v1.AzureDataDiskCachingMode',
+    }
+
+    __required__ = set([
+        'disk_name',
+        'disk_uri',
+    ])
+
+    caching_mode = None # v1.AzureDataDiskCachingMode
+    disk_name = None # string (required)
+    disk_uri = None # string (required)
+    fs_type = None # string
+    read_only = None # boolean
+
+    def __init__(self, *, disk_name, disk_uri, **_kwargs_):
+
+        self.disk_name = disk_name
+        self.disk_uri = disk_uri
+
+        super().__init__(**_kwargs_)
+
+@register_resource
 class v1_AzureFileVolumeSource(Resource):
 
     """AzureFile represents an Azure File Service mount on the host and bind
@@ -5707,7 +5916,19 @@ class v1_Build(Resource):
 @register_resource
 class v1_BuildConfig(Resource):
 
-    """BuildConfig is a template which can be used to create new builds."""
+    """Build configurations define a build process for new Docker images.
+    There are three types of builds possible - a Docker build using a
+    Dockerfile, a Source-to-Image build that uses a specially prepared
+    base image that accepts source code that it can make runnable, and
+    a custom build that can run // arbitrary Docker images as a base
+    and accept the build parameters. Builds run on the cluster and on
+    completion are pushed to the Docker registry specified in the
+    "output" section. A build can be triggered via a webhook, when the
+    base image changes, or when a user manually requests a new build
+    be // created.  Each build created by a build configuration is
+    numbered and refers back to its parent configuration. Multiple
+    builds can be triggered at once. Builds that do not have "output"
+    set can be used to test code or run a verification build."""
 
     __kind__ = 'v1.BuildConfig'
 
@@ -6435,7 +6656,10 @@ class v1_CinderVolumeSource(Resource):
 @register_resource
 class v1_ClusterNetwork(Resource):
 
-    """ClusterNetwork describes a cluster network"""
+    """ClusterNetwork describes the cluster network. There is normally only
+    one object of this type, named "default", which is created by the
+    SDN network plugin based on the master configuration when the
+    cluster is brought up for the first time."""
 
     __kind__ = 'v1.ClusterNetwork'
 
@@ -7093,6 +7317,7 @@ class v1_ConfigMapVolumeSource(Resource):
     __kind__ = 'v1.ConfigMapVolumeSource'
 
     __fields__ = {
+        'default_mode': 'defaultMode',
         'items': 'items',
         'name': 'name',
     }
@@ -7103,6 +7328,7 @@ class v1_ConfigMapVolumeSource(Resource):
 
     __required__ = set()
 
+    default_mode = None # integer
     items = None # array
     name = None # string
 
@@ -7386,12 +7612,19 @@ class v1_DeploymentCauseImageTrigger(Resource):
 @register_resource
 class v1_DeploymentConfig(Resource):
 
-    """DeploymentConfig represents a configuration for a single deployment
-    (represented as a ReplicationController). It also contains details
-    about changes which resulted in the current state of the
-    DeploymentConfig. Each change to the DeploymentConfig which should
-    result in a new deployment results in an increment of
-    LatestVersion."""
+    """Deployment Configs define the template for a pod and manages deploying
+    new images or configuration changes. A single deployment
+    configuration is usually analogous to a single micro-service. Can
+    support many different deployment patterns, including full
+    restart, customizable rolling updates, and  fully custom
+    behaviors, as well as pre- and post- deployment hooks. Each
+    individual deployment is represented as a replication controller.
+    A deployment is "triggered" when its configuration is changed or a
+    tag in an Image Stream is changed. Triggers can be disabled to
+    allow manual control over a deployment. The "strategy" determines
+    how the deployment is carried out and may be changed at any time.
+    The `latestVersion` field is updated when a new deployment is
+    triggered by any means."""
 
     __kind__ = 'v1.DeploymentConfig'
 
@@ -7796,6 +8029,7 @@ class v1_DeprecatedDownwardAPIVolumeFile(Resource):
 
     __fields__ = {
         'field_ref': 'fieldRef',
+        'mode': 'mode',
         'name': 'name',
         'resource_field_ref': 'resourceFieldRef',
     }
@@ -7810,6 +8044,7 @@ class v1_DeprecatedDownwardAPIVolumeFile(Resource):
     ])
 
     field_ref = None # v1.ObjectFieldSelector
+    mode = None # integer
     name = None # string (required)
     resource_field_ref = None # v1.ResourceFieldSelector
 
@@ -7829,6 +8064,7 @@ class v1_DeprecatedDownwardAPIVolumeSource(Resource):
     __kind__ = 'v1.DeprecatedDownwardAPIVolumeSource'
 
     __fields__ = {
+        'default_mode': 'defaultMode',
         'items': 'items',
     }
 
@@ -7838,6 +8074,7 @@ class v1_DeprecatedDownwardAPIVolumeSource(Resource):
 
     __required__ = set()
 
+    default_mode = None # integer
     items = None # array
 
     def __init__(self, **_kwargs_):
@@ -7891,6 +8128,7 @@ class v1_DownwardAPIVolumeFile(Resource):
 
     __fields__ = {
         'field_ref': 'fieldRef',
+        'mode': 'mode',
         'path': 'path',
         'resource_field_ref': 'resourceFieldRef',
     }
@@ -7905,6 +8143,7 @@ class v1_DownwardAPIVolumeFile(Resource):
     ])
 
     field_ref = None # v1.ObjectFieldSelector
+    mode = None # integer
     path = None # string (required)
     resource_field_ref = None # v1.ResourceFieldSelector
 
@@ -7924,6 +8163,7 @@ class v1_DownwardAPIVolumeSource(Resource):
     __kind__ = 'v1.DownwardAPIVolumeSource'
 
     __fields__ = {
+        'default_mode': 'defaultMode',
         'items': 'items',
     }
 
@@ -7933,6 +8173,7 @@ class v1_DownwardAPIVolumeSource(Resource):
 
     __required__ = set()
 
+    default_mode = None # integer
     items = None # array
 
     def __init__(self, **_kwargs_):
@@ -8310,7 +8551,7 @@ class v1_FinalizerName(Resource):
 class v1_FlexVolumeSource(Resource):
 
     """FlexVolume represents a generic volume resource that is
-    provisioned/attached using a exec based plugin. This is an alpha
+    provisioned/attached using an exec based plugin. This is an alpha
     feature and may change in future."""
 
     __kind__ = 'v1.FlexVolumeSource'
@@ -8783,8 +9024,9 @@ class v1_HostPathVolumeSource(Resource):
 @register_resource
 class v1_HostSubnet(Resource):
 
-    """HostSubnet encapsulates the inputs needed to define the container
-    subnet network on a node"""
+    """HostSubnet describes the container subnet network on a node. The
+    HostSubnet object must have the same name as the Node object it
+    corresponds to."""
 
     __kind__ = 'v1.HostSubnet'
 
@@ -8906,7 +9148,12 @@ class v1_ISCSIVolumeSource(Resource):
 class v1_Identity(Resource):
 
     """Identity records a successful authentication of a user with an
-    identity provider"""
+    identity provider. The information about the source of
+    authentication is stored on the identity, and the identity is then
+    associated with a single user object. Multiple identities can
+    reference a single user. Information retrieved from the
+    authentication provider is stored in the extra field using a
+    schema determined by the provider."""
 
     __kind__ = 'v1.Identity'
 
@@ -9039,24 +9286,6 @@ class v1_Image(Resource):
         self.kind = 'Image'
 
         self.docker_image_layers = docker_image_layers
-
-        super().__init__(**_kwargs_)
-
-@register_resource
-class v1_Image_dockerImageSignatures(Resource):
-
-    __kind__ = 'v1.Image.dockerImageSignatures'
-
-    __fields__ = {
-    }
-
-    __types__ = {
-    }
-
-    __required__ = set()
-
-
-    def __init__(self, **_kwargs_):
 
         super().__init__(**_kwargs_)
 
@@ -9291,7 +9520,7 @@ class v1_ImageSignature(Resource):
 
     api_version = None # string
     conditions = None # array
-    content = None # array (required)
+    content = None # string (required)
     created = None # string
     image_identity = None # string
     issued_by = None # v1.SignatureIssuer
@@ -9314,7 +9543,14 @@ class v1_ImageSignature(Resource):
 @register_resource
 class v1_ImageSource(Resource):
 
-    """ImageSource describes an image that is used as source for the build"""
+    """ImageSource is used to describe build source that will be extracted
+    from an image. A reference of type ImageStreamTag,
+    ImageStreamImage or DockerImage may be used. A pull secret can be
+    specified to pull the image from an external registry or override
+    the default service account secret if pulling from the internal
+    registry. A list of paths to copy from the image and their
+    respective destination within the build directory must be
+    specified in the paths array."""
 
     __kind__ = 'v1.ImageSource'
 
@@ -9454,8 +9690,16 @@ class v1_ImageStreamImage(Resource):
 @register_resource
 class v1_ImageStreamImport(Resource):
 
-    """ImageStreamImport imports an image from remote repositories into
-    OpenShift."""
+    """The image stream import resource provides an easy way for a user to
+    find and import Docker images from other Docker registries into
+    the server. Individual images or an entire image repository may be
+    imported, and users may choose to see the results of the import
+    prior to tagging the resulting images into the specified image
+    stream.  This API is intended for end-user tools that need to see
+    the metadata of the image prior to import (for instance, to
+    generate an application from it). Clients that know the desired
+    image can continue to create spec.tags directly into their image
+    streams."""
 
     __kind__ = 'v1.ImageStreamImport'
 
@@ -9782,7 +10026,7 @@ class v1_ImageStreamTagList(Resource):
 class v1_JenkinsPipelineBuildStrategy(Resource):
 
     """JenkinsPipelineBuildStrategy holds parameters specific to a Jenkins
-    Pipeline build. This strategy is experimental."""
+    Pipeline build. This strategy is in tech preview."""
 
     __kind__ = 'v1.JenkinsPipelineBuildStrategy'
 
@@ -9812,6 +10056,7 @@ class v1_KeyToPath(Resource):
 
     __fields__ = {
         'key': 'key',
+        'mode': 'mode',
         'path': 'path',
     }
 
@@ -9824,6 +10069,7 @@ class v1_KeyToPath(Resource):
     ])
 
     key = None # string (required)
+    mode = None # integer
     path = None # string (required)
 
     def __init__(self, *, key, path, **_kwargs_):
@@ -10239,8 +10485,10 @@ class v1_NamedTagEventList(Resource):
 @register_resource
 class v1_NetNamespace(Resource):
 
-    """NetNamespace encapsulates the inputs needed to define a unique network
-    namespace on the cluster"""
+    """NetNamespace describes a single isolated network. When using the
+    redhat/openshift-ovs-multitenant plugin, every Namespace will have
+    a corresponding NetNamespace object with the same name. (When
+    using redhat/openshift-ovs-subnet, NetNamespaces are not used.)"""
 
     __kind__ = 'v1.NetNamespace'
 
@@ -10669,6 +10917,7 @@ class v1_ObjectMeta(Resource):
 
     __fields__ = {
         'annotations': 'annotations',
+        'cluster_name': 'clusterName',
         'creation_timestamp': 'creationTimestamp',
         'deletion_grace_period_seconds': 'deletionGracePeriodSeconds',
         'deletion_timestamp': 'deletionTimestamp',
@@ -10691,6 +10940,7 @@ class v1_ObjectMeta(Resource):
     __required__ = set()
 
     annotations = None # object
+    cluster_name = None # string
     creation_timestamp = None # string
     deletion_grace_period_seconds = None # integer
     deletion_timestamp = None # string
@@ -10910,7 +11160,6 @@ class v1_PodSpec(Resource):
         'active_deadline_seconds': 'activeDeadlineSeconds',
         'containers': 'containers',
         'dns_policy': 'dnsPolicy',
-        'host': 'host',
         'host_ipc': 'hostIPC',
         'host_network': 'hostNetwork',
         'host_pid': 'hostPID',
@@ -10941,7 +11190,6 @@ class v1_PodSpec(Resource):
     active_deadline_seconds = None # integer
     containers = None # array (required)
     dns_policy = None # string
-    host = None # string
     host_ipc = None # boolean
     host_network = None # boolean
     host_pid = None # boolean
@@ -11263,7 +11511,21 @@ class v1_Probe(Resource):
 @register_resource
 class v1_Project(Resource):
 
-    """Project is a logical top-level container for a set of origin resources"""
+    """Projects are the unit of isolation and collaboration in OpenShift. A
+    project has one or more members, a quota on the resources that the
+    project may consume, and the security controls on the resources in
+    the project. Within a project, members may have different roles -
+    project administrators can set membership, editors can create and
+    manage the resources, and viewers can see but not access running
+    containers. In a normal cluster project administrators are not
+    able to alter their quotas - that is restricted to cluster
+    administrators.  Listing or watching projects will return only
+    projects the user has the reader role on.  An OpenShift project is
+    an alternative representation of a Kubernetes namespace. Projects
+    are exposed as editable to end users while namespaces are not.
+    Direct creation of a project is typically restricted to
+    administrators, while end users should use the requestproject
+    resource."""
 
     __kind__ = 'v1.Project'
 
@@ -11408,6 +11670,43 @@ class v1_ProjectStatus(Resource):
     phase = None # string
 
     def __init__(self, **_kwargs_):
+
+        super().__init__(**_kwargs_)
+
+@register_resource
+class v1_QuobyteVolumeSource(Resource):
+
+    """Represents a Quobyte mount that lasts the lifetime of a pod. Quobyte
+    volumes do not support ownership management or SELinux relabeling."""
+
+    __kind__ = 'v1.QuobyteVolumeSource'
+
+    __fields__ = {
+        'group': 'group',
+        'read_only': 'readOnly',
+        'registry': 'registry',
+        'user': 'user',
+        'volume': 'volume',
+    }
+
+    __types__ = {
+    }
+
+    __required__ = set([
+        'registry',
+        'volume',
+    ])
+
+    group = None # string
+    read_only = None # boolean
+    registry = None # string (required)
+    user = None # string
+    volume = None # string (required)
+
+    def __init__(self, *, registry, volume, **_kwargs_):
+
+        self.registry = registry
+        self.volume = volume
 
         super().__init__(**_kwargs_)
 
@@ -11967,7 +12266,23 @@ class v1_RollingDeploymentStrategyParams(Resource):
 @register_resource
 class v1_Route(Resource):
 
-    """Route encapsulates the inputs needed to connect an alias to endpoints."""
+    """A route allows developers to expose services through an HTTP(S) aware
+    load balancing and proxy layer via a public DNS entry. The route
+    may further specify TLS options and a certificate, or specify a
+    public CNAME that the router should also accept for HTTP and HTTPS
+    traffic. An administrator typically configures their router to be
+    visible outside the cluster firewall, and may also add additional
+    security, caching, or traffic controls on the service content.
+    Routers usually talk directly to the service endpoints.  Once a
+    route is created, the `host` field may not be changed. Generally,
+    routers use the oldest route with a given host when resolving
+    conflicts.  Routers are subject to additional customization and
+    may support additional controls via the annotations field.
+    Because administrators may configure multiple routers, the route
+    status field is used to return information to clients about the
+    names and states of the route under each router. If a client
+    chooses a duplicate name, for instance, the route status
+    conditions are used to indicate the route cannot be chosen."""
 
     __kind__ = 'v1.Route'
 
@@ -12007,7 +12322,7 @@ class v1_Route(Resource):
 class v1_RouteIngress(Resource):
 
     """RouteIngress holds information about the places where a route is
-    exposed"""
+    exposed."""
 
     __kind__ = 'v1.RouteIngress'
 
@@ -12036,7 +12351,7 @@ class v1_RouteIngress(Resource):
 class v1_RouteIngressCondition(Resource):
 
     """RouteIngressCondition contains details for the current condition of
-    this pod."""
+    this route on a particular router."""
 
     __kind__ = 'v1.RouteIngressCondition'
 
@@ -12135,7 +12450,17 @@ class v1_RoutePort(Resource):
 @register_resource
 class v1_RouteSpec(Resource):
 
-    """RouteSpec describes the route the user wishes to exist."""
+    """RouteSpec describes the hostname or path the route exposes, any
+    security information, and one or more backends the route points
+    to. Weights on each backend can define the balance of traffic sent
+    to each backend - if all weights are zero the route will be
+    considered to have no backends and return a standard 503 response.
+    The `tls` field is optional and allows specific certificates or
+    behavior for the route. Routers typically configure a default
+    certificate on a wildcard domain to terminate routes without
+    explicit certificates, but custom hostnames usually must choose
+    passthrough (send traffic directly to the backend via the TLS
+    Server-Name- Indication field) or provide a certificate."""
 
     __kind__ = 'v1.RouteSpec'
 
@@ -12467,6 +12792,7 @@ class v1_SecretVolumeSource(Resource):
     __kind__ = 'v1.SecretVolumeSource'
 
     __fields__ = {
+        'default_mode': 'defaultMode',
         'items': 'items',
         'secret_name': 'secretName',
     }
@@ -12477,6 +12803,7 @@ class v1_SecretVolumeSource(Resource):
 
     __required__ = set()
 
+    default_mode = None # integer
     items = None # array
     secret_name = None # string
 
@@ -13200,7 +13527,13 @@ class v1_TemplateList(Resource):
 @register_resource
 class v1_User(Resource):
 
-    """User describes someone that makes requests to the API"""
+    """Upon log in, every user of the system receives a User and Identity
+    resource. Administrators may directly manipulate the attributes of
+    the users for their own tracking, or set groups via the API. The
+    user name is unique and is chosen based on the value provided by
+    the identity provider - if a user already exists with the incoming
+    name, the user name may have a number appended to it depending on
+    the configuration of the system."""
 
     __kind__ = 'v1.User'
 
@@ -13319,6 +13652,7 @@ class v1_Volume(Resource):
 
     __fields__ = {
         'aws_elastic_block_store': 'awsElasticBlockStore',
+        'azure_disk': 'azureDisk',
         'azure_file': 'azureFile',
         'cephfs': 'cephfs',
         'cinder': 'cinder',
@@ -13337,6 +13671,7 @@ class v1_Volume(Resource):
         'name': 'name',
         'nfs': 'nfs',
         'persistent_volume_claim': 'persistentVolumeClaim',
+        'quobyte': 'quobyte',
         'rbd': 'rbd',
         'secret': 'secret',
         'vsphere_volume': 'vsphereVolume',
@@ -13344,6 +13679,7 @@ class v1_Volume(Resource):
 
     __types__ = {
         'aws_elastic_block_store': 'v1.AWSElasticBlockStoreVolumeSource',
+        'azure_disk': 'v1.AzureDiskVolumeSource',
         'azure_file': 'v1.AzureFileVolumeSource',
         'cephfs': 'v1.CephFSVolumeSource',
         'cinder': 'v1.CinderVolumeSource',
@@ -13361,6 +13697,7 @@ class v1_Volume(Resource):
         'metadata': 'v1.DeprecatedDownwardAPIVolumeSource',
         'nfs': 'v1.NFSVolumeSource',
         'persistent_volume_claim': 'v1.PersistentVolumeClaimVolumeSource',
+        'quobyte': 'v1.QuobyteVolumeSource',
         'rbd': 'v1.RBDVolumeSource',
         'secret': 'v1.SecretVolumeSource',
         'vsphere_volume': 'v1.VsphereVirtualDiskVolumeSource',
@@ -13371,6 +13708,7 @@ class v1_Volume(Resource):
     ])
 
     aws_elastic_block_store = None # v1.AWSElasticBlockStoreVolumeSource
+    azure_disk = None # v1.AzureDiskVolumeSource
     azure_file = None # v1.AzureFileVolumeSource
     cephfs = None # v1.CephFSVolumeSource
     cinder = None # v1.CinderVolumeSource
@@ -13389,6 +13727,7 @@ class v1_Volume(Resource):
     name = None # string (required)
     nfs = None # v1.NFSVolumeSource
     persistent_volume_claim = None # v1.PersistentVolumeClaimVolumeSource
+    quobyte = None # v1.QuobyteVolumeSource
     rbd = None # v1.RBDVolumeSource
     secret = None # v1.SecretVolumeSource
     vsphere_volume = None # v1.VsphereVirtualDiskVolumeSource
@@ -13572,4 +13911,33 @@ class v1beta1_ScaleStatus(Resource):
         self.replicas = replicas
 
         super().__init__(**_kwargs_)
-__all__ = ['versioned_Event', 'patch_Object', 'runtime_RawExtension', 'types_UID', 'unversioned_APIResource', 'unversioned_APIResourceList', 'unversioned_LabelSelector', 'unversioned_LabelSelectorRequirement', 'unversioned_ListMeta', 'unversioned_Patch', 'unversioned_Status', 'unversioned_StatusCause', 'unversioned_StatusDetails', 'v1_AWSElasticBlockStoreVolumeSource', 'v1_AppliedClusterResourceQuota', 'v1_AppliedClusterResourceQuotaList', 'v1_AzureFileVolumeSource', 'v1_BinaryBuildSource', 'v1_Build', 'v1_BuildConfig', 'v1_BuildConfigList', 'v1_BuildConfigSpec', 'v1_BuildConfigStatus', 'v1_BuildList', 'v1_BuildLog', 'v1_BuildOutput', 'v1_BuildPostCommitSpec', 'v1_BuildRequest', 'v1_BuildSource', 'v1_BuildSpec', 'v1_BuildStatus', 'v1_BuildStrategy', 'v1_BuildTriggerCause', 'v1_BuildTriggerPolicy', 'v1_Capabilities', 'v1_Capability', 'v1_CephFSVolumeSource', 'v1_CinderVolumeSource', 'v1_ClusterNetwork', 'v1_ClusterNetworkList', 'v1_ClusterPolicy', 'v1_ClusterPolicyBinding', 'v1_ClusterPolicyBindingList', 'v1_ClusterPolicyList', 'v1_ClusterResourceQuota', 'v1_ClusterResourceQuotaList', 'v1_ClusterResourceQuotaSelector', 'v1_ClusterResourceQuotaSpec', 'v1_ClusterResourceQuotaStatus', 'v1_ClusterRole', 'v1_ClusterRoleBinding', 'v1_ClusterRoleBindingList', 'v1_ClusterRoleList', 'v1_ClusterRoleScopeRestriction', 'v1_ConfigMapKeySelector', 'v1_ConfigMapVolumeSource', 'v1_Container', 'v1_ContainerPort', 'v1_CustomBuildStrategy', 'v1_CustomDeploymentStrategyParams', 'v1_DeleteOptions', 'v1_DeploymentCause', 'v1_DeploymentCauseImageTrigger', 'v1_DeploymentConfig', 'v1_DeploymentConfigList', 'v1_DeploymentConfigRollback', 'v1_DeploymentConfigRollbackSpec', 'v1_DeploymentConfigSpec', 'v1_DeploymentConfigStatus', 'v1_DeploymentDetails', 'v1_DeploymentLog', 'v1_DeploymentStrategy', 'v1_DeploymentTriggerImageChangeParams', 'v1_DeploymentTriggerPolicy', 'v1_DeprecatedDownwardAPIVolumeFile', 'v1_DeprecatedDownwardAPIVolumeSource', 'v1_DockerBuildStrategy', 'v1_DownwardAPIVolumeFile', 'v1_DownwardAPIVolumeSource', 'v1_EgressNetworkPolicy', 'v1_EgressNetworkPolicyList', 'v1_EgressNetworkPolicyPeer', 'v1_EgressNetworkPolicyRule', 'v1_EgressNetworkPolicySpec', 'v1_EmptyDirVolumeSource', 'v1_EnvVar', 'v1_EnvVarSource', 'v1_ExecAction', 'v1_ExecNewPodHook', 'v1_FCVolumeSource', 'v1_FinalizerName', 'v1_FlexVolumeSource', 'v1_FlockerVolumeSource', 'v1_GCEPersistentDiskVolumeSource', 'v1_GenericWebHookCause', 'v1_GitBuildSource', 'v1_GitHubWebHookCause', 'v1_GitRepoVolumeSource', 'v1_GitSourceRevision', 'v1_GlusterfsVolumeSource', 'v1_Group', 'v1_GroupList', 'v1_HTTPGetAction', 'v1_HTTPHeader', 'v1_Handler', 'v1_HostPathVolumeSource', 'v1_HostSubnet', 'v1_HostSubnetList', 'v1_ISCSIVolumeSource', 'v1_Identity', 'v1_IdentityList', 'v1_Image', 'v1_Image_dockerImageSignatures', 'v1_ImageChangeCause', 'v1_ImageChangeTrigger', 'v1_ImageImportSpec', 'v1_ImageImportStatus', 'v1_ImageLayer', 'v1_ImageList', 'v1_ImageSignature', 'v1_ImageSource', 'v1_ImageSourcePath', 'v1_ImageStream', 'v1_ImageStreamImage', 'v1_ImageStreamImport', 'v1_ImageStreamImportSpec', 'v1_ImageStreamImportStatus', 'v1_ImageStreamList', 'v1_ImageStreamMapping', 'v1_ImageStreamSpec', 'v1_ImageStreamStatus', 'v1_ImageStreamTag', 'v1_ImageStreamTagList', 'v1_JenkinsPipelineBuildStrategy', 'v1_KeyToPath', 'v1_Lifecycle', 'v1_LifecycleHook', 'v1_LocalObjectReference', 'v1_LocalResourceAccessReview', 'v1_LocalSubjectAccessReview', 'v1_NFSVolumeSource', 'v1_NamedClusterRole', 'v1_NamedClusterRoleBinding', 'v1_NamedRole', 'v1_NamedRoleBinding', 'v1_NamedTagEventList', 'v1_NetNamespace', 'v1_NetNamespaceList', 'v1_OAuthAccessToken', 'v1_OAuthAccessTokenList', 'v1_OAuthAuthorizeToken', 'v1_OAuthAuthorizeTokenList', 'v1_OAuthClient', 'v1_OAuthClientAuthorization', 'v1_OAuthClientAuthorizationList', 'v1_OAuthClientList', 'v1_ObjectFieldSelector', 'v1_ObjectMeta', 'v1_ObjectReference', 'v1_OwnerReference', 'v1_Parameter', 'v1_PersistentVolumeClaimVolumeSource', 'v1_PodSecurityContext', 'v1_PodSpec', 'v1_PodTemplateSpec', 'v1_Policy', 'v1_PolicyBinding', 'v1_PolicyBindingList', 'v1_PolicyList', 'v1_PolicyRule', 'v1_Preconditions', 'v1_Probe', 'v1_Project', 'v1_ProjectList', 'v1_ProjectRequest', 'v1_ProjectSpec', 'v1_ProjectStatus', 'v1_RBDVolumeSource', 'v1_RecreateDeploymentStrategyParams', 'v1_RepositoryImportSpec', 'v1_RepositoryImportStatus', 'v1_ResourceAccessReview', 'v1_ResourceFieldSelector', 'v1_ResourceQuotaScope', 'v1_ResourceQuotaSpec', 'v1_ResourceQuotaStatus', 'v1_ResourceQuotaStatusByNamespace', 'v1_ResourceRequirements', 'v1_Role', 'v1_RoleBinding', 'v1_RoleBindingList', 'v1_RoleList', 'v1_RollingDeploymentStrategyParams', 'v1_Route', 'v1_RouteIngress', 'v1_RouteIngressCondition', 'v1_RouteList', 'v1_RoutePort', 'v1_RouteSpec', 'v1_RouteStatus', 'v1_RouteTargetReference', 'v1_SELinuxOptions', 'v1_ScopeRestriction', 'v1_Secret', 'v1_SecretBuildSource', 'v1_SecretKeySelector', 'v1_SecretList', 'v1_SecretSpec', 'v1_SecretVolumeSource', 'v1_SecurityContext', 'v1_SelfSubjectRulesReview', 'v1_SelfSubjectRulesReviewSpec', 'v1_SignatureCondition', 'v1_SignatureIssuer', 'v1_SignatureSubject', 'v1_SourceBuildStrategy', 'v1_SourceControlUser', 'v1_SourceRevision', 'v1_SubjectAccessReview', 'v1_SubjectRulesReviewStatus', 'v1_TCPSocketAction', 'v1_TLSConfig', 'v1_TagEvent', 'v1_TagEventCondition', 'v1_TagImageHook', 'v1_TagImportPolicy', 'v1_TagReference', 'v1_Template', 'v1_TemplateList', 'v1_User', 'v1_UserIdentityMapping', 'v1_UserList', 'v1_Volume', 'v1_VolumeMount', 'v1_VsphereVirtualDiskVolumeSource', 'v1_WebHookTrigger', 'v1beta1_Scale', 'v1beta1_ScaleSpec', 'v1beta1_ScaleStatus']
+
+@register_resource
+class versioned_Event(Resource):
+
+    __kind__ = 'versioned.Event'
+
+    __fields__ = {
+        'object': 'object',
+        'type': 'type',
+    }
+
+    __types__ = {
+    }
+
+    __required__ = set([
+        'object',
+        'type',
+    ])
+
+    object = None # string (required)
+    type = None # string (required)
+
+    def __init__(self, *, object, type, **_kwargs_):
+
+        self.object = object
+        self.type = type
+
+        super().__init__(**_kwargs_)
+
+__all__.extend(['patch_Object', 'runtime_RawExtension', 'types_UID', 'unversioned_APIResource', 'unversioned_APIResourceList', 'unversioned_LabelSelector', 'unversioned_LabelSelectorRequirement', 'unversioned_ListMeta', 'unversioned_Patch', 'unversioned_Status', 'unversioned_StatusCause', 'unversioned_StatusDetails', 'v1_AWSElasticBlockStoreVolumeSource', 'v1_AppliedClusterResourceQuota', 'v1_AppliedClusterResourceQuotaList', 'v1_AzureDataDiskCachingMode', 'v1_AzureDiskVolumeSource', 'v1_AzureFileVolumeSource', 'v1_BinaryBuildSource', 'v1_Build', 'v1_BuildConfig', 'v1_BuildConfigList', 'v1_BuildConfigSpec', 'v1_BuildConfigStatus', 'v1_BuildList', 'v1_BuildLog', 'v1_BuildOutput', 'v1_BuildPostCommitSpec', 'v1_BuildRequest', 'v1_BuildSource', 'v1_BuildSpec', 'v1_BuildStatus', 'v1_BuildStrategy', 'v1_BuildTriggerCause', 'v1_BuildTriggerPolicy', 'v1_Capabilities', 'v1_Capability', 'v1_CephFSVolumeSource', 'v1_CinderVolumeSource', 'v1_ClusterNetwork', 'v1_ClusterNetworkList', 'v1_ClusterPolicy', 'v1_ClusterPolicyBinding', 'v1_ClusterPolicyBindingList', 'v1_ClusterPolicyList', 'v1_ClusterResourceQuota', 'v1_ClusterResourceQuotaList', 'v1_ClusterResourceQuotaSelector', 'v1_ClusterResourceQuotaSpec', 'v1_ClusterResourceQuotaStatus', 'v1_ClusterRole', 'v1_ClusterRoleBinding', 'v1_ClusterRoleBindingList', 'v1_ClusterRoleList', 'v1_ClusterRoleScopeRestriction', 'v1_ConfigMapKeySelector', 'v1_ConfigMapVolumeSource', 'v1_Container', 'v1_ContainerPort', 'v1_CustomBuildStrategy', 'v1_CustomDeploymentStrategyParams', 'v1_DeleteOptions', 'v1_DeploymentCause', 'v1_DeploymentCauseImageTrigger', 'v1_DeploymentConfig', 'v1_DeploymentConfigList', 'v1_DeploymentConfigRollback', 'v1_DeploymentConfigRollbackSpec', 'v1_DeploymentConfigSpec', 'v1_DeploymentConfigStatus', 'v1_DeploymentDetails', 'v1_DeploymentLog', 'v1_DeploymentStrategy', 'v1_DeploymentTriggerImageChangeParams', 'v1_DeploymentTriggerPolicy', 'v1_DeprecatedDownwardAPIVolumeFile', 'v1_DeprecatedDownwardAPIVolumeSource', 'v1_DockerBuildStrategy', 'v1_DownwardAPIVolumeFile', 'v1_DownwardAPIVolumeSource', 'v1_EgressNetworkPolicy', 'v1_EgressNetworkPolicyList', 'v1_EgressNetworkPolicyPeer', 'v1_EgressNetworkPolicyRule', 'v1_EgressNetworkPolicySpec', 'v1_EmptyDirVolumeSource', 'v1_EnvVar', 'v1_EnvVarSource', 'v1_ExecAction', 'v1_ExecNewPodHook', 'v1_FCVolumeSource', 'v1_FinalizerName', 'v1_FlexVolumeSource', 'v1_FlockerVolumeSource', 'v1_GCEPersistentDiskVolumeSource', 'v1_GenericWebHookCause', 'v1_GitBuildSource', 'v1_GitHubWebHookCause', 'v1_GitRepoVolumeSource', 'v1_GitSourceRevision', 'v1_GlusterfsVolumeSource', 'v1_Group', 'v1_GroupList', 'v1_HTTPGetAction', 'v1_HTTPHeader', 'v1_Handler', 'v1_HostPathVolumeSource', 'v1_HostSubnet', 'v1_HostSubnetList', 'v1_ISCSIVolumeSource', 'v1_Identity', 'v1_IdentityList', 'v1_Image', 'v1_ImageChangeCause', 'v1_ImageChangeTrigger', 'v1_ImageImportSpec', 'v1_ImageImportStatus', 'v1_ImageLayer', 'v1_ImageList', 'v1_ImageSignature', 'v1_ImageSource', 'v1_ImageSourcePath', 'v1_ImageStream', 'v1_ImageStreamImage', 'v1_ImageStreamImport', 'v1_ImageStreamImportSpec', 'v1_ImageStreamImportStatus', 'v1_ImageStreamList', 'v1_ImageStreamMapping', 'v1_ImageStreamSpec', 'v1_ImageStreamStatus', 'v1_ImageStreamTag', 'v1_ImageStreamTagList', 'v1_JenkinsPipelineBuildStrategy', 'v1_KeyToPath', 'v1_Lifecycle', 'v1_LifecycleHook', 'v1_LocalObjectReference', 'v1_LocalResourceAccessReview', 'v1_LocalSubjectAccessReview', 'v1_NFSVolumeSource', 'v1_NamedClusterRole', 'v1_NamedClusterRoleBinding', 'v1_NamedRole', 'v1_NamedRoleBinding', 'v1_NamedTagEventList', 'v1_NetNamespace', 'v1_NetNamespaceList', 'v1_OAuthAccessToken', 'v1_OAuthAccessTokenList', 'v1_OAuthAuthorizeToken', 'v1_OAuthAuthorizeTokenList', 'v1_OAuthClient', 'v1_OAuthClientAuthorization', 'v1_OAuthClientAuthorizationList', 'v1_OAuthClientList', 'v1_ObjectFieldSelector', 'v1_ObjectMeta', 'v1_ObjectReference', 'v1_OwnerReference', 'v1_Parameter', 'v1_PersistentVolumeClaimVolumeSource', 'v1_PodSecurityContext', 'v1_PodSpec', 'v1_PodTemplateSpec', 'v1_Policy', 'v1_PolicyBinding', 'v1_PolicyBindingList', 'v1_PolicyList', 'v1_PolicyRule', 'v1_Preconditions', 'v1_Probe', 'v1_Project', 'v1_ProjectList', 'v1_ProjectRequest', 'v1_ProjectSpec', 'v1_ProjectStatus', 'v1_QuobyteVolumeSource', 'v1_RBDVolumeSource', 'v1_RecreateDeploymentStrategyParams', 'v1_RepositoryImportSpec', 'v1_RepositoryImportStatus', 'v1_ResourceAccessReview', 'v1_ResourceFieldSelector', 'v1_ResourceQuotaScope', 'v1_ResourceQuotaSpec', 'v1_ResourceQuotaStatus', 'v1_ResourceQuotaStatusByNamespace', 'v1_ResourceRequirements', 'v1_Role', 'v1_RoleBinding', 'v1_RoleBindingList', 'v1_RoleList', 'v1_RollingDeploymentStrategyParams', 'v1_Route', 'v1_RouteIngress', 'v1_RouteIngressCondition', 'v1_RouteList', 'v1_RoutePort', 'v1_RouteSpec', 'v1_RouteStatus', 'v1_RouteTargetReference', 'v1_SELinuxOptions', 'v1_ScopeRestriction', 'v1_Secret', 'v1_SecretBuildSource', 'v1_SecretKeySelector', 'v1_SecretList', 'v1_SecretSpec', 'v1_SecretVolumeSource', 'v1_SecurityContext', 'v1_SelfSubjectRulesReview', 'v1_SelfSubjectRulesReviewSpec', 'v1_SignatureCondition', 'v1_SignatureIssuer', 'v1_SignatureSubject', 'v1_SourceBuildStrategy', 'v1_SourceControlUser', 'v1_SourceRevision', 'v1_SubjectAccessReview', 'v1_SubjectRulesReviewStatus', 'v1_TCPSocketAction', 'v1_TLSConfig', 'v1_TagEvent', 'v1_TagEventCondition', 'v1_TagImageHook', 'v1_TagImportPolicy', 'v1_TagReference', 'v1_Template', 'v1_TemplateList', 'v1_User', 'v1_UserIdentityMapping', 'v1_UserList', 'v1_Volume', 'v1_VolumeMount', 'v1_VsphereVirtualDiskVolumeSource', 'v1_WebHookTrigger', 'v1beta1_Scale', 'v1beta1_ScaleSpec', 'v1beta1_ScaleStatus', 'versioned_Event'])
