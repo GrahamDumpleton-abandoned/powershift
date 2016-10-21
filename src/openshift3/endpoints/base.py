@@ -69,5 +69,17 @@ class EndPoint(object):
     def __getattr__(self, name):
         path = '%s/%s' % (self.path, name)
         if path not in _endpoint_api_types:
-            raise AttributeError('invalid API endpoint %r' % path)
+            # This is a hack to deal with prefix on path changing
+            # as we traverse. Need to ignore the first segment.
+
+            if path.startswith('/oapi'):
+                fallbackpath = path.replace('/oapi/', '/api/')
+            elif path.startswith('/api'):
+                fallbackpath = path.replace('/api/', '/oapi/')
+
+            if fallbackpath not in _endpoint_api_types:
+                raise AttributeError('invalid API endpoint %r' % path)
+
+            return _endpoint_api_types[fallbackpath](self.client, **self.params)
+
         return _endpoint_api_types[path](self.client, **self.params)
