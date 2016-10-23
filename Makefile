@@ -14,9 +14,10 @@ src/powershift/endpoints/api.py : scripts/generate-api.py \
 
 package :
 	python3 setup.py sdist
+	python3 setup.py bdist_wheel --universal
 
 install : all
-	python3 setup.py install
+	pip3 install -U .
 
 validate :
 	python3 scripts/validate-resources.py samples/all-resources.json
