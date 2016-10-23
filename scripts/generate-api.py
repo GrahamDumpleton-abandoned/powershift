@@ -1,6 +1,7 @@
 import json
 import keyword
 import textwrap
+import operator
 import re
 
 prologue_template = """
@@ -72,7 +73,7 @@ def generate_endpoints(apis):
                 else:
                     prefix.append(part)
 
-    for api in apis:
+    for api in sorted(apis, key=operator.itemgetter('path')):
         print()
 
         orig_path = api['path']

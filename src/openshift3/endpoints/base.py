@@ -69,17 +69,29 @@ class EndPoint(object):
     def __getattr__(self, name):
         path = '%s/%s' % (self.path, name)
         if path not in _endpoint_api_types:
-            # This is a hack to deal with prefix on path changing
-            # as we traverse. Need to ignore the first segment.
-
-            if path.startswith('/oapi'):
-                fallbackpath = path.replace('/oapi/', '/api/')
-            elif path.startswith('/api'):
-                fallbackpath = path.replace('/api/', '/oapi/')
-
-            if fallbackpath not in _endpoint_api_types:
+            if path not in _endpoint_api_types:
                 raise AttributeError('invalid API endpoint %r' % path)
-
             return _endpoint_api_types[fallbackpath](self.client, **self.params)
-
         return _endpoint_api_types[path](self.client, **self.params)
+
+@register_endpoint
+class EndPoint_oapi_v1_namespaces(EndPoint):
+
+    path = '/oapi/v1/namespaces'
+
+    def __call__(self, *, namespace):
+        child = self.path + '/{namespace}'
+        params = dict(self.params)
+        params['namespace'] = namespace
+        return EndPoint(self.client, child, **params)
+
+@register_endpoint
+class EndPoint_oapi_v1_watch_namespaces(EndPoint):
+
+    path = '/oapi/v1/watch/namespaces'
+
+    def __call__(self, *, namespace):
+        child = self.path + '/{namespace}'
+        params = dict(self.params)
+        params['namespace'] = namespace
+        return EndPoint(self.client, child, **params)
