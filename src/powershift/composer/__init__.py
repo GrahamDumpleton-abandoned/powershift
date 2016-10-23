@@ -4,7 +4,7 @@ from jinja2 import Environment, PackageLoader
 
 __here__ = os.path.dirname(__file__)
 
-env = Environment(loader=PackageLoader('openshift3', 'templates'), trim_blocks=True, lstrip_blocks=True)
+env = Environment(loader=PackageLoader('powershift', 'templates'), trim_blocks=True, lstrip_blocks=True)
 
 def get_template(name, parent=None, globals=None):
     return env.get_template(name, parent, globals)

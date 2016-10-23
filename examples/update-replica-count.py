@@ -1,4 +1,4 @@
-import openshift3.resources as resources
+import powershift.resources as resources
 
 dc = resources.load()
 

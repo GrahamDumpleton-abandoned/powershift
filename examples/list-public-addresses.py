@@ -1,5 +1,5 @@
-import openshift3.endpoints as endpoints
-import openshift3.resources as resources
+import powershift.endpoints as endpoints
+import powershift.resources as resources
 
 client = endpoints.Client()
 

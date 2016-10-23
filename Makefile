@@ -1,13 +1,13 @@
 .PHONY : all validate
 
-all : src/openshift3/resources/types.py src/openshift3/endpoints/api.py
+all : src/powershift/resources/types.py src/powershift/endpoints/api.py
 
-src/openshift3/resources/types.py : scripts/generate-types.py \
+src/powershift/resources/types.py : scripts/generate-types.py \
     schemas/openshift-v1-api.json schemas/openshift-v1-oapi.json
 	rm -f $@
 	python3 scripts/generate-types.py > $@
 
-src/openshift3/endpoints/api.py : scripts/generate-api.py \
+src/powershift/endpoints/api.py : scripts/generate-api.py \
     schemas/openshift-v1-api.json schemas/openshift-v1-oapi.json
 	rm -f $@
 	python3 scripts/generate-api.py > $@
@@ -26,4 +26,4 @@ validate-strict :
 	  python3 scripts/validate-resources.py samples/all-resources.json
 
 clean :
-	rm -f build dist
+	rm -rf build dist powershift.egg-info
