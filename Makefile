@@ -14,7 +14,7 @@ src/powershift/endpoints/api.py : scripts/generate-api.py \
 
 package :
 	python3 setup.py sdist
-	python3 setup.py bdist_wheel --universal
+	python3 setup.py bdist_wheel --python-tag py3
 
 install : all
 	pip3 install -U .
