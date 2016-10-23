@@ -3,7 +3,9 @@ import json
 
 from openshift3.resources import load, dumps
 
-resources = load(sys.argv[1])
+path = len(sys.argv) >= 2 and sys.argv[1] or None
+resources = load(path)
+
 print(repr(resources))
 
 import pprint
