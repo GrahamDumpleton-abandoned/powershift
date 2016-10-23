@@ -15,12 +15,17 @@ src/powershift/endpoints/api.py : scripts/generate-api.py \
 install : all
 	pip3 install -U .
 
-validate :
+validate-samples :
 	python3 scripts/validate-resources.py samples/all-resources.json
 
-validate-strict :
+validate-samples-strict :
 	OPENSHIFT_API_VALIDATE=true \
 	  python3 scripts/validate-resources.py samples/all-resources.json
+
+validate-client :
+	python3 examples/list-projects.py
+	python3 examples/list-pods.py
+	python3 examples/list-public-addresses.py
 
 package :
 	python3 setup.py sdist
