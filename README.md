@@ -51,7 +51,7 @@ Scripts using the library could be used to make multiple changes to resource obj
 oc get dc myapp -o json | python script.py | oc replace -f -
 ```
 
-Note that all attribute and parameter names used snake case and not camel case.
+Note that all attribute and parameter names use snake case and not camel case.
 
 ## Calling the OpenShift REST API
 
@@ -94,8 +94,8 @@ The calling conventions can be derived from the REST API documentation available
 
 Specifically, by matching to the URL path for an endpoint.
 
-Note that all attribute and parameter names used snake case and not camel case.
+Note that all attribute and parameter names use snake case and not camel case.
 
 The object returned is the in memory representation of resources. These are created automatically from the JSON definitions of the OpenShift/Kubernetes resource objects.
 
-Do note though that the Kubernetes/OpenShift API definitions are inconsistent at some points and have errors. The client library overrides certain aspects of the API definition to fix up problems in the published API. For example, when referring to a namespace, you must always use ``namespace``. The published API mixes ``name`` and ``namespace`` which can cause problems for an automatically generated API such that the package implements.
+Do note though that the Kubernetes/OpenShift API definitions are inconsistent at some points and have errors. The client library overrides certain aspects of the API definition to fix up problems in the published API. For example, when referring to a namespace, you must always use ``namespace``. The published API mixes ``name`` and ``namespace`` which can cause problems for an automatically generated API such that this package implements.
