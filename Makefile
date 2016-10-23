@@ -12,10 +12,6 @@ src/powershift/endpoints/api.py : scripts/generate-api.py \
 	rm -f $@
 	python3 scripts/generate-api.py > $@
 
-package :
-	python3 setup.py sdist
-	python3 setup.py bdist_wheel --python-tag py3
-
 install : all
 	pip3 install -U .
 
@@ -25,6 +21,13 @@ validate :
 validate-strict :
 	OPENSHIFT_API_VALIDATE=true \
 	  python3 scripts/validate-resources.py samples/all-resources.json
+
+package :
+	python3 setup.py sdist
+	python3 setup.py bdist_wheel --python-tag py3
+
+release : clean package
+	twine upload dist/*
 
 clean :
 	rm -rf build dist powershift.egg-info
