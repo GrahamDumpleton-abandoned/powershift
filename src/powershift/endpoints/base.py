@@ -85,13 +85,23 @@ class EndPoint_oapi_v1_namespaces(EndPoint):
         params['namespace'] = namespace
         return EndPoint(self.client, child, **params)
 
-@register_endpoint
-class EndPoint_oapi_v1_watch_namespaces(EndPoint):
-
-    path = '/oapi/v1/watch/namespaces'
-
-    def __call__(self, *, namespace):
-        child = self.path + '/{namespace}'
-        params = dict(self.params)
-        params['namespace'] = namespace
-        return EndPoint(self.client, child, **params)
+# @register_endpoint
+# class EndPoint_api_v1_watch(EndPoint):
+# 
+#     path = '/api/v1/watch'
+# 
+# @register_endpoint
+# class EndPoint_oapi_v1_watch(EndPoint):
+# 
+#     path = '/oapi/v1/watch'
+# 
+# @register_endpoint
+# class EndPoint_oapi_v1_watch_namespaces(EndPoint):
+# 
+#     path = '/oapi/v1/watch/namespaces'
+# 
+#     def __call__(self, *, namespace):
+#         child = self.path + '/{namespace}'
+#         params = dict(self.params)
+#         params['namespace'] = namespace
+#         return EndPoint(self.client, child, **params)

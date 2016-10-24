@@ -21,6 +21,11 @@ _endpoint_param_overrides = [
      ('/api/v1/watch/namespaces/{name}', {"name": "namespace"}),
 ]
 
+_endpoint_ignore_endpoints = [
+    '/api/v1/watch/',
+    '/oapi/v1/watch/',
+]
+
 def fixup_url_path(path):
     for prefix, mapping in _endpoint_param_overrides:
         if path.startswith(prefix):
@@ -74,9 +79,20 @@ def generate_endpoints(apis):
                     prefix.append(part)
 
     for api in sorted(apis, key=operator.itemgetter('path')):
+        orig_path = api['path']
+
+        ignore_endpoint = False
+
+        for ignore in _endpoint_ignore_endpoints:
+            if orig_path.startswith(ignore):
+                ignore_endpoint = True
+                break
+
+        if ignore_endpoint:
+            continue
+
         print()
 
-        orig_path = api['path']
         path = fixup_url_path(orig_path)
 
         class_name = map_url_path(path)
