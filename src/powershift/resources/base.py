@@ -55,6 +55,9 @@ class Resource(object):
     def __getitem__(self, name):
         return self.__dict__[name]
 
+    def __contains__(self, name):
+        return name in self.__dict__
+
     def __setitem__(self, name, value):
         self.__dict__[name] = value
 
