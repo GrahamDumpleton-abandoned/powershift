@@ -14,7 +14,7 @@ def public_address(route):
     path = route.spec.path or '/'
     if route.spec.tls:
         return 'https://%s%s' % (host, path)
-    return 'https://%s%s' % (host, path)
+    return 'http://%s%s' % (host, path)
 
 for project in projects.items:
     namespace = project.metadata.name
