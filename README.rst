@@ -128,7 +128,6 @@ variant of the client::
     import asyncio
 
     import powershift.endpoints as endpoints
-    import powershift.resources as resources
 
     client = endpoints.AsyncClient()
 
