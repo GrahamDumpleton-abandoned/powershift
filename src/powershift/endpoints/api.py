@@ -23,14 +23,7 @@ class EndPoint_api_v1(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_bindings(EndPoint):
@@ -60,14 +53,7 @@ class EndPoint_api_v1_bindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_componentstatuses(EndPoint):
@@ -121,19 +107,12 @@ class EndPoint_api_v1_componentstatuses(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_api_v1_componentstatuses_name(self.client, **params)
+        return EndPoint_api_v1_componentstatuses_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_componentstatuses_name(EndPoint):
@@ -158,20 +137,13 @@ class EndPoint_api_v1_componentstatuses_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_configmaps(EndPoint):
@@ -225,14 +197,7 @@ class EndPoint_api_v1_configmaps(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ConfigMap'
 
@@ -257,14 +222,7 @@ class EndPoint_api_v1_configmaps(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_endpoints(EndPoint):
@@ -318,14 +276,7 @@ class EndPoint_api_v1_endpoints(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Endpoints'
 
@@ -350,14 +301,7 @@ class EndPoint_api_v1_endpoints(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_events(EndPoint):
@@ -411,14 +355,7 @@ class EndPoint_api_v1_events(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Event'
 
@@ -443,14 +380,7 @@ class EndPoint_api_v1_events(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_limitranges(EndPoint):
@@ -504,14 +434,7 @@ class EndPoint_api_v1_limitranges(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.LimitRange'
 
@@ -536,14 +459,7 @@ class EndPoint_api_v1_limitranges(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces(EndPoint):
@@ -597,14 +513,7 @@ class EndPoint_api_v1_namespaces(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Namespace'
 
@@ -629,14 +538,7 @@ class EndPoint_api_v1_namespaces(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -685,19 +587,12 @@ class EndPoint_api_v1_namespaces(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, namespace):
         params = dict(self.params)
         params['namespace'] = namespace
-        return EndPoint_api_v1_namespaces_namespace(self.client, **params)
+        return EndPoint_api_v1_namespaces_namespace(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_bindings(EndPoint):
@@ -733,14 +628,7 @@ class EndPoint_api_v1_namespaces_namespace_bindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_configmaps(EndPoint):
@@ -800,14 +688,7 @@ class EndPoint_api_v1_namespaces_namespace_configmaps(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ConfigMap'
 
@@ -838,14 +719,7 @@ class EndPoint_api_v1_namespaces_namespace_configmaps(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -900,14 +774,7 @@ class EndPoint_api_v1_namespaces_namespace_configmaps(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_configmaps_name(EndPoint):
@@ -950,20 +817,13 @@ class EndPoint_api_v1_namespaces_namespace_configmaps_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ConfigMap'
 
@@ -995,20 +855,13 @@ class EndPoint_api_v1_namespaces_namespace_configmaps_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ConfigMap'
 
@@ -1040,20 +893,13 @@ class EndPoint_api_v1_namespaces_namespace_configmaps_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -1085,20 +931,13 @@ class EndPoint_api_v1_namespaces_namespace_configmaps_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_endpoints(EndPoint):
@@ -1158,14 +997,7 @@ class EndPoint_api_v1_namespaces_namespace_endpoints(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Endpoints'
 
@@ -1196,14 +1028,7 @@ class EndPoint_api_v1_namespaces_namespace_endpoints(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -1258,14 +1083,7 @@ class EndPoint_api_v1_namespaces_namespace_endpoints(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_endpoints_name(EndPoint):
@@ -1308,20 +1126,13 @@ class EndPoint_api_v1_namespaces_namespace_endpoints_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Endpoints'
 
@@ -1353,20 +1164,13 @@ class EndPoint_api_v1_namespaces_namespace_endpoints_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Endpoints'
 
@@ -1398,20 +1202,13 @@ class EndPoint_api_v1_namespaces_namespace_endpoints_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -1443,20 +1240,13 @@ class EndPoint_api_v1_namespaces_namespace_endpoints_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_events(EndPoint):
@@ -1516,14 +1306,7 @@ class EndPoint_api_v1_namespaces_namespace_events(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Event'
 
@@ -1554,14 +1337,7 @@ class EndPoint_api_v1_namespaces_namespace_events(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -1616,14 +1392,7 @@ class EndPoint_api_v1_namespaces_namespace_events(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_events_name(EndPoint):
@@ -1666,20 +1435,13 @@ class EndPoint_api_v1_namespaces_namespace_events_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Event'
 
@@ -1711,20 +1473,13 @@ class EndPoint_api_v1_namespaces_namespace_events_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Event'
 
@@ -1756,20 +1511,13 @@ class EndPoint_api_v1_namespaces_namespace_events_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -1801,20 +1549,13 @@ class EndPoint_api_v1_namespaces_namespace_events_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_limitranges(EndPoint):
@@ -1874,14 +1615,7 @@ class EndPoint_api_v1_namespaces_namespace_limitranges(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.LimitRange'
 
@@ -1912,14 +1646,7 @@ class EndPoint_api_v1_namespaces_namespace_limitranges(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -1974,14 +1701,7 @@ class EndPoint_api_v1_namespaces_namespace_limitranges(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_limitranges_name(EndPoint):
@@ -2024,20 +1744,13 @@ class EndPoint_api_v1_namespaces_namespace_limitranges_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.LimitRange'
 
@@ -2069,20 +1782,13 @@ class EndPoint_api_v1_namespaces_namespace_limitranges_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.LimitRange'
 
@@ -2114,20 +1820,13 @@ class EndPoint_api_v1_namespaces_namespace_limitranges_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -2159,20 +1858,13 @@ class EndPoint_api_v1_namespaces_namespace_limitranges_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims(EndPoint):
@@ -2232,14 +1924,7 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.PersistentVolumeClaim'
 
@@ -2270,14 +1955,7 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -2332,14 +2010,7 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(EndPoint):
@@ -2382,20 +2053,13 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(EndPoint)
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.PersistentVolumeClaim'
 
@@ -2427,20 +2091,13 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(EndPoint)
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.PersistentVolumeClaim'
 
@@ -2472,20 +2129,13 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(EndPoint)
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -2517,20 +2167,13 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(EndPoint)
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name_status(EndPoint):
@@ -2566,14 +2209,7 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name_status(En
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.PersistentVolumeClaim'
 
@@ -2610,14 +2246,7 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name_status(En
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.PersistentVolumeClaim'
 
@@ -2654,14 +2283,7 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name_status(En
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods(EndPoint):
@@ -2721,14 +2343,7 @@ class EndPoint_api_v1_namespaces_namespace_pods(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Pod'
 
@@ -2759,14 +2374,7 @@ class EndPoint_api_v1_namespaces_namespace_pods(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -2821,14 +2429,7 @@ class EndPoint_api_v1_namespaces_namespace_pods(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name(EndPoint):
@@ -2871,20 +2472,13 @@ class EndPoint_api_v1_namespaces_namespace_pods_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Pod'
 
@@ -2916,20 +2510,13 @@ class EndPoint_api_v1_namespaces_namespace_pods_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Pod'
 
@@ -2961,20 +2548,13 @@ class EndPoint_api_v1_namespaces_namespace_pods_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -3006,20 +2586,13 @@ class EndPoint_api_v1_namespaces_namespace_pods_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name_attach(EndPoint):
@@ -3079,14 +2652,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_attach(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -3141,14 +2707,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_attach(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name_binding(EndPoint):
@@ -3190,14 +2749,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_binding(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name_eviction(EndPoint):
@@ -3239,14 +2791,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_eviction(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name_exec(EndPoint):
@@ -3312,14 +2857,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_exec(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -3380,14 +2918,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_exec(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name_log(EndPoint):
@@ -3471,14 +3002,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_log(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name_portforward(EndPoint):
@@ -3508,14 +3032,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_portforward(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -3540,14 +3057,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_portforward(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name_proxy(EndPoint):
@@ -3583,14 +3093,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -3621,14 +3124,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -3659,14 +3155,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -3697,14 +3186,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -3735,14 +3217,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -3773,14 +3248,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
@@ -3817,20 +3285,13 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
 
     def get(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -3862,20 +3323,13 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
 
     def post(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -3907,20 +3361,13 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
 
     def put(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -3952,20 +3399,13 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
 
     def delete(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -3997,20 +3437,13 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
 
     def head(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -4042,20 +3475,13 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
 
     def options(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name_status(EndPoint):
@@ -4091,14 +3517,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Pod'
 
@@ -4135,14 +3554,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Pod'
 
@@ -4179,14 +3591,7 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_podtemplates(EndPoint):
@@ -4246,14 +3651,7 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.PodTemplate'
 
@@ -4284,14 +3682,7 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -4346,14 +3737,7 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_podtemplates_name(EndPoint):
@@ -4396,20 +3780,13 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.PodTemplate'
 
@@ -4441,20 +3818,13 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.PodTemplate'
 
@@ -4486,20 +3856,13 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -4531,20 +3894,13 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_replicationcontrollers(EndPoint):
@@ -4604,14 +3960,7 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ReplicationController'
 
@@ -4642,14 +3991,7 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -4704,14 +4046,7 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(EndPoint):
@@ -4754,20 +4089,13 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(EndPoint)
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ReplicationController'
 
@@ -4799,20 +4127,13 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(EndPoint)
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ReplicationController'
 
@@ -4844,20 +4165,13 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(EndPoint)
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -4889,20 +4203,13 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(EndPoint)
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name_scale(EndPoint):
@@ -4938,14 +4245,7 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name_scale(End
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Scale'
 
@@ -4982,14 +4282,7 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name_scale(End
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Scale'
 
@@ -5026,14 +4319,7 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name_scale(End
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name_status(EndPoint):
@@ -5069,14 +4355,7 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name_status(En
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ReplicationController'
 
@@ -5113,14 +4392,7 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name_status(En
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ReplicationController'
 
@@ -5157,14 +4429,7 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name_status(En
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_resourcequotas(EndPoint):
@@ -5224,14 +4489,7 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ResourceQuota'
 
@@ -5262,14 +4520,7 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -5324,14 +4575,7 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_resourcequotas_name(EndPoint):
@@ -5374,20 +4618,13 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ResourceQuota'
 
@@ -5419,20 +4656,13 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ResourceQuota'
 
@@ -5464,20 +4694,13 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -5509,20 +4732,13 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_resourcequotas_name_status(EndPoint):
@@ -5558,14 +4774,7 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ResourceQuota'
 
@@ -5602,14 +4811,7 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ResourceQuota'
 
@@ -5646,14 +4848,7 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_secrets(EndPoint):
@@ -5713,14 +4908,7 @@ class EndPoint_api_v1_namespaces_namespace_secrets(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Secret'
 
@@ -5751,14 +4939,7 @@ class EndPoint_api_v1_namespaces_namespace_secrets(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -5813,14 +4994,7 @@ class EndPoint_api_v1_namespaces_namespace_secrets(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_secrets_name(EndPoint):
@@ -5863,20 +5037,13 @@ class EndPoint_api_v1_namespaces_namespace_secrets_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Secret'
 
@@ -5908,20 +5075,13 @@ class EndPoint_api_v1_namespaces_namespace_secrets_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Secret'
 
@@ -5953,20 +5113,13 @@ class EndPoint_api_v1_namespaces_namespace_secrets_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -5998,20 +5151,13 @@ class EndPoint_api_v1_namespaces_namespace_secrets_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_serviceaccounts(EndPoint):
@@ -6071,14 +5217,7 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ServiceAccount'
 
@@ -6109,14 +5248,7 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -6171,14 +5303,7 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(EndPoint):
@@ -6221,20 +5346,13 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ServiceAccount'
 
@@ -6266,20 +5384,13 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ServiceAccount'
 
@@ -6311,20 +5422,13 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -6356,20 +5460,13 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_services(EndPoint):
@@ -6429,14 +5526,7 @@ class EndPoint_api_v1_namespaces_namespace_services(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Service'
 
@@ -6467,14 +5557,7 @@ class EndPoint_api_v1_namespaces_namespace_services(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_services_name(EndPoint):
@@ -6517,20 +5600,13 @@ class EndPoint_api_v1_namespaces_namespace_services_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Service'
 
@@ -6562,20 +5638,13 @@ class EndPoint_api_v1_namespaces_namespace_services_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Service'
 
@@ -6607,20 +5676,13 @@ class EndPoint_api_v1_namespaces_namespace_services_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -6646,20 +5708,13 @@ class EndPoint_api_v1_namespaces_namespace_services_name(EndPoint):
 
     def delete(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_services_name_proxy(EndPoint):
@@ -6695,14 +5750,7 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -6733,14 +5781,7 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -6771,14 +5812,7 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -6809,14 +5843,7 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -6847,14 +5874,7 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -6885,14 +5905,7 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
@@ -6929,20 +5942,13 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
 
     def get(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -6974,20 +5980,13 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
 
     def post(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -7019,20 +6018,13 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
 
     def put(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -7064,20 +6056,13 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
 
     def delete(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -7109,20 +6094,13 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
 
     def head(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -7154,20 +6132,13 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
 
     def options(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_services_name_status(EndPoint):
@@ -7203,14 +6174,7 @@ class EndPoint_api_v1_namespaces_namespace_services_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Service'
 
@@ -7247,14 +6211,7 @@ class EndPoint_api_v1_namespaces_namespace_services_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Service'
 
@@ -7291,14 +6248,7 @@ class EndPoint_api_v1_namespaces_namespace_services_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace(EndPoint):
@@ -7335,20 +6285,13 @@ class EndPoint_api_v1_namespaces_namespace(EndPoint):
 
     def get(self, *, namespace, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['namespace'] = namespace
         _path_ = self.path.format(**_params_)
+        _params_['namespace'] = namespace
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Namespace'
 
@@ -7374,20 +6317,13 @@ class EndPoint_api_v1_namespaces_namespace(EndPoint):
 
     def put(self, *, namespace, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['namespace'] = namespace
         _path_ = self.path.format(**_params_)
+        _params_['namespace'] = namespace
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Namespace'
 
@@ -7413,20 +6349,13 @@ class EndPoint_api_v1_namespaces_namespace(EndPoint):
 
     def patch(self, *, namespace, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['namespace'] = namespace
         _path_ = self.path.format(**_params_)
+        _params_['namespace'] = namespace
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -7452,20 +6381,13 @@ class EndPoint_api_v1_namespaces_namespace(EndPoint):
 
     def delete(self, *, namespace, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['namespace'] = namespace
         _path_ = self.path.format(**_params_)
+        _params_['namespace'] = namespace
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_finalize(EndPoint):
@@ -7501,14 +6423,7 @@ class EndPoint_api_v1_namespaces_namespace_finalize(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_status(EndPoint):
@@ -7538,14 +6453,7 @@ class EndPoint_api_v1_namespaces_namespace_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Namespace'
 
@@ -7576,14 +6484,7 @@ class EndPoint_api_v1_namespaces_namespace_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Namespace'
 
@@ -7614,14 +6515,7 @@ class EndPoint_api_v1_namespaces_namespace_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_nodes(EndPoint):
@@ -7675,14 +6569,7 @@ class EndPoint_api_v1_nodes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Node'
 
@@ -7707,14 +6594,7 @@ class EndPoint_api_v1_nodes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -7763,19 +6643,12 @@ class EndPoint_api_v1_nodes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_api_v1_nodes_name(self.client, **params)
+        return EndPoint_api_v1_nodes_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_nodes_name(EndPoint):
@@ -7812,20 +6685,13 @@ class EndPoint_api_v1_nodes_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Node'
 
@@ -7851,20 +6717,13 @@ class EndPoint_api_v1_nodes_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Node'
 
@@ -7890,20 +6749,13 @@ class EndPoint_api_v1_nodes_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -7929,20 +6781,13 @@ class EndPoint_api_v1_nodes_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_nodes_name_proxy(EndPoint):
@@ -7972,14 +6817,7 @@ class EndPoint_api_v1_nodes_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -8004,14 +6842,7 @@ class EndPoint_api_v1_nodes_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -8036,14 +6867,7 @@ class EndPoint_api_v1_nodes_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -8068,14 +6892,7 @@ class EndPoint_api_v1_nodes_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -8100,14 +6917,7 @@ class EndPoint_api_v1_nodes_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -8132,14 +6942,7 @@ class EndPoint_api_v1_nodes_name_proxy(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
@@ -8170,20 +6973,13 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
 
     def get(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -8209,20 +7005,13 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
 
     def post(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -8248,20 +7037,13 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
 
     def put(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -8287,20 +7069,13 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
 
     def delete(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -8326,20 +7101,13 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
 
     def head(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -8365,20 +7133,13 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
 
     def options(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_nodes_name_status(EndPoint):
@@ -8408,14 +7169,7 @@ class EndPoint_api_v1_nodes_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Node'
 
@@ -8446,14 +7200,7 @@ class EndPoint_api_v1_nodes_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Node'
 
@@ -8484,14 +7231,7 @@ class EndPoint_api_v1_nodes_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_persistentvolumeclaims(EndPoint):
@@ -8545,14 +7285,7 @@ class EndPoint_api_v1_persistentvolumeclaims(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.PersistentVolumeClaim'
 
@@ -8577,14 +7310,7 @@ class EndPoint_api_v1_persistentvolumeclaims(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_persistentvolumes(EndPoint):
@@ -8638,14 +7364,7 @@ class EndPoint_api_v1_persistentvolumes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.PersistentVolume'
 
@@ -8670,14 +7389,7 @@ class EndPoint_api_v1_persistentvolumes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -8726,19 +7438,12 @@ class EndPoint_api_v1_persistentvolumes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_api_v1_persistentvolumes_name(self.client, **params)
+        return EndPoint_api_v1_persistentvolumes_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_persistentvolumes_name(EndPoint):
@@ -8775,20 +7480,13 @@ class EndPoint_api_v1_persistentvolumes_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.PersistentVolume'
 
@@ -8814,20 +7512,13 @@ class EndPoint_api_v1_persistentvolumes_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.PersistentVolume'
 
@@ -8853,20 +7544,13 @@ class EndPoint_api_v1_persistentvolumes_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -8892,20 +7576,13 @@ class EndPoint_api_v1_persistentvolumes_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_persistentvolumes_name_status(EndPoint):
@@ -8935,14 +7612,7 @@ class EndPoint_api_v1_persistentvolumes_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.PersistentVolume'
 
@@ -8973,14 +7643,7 @@ class EndPoint_api_v1_persistentvolumes_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.PersistentVolume'
 
@@ -9011,14 +7674,7 @@ class EndPoint_api_v1_persistentvolumes_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_pods(EndPoint):
@@ -9072,14 +7728,7 @@ class EndPoint_api_v1_pods(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Pod'
 
@@ -9104,14 +7753,7 @@ class EndPoint_api_v1_pods(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_podtemplates(EndPoint):
@@ -9165,14 +7807,7 @@ class EndPoint_api_v1_podtemplates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.PodTemplate'
 
@@ -9197,14 +7832,7 @@ class EndPoint_api_v1_podtemplates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
@@ -9229,20 +7857,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -9262,20 +7883,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
 
     def put(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -9295,20 +7909,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
 
     def post(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -9328,20 +7935,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
 
     def delete(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -9361,20 +7961,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
 
     def head(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -9394,20 +7987,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
 
     def options(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
@@ -9438,21 +8024,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
 
     def get(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -9478,21 +8057,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
 
     def put(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -9518,21 +8090,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
 
     def post(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -9558,21 +8123,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
 
     def delete(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -9598,21 +8156,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
 
     def head(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -9638,21 +8189,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
 
     def options(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
@@ -9677,20 +8221,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -9710,20 +8247,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
 
     def put(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -9743,20 +8273,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
 
     def post(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -9776,20 +8299,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
 
     def delete(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -9809,20 +8325,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
 
     def head(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -9842,20 +8351,13 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
 
     def options(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
@@ -9886,21 +8388,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
 
     def get(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -9926,21 +8421,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
 
     def put(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -9966,21 +8454,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
 
     def post(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -10006,21 +8487,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
 
     def delete(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -10046,21 +8520,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
 
     def head(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -10086,21 +8553,14 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
 
     def options(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_proxy_nodes_name(EndPoint):
@@ -10119,20 +8579,13 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -10146,20 +8599,13 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
 
     def put(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -10173,20 +8619,13 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
 
     def post(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -10200,20 +8639,13 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
 
     def delete(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -10227,20 +8659,13 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
 
     def head(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -10254,20 +8679,13 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
 
     def options(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
@@ -10292,21 +8710,14 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
 
     def get(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'string'
 
@@ -10326,21 +8737,14 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
 
     def put(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _post_type_ = 'string'
 
@@ -10360,21 +8764,14 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
 
     def post(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'string'
 
@@ -10394,21 +8791,14 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
 
     def delete(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     _head_type_ = 'string'
 
@@ -10428,21 +8818,14 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
 
     def head(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.head(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._head_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('head', _path_, _params_, _body_)
 
     _options_type_ = 'string'
 
@@ -10462,21 +8845,14 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
 
     def options(self, *, name, path, **_kwargs_):
         _params_ = dict(self.params)
+        _path_ = self.path.format(**_params_)
         _params_['name'] = name
         _params_['path'] = path
-        _path_ = self.path.format(**_params_)
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.options(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._options_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('options', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_replicationcontrollers(EndPoint):
@@ -10530,14 +8906,7 @@ class EndPoint_api_v1_replicationcontrollers(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ReplicationController'
 
@@ -10562,14 +8931,7 @@ class EndPoint_api_v1_replicationcontrollers(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_resourcequotas(EndPoint):
@@ -10623,14 +8985,7 @@ class EndPoint_api_v1_resourcequotas(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ResourceQuota'
 
@@ -10655,14 +9010,7 @@ class EndPoint_api_v1_resourcequotas(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_secrets(EndPoint):
@@ -10716,14 +9064,7 @@ class EndPoint_api_v1_secrets(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Secret'
 
@@ -10748,14 +9089,7 @@ class EndPoint_api_v1_secrets(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_securitycontextconstraints(EndPoint):
@@ -10809,14 +9143,7 @@ class EndPoint_api_v1_securitycontextconstraints(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.SecurityContextConstraints'
 
@@ -10841,14 +9168,7 @@ class EndPoint_api_v1_securitycontextconstraints(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -10897,19 +9217,12 @@ class EndPoint_api_v1_securitycontextconstraints(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_api_v1_securitycontextconstraints_name(self.client, **params)
+        return EndPoint_api_v1_securitycontextconstraints_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_securitycontextconstraints_name(EndPoint):
@@ -10946,20 +9259,13 @@ class EndPoint_api_v1_securitycontextconstraints_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.SecurityContextConstraints'
 
@@ -10985,20 +9291,13 @@ class EndPoint_api_v1_securitycontextconstraints_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.SecurityContextConstraints'
 
@@ -11024,20 +9323,13 @@ class EndPoint_api_v1_securitycontextconstraints_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -11063,20 +9355,13 @@ class EndPoint_api_v1_securitycontextconstraints_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_serviceaccounts(EndPoint):
@@ -11130,14 +9415,7 @@ class EndPoint_api_v1_serviceaccounts(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ServiceAccount'
 
@@ -11162,14 +9440,7 @@ class EndPoint_api_v1_serviceaccounts(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_api_v1_services(EndPoint):
@@ -11223,14 +9494,7 @@ class EndPoint_api_v1_services(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Service'
 
@@ -11255,14 +9519,7 @@ class EndPoint_api_v1_services(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1(EndPoint):
@@ -11280,14 +9537,7 @@ class EndPoint_oapi_v1(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_appliedclusterresourcequotas(EndPoint):
@@ -11341,14 +9591,7 @@ class EndPoint_oapi_v1_appliedclusterresourcequotas(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_buildconfigs(EndPoint):
@@ -11402,14 +9645,7 @@ class EndPoint_oapi_v1_buildconfigs(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.BuildConfig'
 
@@ -11434,14 +9670,7 @@ class EndPoint_oapi_v1_buildconfigs(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_builds(EndPoint):
@@ -11495,14 +9724,7 @@ class EndPoint_oapi_v1_builds(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Build'
 
@@ -11527,14 +9749,7 @@ class EndPoint_oapi_v1_builds(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusternetworks(EndPoint):
@@ -11588,14 +9803,7 @@ class EndPoint_oapi_v1_clusternetworks(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ClusterNetwork'
 
@@ -11620,14 +9828,7 @@ class EndPoint_oapi_v1_clusternetworks(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -11676,19 +9877,12 @@ class EndPoint_oapi_v1_clusternetworks(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_clusternetworks_name(self.client, **params)
+        return EndPoint_oapi_v1_clusternetworks_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusternetworks_name(EndPoint):
@@ -11725,20 +9919,13 @@ class EndPoint_oapi_v1_clusternetworks_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ClusterNetwork'
 
@@ -11764,20 +9951,13 @@ class EndPoint_oapi_v1_clusternetworks_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ClusterNetwork'
 
@@ -11803,20 +9983,13 @@ class EndPoint_oapi_v1_clusternetworks_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -11842,20 +10015,13 @@ class EndPoint_oapi_v1_clusternetworks_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterpolicies(EndPoint):
@@ -11909,14 +10075,7 @@ class EndPoint_oapi_v1_clusterpolicies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ClusterPolicy'
 
@@ -11941,14 +10100,7 @@ class EndPoint_oapi_v1_clusterpolicies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -11997,19 +10149,12 @@ class EndPoint_oapi_v1_clusterpolicies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_clusterpolicies_name(self.client, **params)
+        return EndPoint_oapi_v1_clusterpolicies_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterpolicies_name(EndPoint):
@@ -12046,20 +10191,13 @@ class EndPoint_oapi_v1_clusterpolicies_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ClusterPolicy'
 
@@ -12085,20 +10223,13 @@ class EndPoint_oapi_v1_clusterpolicies_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ClusterPolicy'
 
@@ -12124,20 +10255,13 @@ class EndPoint_oapi_v1_clusterpolicies_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -12163,20 +10287,13 @@ class EndPoint_oapi_v1_clusterpolicies_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterpolicybindings(EndPoint):
@@ -12230,14 +10347,7 @@ class EndPoint_oapi_v1_clusterpolicybindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ClusterPolicyBinding'
 
@@ -12262,14 +10372,7 @@ class EndPoint_oapi_v1_clusterpolicybindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -12318,19 +10421,12 @@ class EndPoint_oapi_v1_clusterpolicybindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_clusterpolicybindings_name(self.client, **params)
+        return EndPoint_oapi_v1_clusterpolicybindings_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterpolicybindings_name(EndPoint):
@@ -12367,20 +10463,13 @@ class EndPoint_oapi_v1_clusterpolicybindings_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ClusterPolicyBinding'
 
@@ -12406,20 +10495,13 @@ class EndPoint_oapi_v1_clusterpolicybindings_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ClusterPolicyBinding'
 
@@ -12445,20 +10527,13 @@ class EndPoint_oapi_v1_clusterpolicybindings_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -12484,20 +10559,13 @@ class EndPoint_oapi_v1_clusterpolicybindings_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterresourcequotas(EndPoint):
@@ -12551,14 +10619,7 @@ class EndPoint_oapi_v1_clusterresourcequotas(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ClusterResourceQuota'
 
@@ -12583,14 +10644,7 @@ class EndPoint_oapi_v1_clusterresourcequotas(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -12639,19 +10693,12 @@ class EndPoint_oapi_v1_clusterresourcequotas(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_clusterresourcequotas_name(self.client, **params)
+        return EndPoint_oapi_v1_clusterresourcequotas_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterresourcequotas_name(EndPoint):
@@ -12688,20 +10735,13 @@ class EndPoint_oapi_v1_clusterresourcequotas_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ClusterResourceQuota'
 
@@ -12727,20 +10767,13 @@ class EndPoint_oapi_v1_clusterresourcequotas_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ClusterResourceQuota'
 
@@ -12766,20 +10799,13 @@ class EndPoint_oapi_v1_clusterresourcequotas_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -12805,20 +10831,13 @@ class EndPoint_oapi_v1_clusterresourcequotas_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterresourcequotas_name_status(EndPoint):
@@ -12848,14 +10867,7 @@ class EndPoint_oapi_v1_clusterresourcequotas_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ClusterResourceQuota'
 
@@ -12886,14 +10898,7 @@ class EndPoint_oapi_v1_clusterresourcequotas_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ClusterResourceQuota'
 
@@ -12924,14 +10929,7 @@ class EndPoint_oapi_v1_clusterresourcequotas_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterrolebindings(EndPoint):
@@ -12985,14 +10983,7 @@ class EndPoint_oapi_v1_clusterrolebindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ClusterRoleBinding'
 
@@ -13017,19 +11008,12 @@ class EndPoint_oapi_v1_clusterrolebindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_clusterrolebindings_name(self.client, **params)
+        return EndPoint_oapi_v1_clusterrolebindings_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterrolebindings_name(EndPoint):
@@ -13054,20 +11038,13 @@ class EndPoint_oapi_v1_clusterrolebindings_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ClusterRoleBinding'
 
@@ -13093,20 +11070,13 @@ class EndPoint_oapi_v1_clusterrolebindings_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ClusterRoleBinding'
 
@@ -13132,20 +11102,13 @@ class EndPoint_oapi_v1_clusterrolebindings_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -13171,20 +11134,13 @@ class EndPoint_oapi_v1_clusterrolebindings_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterroles(EndPoint):
@@ -13238,14 +11194,7 @@ class EndPoint_oapi_v1_clusterroles(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ClusterRole'
 
@@ -13270,19 +11219,12 @@ class EndPoint_oapi_v1_clusterroles(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_clusterroles_name(self.client, **params)
+        return EndPoint_oapi_v1_clusterroles_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_clusterroles_name(EndPoint):
@@ -13307,20 +11249,13 @@ class EndPoint_oapi_v1_clusterroles_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ClusterRole'
 
@@ -13346,20 +11281,13 @@ class EndPoint_oapi_v1_clusterroles_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ClusterRole'
 
@@ -13385,20 +11313,13 @@ class EndPoint_oapi_v1_clusterroles_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -13424,20 +11345,13 @@ class EndPoint_oapi_v1_clusterroles_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_deploymentconfigrollbacks(EndPoint):
@@ -13467,14 +11381,7 @@ class EndPoint_oapi_v1_deploymentconfigrollbacks(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_deploymentconfigs(EndPoint):
@@ -13528,14 +11435,7 @@ class EndPoint_oapi_v1_deploymentconfigs(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.DeploymentConfig'
 
@@ -13560,14 +11460,7 @@ class EndPoint_oapi_v1_deploymentconfigs(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_egressnetworkpolicies(EndPoint):
@@ -13621,14 +11514,7 @@ class EndPoint_oapi_v1_egressnetworkpolicies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.EgressNetworkPolicy'
 
@@ -13653,14 +11539,7 @@ class EndPoint_oapi_v1_egressnetworkpolicies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_groups(EndPoint):
@@ -13714,14 +11593,7 @@ class EndPoint_oapi_v1_groups(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Group'
 
@@ -13746,14 +11618,7 @@ class EndPoint_oapi_v1_groups(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -13802,19 +11667,12 @@ class EndPoint_oapi_v1_groups(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_groups_name(self.client, **params)
+        return EndPoint_oapi_v1_groups_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_groups_name(EndPoint):
@@ -13851,20 +11709,13 @@ class EndPoint_oapi_v1_groups_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Group'
 
@@ -13890,20 +11741,13 @@ class EndPoint_oapi_v1_groups_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Group'
 
@@ -13929,20 +11773,13 @@ class EndPoint_oapi_v1_groups_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -13968,20 +11805,13 @@ class EndPoint_oapi_v1_groups_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_hostsubnets(EndPoint):
@@ -14035,14 +11865,7 @@ class EndPoint_oapi_v1_hostsubnets(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.HostSubnet'
 
@@ -14067,14 +11890,7 @@ class EndPoint_oapi_v1_hostsubnets(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -14123,19 +11939,12 @@ class EndPoint_oapi_v1_hostsubnets(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_hostsubnets_name(self.client, **params)
+        return EndPoint_oapi_v1_hostsubnets_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_hostsubnets_name(EndPoint):
@@ -14172,20 +11981,13 @@ class EndPoint_oapi_v1_hostsubnets_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.HostSubnet'
 
@@ -14211,20 +12013,13 @@ class EndPoint_oapi_v1_hostsubnets_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.HostSubnet'
 
@@ -14250,20 +12045,13 @@ class EndPoint_oapi_v1_hostsubnets_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -14289,20 +12077,13 @@ class EndPoint_oapi_v1_hostsubnets_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_identities(EndPoint):
@@ -14356,14 +12137,7 @@ class EndPoint_oapi_v1_identities(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Identity'
 
@@ -14388,14 +12162,7 @@ class EndPoint_oapi_v1_identities(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -14444,19 +12211,12 @@ class EndPoint_oapi_v1_identities(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_identities_name(self.client, **params)
+        return EndPoint_oapi_v1_identities_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_identities_name(EndPoint):
@@ -14493,20 +12253,13 @@ class EndPoint_oapi_v1_identities_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Identity'
 
@@ -14532,20 +12285,13 @@ class EndPoint_oapi_v1_identities_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Identity'
 
@@ -14571,20 +12317,13 @@ class EndPoint_oapi_v1_identities_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -14610,20 +12349,13 @@ class EndPoint_oapi_v1_identities_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_images(EndPoint):
@@ -14677,14 +12409,7 @@ class EndPoint_oapi_v1_images(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Image'
 
@@ -14709,14 +12434,7 @@ class EndPoint_oapi_v1_images(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -14765,19 +12483,12 @@ class EndPoint_oapi_v1_images(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_images_name(self.client, **params)
+        return EndPoint_oapi_v1_images_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_images_name(EndPoint):
@@ -14814,20 +12525,13 @@ class EndPoint_oapi_v1_images_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Image'
 
@@ -14853,20 +12557,13 @@ class EndPoint_oapi_v1_images_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Image'
 
@@ -14892,20 +12589,13 @@ class EndPoint_oapi_v1_images_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -14931,20 +12621,13 @@ class EndPoint_oapi_v1_images_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_imagesignatures(EndPoint):
@@ -14974,19 +12657,12 @@ class EndPoint_oapi_v1_imagesignatures(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_imagesignatures_name(self.client, **params)
+        return EndPoint_oapi_v1_imagesignatures_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_imagesignatures_name(EndPoint):
@@ -15011,20 +12687,13 @@ class EndPoint_oapi_v1_imagesignatures_name(EndPoint):
 
     def delete(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_imagestreamimports(EndPoint):
@@ -15054,14 +12723,7 @@ class EndPoint_oapi_v1_imagestreamimports(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_imagestreammappings(EndPoint):
@@ -15091,14 +12753,7 @@ class EndPoint_oapi_v1_imagestreammappings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_imagestreams(EndPoint):
@@ -15152,14 +12807,7 @@ class EndPoint_oapi_v1_imagestreams(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ImageStream'
 
@@ -15184,14 +12832,7 @@ class EndPoint_oapi_v1_imagestreams(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_imagestreamtags(EndPoint):
@@ -15245,14 +12886,7 @@ class EndPoint_oapi_v1_imagestreamtags(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ImageStreamTag'
 
@@ -15277,14 +12911,7 @@ class EndPoint_oapi_v1_imagestreamtags(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_localresourceaccessreviews(EndPoint):
@@ -15314,14 +12941,7 @@ class EndPoint_oapi_v1_localresourceaccessreviews(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_localsubjectaccessreviews(EndPoint):
@@ -15351,14 +12971,7 @@ class EndPoint_oapi_v1_localsubjectaccessreviews(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_appliedclusterresourcequotas(EndPoint):
@@ -15418,14 +13031,7 @@ class EndPoint_oapi_v1_namespaces_namespace_appliedclusterresourcequotas(EndPoin
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_appliedclusterresourcequotas_name(EndPoint):
@@ -15456,20 +13062,13 @@ class EndPoint_oapi_v1_namespaces_namespace_appliedclusterresourcequotas_name(En
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_buildconfigs(EndPoint):
@@ -15529,14 +13128,7 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.BuildConfig'
 
@@ -15567,14 +13159,7 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -15629,14 +13214,7 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(EndPoint):
@@ -15679,20 +13257,13 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.BuildConfig'
 
@@ -15724,20 +13295,13 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.BuildConfig'
 
@@ -15769,20 +13333,13 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -15814,20 +13371,13 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_instantiate(EndPoint):
@@ -15869,14 +13419,7 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_instantiate(EndPoi
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_instantiatebinary(EndPoint):
@@ -15948,14 +13491,7 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_instantiatebinary(
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_webhooks(EndPoint):
@@ -15991,14 +13527,7 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_webhooks(EndPoint)
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_webhooks_path(EndPoint):
@@ -16035,20 +13564,13 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_webhooks_path(EndP
 
     def post(self, *, path, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['path'] = path
         _path_ = self.path.format(**_params_)
+        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_builds(EndPoint):
@@ -16108,14 +13630,7 @@ class EndPoint_oapi_v1_namespaces_namespace_builds(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Build'
 
@@ -16146,14 +13661,7 @@ class EndPoint_oapi_v1_namespaces_namespace_builds(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -16208,14 +13716,7 @@ class EndPoint_oapi_v1_namespaces_namespace_builds(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_builds_name(EndPoint):
@@ -16258,20 +13759,13 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Build'
 
@@ -16303,20 +13797,13 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Build'
 
@@ -16348,20 +13835,13 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -16393,20 +13873,13 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_builds_name_clone(EndPoint):
@@ -16448,14 +13921,7 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name_clone(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_builds_name_details(EndPoint):
@@ -16497,14 +13963,7 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name_details(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_builds_name_log(EndPoint):
@@ -16600,14 +14059,7 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name_log(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigrollbacks(EndPoint):
@@ -16643,14 +14095,7 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigrollbacks(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs(EndPoint):
@@ -16710,14 +14155,7 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.DeploymentConfig'
 
@@ -16748,14 +14186,7 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -16810,14 +14241,7 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(EndPoint):
@@ -16860,20 +14284,13 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.DeploymentConfig'
 
@@ -16905,20 +14322,13 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.DeploymentConfig'
 
@@ -16950,20 +14360,13 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -16995,20 +14398,13 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name_log(EndPoint):
@@ -17104,14 +14500,7 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name_log(EndPoint)
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name_rollback(EndPoint):
@@ -17153,14 +14542,7 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name_rollback(EndP
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name_scale(EndPoint):
@@ -17196,14 +14578,7 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name_scale(EndPoin
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1beta1.Scale'
 
@@ -17240,14 +14615,7 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name_scale(EndPoin
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1beta1.Scale'
 
@@ -17284,14 +14652,7 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name_scale(EndPoin
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name_status(EndPoint):
@@ -17333,14 +14694,7 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name_status(EndPoi
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies(EndPoint):
@@ -17400,14 +14754,7 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.EgressNetworkPolicy'
 
@@ -17438,14 +14785,7 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -17500,14 +14840,7 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(EndPoint):
@@ -17550,20 +14883,13 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(EndPoint)
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.EgressNetworkPolicy'
 
@@ -17595,20 +14921,13 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(EndPoint)
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.EgressNetworkPolicy'
 
@@ -17640,20 +14959,13 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(EndPoint)
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -17685,20 +14997,13 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(EndPoint)
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_generatedeploymentconfigs_name(EndPoint):
@@ -17729,20 +15034,13 @@ class EndPoint_oapi_v1_namespaces_namespace_generatedeploymentconfigs_name(EndPo
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreamimages_name(EndPoint):
@@ -17773,20 +15071,13 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamimages_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreamimports(EndPoint):
@@ -17822,14 +15113,7 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamimports(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreammappings(EndPoint):
@@ -17865,14 +15149,7 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreammappings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreams(EndPoint):
@@ -17932,14 +15209,7 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ImageStream'
 
@@ -17970,14 +15240,7 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -18032,14 +15295,7 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(EndPoint):
@@ -18082,20 +15338,13 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ImageStream'
 
@@ -18127,20 +15376,13 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ImageStream'
 
@@ -18172,20 +15414,13 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -18217,20 +15452,13 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name_secrets(EndPoint):
@@ -18296,14 +15524,7 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name_secrets(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name_status(EndPoint):
@@ -18345,14 +15566,7 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags(EndPoint):
@@ -18412,14 +15626,7 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ImageStreamTag'
 
@@ -18450,14 +15657,7 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(EndPoint):
@@ -18488,20 +15688,13 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.ImageStreamTag'
 
@@ -18533,20 +15726,13 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.ImageStreamTag'
 
@@ -18578,20 +15764,13 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -18617,20 +15796,13 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(EndPoint):
 
     def delete(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_localresourceaccessreviews(EndPoint):
@@ -18666,14 +15838,7 @@ class EndPoint_oapi_v1_namespaces_namespace_localresourceaccessreviews(EndPoint)
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_localsubjectaccessreviews(EndPoint):
@@ -18709,14 +15874,7 @@ class EndPoint_oapi_v1_namespaces_namespace_localsubjectaccessreviews(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_policies(EndPoint):
@@ -18776,14 +15934,7 @@ class EndPoint_oapi_v1_namespaces_namespace_policies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Policy'
 
@@ -18814,14 +15965,7 @@ class EndPoint_oapi_v1_namespaces_namespace_policies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -18876,14 +16020,7 @@ class EndPoint_oapi_v1_namespaces_namespace_policies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_policies_name(EndPoint):
@@ -18926,20 +16063,13 @@ class EndPoint_oapi_v1_namespaces_namespace_policies_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Policy'
 
@@ -18971,20 +16101,13 @@ class EndPoint_oapi_v1_namespaces_namespace_policies_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Policy'
 
@@ -19016,20 +16139,13 @@ class EndPoint_oapi_v1_namespaces_namespace_policies_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -19061,20 +16177,13 @@ class EndPoint_oapi_v1_namespaces_namespace_policies_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_policybindings(EndPoint):
@@ -19134,14 +16243,7 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.PolicyBinding'
 
@@ -19172,14 +16274,7 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -19234,14 +16329,7 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_policybindings_name(EndPoint):
@@ -19284,20 +16372,13 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.PolicyBinding'
 
@@ -19329,20 +16410,13 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.PolicyBinding'
 
@@ -19374,20 +16448,13 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -19419,20 +16486,13 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_processedtemplates(EndPoint):
@@ -19468,14 +16528,7 @@ class EndPoint_oapi_v1_namespaces_namespace_processedtemplates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_resourceaccessreviews(EndPoint):
@@ -19511,14 +16564,7 @@ class EndPoint_oapi_v1_namespaces_namespace_resourceaccessreviews(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_rolebindings(EndPoint):
@@ -19578,14 +16624,7 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.RoleBinding'
 
@@ -19616,14 +16655,7 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(EndPoint):
@@ -19654,20 +16686,13 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.RoleBinding'
 
@@ -19699,20 +16724,13 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.RoleBinding'
 
@@ -19744,20 +16762,13 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -19789,20 +16800,13 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_roles(EndPoint):
@@ -19862,14 +16866,7 @@ class EndPoint_oapi_v1_namespaces_namespace_roles(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Role'
 
@@ -19900,14 +16897,7 @@ class EndPoint_oapi_v1_namespaces_namespace_roles(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_roles_name(EndPoint):
@@ -19938,20 +16928,13 @@ class EndPoint_oapi_v1_namespaces_namespace_roles_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Role'
 
@@ -19983,20 +16966,13 @@ class EndPoint_oapi_v1_namespaces_namespace_roles_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Role'
 
@@ -20028,20 +17004,13 @@ class EndPoint_oapi_v1_namespaces_namespace_roles_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -20073,20 +17042,13 @@ class EndPoint_oapi_v1_namespaces_namespace_roles_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_routes(EndPoint):
@@ -20146,14 +17108,7 @@ class EndPoint_oapi_v1_namespaces_namespace_routes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Route'
 
@@ -20184,14 +17139,7 @@ class EndPoint_oapi_v1_namespaces_namespace_routes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -20246,14 +17194,7 @@ class EndPoint_oapi_v1_namespaces_namespace_routes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_routes_name(EndPoint):
@@ -20296,20 +17237,13 @@ class EndPoint_oapi_v1_namespaces_namespace_routes_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Route'
 
@@ -20341,20 +17275,13 @@ class EndPoint_oapi_v1_namespaces_namespace_routes_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Route'
 
@@ -20386,20 +17313,13 @@ class EndPoint_oapi_v1_namespaces_namespace_routes_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -20431,20 +17351,13 @@ class EndPoint_oapi_v1_namespaces_namespace_routes_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_routes_name_status(EndPoint):
@@ -20486,14 +17399,7 @@ class EndPoint_oapi_v1_namespaces_namespace_routes_name_status(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_selfsubjectrulesreviews(EndPoint):
@@ -20529,14 +17435,7 @@ class EndPoint_oapi_v1_namespaces_namespace_selfsubjectrulesreviews(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_subjectaccessreviews(EndPoint):
@@ -20572,14 +17471,7 @@ class EndPoint_oapi_v1_namespaces_namespace_subjectaccessreviews(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_templates(EndPoint):
@@ -20639,14 +17531,7 @@ class EndPoint_oapi_v1_namespaces_namespace_templates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Template'
 
@@ -20677,14 +17562,7 @@ class EndPoint_oapi_v1_namespaces_namespace_templates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -20739,14 +17617,7 @@ class EndPoint_oapi_v1_namespaces_namespace_templates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_templates_name(EndPoint):
@@ -20789,20 +17660,13 @@ class EndPoint_oapi_v1_namespaces_namespace_templates_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Template'
 
@@ -20834,20 +17698,13 @@ class EndPoint_oapi_v1_namespaces_namespace_templates_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Template'
 
@@ -20879,20 +17736,13 @@ class EndPoint_oapi_v1_namespaces_namespace_templates_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -20924,20 +17774,13 @@ class EndPoint_oapi_v1_namespaces_namespace_templates_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_netnamespaces(EndPoint):
@@ -20991,14 +17834,7 @@ class EndPoint_oapi_v1_netnamespaces(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.NetNamespace'
 
@@ -21023,14 +17859,7 @@ class EndPoint_oapi_v1_netnamespaces(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -21079,19 +17908,12 @@ class EndPoint_oapi_v1_netnamespaces(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_netnamespaces_name(self.client, **params)
+        return EndPoint_oapi_v1_netnamespaces_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_netnamespaces_name(EndPoint):
@@ -21128,20 +17950,13 @@ class EndPoint_oapi_v1_netnamespaces_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.NetNamespace'
 
@@ -21167,20 +17982,13 @@ class EndPoint_oapi_v1_netnamespaces_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.NetNamespace'
 
@@ -21206,20 +18014,13 @@ class EndPoint_oapi_v1_netnamespaces_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -21245,20 +18046,13 @@ class EndPoint_oapi_v1_netnamespaces_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_oauthaccesstokens(EndPoint):
@@ -21312,14 +18106,7 @@ class EndPoint_oapi_v1_oauthaccesstokens(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.OAuthAccessToken'
 
@@ -21344,14 +18131,7 @@ class EndPoint_oapi_v1_oauthaccesstokens(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -21400,19 +18180,12 @@ class EndPoint_oapi_v1_oauthaccesstokens(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_oauthaccesstokens_name(self.client, **params)
+        return EndPoint_oapi_v1_oauthaccesstokens_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_oauthaccesstokens_name(EndPoint):
@@ -21449,20 +18222,13 @@ class EndPoint_oapi_v1_oauthaccesstokens_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.OAuthAccessToken'
 
@@ -21488,20 +18254,13 @@ class EndPoint_oapi_v1_oauthaccesstokens_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.OAuthAccessToken'
 
@@ -21527,20 +18286,13 @@ class EndPoint_oapi_v1_oauthaccesstokens_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -21566,20 +18318,13 @@ class EndPoint_oapi_v1_oauthaccesstokens_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_oauthauthorizetokens(EndPoint):
@@ -21633,14 +18378,7 @@ class EndPoint_oapi_v1_oauthauthorizetokens(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.OAuthAuthorizeToken'
 
@@ -21665,14 +18403,7 @@ class EndPoint_oapi_v1_oauthauthorizetokens(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -21721,19 +18452,12 @@ class EndPoint_oapi_v1_oauthauthorizetokens(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_oauthauthorizetokens_name(self.client, **params)
+        return EndPoint_oapi_v1_oauthauthorizetokens_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_oauthauthorizetokens_name(EndPoint):
@@ -21770,20 +18494,13 @@ class EndPoint_oapi_v1_oauthauthorizetokens_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.OAuthAuthorizeToken'
 
@@ -21809,20 +18526,13 @@ class EndPoint_oapi_v1_oauthauthorizetokens_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.OAuthAuthorizeToken'
 
@@ -21848,20 +18558,13 @@ class EndPoint_oapi_v1_oauthauthorizetokens_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -21887,20 +18590,13 @@ class EndPoint_oapi_v1_oauthauthorizetokens_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_oauthclientauthorizations(EndPoint):
@@ -21954,14 +18650,7 @@ class EndPoint_oapi_v1_oauthclientauthorizations(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.OAuthClientAuthorization'
 
@@ -21986,14 +18675,7 @@ class EndPoint_oapi_v1_oauthclientauthorizations(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -22042,19 +18724,12 @@ class EndPoint_oapi_v1_oauthclientauthorizations(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_oauthclientauthorizations_name(self.client, **params)
+        return EndPoint_oapi_v1_oauthclientauthorizations_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_oauthclientauthorizations_name(EndPoint):
@@ -22091,20 +18766,13 @@ class EndPoint_oapi_v1_oauthclientauthorizations_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.OAuthClientAuthorization'
 
@@ -22130,20 +18798,13 @@ class EndPoint_oapi_v1_oauthclientauthorizations_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.OAuthClientAuthorization'
 
@@ -22169,20 +18830,13 @@ class EndPoint_oapi_v1_oauthclientauthorizations_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -22208,20 +18862,13 @@ class EndPoint_oapi_v1_oauthclientauthorizations_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_oauthclients(EndPoint):
@@ -22275,14 +18922,7 @@ class EndPoint_oapi_v1_oauthclients(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.OAuthClient'
 
@@ -22307,14 +18947,7 @@ class EndPoint_oapi_v1_oauthclients(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -22363,19 +18996,12 @@ class EndPoint_oapi_v1_oauthclients(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_oauthclients_name(self.client, **params)
+        return EndPoint_oapi_v1_oauthclients_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_oauthclients_name(EndPoint):
@@ -22412,20 +19038,13 @@ class EndPoint_oapi_v1_oauthclients_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.OAuthClient'
 
@@ -22451,20 +19070,13 @@ class EndPoint_oapi_v1_oauthclients_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.OAuthClient'
 
@@ -22490,20 +19102,13 @@ class EndPoint_oapi_v1_oauthclients_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -22529,20 +19134,13 @@ class EndPoint_oapi_v1_oauthclients_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_policies(EndPoint):
@@ -22596,14 +19194,7 @@ class EndPoint_oapi_v1_policies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Policy'
 
@@ -22628,14 +19219,7 @@ class EndPoint_oapi_v1_policies(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_policybindings(EndPoint):
@@ -22689,14 +19273,7 @@ class EndPoint_oapi_v1_policybindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.PolicyBinding'
 
@@ -22721,14 +19298,7 @@ class EndPoint_oapi_v1_policybindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_processedtemplates(EndPoint):
@@ -22758,14 +19328,7 @@ class EndPoint_oapi_v1_processedtemplates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_projectrequests(EndPoint):
@@ -22819,14 +19382,7 @@ class EndPoint_oapi_v1_projectrequests(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.ProjectRequest'
 
@@ -22851,14 +19407,7 @@ class EndPoint_oapi_v1_projectrequests(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_projects(EndPoint):
@@ -22912,14 +19461,7 @@ class EndPoint_oapi_v1_projects(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Project'
 
@@ -22944,19 +19486,12 @@ class EndPoint_oapi_v1_projects(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_projects_name(self.client, **params)
+        return EndPoint_oapi_v1_projects_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_projects_name(EndPoint):
@@ -22981,20 +19516,13 @@ class EndPoint_oapi_v1_projects_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.Project'
 
@@ -23020,20 +19548,13 @@ class EndPoint_oapi_v1_projects_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.Project'
 
@@ -23059,20 +19580,13 @@ class EndPoint_oapi_v1_projects_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -23092,20 +19606,13 @@ class EndPoint_oapi_v1_projects_name(EndPoint):
 
     def delete(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_resourceaccessreviews(EndPoint):
@@ -23135,14 +19642,7 @@ class EndPoint_oapi_v1_resourceaccessreviews(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_rolebindings(EndPoint):
@@ -23196,14 +19696,7 @@ class EndPoint_oapi_v1_rolebindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.RoleBinding'
 
@@ -23228,14 +19721,7 @@ class EndPoint_oapi_v1_rolebindings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_roles(EndPoint):
@@ -23289,14 +19775,7 @@ class EndPoint_oapi_v1_roles(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Role'
 
@@ -23321,14 +19800,7 @@ class EndPoint_oapi_v1_roles(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_routes(EndPoint):
@@ -23382,14 +19854,7 @@ class EndPoint_oapi_v1_routes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Route'
 
@@ -23414,14 +19879,7 @@ class EndPoint_oapi_v1_routes(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_selfsubjectrulesreviews(EndPoint):
@@ -23451,14 +19909,7 @@ class EndPoint_oapi_v1_selfsubjectrulesreviews(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_subjectaccessreviews(EndPoint):
@@ -23488,14 +19939,7 @@ class EndPoint_oapi_v1_subjectaccessreviews(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_templates(EndPoint):
@@ -23549,14 +19993,7 @@ class EndPoint_oapi_v1_templates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.Template'
 
@@ -23581,14 +20018,7 @@ class EndPoint_oapi_v1_templates(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_useridentitymappings(EndPoint):
@@ -23618,19 +20048,12 @@ class EndPoint_oapi_v1_useridentitymappings(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_useridentitymappings_name(self.client, **params)
+        return EndPoint_oapi_v1_useridentitymappings_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_useridentitymappings_name(EndPoint):
@@ -23655,20 +20078,13 @@ class EndPoint_oapi_v1_useridentitymappings_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.UserIdentityMapping'
 
@@ -23694,20 +20110,13 @@ class EndPoint_oapi_v1_useridentitymappings_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.UserIdentityMapping'
 
@@ -23733,20 +20142,13 @@ class EndPoint_oapi_v1_useridentitymappings_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -23766,20 +20168,13 @@ class EndPoint_oapi_v1_useridentitymappings_name(EndPoint):
 
     def delete(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
 @register_endpoint
 class EndPoint_oapi_v1_users(EndPoint):
@@ -23833,14 +20228,7 @@ class EndPoint_oapi_v1_users(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _post_type_ = 'v1.User'
 
@@ -23865,14 +20253,7 @@ class EndPoint_oapi_v1_users(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.post(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._post_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('post', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -23921,19 +20302,12 @@ class EndPoint_oapi_v1_users(EndPoint):
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)
 
     def __call__(self, *, name):
         params = dict(self.params)
         params['name'] = name
-        return EndPoint_oapi_v1_users_name(self.client, **params)
+        return EndPoint_oapi_v1_users_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_users_name(EndPoint):
@@ -23970,20 +20344,13 @@ class EndPoint_oapi_v1_users_name(EndPoint):
 
     def get(self, *, name, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.get(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._get_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('get', _path_, _params_, _body_)
 
     _put_type_ = 'v1.User'
 
@@ -24009,20 +20376,13 @@ class EndPoint_oapi_v1_users_name(EndPoint):
 
     def put(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.put(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._put_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('put', _path_, _params_, _body_)
 
     _patch_type_ = 'v1.User'
 
@@ -24048,20 +20408,13 @@ class EndPoint_oapi_v1_users_name(EndPoint):
 
     def patch(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.patch(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._patch_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('patch', _path_, _params_, _body_)
 
     _delete_type_ = 'unversioned.Status'
 
@@ -24087,17 +20440,10 @@ class EndPoint_oapi_v1_users_name(EndPoint):
 
     def delete(self, *, name, body, **_kwargs_):
         _params_ = dict(self.params)
-        _params_['name'] = name
         _path_ = self.path.format(**_params_)
+        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
-        _url_ = 'https://%s%s' % (self.client.host, _path_)
-        _headers_ = { 'Authorization': 'Bearer %s' % self.client.token }
-        _response_ = _requests_.delete(_url_, headers=_headers_,
-                params=_params_, verify=self.client.verify)
-        _result_ = _resources_.loads(_response_.text)
-        if _result_.__kind__ != self._delete_type_:
-            raise Exception(str(_result_))
-        return _result_
+        return self._request_('delete', _path_, _params_, _body_)

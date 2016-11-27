@@ -157,10 +157,10 @@ def generate_endpoints(apis):
 
             print('        _params_ = dict(self.params)')
 
+            print('        _path_ = self.path.format(**_params_)')
+
             for param in path_params:
                 print('        _params_[%r] = %s' % (param, param))
-
-            print('        _path_ = self.path.format(**_params_)')
 
             for param in query_params:
                 print('        _params_[%r] = %s' % (map_param_name(orig_path, param), param))
@@ -174,19 +174,21 @@ def generate_endpoints(apis):
             else:
                 print('        _body_ = None')
 
-            print('        _url_ = \'https://%s%s\' % (self.client.host, _path_)')
+            #print('        _url_ = \'https://%s%s\' % (self.client.host, _path_)')
 
-            print('        _headers_ = { \'Authorization\': \'Bearer %s\' % self.client.token }')
+            #print('        _headers_ = { \'Authorization\': \'Bearer %s\' % self.client.token }')
 
-            print('        _response_ = _requests_.%s(_url_, headers=_headers_,' % method)
-            print('                params=_params_, verify=self.client.verify)')
+            #print('        _response_ = _requests_.%s(_url_, headers=_headers_,' % method)
+            #print('                params=_params_, verify=self.client.verify)')
 
-            print('        _result_ = _resources_.loads(_response_.text)')
+            #print('        _result_ = _resources_.loads(_response_.text)')
 
-            print('        if _result_.__kind__ != self._%s_type_:' % method)
-            print('            raise Exception(str(_result_))')
+            #print('        if _result_.__kind__ != self._%s_type_:' % method)
+            #print('            raise Exception(str(_result_))')
 
-            print('        return _result_')
+            #print('        return _result_')
+
+            print('        return self._request_(%r, _path_, _params_, _body_)' % method)
 
         if path in list(endpoints.keys()):
             if endpoints[path]:
@@ -203,9 +205,9 @@ def generate_endpoints(apis):
 
                 if child in endpoints:
                     class_name = map_url_path(child)
-                    print('        return EndPoint_%s(self.client, **params)' % class_name)
+                    print('        return EndPoint_%s(self.client, None, self._async_, **params)' % class_name)
                 else:
-                    print('        return EndPoint(self.client, %r, **params)' % child)
+                    print('        return EndPoint(self.client, %r, self._async_, **params)' % child)
 
 generate_prologue()
 

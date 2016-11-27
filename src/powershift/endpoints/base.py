@@ -1,11 +1,17 @@
 import os
 import requests
+import aiohttp
+import asyncio
+
+from .. import resources
 
 _bool_tokens = ('1', 'true', 'enabled', 'on')
 
 _internal_token = '/var/run/secrets/kubernetes.io/serviceaccount/token'
 
 class Client(object):
+
+    ASYNC = False
 
     def __init__(self, host=None, token=None, verify=None):
         self.host = host
@@ -31,11 +37,14 @@ class Client(object):
 
     @property
     def api(self):
-        return EndPoint(self, '/api')
+        return EndPoint(self, '/api', self.ASYNC)
 
     @property
     def oapi(self):
-        return EndPoint(self, '/oapi')
+        return EndPoint(self, '/oapi', self.ASYNC)
+
+class AsyncClient(Client):
+    ASYNC = True
 
 _endpoint_api_types = {}
 
@@ -58,11 +67,13 @@ class EndPoint(object):
     _post_ = {}
     _put_ = {}
 
-    def __init__(self, _client_, _path_=None, **params):
+    def __init__(self, _client_, _path_=None, _async_=False, **params):
         self.client = _client_
 
         if _path_:
             self.path = _path_
+
+        self._async_ = _async_
 
         self.params = params
 
@@ -71,8 +82,49 @@ class EndPoint(object):
         if path not in _endpoint_api_types:
             if path not in _endpoint_api_types:
                 raise AttributeError('invalid API endpoint %r' % path)
-            return _endpoint_api_types[fallbackpath](self.client, **self.params)
-        return _endpoint_api_types[path](self.client, **self.params)
+            return _endpoint_api_types[fallbackpath](self.client, None,
+                    self._async_, **self.params)
+        return _endpoint_api_types[path](self.client, None,
+                self._async_, **self.params)
+
+    async def _async_request_(self, method, url, params, headers, body):
+        connector = aiohttp.TCPConnector(verify_ssl=False)
+        async with aiohttp.ClientSession(connector=connector) as session:
+            if body is not None:
+                async with getattr(session, method)(url, params=params,
+                        headers=headers, body=body) as response:
+                    data = await response.read()
+                    result = resources.loads(data.decode('UTF-8'))
+            else:
+                async with getattr(session, method)(url, params=params,
+                        headers=headers) as response:
+                    data = await response.read()
+                    result = resources.loads(data.decode('UTF-8'))
+        if result.__kind__ != getattr(self, '_%s_type_' % method):
+            raise Exception(str(result))
+        return result
+
+    def _sync_request_(self, method, url, params, headers, body):
+        if body is not None:
+            response = getattr(requests, method)(url, headers=headers,
+                    params=params, verify=self.client.verify, body=body)
+        else:
+            response = getattr(requests, method)(url, headers=headers,
+                    params=params, verify=self.client.verify)
+        result = resources.loads(response.text)
+        if result.__kind__ != getattr(self, '_%s_type_' % method):
+            raise Exception(str(result))
+        return result
+
+    def _request_(self, method, path, params, body):
+        url = 'https://%s%s' % (self.client.host, path)
+        headers = { 'Authorization': 'Bearer %s' % self.client.token }
+        if body is not None:
+            body = resources.dumps(body)
+        if self._async_:
+            return self._async_request_(method, url, params, headers, body)
+        else:
+            return self._sync_request_(method, url, params, headers, body)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces(EndPoint):
@@ -83,7 +135,7 @@ class EndPoint_oapi_v1_namespaces(EndPoint):
         child = self.path + '/{namespace}'
         params = dict(self.params)
         params['namespace'] = namespace
-        return EndPoint(self.client, child, **params)
+        return EndPoint(self.client, child, self._async_, **params)
 
 # @register_endpoint
 # class EndPoint_api_v1_watch(EndPoint):
@@ -104,4 +156,4 @@ class EndPoint_oapi_v1_namespaces(EndPoint):
 #         child = self.path + '/{namespace}'
 #         params = dict(self.params)
 #         params['namespace'] = namespace
-#         return EndPoint(self.client, child, **params)
+#         return EndPoint(self.client, child, self._async_, **params)

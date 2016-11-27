@@ -39,7 +39,7 @@ setup_kwargs = dict(
                 'powershift.composer', 'powershift.templates'],
     package_dir={'powershift': 'src/powershift'},
     package_data={'powershift.templates': _template_files()},
-    install_requires=['Jinja2', 'requests'],
+    install_requires=['Jinja2', 'requests', 'aiohttp'],
 )
 
 setup(**setup_kwargs)

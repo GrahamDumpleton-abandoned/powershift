@@ -1,2 +1,2 @@
-from .base import Client
+from .base import Client, AsyncClient
 from .api import *
