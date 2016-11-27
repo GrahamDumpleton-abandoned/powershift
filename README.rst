@@ -117,6 +117,38 @@ is::
         for pod in pods.items:
             print('pod=%r' % pod.metadata.name)
 
+The client calls in this example are blocking. If you want to use the
+client in this manner in an asynchronous system, you will need to execute
+the calls in a thread and not within a main event loop callback.
+
+The alternative if implementing any asynchronous system on top of the
+asyncio library and Python async/await primitives, is to use the async
+variant of the client::
+
+    import asyncio
+
+    import powershift.endpoints as endpoints
+    import powershift.resources as resources
+
+    client = endpoints.AsyncClient()
+
+    async def run_query():
+        projects = await client.oapi.v1.projects.get()
+
+        for project in projects.items:
+            namespace = project.metadata.name
+
+            print('namespace=%r' % namespace)
+
+            pods = await client.api.v1.namespaces(namespace=namespace).pods.get()
+
+            for pod in pods.items:
+                print('    pod=%r' % pod.metadata.name)
+
+    loop = asyncio.get_event_loop()
+
+    loop.run_until_complete(run_query())
+
 The calling conventions can be derived from the REST API documentation
 available at:
 
