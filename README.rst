@@ -151,8 +151,11 @@ variant of the client::
 The calling conventions can be derived from the REST API documentation
 available at:
 
-* [Kubernetes v1 REST API](https://docs.openshift.com/enterprise/latest/rest_api/kubernetes_v1.html).
-* [OpenShift Enterprise v1 REST API](https://docs.openshift.com/enterprise/latest/rest_api/openshift_v1.html).
+* `Kubernetes v1 REST API`_
+* `OpenShift Enterprise v1 REST API`_
+
+:: _`Kubernetes v1 REST API`: https://docs.openshift.com/enterprise/latest/rest_api/kubernetes_v1.html`
+:: _`OpenShift Enterprise v1 REST API`: https://docs.openshift.com/enterprise/latest/rest_api/openshift_v1.html
 
 Specifically, by matching to the URL path for an endpoint.
 
