@@ -122,7 +122,7 @@ client in this manner in an asynchronous system, you will need to execute
 the calls in a thread and not within a main event loop callback.
 
 The alternative if implementing any asynchronous system on top of the
-asyncio library and Python async/await primitives, is to use the async
+``asyncio`` library and Python async/await primitives, is to use the async
 variant of the client::
 
     import asyncio
