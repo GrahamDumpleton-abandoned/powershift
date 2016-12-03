@@ -61,6 +61,9 @@ class Resource(object):
     def __setitem__(self, name, value):
         self.__dict__[name] = value
 
+    def __iter__(self):
+        return iter(self.__dict__)
+
     def __repr__(self):
         return '%s(%s)' % (self.__class__.__name__, ', '.join(
                 ['%s=%r' % (k, v) for k, v in self.__dict__.items()]))
