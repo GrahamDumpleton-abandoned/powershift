@@ -193,6 +193,16 @@ def generate_resources(models):
             print()
             print('        self.kind = %s' % repr(type_name.split('.')[-1]))
 
+        if 'apiVersion' in definition['properties']:
+            try:
+                api_version, _ = type_name.split('.')
+            except ValueError:
+                pass
+            else:
+                if api_version != 'unversioned':
+                    print()
+                    print('        self.api_version = %r' % api_version)
+
         if required:
             print()
 
