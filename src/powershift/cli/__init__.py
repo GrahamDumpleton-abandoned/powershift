@@ -1,10 +1,42 @@
 import os
+import re
 import subprocess
 import webbrowser
 
 import click
 
 ENTRYPOINTS = 'powershift_cli_plugins'
+
+
+def server_url():
+    # XXX This is only available from Origin 1.4 onwards.
+    # command = ['oc', 'whoami', '--show-server']
+    # url = subprocess.check_output(command, universal_newlines=True)
+    # url = url.strip()
+
+    command = ['oc', 'config', 'view', '--minify', '-o',
+            'jsonpath="{.clusters[*].cluster.server}"']
+
+    url = subprocess.check_output(command, universal_newlines=True)
+    url = re.sub(r'^\s*"(.*)"\s*$', r'\1', url)
+
+    return url
+
+def server_context():
+    command = ['oc', 'whoami', '--show-context']
+
+    context = subprocess.check_output(command, universal_newlines=True)
+    context = context.strip()
+
+    return context
+
+def server_token():
+    command = ['oc', 'whoami', '--show-token']
+
+    token = subprocess.check_output(command, universal_newlines=True)
+    token = token.strip()
+
+    return token
 
 @click.group()
 @click.pass_context
@@ -29,9 +61,7 @@ def console():
 
     """
 
-    url = subprocess.check_output(['oc', 'whoami', '--show-server'],
-            universal_newlines=True).strip()
-    webbrowser.open(url)
+    webbrowser.open(server_url())
 
 @root.command()
 def server():
@@ -40,9 +70,7 @@ def server():
 
     """
 
-    url = subprocess.check_output(['oc', 'whoami', '--show-server'],
-            universal_newlines=True).strip()
-    click.echo(url)
+    click.echo(server_url())
 
 @root.group()
 def completion():
