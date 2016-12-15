@@ -36,10 +36,12 @@ setup_kwargs = dict(
     classifiers=classifiers,
     keywords='openshift kubernetes',
     packages=['powershift', 'powershift.resources', 'powershift.endpoints',
-                'powershift.composer', 'powershift.templates'],
+        'powershift.cli', 'powershift.composer', 'powershift.templates'],
     package_dir={'powershift': 'src/powershift'},
-    package_data={'powershift.templates': _template_files()},
-    install_requires=['Jinja2', 'requests', 'aiohttp'],
+    package_data={'powershift.templates': _template_files(),
+        'powershift.cli': ['completion-bash.sh']},
+    entry_points = {'console_scripts':['powershift = powershift.cli:main']},
+    install_requires=['Jinja2', 'requests', 'aiohttp', 'click'],
 )
 
 setup(**setup_kwargs)

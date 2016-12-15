@@ -5,6 +5,11 @@ The library will provide the capability to work with OpenShift/Kubernetes
 resource objects, as well as endpoints for communicating with the OpenShift
 REST API.
 
+A command line client with the name ``powershift`` is also included which
+provides additional functionality useful to users of the OpenShift
+platform. Base functionality is minimal, but can be extended by installing
+additional plugins.
+
 The package requires Python 3.5 and will not work with earlier versions
 of Python.
 
@@ -179,3 +184,40 @@ API. For example, when referring to a namespace, you must always use
 ``namespace``. The published API mixes ``name`` and ``namespace`` which can
 cause problems for an automatically generated API such that this package
 implements.
+
+Extended command line client
+----------------------------
+
+The command line client provided with the package also goes by the name
+``powershift``. Executing the command with no arguments will provide a
+list of the base commands available.
+
+::
+
+    $ powershift
+    Usage: powershift [OPTIONS] COMMAND [ARGS]...
+
+      PowerShift client for OpenShift.
+
+      This client provides additional functionality useful to users of the
+      OpenShift platform. Base functionality is minimal, but can be extended by
+      installing additional plugins.
+
+      For more details see:
+
+          https://github.com/getwarped/powershift
+
+    Options:
+      --help  Show this message and exit.
+
+    Commands:
+      completion  Output completion script for specified shell.
+      console     Open a browser on the OpenShift web console.
+      server      Displays the URL for the OpenShift cluster.
+
+The client uses a plugin structure so that additional commands can be added
+for specific purposes by installing additional Python packages which define
+the commands.
+
+To enable ``bash`` completion, run ``powershift completion bash --help``
+and follow the instructions.
