@@ -74,17 +74,23 @@ Calling the OpenShift REST API
 Requests can be made against the OpenShift REST API by first creating a
 client object:
 
-* ``powershift.endpoints.Client(host=None, token=None, verify=None)`` -
-  Create a client object for ``host`` by passing ``'hostname'``, optionally
-  including a port by specifying ``'hostname:port'``. The API access
-  ``token`` can be supplied, as can a flag indicating whether certificate
-  verification should be performed for the secure connection. Certificate
-  verification is performed by default.
+* ``powershift.endpoints.Client(server=None, token=None, *, user=None, verify=None)`` -
+  Create a client object for ``server`` by passing ``'hostname'``,
+  optionally including a port by specifying ``'hostname:port'``, or a URL.
+  When ``hostname`` is used, it is presumed that a secure connection should
+  be used. If using ``oc proxy`` is being used, you will need to supply a
+  URL and specify the protocol as ``http`` rather than ``https``. The API
+  access ``token`` can be supplied, as can a flag indicating whether
+  certificate verification should be performed for a secure connection.
+  Certificate verification is performed by default but can be disabled
+  using the keyword argument ``verify``. In order to issue the request and
+  impersonate a specific user you have rights to impersonate, you can pass
+  the keyword argument ``user``.
 
-If the parameters are not being supplied explicitly, they can instead ben
+If the parameters are not being supplied explicitly, they can instead be
 supplied using environment variables.
 
-* ``OPENSHIFT_API_HOST`` - The ``hostname`` or ``hostname:port``.
+* ``OPENSHIFT_API_SERVER`` - The ``hostname``, ``hostname:port`` or URL.
 
 * ``OPENSHIFT_API_TOKEN`` - The API access token.
 

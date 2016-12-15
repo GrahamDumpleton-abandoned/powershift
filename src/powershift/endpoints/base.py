@@ -13,16 +13,22 @@ class Client(object):
 
     ASYNC = False
 
-    def __init__(self, host=None, token=None, verify=None):
-        self.host = host
+    def __init__(self, server=None, token=None, *, user=None, verify=None):
+        self.server = server
         self.token = token
+        self.user = user
         self.verify = verify
 
-        if self.host is None:
-            self.host = os.environ.get('OPENSHIFT_API_HOST')
+        if self.server is None:
+            self.server = os.environ.get('OPENSHIFT_API_SERVER')
 
-        if self.host is None:
-            self.host = 'openshift.default.svc.cluster.local'
+        # For backwards compatibility as changed name.
+
+        if self.server is None:
+            self.server = os.environ.get('OPENSHIFT_API_HOST')
+
+        if self.server is None:
+            self.server = 'openshift.default.svc.cluster.local'
             if self.token is None and os.path.exists(_internal_token):
                 with open(_internal_token) as fp:
                     self.token = fp.read()
@@ -87,12 +93,12 @@ class EndPoint(object):
         return _endpoint_api_types[path](self.client, None,
                 self._async_, **self.params)
 
-    async def _async_request_(self, method, url, params, headers, body):
+    async def _async_request_(self, method, url, params, headers, data):
         connector = aiohttp.TCPConnector(verify_ssl=False)
         async with aiohttp.ClientSession(connector=connector) as session:
-            if body is not None:
+            if data is not None:
                 async with getattr(session, method)(url, params=params,
-                        headers=headers, body=body) as response:
+                        headers=headers, data=data) as response:
                     data = await response.read()
                     result = resources.loads(data.decode('UTF-8'))
             else:
@@ -104,10 +110,10 @@ class EndPoint(object):
             raise Exception(str(result))
         return result
 
-    def _sync_request_(self, method, url, params, headers, body):
-        if body is not None:
+    def _sync_request_(self, method, url, params, headers, data):
+        if data is not None:
             response = getattr(requests, method)(url, headers=headers,
-                    params=params, verify=self.client.verify, body=body)
+                    params=params, verify=self.client.verify, data=data)
         else:
             response = getattr(requests, method)(url, headers=headers,
                     params=params, verify=self.client.verify)
@@ -117,8 +123,15 @@ class EndPoint(object):
         return result
 
     def _request_(self, method, path, params, body):
-        url = 'https://%s%s' % (self.client.host, path)
-        headers = { 'Authorization': 'Bearer %s' % self.client.token }
+        server = self.client.server.lower()
+        if server.startswith('http://') or server.startswith('https://'):
+            url = '%s%s' % (self.client.server, path)
+        else:
+            url = 'https://%s%s' % (self.client.server, path)
+        headers = {}
+        headers['Authorization'] = 'Bearer %s' % self.client.token
+        if self.client.user is not None:
+            headers['Impersonate-User'] = self.client.user
         if body is not None:
             body = resources.dumps(body)
         if self._async_:
