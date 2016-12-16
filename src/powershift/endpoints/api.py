@@ -135,10 +135,9 @@ class EndPoint_api_v1_componentstatuses_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -815,10 +814,9 @@ class EndPoint_api_v1_namespaces_namespace_configmaps_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -853,10 +851,9 @@ class EndPoint_api_v1_namespaces_namespace_configmaps_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -891,10 +888,9 @@ class EndPoint_api_v1_namespaces_namespace_configmaps_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -929,10 +925,9 @@ class EndPoint_api_v1_namespaces_namespace_configmaps_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1124,10 +1119,9 @@ class EndPoint_api_v1_namespaces_namespace_endpoints_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1162,10 +1156,9 @@ class EndPoint_api_v1_namespaces_namespace_endpoints_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1200,10 +1193,9 @@ class EndPoint_api_v1_namespaces_namespace_endpoints_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1238,10 +1230,9 @@ class EndPoint_api_v1_namespaces_namespace_endpoints_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1433,10 +1424,9 @@ class EndPoint_api_v1_namespaces_namespace_events_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1471,10 +1461,9 @@ class EndPoint_api_v1_namespaces_namespace_events_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1509,10 +1498,9 @@ class EndPoint_api_v1_namespaces_namespace_events_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1547,10 +1535,9 @@ class EndPoint_api_v1_namespaces_namespace_events_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1742,10 +1729,9 @@ class EndPoint_api_v1_namespaces_namespace_limitranges_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1780,10 +1766,9 @@ class EndPoint_api_v1_namespaces_namespace_limitranges_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1818,10 +1803,9 @@ class EndPoint_api_v1_namespaces_namespace_limitranges_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -1856,10 +1840,9 @@ class EndPoint_api_v1_namespaces_namespace_limitranges_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -2051,10 +2034,9 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(EndPoint)
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -2089,10 +2071,9 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(EndPoint)
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -2127,10 +2108,9 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(EndPoint)
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -2165,10 +2145,9 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(EndPoint)
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -2470,10 +2449,9 @@ class EndPoint_api_v1_namespaces_namespace_pods_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -2508,10 +2486,9 @@ class EndPoint_api_v1_namespaces_namespace_pods_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -2546,10 +2523,9 @@ class EndPoint_api_v1_namespaces_namespace_pods_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -2584,10 +2560,9 @@ class EndPoint_api_v1_namespaces_namespace_pods_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -3283,10 +3258,9 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def get(self, *, path, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -3321,10 +3295,9 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def post(self, *, path, **_kwargs_):
+    def post(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -3359,10 +3332,9 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def put(self, *, path, **_kwargs_):
+    def put(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -3397,10 +3369,9 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, path, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -3435,10 +3406,9 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def head(self, *, path, **_kwargs_):
+    def head(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -3473,10 +3443,9 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def options(self, *, path, **_kwargs_):
+    def options(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -3778,10 +3747,9 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -3816,10 +3784,9 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -3854,10 +3821,9 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -3892,10 +3858,9 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -4087,10 +4052,9 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(EndPoint)
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -4125,10 +4089,9 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(EndPoint)
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -4163,10 +4126,9 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(EndPoint)
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -4201,10 +4163,9 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(EndPoint)
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -4616,10 +4577,9 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -4654,10 +4614,9 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -4692,10 +4651,9 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -4730,10 +4688,9 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5035,10 +4992,9 @@ class EndPoint_api_v1_namespaces_namespace_secrets_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5073,10 +5029,9 @@ class EndPoint_api_v1_namespaces_namespace_secrets_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5111,10 +5066,9 @@ class EndPoint_api_v1_namespaces_namespace_secrets_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5149,10 +5103,9 @@ class EndPoint_api_v1_namespaces_namespace_secrets_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5344,10 +5297,9 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5382,10 +5334,9 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5420,10 +5371,9 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5458,10 +5408,9 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5598,10 +5547,9 @@ class EndPoint_api_v1_namespaces_namespace_services_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5636,10 +5584,9 @@ class EndPoint_api_v1_namespaces_namespace_services_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5674,10 +5621,9 @@ class EndPoint_api_v1_namespaces_namespace_services_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5706,10 +5652,9 @@ class EndPoint_api_v1_namespaces_namespace_services_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5940,10 +5885,9 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def get(self, *, path, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -5978,10 +5922,9 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def post(self, *, path, **_kwargs_):
+    def post(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6016,10 +5959,9 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def put(self, *, path, **_kwargs_):
+    def put(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6054,10 +5996,9 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, path, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6092,10 +6033,9 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def head(self, *, path, **_kwargs_):
+    def head(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6130,10 +6070,9 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def options(self, *, path, **_kwargs_):
+    def options(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6283,10 +6222,9 @@ class EndPoint_api_v1_namespaces_namespace(EndPoint):
         'required': True,
     }
 
-    def get(self, *, namespace, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['namespace'] = namespace
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6315,10 +6253,9 @@ class EndPoint_api_v1_namespaces_namespace(EndPoint):
         'required': True,
     }
 
-    def put(self, *, namespace, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['namespace'] = namespace
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6347,10 +6284,9 @@ class EndPoint_api_v1_namespaces_namespace(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, namespace, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['namespace'] = namespace
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6379,10 +6315,9 @@ class EndPoint_api_v1_namespaces_namespace(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, namespace, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['namespace'] = namespace
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6683,10 +6618,9 @@ class EndPoint_api_v1_nodes_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6715,10 +6649,9 @@ class EndPoint_api_v1_nodes_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6747,10 +6680,9 @@ class EndPoint_api_v1_nodes_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6779,10 +6711,9 @@ class EndPoint_api_v1_nodes_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -6971,10 +6902,9 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def get(self, *, path, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7003,10 +6933,9 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def post(self, *, path, **_kwargs_):
+    def post(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7035,10 +6964,9 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def put(self, *, path, **_kwargs_):
+    def put(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7067,10 +6995,9 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, path, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7099,10 +7026,9 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def head(self, *, path, **_kwargs_):
+    def head(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7131,10 +7057,9 @@ class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
         'required': True,
     }
 
-    def options(self, *, path, **_kwargs_):
+    def options(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7478,10 +7403,9 @@ class EndPoint_api_v1_persistentvolumes_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7510,10 +7434,9 @@ class EndPoint_api_v1_persistentvolumes_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7542,10 +7465,9 @@ class EndPoint_api_v1_persistentvolumes_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7574,10 +7496,9 @@ class EndPoint_api_v1_persistentvolumes_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7855,10 +7776,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7881,10 +7801,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, **_kwargs_):
+    def put(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7907,10 +7826,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
         'required': True,
     }
 
-    def post(self, *, name, **_kwargs_):
+    def post(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7933,10 +7851,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7959,10 +7876,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
         'required': True,
     }
 
-    def head(self, *, name, **_kwargs_):
+    def head(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -7985,10 +7901,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
         'required': True,
     }
 
-    def options(self, *, name, **_kwargs_):
+    def options(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8022,11 +7937,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, path, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8055,11 +7968,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, path, **_kwargs_):
+    def put(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8088,11 +7999,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
         'required': True,
     }
 
-    def post(self, *, name, path, **_kwargs_):
+    def post(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8121,11 +8030,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, path, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8154,11 +8061,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
         'required': True,
     }
 
-    def head(self, *, name, path, **_kwargs_):
+    def head(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8187,11 +8092,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
         'required': True,
     }
 
-    def options(self, *, name, path, **_kwargs_):
+    def options(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8219,10 +8122,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8245,10 +8147,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, **_kwargs_):
+    def put(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8271,10 +8172,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
         'required': True,
     }
 
-    def post(self, *, name, **_kwargs_):
+    def post(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8297,10 +8197,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8323,10 +8222,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
         'required': True,
     }
 
-    def head(self, *, name, **_kwargs_):
+    def head(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8349,10 +8247,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
         'required': True,
     }
 
-    def options(self, *, name, **_kwargs_):
+    def options(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8386,11 +8283,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, path, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8419,11 +8314,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, path, **_kwargs_):
+    def put(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8452,11 +8345,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
         'required': True,
     }
 
-    def post(self, *, name, path, **_kwargs_):
+    def post(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8485,11 +8376,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, path, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8518,11 +8407,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
         'required': True,
     }
 
-    def head(self, *, name, path, **_kwargs_):
+    def head(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8551,11 +8438,9 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
         'required': True,
     }
 
-    def options(self, *, name, path, **_kwargs_):
+    def options(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8577,10 +8462,9 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8597,10 +8481,9 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, **_kwargs_):
+    def put(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8617,10 +8500,9 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
         'required': True,
     }
 
-    def post(self, *, name, **_kwargs_):
+    def post(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8637,10 +8519,9 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8657,10 +8538,9 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
         'required': True,
     }
 
-    def head(self, *, name, **_kwargs_):
+    def head(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8677,10 +8557,9 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
         'required': True,
     }
 
-    def options(self, *, name, **_kwargs_):
+    def options(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8708,11 +8587,9 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, path, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8735,11 +8612,9 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, path, **_kwargs_):
+    def put(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8762,11 +8637,9 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
         'required': True,
     }
 
-    def post(self, *, name, path, **_kwargs_):
+    def post(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8789,11 +8662,9 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, path, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8816,11 +8687,9 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
         'required': True,
     }
 
-    def head(self, *, name, path, **_kwargs_):
+    def head(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._head_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -8843,11 +8712,9 @@ class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
         'required': True,
     }
 
-    def options(self, *, name, path, **_kwargs_):
+    def options(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
-        _params_['path'] = path
         for _name_, _param_ in self._options_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -9257,10 +9124,9 @@ class EndPoint_api_v1_securitycontextconstraints_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -9289,10 +9155,9 @@ class EndPoint_api_v1_securitycontextconstraints_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -9321,10 +9186,9 @@ class EndPoint_api_v1_securitycontextconstraints_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -9353,10 +9217,9 @@ class EndPoint_api_v1_securitycontextconstraints_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -9917,10 +9780,9 @@ class EndPoint_oapi_v1_clusternetworks_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -9949,10 +9811,9 @@ class EndPoint_oapi_v1_clusternetworks_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -9981,10 +9842,9 @@ class EndPoint_oapi_v1_clusternetworks_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10013,10 +9873,9 @@ class EndPoint_oapi_v1_clusternetworks_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10189,10 +10048,9 @@ class EndPoint_oapi_v1_clusterpolicies_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10221,10 +10079,9 @@ class EndPoint_oapi_v1_clusterpolicies_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10253,10 +10110,9 @@ class EndPoint_oapi_v1_clusterpolicies_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10285,10 +10141,9 @@ class EndPoint_oapi_v1_clusterpolicies_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10461,10 +10316,9 @@ class EndPoint_oapi_v1_clusterpolicybindings_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10493,10 +10347,9 @@ class EndPoint_oapi_v1_clusterpolicybindings_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10525,10 +10378,9 @@ class EndPoint_oapi_v1_clusterpolicybindings_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10557,10 +10409,9 @@ class EndPoint_oapi_v1_clusterpolicybindings_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10733,10 +10584,9 @@ class EndPoint_oapi_v1_clusterresourcequotas_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10765,10 +10615,9 @@ class EndPoint_oapi_v1_clusterresourcequotas_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10797,10 +10646,9 @@ class EndPoint_oapi_v1_clusterresourcequotas_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -10829,10 +10677,9 @@ class EndPoint_oapi_v1_clusterresourcequotas_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11036,10 +10883,9 @@ class EndPoint_oapi_v1_clusterrolebindings_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11068,10 +10914,9 @@ class EndPoint_oapi_v1_clusterrolebindings_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11100,10 +10945,9 @@ class EndPoint_oapi_v1_clusterrolebindings_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11132,10 +10976,9 @@ class EndPoint_oapi_v1_clusterrolebindings_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11247,10 +11090,9 @@ class EndPoint_oapi_v1_clusterroles_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11279,10 +11121,9 @@ class EndPoint_oapi_v1_clusterroles_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11311,10 +11152,9 @@ class EndPoint_oapi_v1_clusterroles_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11343,10 +11183,9 @@ class EndPoint_oapi_v1_clusterroles_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11707,10 +11546,9 @@ class EndPoint_oapi_v1_groups_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11739,10 +11577,9 @@ class EndPoint_oapi_v1_groups_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11771,10 +11608,9 @@ class EndPoint_oapi_v1_groups_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11803,10 +11639,9 @@ class EndPoint_oapi_v1_groups_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -11979,10 +11814,9 @@ class EndPoint_oapi_v1_hostsubnets_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12011,10 +11845,9 @@ class EndPoint_oapi_v1_hostsubnets_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12043,10 +11876,9 @@ class EndPoint_oapi_v1_hostsubnets_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12075,10 +11907,9 @@ class EndPoint_oapi_v1_hostsubnets_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12251,10 +12082,9 @@ class EndPoint_oapi_v1_identities_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12283,10 +12113,9 @@ class EndPoint_oapi_v1_identities_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12315,10 +12144,9 @@ class EndPoint_oapi_v1_identities_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12347,10 +12175,9 @@ class EndPoint_oapi_v1_identities_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12523,10 +12350,9 @@ class EndPoint_oapi_v1_images_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12555,10 +12381,9 @@ class EndPoint_oapi_v1_images_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12587,10 +12412,9 @@ class EndPoint_oapi_v1_images_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12619,10 +12443,9 @@ class EndPoint_oapi_v1_images_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -12685,10 +12508,9 @@ class EndPoint_oapi_v1_imagesignatures_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -13060,10 +12882,9 @@ class EndPoint_oapi_v1_namespaces_namespace_appliedclusterresourcequotas_name(En
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -13255,10 +13076,9 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -13293,10 +13113,9 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -13331,10 +13150,9 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -13369,10 +13187,9 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -13562,10 +13379,9 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_webhooks_path(EndP
         'required': True,
     }
 
-    def post(self, *, path, **_kwargs_):
+    def post(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['path'] = path
         for _name_, _param_ in self._post_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -13757,10 +13573,9 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -13795,10 +13610,9 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -13833,10 +13647,9 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -13871,10 +13684,9 @@ class EndPoint_oapi_v1_namespaces_namespace_builds_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -14282,10 +14094,9 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -14320,10 +14131,9 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -14358,10 +14168,9 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -14396,10 +14205,9 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -14881,10 +14689,9 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(EndPoint)
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -14919,10 +14726,9 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(EndPoint)
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -14957,10 +14763,9 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(EndPoint)
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -14995,10 +14800,9 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(EndPoint)
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -15032,10 +14836,9 @@ class EndPoint_oapi_v1_namespaces_namespace_generatedeploymentconfigs_name(EndPo
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -15069,10 +14872,9 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamimages_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -15336,10 +15138,9 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -15374,10 +15175,9 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -15412,10 +15212,9 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -15450,10 +15249,9 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -15686,10 +15484,9 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -15724,10 +15521,9 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -15762,10 +15558,9 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -15794,10 +15589,9 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16061,10 +15855,9 @@ class EndPoint_oapi_v1_namespaces_namespace_policies_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16099,10 +15892,9 @@ class EndPoint_oapi_v1_namespaces_namespace_policies_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16137,10 +15929,9 @@ class EndPoint_oapi_v1_namespaces_namespace_policies_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16175,10 +15966,9 @@ class EndPoint_oapi_v1_namespaces_namespace_policies_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16370,10 +16160,9 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16408,10 +16197,9 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16446,10 +16234,9 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16484,10 +16271,9 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16684,10 +16470,9 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16722,10 +16507,9 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16760,10 +16544,9 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16798,10 +16581,9 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16926,10 +16708,9 @@ class EndPoint_oapi_v1_namespaces_namespace_roles_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -16964,10 +16745,9 @@ class EndPoint_oapi_v1_namespaces_namespace_roles_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17002,10 +16782,9 @@ class EndPoint_oapi_v1_namespaces_namespace_roles_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17040,10 +16819,9 @@ class EndPoint_oapi_v1_namespaces_namespace_roles_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17235,10 +17013,9 @@ class EndPoint_oapi_v1_namespaces_namespace_routes_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17273,10 +17050,9 @@ class EndPoint_oapi_v1_namespaces_namespace_routes_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17311,10 +17087,9 @@ class EndPoint_oapi_v1_namespaces_namespace_routes_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17349,10 +17124,9 @@ class EndPoint_oapi_v1_namespaces_namespace_routes_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17658,10 +17432,9 @@ class EndPoint_oapi_v1_namespaces_namespace_templates_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17696,10 +17469,9 @@ class EndPoint_oapi_v1_namespaces_namespace_templates_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17734,10 +17506,9 @@ class EndPoint_oapi_v1_namespaces_namespace_templates_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17772,10 +17543,9 @@ class EndPoint_oapi_v1_namespaces_namespace_templates_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17948,10 +17718,9 @@ class EndPoint_oapi_v1_netnamespaces_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -17980,10 +17749,9 @@ class EndPoint_oapi_v1_netnamespaces_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18012,10 +17780,9 @@ class EndPoint_oapi_v1_netnamespaces_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18044,10 +17811,9 @@ class EndPoint_oapi_v1_netnamespaces_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18220,10 +17986,9 @@ class EndPoint_oapi_v1_oauthaccesstokens_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18252,10 +18017,9 @@ class EndPoint_oapi_v1_oauthaccesstokens_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18284,10 +18048,9 @@ class EndPoint_oapi_v1_oauthaccesstokens_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18316,10 +18079,9 @@ class EndPoint_oapi_v1_oauthaccesstokens_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18492,10 +18254,9 @@ class EndPoint_oapi_v1_oauthauthorizetokens_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18524,10 +18285,9 @@ class EndPoint_oapi_v1_oauthauthorizetokens_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18556,10 +18316,9 @@ class EndPoint_oapi_v1_oauthauthorizetokens_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18588,10 +18347,9 @@ class EndPoint_oapi_v1_oauthauthorizetokens_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18764,10 +18522,9 @@ class EndPoint_oapi_v1_oauthclientauthorizations_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18796,10 +18553,9 @@ class EndPoint_oapi_v1_oauthclientauthorizations_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18828,10 +18584,9 @@ class EndPoint_oapi_v1_oauthclientauthorizations_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -18860,10 +18615,9 @@ class EndPoint_oapi_v1_oauthclientauthorizations_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -19036,10 +18790,9 @@ class EndPoint_oapi_v1_oauthclients_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -19068,10 +18821,9 @@ class EndPoint_oapi_v1_oauthclients_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -19100,10 +18852,9 @@ class EndPoint_oapi_v1_oauthclients_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -19132,10 +18883,9 @@ class EndPoint_oapi_v1_oauthclients_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -19514,10 +19264,9 @@ class EndPoint_oapi_v1_projects_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -19546,10 +19295,9 @@ class EndPoint_oapi_v1_projects_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -19578,10 +19326,9 @@ class EndPoint_oapi_v1_projects_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -19604,10 +19351,9 @@ class EndPoint_oapi_v1_projects_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -20076,10 +19822,9 @@ class EndPoint_oapi_v1_useridentitymappings_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -20108,10 +19853,9 @@ class EndPoint_oapi_v1_useridentitymappings_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -20140,10 +19884,9 @@ class EndPoint_oapi_v1_useridentitymappings_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -20166,10 +19909,9 @@ class EndPoint_oapi_v1_useridentitymappings_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, **_kwargs_):
+    def delete(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -20342,10 +20084,9 @@ class EndPoint_oapi_v1_users_name(EndPoint):
         'required': True,
     }
 
-    def get(self, *, name, **_kwargs_):
+    def get(self, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._get_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -20374,10 +20115,9 @@ class EndPoint_oapi_v1_users_name(EndPoint):
         'required': True,
     }
 
-    def put(self, *, name, body, **_kwargs_):
+    def put(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._put_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -20406,10 +20146,9 @@ class EndPoint_oapi_v1_users_name(EndPoint):
         'required': True,
     }
 
-    def patch(self, *, name, body, **_kwargs_):
+    def patch(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._patch_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]
@@ -20438,10 +20177,9 @@ class EndPoint_oapi_v1_users_name(EndPoint):
         'required': True,
     }
 
-    def delete(self, *, name, body, **_kwargs_):
+    def delete(self, *, body, **_kwargs_):
         _params_ = dict(self.params)
         _path_ = self.path.format(**_params_)
-        _params_['name'] = name
         for _name_, _param_ in self._delete_.items():
             if _name_ in _kwargs_:
                 _params_[_param_['name']] = _kwargs_[_name_]

@@ -105,7 +105,8 @@ def generate_endpoints(apis):
         print('    path = %r' % path)
 
         path_params = []
-        for part in path.split('/')[::-1]:
+        #for part in path.split('/')[::-1]:
+        for part in path.split('/'):
             if part.startswith('{'):
                 part = part.lstrip('{').rstrip('}')
                 mapped_param = map_param_name(orig_path, part)
