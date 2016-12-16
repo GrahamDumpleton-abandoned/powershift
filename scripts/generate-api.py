@@ -174,20 +174,6 @@ def generate_endpoints(apis):
             else:
                 print('        _body_ = None')
 
-            #print('        _url_ = \'https://%s%s\' % (self.client.host, _path_)')
-
-            #print('        _headers_ = { \'Authorization\': \'Bearer %s\' % self.client.token }')
-
-            #print('        _response_ = _requests_.%s(_url_, headers=_headers_,' % method)
-            #print('                params=_params_, verify=self.client.verify)')
-
-            #print('        _result_ = _resources_.loads(_response_.text)')
-
-            #print('        if _result_.__kind__ != self._%s_type_:' % method)
-            #print('            raise Exception(str(_result_))')
-
-            #print('        return _result_')
-
             print('        return self._request_(%r, _path_, _params_, _body_)' % method)
 
         if path in list(endpoints.keys()):
