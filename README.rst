@@ -10,8 +10,16 @@ provides additional functionality useful to users of the OpenShift
 platform. Base functionality is minimal, but can be extended by installing
 additional plugins.
 
-The package requires Python 3.5 and will not work with earlier versions
-of Python.
+The package requires Python 3.5 and will not work with earlier versions of
+Python.
+
+If you are on MacOS X and are using OpenShift Origin 1.4 or later, or
+OpenShift Container Platform 3.4 or later, you will need to ensure you are
+using Python 3.6 from the Python Software Foundation (PSF), or use Python
+3.5 or later, installed using HomeBrew. It is not possible to use Python
+3.5 from the PSF, or any other Python installation, which has been compiled
+against the OpenSSL version which ships with MacOS X as that only supports
+up to TLS 1.1 and newer versions of OpenShift require at least TLS 1.2.
 
 Manipulating resource objects
 -----------------------------
