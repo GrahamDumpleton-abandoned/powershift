@@ -1,4 +1,4 @@
-.PHONY : all validate
+.PHONY : all
 
 all : src/powershift/resources/types.py src/powershift/endpoints/api.py
 
