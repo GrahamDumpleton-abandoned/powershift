@@ -23,7 +23,7 @@ def server_url():
     return url
 
 def server_context():
-    command = ['oc', 'whoami', '--show-context']
+    command = ['oc', 'whoami', '-c']
 
     context = subprocess.check_output(command, universal_newlines=True)
     context = context.strip()
@@ -31,7 +31,7 @@ def server_context():
     return context
 
 def server_token():
-    command = ['oc', 'whoami', '--show-token']
+    command = ['oc', 'whoami', '-t']
 
     token = subprocess.check_output(command, universal_newlines=True)
     token = token.strip()
