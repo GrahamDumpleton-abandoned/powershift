@@ -22,11 +22,12 @@ classifiers = [
     'License :: OSI Approved :: BSD License',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
 ]
 
 setup_kwargs = dict(
     name='powershift',
-    version='1.3.7',
+    version='1.3.8',
     description='Python library for working with OpenShift.',
     long_description=long_description,
     url='https://github.com/getwarped/powershift',
@@ -36,12 +37,10 @@ setup_kwargs = dict(
     classifiers=classifiers,
     keywords='openshift kubernetes',
     packages=['powershift', 'powershift.resources', 'powershift.endpoints',
-        'powershift.cli', 'powershift.composer', 'powershift.templates'],
+        'powershift.composer', 'powershift.templates'],
     package_dir={'powershift': 'src/powershift'},
-    package_data={'powershift.templates': _template_files(),
-        'powershift.cli': ['completion-bash.sh']},
-    entry_points = {'console_scripts':['powershift = powershift.cli:main']},
-    install_requires=['Jinja2', 'requests', 'aiohttp', 'click'],
+    package_data={'powershift.templates': _template_files()},
+    install_requires=['Jinja2', 'requests', 'aiohttp'],
 )
 
 setup(**setup_kwargs)

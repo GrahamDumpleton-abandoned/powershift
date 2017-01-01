@@ -29,7 +29,6 @@ validate-client :
 
 package :
 	python3 setup.py sdist
-	python3 setup.py bdist_wheel --python-tag py3
 
 release : clean package
 	twine upload dist/*
