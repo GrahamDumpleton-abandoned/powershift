@@ -167,6 +167,35 @@ variant of the client::
 
     loop.run_until_complete(run_query())
 
+When using the async client, watches are supported by passing the ``watch``
+parameter to any endpoint which supports it. The result is an async context
+manager which in turn creates an async iterator which can be iterated over
+to get notifications.::
+
+    import asyncio
+
+    import powershift.endpoints as endpoints
+
+    client = endpoints.AsyncClient()
+
+    async def run_query():
+        projects = await client.oapi.v1.projects.get()
+
+        project = projects.items[0]
+        namespace = project.metadata.name
+
+        print('namespace=%r' % namespace)
+
+        async with client.api.v1.namespaces(namespace=namespace).pods.get(watch='') as items:
+            async for item in items:
+                action = item['type']
+                pod = item['object']
+                print('    %s pod=%r' % (action, pod.metadata.name))
+
+    loop = asyncio.get_event_loop()
+
+    loop.run_until_complete(run_query())
+
 The calling conventions can be derived from the REST API documentation
 available at:
 
@@ -176,7 +205,10 @@ available at:
 .. _`Kubernetes v1 REST API`: https://docs.openshift.com/enterprise/latest/rest_api/kubernetes_v1.html
 .. _`OpenShift Enterprise v1 REST API`: https://docs.openshift.com/enterprise/latest/rest_api/openshift_v1.html
 
-Specifically, by matching to the URL path for an endpoint.
+Specifically, by matching to the URL path for an endpoint, with the
+exception that ``/api/v1/watch`` and ``/oapi/v1/watch`` are not supported
+and instead you need to pass the ``watch`` parameter to the standard
+endpoint as shown above.
 
 Note that all attribute and parameter names use snake case and not camel
 case.

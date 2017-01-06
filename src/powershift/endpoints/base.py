@@ -93,8 +93,8 @@ class EndPoint(object):
         return _endpoint_api_types[path](self.client, None,
                 self._async_, **self.params)
 
-    async def _async_request_(self, method, url, params, headers, data):
-        connector = aiohttp.TCPConnector(verify_ssl=False)
+    async def _async_request_(self, method, url, verify, params, headers, data):
+        connector = aiohttp.TCPConnector(verify_ssl=verify)
         async with aiohttp.ClientSession(connector=connector) as session:
             if data is not None:
                 async with getattr(session, method)(url, params=params,
@@ -110,13 +110,13 @@ class EndPoint(object):
             raise Exception(str(result))
         return result
 
-    def _sync_request_(self, method, url, params, headers, data):
+    def _sync_request_(self, method, url, verify, params, headers, data):
         if data is not None:
             response = getattr(requests, method)(url, headers=headers,
-                    params=params, verify=self.client.verify, data=data)
+                    params=params, verify=verify, data=data)
         else:
             response = getattr(requests, method)(url, headers=headers,
-                    params=params, verify=self.client.verify)
+                    params=params, verify=verify)
         result = resources.loads(response.text)
         if result.__kind__ != getattr(self, '_%s_type_' % method):
             raise Exception(str(result))
@@ -124,20 +124,34 @@ class EndPoint(object):
 
     def _request_(self, method, path, params, body):
         server = self.client.server.lower()
+
         if server.startswith('http://') or server.startswith('https://'):
             url = '%s%s' % (self.client.server, path)
         else:
             url = 'https://%s%s' % (self.client.server, path)
+
+        verify = self.client.verify
+
         headers = {}
         headers['Authorization'] = 'Bearer %s' % self.client.token
+
         if self.client.user is not None:
             headers['Impersonate-User'] = self.client.user
         if body is not None:
             body = resources.dumps(body)
+
         if self._async_:
-            return self._async_request_(method, url, params, headers, body)
+            if 'watch' in params:
+                return Watcher(method, url, verify, params, headers, body)
+            else:
+                return self._async_request_(method, url, verify, params,
+                        headers, body)
         else:
-            return self._sync_request_(method, url, params, headers, body)
+            if 'watch' in params:
+                raise RuntimeError('Watch API not supported by client.')
+            else:
+                return self._sync_request_(method, url, verify, params,
+                        headers, body)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces(EndPoint):
@@ -170,3 +184,85 @@ class EndPoint_oapi_v1_namespaces(EndPoint):
 #         params = dict(self.params)
 #         params['namespace'] = namespace
 #         return EndPoint(self.client, child, self._async_, **params)
+
+class Watcher(object):
+
+    def __init__(self, method, url, verify, params, headers, data):
+        self._session_cm = None
+        self._session = None
+
+        self._response_cm = None
+        self._response = None
+
+        self._method = method
+        self._url = url
+        self._verify = verify
+        self._params = params
+        self._headers = headers
+        self._data = data
+
+        try:
+            self.resource_version = int(params.get('resourceVersion'))
+        except (TypeError, ValueError):
+            self.resource_version = None
+
+    async def __aenter__(self):
+        connector = aiohttp.TCPConnector(verify_ssl=self._verify)
+
+        self._session_cm = aiohttp.ClientSession(connector=connector)
+        self._session = await self._session_cm.__aenter__()
+
+        if self._data is not None:
+            self._response_cm = getattr(self._session, self._method)(
+                    self._url, params=self._params, headers=self._headers,
+                    data=data)
+        else:
+            self._response_cm = getattr(self._session, self._method)(
+                    self._url, params=self._params, headers=self._headers)
+
+        self._response = await self._response_cm.__aenter__()
+
+        if self._response.status != 200:
+            raise Exception(await self._response.text())
+
+        return WatcherSession(self)
+
+    async def __aexit__(self, exc_type, exc, tb):
+        if self._response_cm is not None:
+            await self._response_cm.__aexit__(exc_type, exc, tb)
+
+        if self._session_cm is not None:
+            await self._session_cm.__aexit__(exc_type, exc, tb)
+
+class WatcherSession(object):
+    def __init__(self, watcher):
+        self._watcher = watcher
+        self.resource_version = None
+
+    def __aiter__(self):
+        return self
+
+    async def __anext__(self):
+        line = await self._watcher._response.content.readline()
+
+        if not line:
+            raise StopAsyncIteration
+
+        data = resources.loads(line.decode('UTF-8'))
+
+        try:
+            metadata = data['object']['metadata']
+            resource_version = int(metadata['resource_version'])
+
+            if (not self.resource_version or
+                    resource_version > self.resource_version):
+                self.resource_version = resource_version
+
+            if (not self._watcher.resource_version or
+                    resource_version > self._watcher.resource_version):
+                self._watcher.resource_version = resource_version
+
+        except (TypeError, KeyError):
+            pass
+
+        return data
