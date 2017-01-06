@@ -27,7 +27,7 @@ classifiers = [
 
 setup_kwargs = dict(
     name='powershift',
-    version='1.3.8',
+    version='1.3.9',
     description='Python library for working with OpenShift.',
     long_description=long_description,
     url='https://github.com/getwarped/powershift',
