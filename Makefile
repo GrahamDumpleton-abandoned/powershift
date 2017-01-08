@@ -25,6 +25,7 @@ validate-samples-strict :
 validate-client :
 	python3 examples/list-projects.py
 	python3 examples/list-pods.py
+	python3 examples/list-pods-async.py
 	python3 examples/list-public-addresses.py
 
 package :
