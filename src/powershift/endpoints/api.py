@@ -775,6 +775,11 @@ class EndPoint_api_v1_namespaces_namespace_configmaps(EndPoint):
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_configmaps_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_configmaps_name(EndPoint):
 
@@ -1079,6 +1084,11 @@ class EndPoint_api_v1_namespaces_namespace_endpoints(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_endpoints_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_endpoints_name(EndPoint):
@@ -1385,6 +1395,11 @@ class EndPoint_api_v1_namespaces_namespace_events(EndPoint):
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_events_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_events_name(EndPoint):
 
@@ -1690,6 +1705,11 @@ class EndPoint_api_v1_namespaces_namespace_limitranges(EndPoint):
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_limitranges_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_limitranges_name(EndPoint):
 
@@ -1994,6 +2014,11 @@ class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_persistentvolumeclaims_name(EndPoint):
@@ -2409,6 +2434,11 @@ class EndPoint_api_v1_namespaces_namespace_pods(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_pods_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name(EndPoint):
@@ -3225,6 +3255,11 @@ class EndPoint_api_v1_namespaces_namespace_pods_name_proxy(EndPoint):
         _body_ = None
         return self._request_('options', _path_, _params_, _body_)
 
+    def __call__(self, *, path):
+        params = dict(self.params)
+        params['path'] = path
+        return EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_pods_name_proxy_path(EndPoint):
 
@@ -3708,6 +3743,11 @@ class EndPoint_api_v1_namespaces_namespace_podtemplates(EndPoint):
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_podtemplates_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_podtemplates_name(EndPoint):
 
@@ -4012,6 +4052,11 @@ class EndPoint_api_v1_namespaces_namespace_replicationcontrollers(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_replicationcontrollers_name(EndPoint):
@@ -4538,6 +4583,11 @@ class EndPoint_api_v1_namespaces_namespace_resourcequotas(EndPoint):
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_resourcequotas_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_resourcequotas_name(EndPoint):
 
@@ -4953,6 +5003,11 @@ class EndPoint_api_v1_namespaces_namespace_secrets(EndPoint):
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_secrets_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_secrets_name(EndPoint):
 
@@ -5258,6 +5313,11 @@ class EndPoint_api_v1_namespaces_namespace_serviceaccounts(EndPoint):
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_serviceaccounts_name(EndPoint):
 
@@ -5507,6 +5567,11 @@ class EndPoint_api_v1_namespaces_namespace_services(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
         return self._request_('post', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_api_v1_namespaces_namespace_services_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_services_name(EndPoint):
@@ -5851,6 +5916,11 @@ class EndPoint_api_v1_namespaces_namespace_services_name_proxy(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('options', _path_, _params_, _body_)
+
+    def __call__(self, *, path):
+        params = dict(self.params)
+        params['path'] = path
+        return EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_namespaces_namespace_services_name_proxy_path(EndPoint):
@@ -6874,6 +6944,11 @@ class EndPoint_api_v1_nodes_name_proxy(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('options', _path_, _params_, _body_)
+
+    def __call__(self, *, path):
+        params = dict(self.params)
+        params['path'] = path
+        return EndPoint_api_v1_nodes_name_proxy_path(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_nodes_name_proxy_path(EndPoint):
@@ -7910,6 +7985,11 @@ class EndPoint_api_v1_proxy_namespaces_namespace_pods_name(EndPoint):
         _body_ = None
         return self._request_('options', _path_, _params_, _body_)
 
+    def __call__(self, *, path):
+        params = dict(self.params)
+        params['path'] = path
+        return EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_api_v1_proxy_namespaces_namespace_pods_name_path(EndPoint):
 
@@ -8256,6 +8336,11 @@ class EndPoint_api_v1_proxy_namespaces_namespace_services_name(EndPoint):
         _body_ = None
         return self._request_('options', _path_, _params_, _body_)
 
+    def __call__(self, *, path):
+        params = dict(self.params)
+        params['path'] = path
+        return EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_api_v1_proxy_namespaces_namespace_services_name_path(EndPoint):
 
@@ -8565,6 +8650,11 @@ class EndPoint_api_v1_proxy_nodes_name(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('options', _path_, _params_, _body_)
+
+    def __call__(self, *, path):
+        params = dict(self.params)
+        params['path'] = path
+        return EndPoint_api_v1_proxy_nodes_name_path(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_api_v1_proxy_nodes_name_path(EndPoint):
@@ -12855,6 +12945,11 @@ class EndPoint_oapi_v1_namespaces_namespace_appliedclusterresourcequotas(EndPoin
         _body_ = None
         return self._request_('get', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_appliedclusterresourcequotas_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_appliedclusterresourcequotas_name(EndPoint):
 
@@ -13036,6 +13131,11 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name(EndPoint):
@@ -13346,6 +13446,11 @@ class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_webhooks(EndPoint)
         _body_ = None
         return self._request_('post', _path_, _params_, _body_)
 
+    def __call__(self, *, path):
+        params = dict(self.params)
+        params['path'] = path
+        return EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_webhooks_path(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_buildconfigs_name_webhooks_path(EndPoint):
 
@@ -13533,6 +13638,11 @@ class EndPoint_oapi_v1_namespaces_namespace_builds(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_builds_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_builds_name(EndPoint):
@@ -14054,6 +14164,11 @@ class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_deploymentconfigs_name(EndPoint):
@@ -14650,6 +14765,11 @@ class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies(EndPoint):
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_egressnetworkpolicies_name(EndPoint):
 
@@ -15099,6 +15219,11 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreams(EndPoint):
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreams_name(EndPoint):
 
@@ -15456,6 +15581,11 @@ class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
         return self._request_('post', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_imagestreamtags_name(EndPoint):
@@ -15816,6 +15946,11 @@ class EndPoint_oapi_v1_namespaces_namespace_policies(EndPoint):
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_policies_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_policies_name(EndPoint):
 
@@ -16120,6 +16255,11 @@ class EndPoint_oapi_v1_namespaces_namespace_policybindings(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_policybindings_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_policybindings_name(EndPoint):
@@ -16443,6 +16583,11 @@ class EndPoint_oapi_v1_namespaces_namespace_rolebindings(EndPoint):
         _body_ = body
         return self._request_('post', _path_, _params_, _body_)
 
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(self.client, None, self._async_, **params)
+
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_rolebindings_name(EndPoint):
 
@@ -16680,6 +16825,11 @@ class EndPoint_oapi_v1_namespaces_namespace_roles(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = body
         return self._request_('post', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_roles_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_roles_name(EndPoint):
@@ -16973,6 +17123,11 @@ class EndPoint_oapi_v1_namespaces_namespace_routes(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_routes_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_routes_name(EndPoint):
@@ -17392,6 +17547,11 @@ class EndPoint_oapi_v1_namespaces_namespace_templates(EndPoint):
                 _params_[_param_['name']] = _kwargs_[_name_]
         _body_ = None
         return self._request_('delete', _path_, _params_, _body_)
+
+    def __call__(self, *, name):
+        params = dict(self.params)
+        params['name'] = name
+        return EndPoint_oapi_v1_namespaces_namespace_templates_name(self.client, None, self._async_, **params)
 
 @register_endpoint
 class EndPoint_oapi_v1_namespaces_namespace_templates_name(EndPoint):

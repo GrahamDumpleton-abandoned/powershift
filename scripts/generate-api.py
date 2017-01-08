@@ -66,17 +66,17 @@ def generate_endpoints(apis):
         path = fixup_url_path(path)
         endpoints[path] = {}
 
-    for path in endpoints.keys():
+    for path in list(endpoints.keys()):
         if '{' in path:
             parts = path.split('/')
             prefix = []
             for part in parts:
                 if part.startswith('{'):
                     parent = '/'.join(prefix)
-                    if parent in endpoints:
-                        endpoints[parent].setdefault(part, []).append(path)
-                else:
-                    prefix.append(part)
+                    if not parent in endpoints:
+                        endpoints[parent] = {}
+                    endpoints[parent].setdefault(part, []).append(path)
+                prefix.append(part)
 
     for api in sorted(apis, key=operator.itemgetter('path')):
         orig_path = api['path']
@@ -105,7 +105,6 @@ def generate_endpoints(apis):
         print('    path = %r' % path)
 
         path_params = []
-        #for part in path.split('/')[::-1]:
         for part in path.split('/'):
             if part.startswith('{'):
                 part = part.lstrip('{').rstrip('}')
