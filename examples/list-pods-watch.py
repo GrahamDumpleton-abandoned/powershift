@@ -27,6 +27,7 @@ async def run_query():
                     print('    %s %s pod=%r' % (action, pod.metadata.resource_version, pod.metadata.name))
 
                     resource_version = pod.metadata.resource_version
+
         except Exception:
             pass
 

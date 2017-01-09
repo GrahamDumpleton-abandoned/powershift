@@ -172,28 +172,40 @@ parameter to any endpoint which supports it. The result is an async context
 manager which in turn creates an async iterator which can be iterated over
 to get notifications.::
 
+    import sys
     import asyncio
 
     import powershift.endpoints as endpoints
 
-    client = endpoints.AsyncClient()
-
     async def run_query():
-        projects = await client.oapi.v1.projects.get()
-
-        project = projects.items[0]
-        namespace = project.metadata.name
+        namespace = sys.argv[1]
 
         print('namespace=%r' % namespace)
 
-        async with client.api.v1.namespaces(namespace=namespace).pods.get(watch='') as items:
-            async for item in items:
-                action = item['type']
-                pod = item['object']
-                print('    %s pod=%r' % (action, pod.metadata.name))
+        client = endpoints.AsyncClient()
+
+        pods = await client.api.v1.namespaces(namespace=namespace).pods.get()
+
+        for pod in pods.items:
+            print('    OBJECT %s pod=%r' % (pod.metadata.resource_version, pod.metadata.name))
+
+        resource_version = pods.metadata.resource_version
+
+        while True:
+            try:
+                async with client.api.v1.namespaces(namespace=namespace).pods.get(watch='', resource_version=resource_version, timeout_seconds=30) as items:
+                    async for item in items:
+                        action = item['type']
+                        pod = item['object']
+
+                        print('    %s %s pod=%r' % (action, pod.metadata.resource_version, pod.metadata.name))
+
+                        resource_version = pod.metadata.resource_version
+
+            except Exception:
+                pass
 
     loop = asyncio.get_event_loop()
-
     loop.run_until_complete(run_query())
 
 The calling conventions can be derived from the REST API documentation
