@@ -2,6 +2,8 @@ import os
 import requests
 import aiohttp
 import asyncio
+import functools
+import sys
 
 from .. import resources
 
@@ -234,11 +236,22 @@ class Watcher(object):
         if self._session_cm is not None:
             await self._session_cm.__aexit__(exc_type, exc, tb)
 
+if sys.version_info < (3, 5, 2):
+    def aiter_compat(func):
+        @functools.wraps(func)
+        async def wrapper(self):
+            return func(self)
+        return wrapper
+else:
+    def aiter_compat(func):
+        return func
+
 class WatcherSession(object):
     def __init__(self, watcher):
         self._watcher = watcher
         self.resource_version = None
 
+    @aiter_compat
     def __aiter__(self):
         return self
 
